@@ -18,14 +18,27 @@
  * limitations under the License.
  */
 
-let AddressFmt = require('ilib/lib/AddressFmt');
+import promisify from './promisify';
 
-class AddressFmt {
+let AF = require('ilib/lib/AddressFmt.js');
+
+export class AddressFmt {
     constructor(options) {
-        const { sync } = options;
-        if (typeof(sync) === 'boolean') {
-            
+        const { sync } = options || {};
+        if (typeof(sync) === 'boolean' && !sync) {
+            return new Promise(function(resolve, reject) {
+                let tempOptions = { ...options };
+                tempOptions.onLoad = function(af) {
+                    if (af) {
+                        resolve(af);
+                    } else {
+                        reject();
+                    }
+                }
+                new AF(tempOptions);
+            });
         }
+
+        return new AF(options);
     }
-}
-export default AddressFmt;
+};
