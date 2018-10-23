@@ -18,19 +18,32 @@
  * limitations under the License.
  */
 
-export default function promisify(func, ...rest) {
-    const options = { ...rest };
-    const oldCB = options.onLoad;
-    options.onLoad = function(result) {
-        oldCB(result);
-    }
-    return new Promise((resolve, reject) => {
-        func(rest, (result) => {
-            if (result) {
-                resolve();
-            } else {
-                reject();
+export function promisifyFunction(func, sync, onLoad, ...rest) {
+    if (typeof(sync) === 'boolean' && !sync) {
+        let promise = new Promise(function(resolve, reject) {
+            const tempOnLoad = function(result) {
+                if (result) {
+                    resolve(result);
+                } else {
+                    reject();
+                }
             }
+            func(sync, ...rest, tempOnLoad);
         });
-    });
+        if (onLoad) {
+            promise.then(onLoad);
+        }
+        promise.catch(function(err) {
+            console.log("Error caught: " + err);
+            onLoad(undefined);
+            return err;
+        })
+        return promise;
+    }
+
+    return func(sync, ...rest, onLoad);
+}
+
+export default function promisify(func, options, ...rest) {
+    return promisifyFunction(func, options.sync, options.onLoad, ...rest);
 };

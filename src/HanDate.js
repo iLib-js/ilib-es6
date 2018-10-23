@@ -1,6 +1,7 @@
-/*
- * testSuiteFiles.js - list the test files in this directory
- * 
+/**
+ * HanDate.js - ES6 wrappers around an ilib class
+ *
+ * @license
  * Copyright © 2018, JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,10 +18,12 @@
  * limitations under the License.
  */
 
-module.exports.files = [
-    "testaddressasync.js",
-    "testaddresspromise.js",
-    "testcalasync.js",
-    //"testcalpromise.js",
-    //"testtimezoneasync.js"
-];
+import promisify from './promisify';
+
+let ilibHanDate = require('ilib/lib/HanDate.js');
+
+export default class HanDate {
+    constructor(options = {}) {
+        return promisify(ilibHanDate, options);
+    }
+};
