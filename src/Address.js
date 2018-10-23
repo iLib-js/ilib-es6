@@ -22,7 +22,7 @@ import promisify from './promisify';
 
 let ilibAddress = require('ilib/lib/Address.js');
 
-export class Address {
+export default class Address {
     constructor(address, options = {}) {
         const { sync } = options;
         if (typeof(sync) === 'boolean' && !sync) {

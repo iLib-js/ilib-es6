@@ -20,9 +20,9 @@
 
 import promisify from './promisify';
 
-let AF = require('ilib/lib/AddressFmt.js');
+let ilibAddressFmt = require('ilib/lib/AddressFmt.js');
 
-export class AddressFmt {
+export default class AddressFmt {
     constructor(options = {}) {
         const { sync } = options;
         if (typeof(sync) === 'boolean' && !sync) {
@@ -36,10 +36,10 @@ export class AddressFmt {
                         reject();
                     }
                 }
-                new AF(tempOptions);
+                new ilibAddressFmt(tempOptions);
             }).then(onLoad);
         }
 
-        return new AF(options);
+        return new ilibAddressFmt(options);
     }
 };
