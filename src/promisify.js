@@ -18,7 +18,7 @@
  * limitations under the License.
  */
 
-export default promisify(func, ...rest) {
+export default function promisify(func, ...rest) {
     const options = { ...rest };
     const oldCB = options.onLoad;
     options.onLoad = function(result) {

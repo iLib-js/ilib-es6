@@ -1,5 +1,5 @@
 /**
- * AddressFmt.js - ES6 wrappers around an ilib class
+ * Address.js - ES6 wrappers around an ilib class
  *
  * @license
  * Copyright © 2018, JEDLSoft
@@ -20,26 +20,26 @@
 
 import promisify from './promisify';
 
-let AF = require('ilib/lib/AddressFmt.js');
+let ilibAddress = require('ilib/lib/Address.js');
 
-export class AddressFmt {
-    constructor(options = {}) {
+export class Address {
+    constructor(address, options = {}) {
         const { sync } = options;
         if (typeof(sync) === 'boolean' && !sync) {
             const { onLoad } = options;
             return new Promise(function(resolve, reject) {
                 let tempOptions = { ...options };
-                tempOptions.onLoad = function(af) {
-                    if (af) {
-                        resolve(af);
+                tempOptions.onLoad = function(address) {
+                    if (address) {
+                        resolve(address);
                     } else {
                         reject();
                     }
                 }
-                new AF(tempOptions);
+                new ilibAddress(address, tempOptions);
             }).then(onLoad);
         }
 
-        return new AF(options);
+        return new ilibAddress(address, options);
     }
 };
