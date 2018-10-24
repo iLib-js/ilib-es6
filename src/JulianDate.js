@@ -20,7 +20,7 @@
 
 import promisify from './promisify';
 
-let ilibJulianDate = require('ilib/lib/JulianDate.js');
+const ilibJulianDate = require('ilib/lib/JulianDate.js');
 
 export default class JulianDate {
     constructor(options = {}) {

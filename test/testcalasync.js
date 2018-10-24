@@ -64,6 +64,8 @@ module.exports.testcalasync = {
                 test.ok(typeof(cal) === "undefined");
                 test.done();
             }
+        }).catch(function(e) {
+            console.log("caught: " + e);
         });
     },
 

@@ -20,7 +20,7 @@
 
 import promisify from './promisify';
 
-let ilibHebrewDate = require('ilib/lib/HebrewDate.js');
+const ilibHebrewDate = require('ilib/lib/HebrewDate.js');
 
 export default class HebrewDate {
     constructor(options = {}) {

@@ -20,7 +20,7 @@
 
 import promisify from './promisify';
 
-let ilibEthiopicDate = require('ilib/lib/EthiopicDate.js');
+const ilibEthiopicDate = require('ilib/lib/EthiopicDate.js');
 
 export default class EthiopicDate {
     constructor(options = {}) {

@@ -20,7 +20,7 @@
 
 import promisify from './promisify';
 
-let ilibHanDate = require('ilib/lib/HanDate.js');
+const ilibHanDate = require('ilib/lib/HanDate.js');
 
 export default class HanDate {
     constructor(options = {}) {

@@ -20,7 +20,7 @@
 
 import promisify from './promisify';
 
-let ilibPersianAlgoDate = require('ilib/lib/PersianAlgoDate.js');
+const ilibPersianAlgoDate = require('ilib/lib/PersianAlgoDate.js');
 
 export default class PersianAlgoDate {
     constructor(options = {}) {

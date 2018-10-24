@@ -18,7 +18,8 @@
  * limitations under the License.
  */
 
-export function promisifyFunction(func, sync, onLoad, ...rest) {
+export function promisifyFunction(func, options = {}) {
+    const { sync, onLoad, ...rest } = options;
     if (typeof(sync) === 'boolean' && !sync) {
         let tempOptions = {
             sync: sync,
@@ -39,21 +40,17 @@ export function promisifyFunction(func, sync, onLoad, ...rest) {
         }
         promise.catch(function(err) {
             console.log("Error caught: " + err);
-            onLoad(undefined);
+            if (onLoad) onLoad(undefined);
             return err;
-        })
+        });
         return promise;
     }
 
-    return func({
-        sync: sync,
-        onLoad: onLoad,
-        ...rest
-    });
+    return func(options);
 }
 
-export default function promisify(func, options, ...rest) {
+export default function promisify(func, options = {}) {
     return promisifyFunction(function() {
-        return new func(options, ...rest);
-    }, options.sync, options.onLoad, ...rest);
+        return new func(options);
+    }, options);
 };

@@ -20,7 +20,7 @@
 
 import promisify from './promisify';
 
-let ilibThaiSolarDate = require('ilib/lib/ThaiSolarDate.js');
+const ilibThaiSolarDate = require('ilib/lib/ThaiSolarDate.js');
 
 export default class ThaiSolarDate {
     constructor(options = {}) {

@@ -20,7 +20,7 @@
 
 import promisify from './promisify';
 
-let ilibCopticDate = require('ilib/lib/CopticDate.js');
+const ilibCopticDate = require('ilib/lib/CopticDate.js');
 
 export default class CopticDate {
     constructor(options = {}) {

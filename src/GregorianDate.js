@@ -20,7 +20,7 @@
 
 import promisify from './promisify';
 
-let ilibGregorianDate = require('ilib/lib/GregorianDate.js');
+const ilibGregorianDate = require('ilib/lib/GregorianDate.js');
 
 export default class GregorianDate {
     constructor(options = {}) {

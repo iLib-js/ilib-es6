@@ -20,13 +20,10 @@
 
 import { promisifyFunction } from './promisify';
 
-let ilibCalendarFactory = require('ilib/lib/CalendarFactory.js');
+const ilibCalendarFactory = require('ilib/lib/CalendarFactory.js');
 
 export function CalendarFactoryAsync(options = {}) {
-    let {onLoad, ...rest} = options;
-    return promisifyFunction(function(options) {
-        return ilibCalendarFactory(options);
-    }, false, onLoad, ...rest);
+    return promisifyFunction(ilibCalendarFactory, options);
 };
 
 export default function CalendarFactory(options = {}) {
