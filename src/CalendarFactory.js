@@ -18,7 +18,7 @@
  * limitations under the License.
  */
 
-import promisify from './promisify';
+import { promisifyFunction } from './promisify';
 
 let ilibCalendarFactory = require('ilib/lib/CalendarFactory.js');
 

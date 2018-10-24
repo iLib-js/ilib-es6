@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import CalendarFactory from "../src/CalendarFactory.js";
+import CalendarFactory, {CalendarFactoryAsync} from "../src/CalendarFactory.js";
 import CopticDate from "../src/CopticDate.js";
 import EthiopicDate from "../src/EthiopicDate.js";
 import GregorianDate from "../src/GregorianDate.js";

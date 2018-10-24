@@ -20,15 +20,19 @@
 
 export function promisifyFunction(func, sync, onLoad, ...rest) {
     if (typeof(sync) === 'boolean' && !sync) {
+        let tempOptions = {
+            sync: sync,
+            ...rest
+        };
         let promise = new Promise(function(resolve, reject) {
-            const tempOnLoad = function(result) {
+            tempOptions.onLoad = function(result) {
                 if (result) {
                     resolve(result);
                 } else {
                     reject();
                 }
             }
-            func(sync, ...rest, tempOnLoad);
+            func(tempOptions);
         });
         if (onLoad) {
             promise.then(onLoad);
@@ -41,9 +45,15 @@ export function promisifyFunction(func, sync, onLoad, ...rest) {
         return promise;
     }
 
-    return func(sync, ...rest, onLoad);
+    return func({
+        sync: sync,
+        onLoad: onLoad,
+        ...rest
+    });
 }
 
 export default function promisify(func, options, ...rest) {
-    return promisifyFunction(func, options.sync, options.onLoad, ...rest);
+    return promisifyFunction(function() {
+        return new func(options, ...rest);
+    }, options.sync, options.onLoad, ...rest);
 };
