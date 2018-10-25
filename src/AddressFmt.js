@@ -18,9 +18,31 @@
  * limitations under the License.
  */
 
-import promisify from './promisify';
+import promisify, { promisifyFunction } from './promisify';
 
 let ilibAddressFmt = require('ilib/lib/AddressFmt.js');
+
+function wrapGetFormatInfo(formatter) {
+    if (!formatter) return;
+
+    const oldGetFormatInfo = ilibAddressFmt.prototype.getFormatInfo.bind(formatter);
+    formatter.getFormatInfo = function(locale, sync, callback) {
+        if (typeof(sync) === "undefined" || sync) {
+            return oldGetFormatInfo(locale, sync, callback);
+        }
+
+        return promisifyFunction(function(options = {}) {
+            const {locale, onLoad} = options;
+            return oldGetFormatInfo(locale, false, onLoad);
+        }, {
+            locale: locale,
+            sync: false,
+            onLoad: callback
+        });
+    };
+
+    return formatter;
+}
 
 export default class AddressFmt {
     constructor(options = {}) {
@@ -30,16 +52,12 @@ export default class AddressFmt {
             return new Promise(function(resolve, reject) {
                 let tempOptions = { ...options };
                 tempOptions.onLoad = function(af) {
-                    if (af) {
-                        resolve(af);
-                    } else {
-                        reject();
-                    }
+                    resolve(wrapGetFormatInfo(af));
                 }
                 new ilibAddressFmt(tempOptions);
             }).then(onLoad);
         }
 
-        return new ilibAddressFmt(options);
+        return wrapGetFormatInfo(new ilibAddressFmt(options));
     }
 };
