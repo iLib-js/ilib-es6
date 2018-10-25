@@ -21,6 +21,6 @@ module.exports.files = [
     "testaddressasync.js",
     "testaddresspromise.js",
     "testcalasync.js",
-    //"testcalpromise.js",
+    "testcalpromise.js",
     //"testtimezoneasync.js"
 ];

@@ -1,5 +1,5 @@
 /*
- * testcalasync.js - test the calendar objects asynchronously
+ * testcalpromise.js - test the calendar objects asynchronously with promises
  *
  * Copyright © 2018, JEDLSoft
  *
@@ -17,20 +17,20 @@
  * limitations under the License.
  */
 
-import CalendarFactory from "../../lib/CalendarFactory.js";
-import CopticDate from "../../lib/CopticDate.js";
-import EthiopicDate from "../../lib/EthiopicDate.js";
-import GregorianDate from "../../lib/GregorianDate.js";
-import HanDate from "../../lib/HanDate.js";
-import HebrewDate from "../../lib/HebrewDate.js";
-import IslamicDate from "../../lib/IslamicDate.js";
-import JulianDate from "../../lib/JulianDate.js";
-import PersianAlgoDate from "../../lib/PersianAlgoDate.js";
-import PersianDate from "../../lib/PersianDate.js";
-import ThaiSolarDate from "../../lib/ThaiSolarDate.js";
+import CalendarFactory, {CalendarFactoryAsync} from "../src/CalendarFactory.js";
+import CopticDate from "../src/CopticDate.js";
+import EthiopicDate from "../src/EthiopicDate.js";
+import GregorianDate from "../src/GregorianDate.js";
+import HanDate from "../src/HanDate.js";
+import HebrewDate from "../src/HebrewDate.js";
+import IslamicDate from "../src/IslamicDate.js";
+import JulianDate from "../src/JulianDate.js";
+import PersianAlgoDate from "../src/PersianAlgoDate.js";
+import PersianDate from "../src/PersianDate.js";
+import ThaiSolarDate from "../src/ThaiSolarDate.js";
 
-module.exports.testcalasync = {
-    testCalendarFactoryAsyncDefault: function(test) {
+module.exports.testcalpromise = {
+    testCalendarPromiseFactoryAsyncDefault: function(test) {
         test.expect(1);
         CalendarFactory({
             sync: false
@@ -40,7 +40,7 @@ module.exports.testcalasync = {
         });
     },
 
-    testCalendarFactoryAsyncSpecific: function(test) {
+    testCalendarPromiseFactoryAsyncSpecific: function(test) {
         test.expect(2);
         var cal = CalendarFactory({
             type: "julian",
@@ -53,7 +53,7 @@ module.exports.testcalasync = {
         });
     },
 
-    testCalendarFactoryAsyncUnknown: function(test) {
+    testCalendarPromiseFactoryAsyncUnknown: function(test) {
         test.expect(1);
         CalendarFactory({
             type: "asdf",
@@ -61,10 +61,14 @@ module.exports.testcalasync = {
         }).then(function(cal) {
             test.ok(typeof(cal) === "undefined");
             test.done();
+        }).catch(function(e) {
+            test.fail();
+            console.log("caught: " + e);
+            test.done();
         });
     },
 
-    testCalendarFactoryAsyncDefaultForLocale: function(test) {
+    testCalendarPromiseFactoryAsyncDefaultForLocale: function(test) {
         test.expect(2);
         CalendarFactory({
             locale: "fa-IR",
@@ -77,7 +81,7 @@ module.exports.testcalasync = {
         });
     },
 
-    testCalendarFactoryAsyncDefaultForLocaleOther: function(test) {
+    testCalendarPromiseFactoryAsyncDefaultForLocaleOther: function(test) {
         test.expect(2);
         var cal = CalendarFactory({
             locale: "th-TH",
@@ -90,7 +94,7 @@ module.exports.testcalasync = {
         });
     },
 
-    testCalendarFactoryAsyncOverrideLocale: function(test) {
+    testCalendarPromiseFactoryAsyncOverrideLocale: function(test) {
         test.expect(2);
         var cal = CalendarFactory({
             locale: "fa-IR",
@@ -104,8 +108,9 @@ module.exports.testcalasync = {
         });
     },
 
-    testCopticDateAsyncConstructorFull: function(test) {
+    testCopticDatePromiseConstructorFull: function(test) {
         test.expect(8);
+        try {
         new CopticDate({
             year: 1735,
             month: 9,
@@ -127,10 +132,19 @@ module.exports.testcalasync = {
             test.equal(cd.getSeconds(), 12);
             test.equal(cd.getMilliseconds(), 123);
             test.done();
+        }).catch(function(err) {
+            console.log("Error: " + err);
+            test.fail();
+            test.done();
         });
+        } catch (e) {
+            console.log("Got exception: " + e);
+            test.fail();
+            test.done();
+        }
     },
 
-    testEthiopicDateAsyncConstructorFull: function(test) {
+    testEthiopicDatePromiseConstructorFull: function(test) {
         test.expect(8);
         new EthiopicDate({
             year: 2011,
@@ -156,7 +170,7 @@ module.exports.testcalasync = {
         });
     },
 
-    testGregDateAsyncConstructorFull: function(test) {
+    testGregDatePromiseConstructorFull: function(test) {
         test.expect(8);
         new GregorianDate({
             year: 2011,
@@ -182,7 +196,7 @@ module.exports.testcalasync = {
 
     },
 
-    testHanDateAsyncConstructorFull: function(test) {
+    testHanDatePromiseConstructorFull: function(test) {
         test.expect(10);
         new HanDate({
             year: 4711,
@@ -211,7 +225,7 @@ module.exports.testcalasync = {
 
     },
 
-    testHebrewDateAsyncConstructorFull: function(test) {
+    testHebrewDatePromiseConstructorFull: function(test) {
         test.expect(8);
         new HebrewDate({
             year: 2011,
@@ -238,7 +252,7 @@ module.exports.testcalasync = {
 
     },
 
-    testIslamicDateAsyncConstructorFull: function(test) {
+    testIslamicDatePromiseConstructorFull: function(test) {
         test.expect(8);
         new IslamicDate({
             year: 2011,
@@ -265,7 +279,7 @@ module.exports.testcalasync = {
 
     },
 
-    testJulDateAsyncConstructorFull: function(test) {
+    testJulDatePromiseConstructorFull: function(test) {
         test.expect(8);
         new JulianDate({
             year: 2011,
@@ -292,7 +306,7 @@ module.exports.testcalasync = {
 
     },
 
-    testPersAlgoDateAsyncConstructorFull: function(test) {
+    testPersAlgoDatePromiseConstructorFull: function(test) {
         test.expect(8);
         new PersianAlgoDate({
             year: 1392,
@@ -346,7 +360,7 @@ module.exports.testcalasync = {
 
     },
 
-    testThaiSolarDateAsyncConstructorFull: function(test) {
+    testThaiSolarDatePromiseConstructorFull: function(test) {
         test.expect(8);
         new ThaiSolarDate({
             year: 2553,
@@ -368,6 +382,18 @@ module.exports.testcalasync = {
             test.equal(td.getMinutes(), 7);
             test.equal(td.getSeconds(), 12);
             test.equal(td.getMilliseconds(), 123);
+            test.done();
+        });
+    },
+
+    testCalendarPromiseFactoryAsync: function(test) {
+        test.expect(2);
+        var cal = CalendarFactoryAsync({
+            locale: "th-TH"
+        }).then(function(cal) {
+            test.ok(typeof(cal) !== "undefined");
+
+            test.equal(cal.getType(), "thaisolar");
             test.done();
         });
     }

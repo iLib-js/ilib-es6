@@ -27,11 +27,7 @@ export function promisifyFunction(func, options = {}) {
         };
         let promise = new Promise(function(resolve, reject) {
             tempOptions.onLoad = function(result) {
-                if (result) {
-                    resolve(result);
-                } else {
-                    reject();
-                }
+                resolve(result);
             }
             func(tempOptions);
         });
@@ -50,7 +46,7 @@ export function promisifyFunction(func, options = {}) {
 }
 
 export default function promisify(func, options = {}) {
-    return promisifyFunction(function() {
-        return new func(options);
+    return promisifyFunction(function(opts) {
+        return new func(opts);
     }, options);
 };

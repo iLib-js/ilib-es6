@@ -23,7 +23,9 @@ import { promisifyFunction } from './promisify';
 const ilibCalendarFactory = require('ilib/lib/CalendarFactory.js');
 
 export function CalendarFactoryAsync(options = {}) {
-    return promisifyFunction(ilibCalendarFactory, options);
+    var opts = { ...options };
+    opts.sync = false;
+    return promisifyFunction(ilibCalendarFactory, opts);
 };
 
 export default function CalendarFactory(options = {}) {
