@@ -370,19 +370,21 @@ module.exports.testaddresspromise = {
     },
 
     testPromiseAddressFmtGetFormatInfoUSRightConstraints: function(test) {
-        test.expect(19);
+        test.expect(22);
         new AddressFmt({
             locale: 'en-US',
             sync: false
         }).then(function(formatter) {
-            return formatter.getFormatInfo();
+            return formatter.getFormatInfo("de-DE", false); // get labels in German
         }).then(function(info) {
             test.ok(info);
 
             test.equal(info[1][2].component, "postalCode");
+            test.equal(info[1][2].label, "Postleitzahl");
             test.equal(info[1][2].constraint, "[0-9]{5}(-[0-9]{4})?");
 
             test.equal(info[1][1].component, "region");
+            test.equal(info[1][1].label, "Bundesland");
             test.ok(info[1][1].constraint);
             var r = searchRegions(info[1][1].constraint, "AZ");
             test.equal(r.code, "AZ");
@@ -395,6 +397,7 @@ module.exports.testaddresspromise = {
             test.equal(r.name, "New York");
 
             test.equal(info[2][0].component, "country");
+            test.equal(info[2][0].label, "Land");
             test.ok(info[2][0].constraint);
             var r = searchRegions(info[2][0].constraint, "JP");
             test.equal(r.code, "JP");
@@ -404,7 +407,7 @@ module.exports.testaddresspromise = {
             test.equal(r.name, "Costa Rica");
             r = searchRegions(info[2][0].constraint, "ZA");
             test.equal(r.code, "ZA");
-            test.equal(r.name, "South Africa");
+            test.equal(r.name, "Südafrika");
 
             test.done();
         });

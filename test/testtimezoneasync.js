@@ -1,7 +1,7 @@
 /*
  * testtimezoneasync.js - test the timezone objects asynchronously
  *
- * Copyright © 2015,2017-2018, JEDLSoft
+ * Copyright © 2018, JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,13 +17,7 @@
  * limitations under the License.
  */
 
-if (typeof(TimeZone) === "undefined") {
-    var TimeZone = require("../../lib/TimeZone.js");
-}
-
-if (typeof(ilib) === "undefined") {
-    var ilib = require("../../lib/ilib.js");
-}
+import TimeZone from "../../lib/TimeZone.js";
 
 module.exports.testtimezoneasync = {
     testTZAsyncGetAvailableIds: function(test) {
@@ -42,7 +36,6 @@ module.exports.testtimezoneasync = {
             test.ok(typeof(zones) !== "undefined");
 
             //var util = require("util");
-            //util.print("ilib._load is " + util.inspect(ilib._load) + "\n");
             test.contains(zones, "Europe/London");
             test.contains(zones, "America/Los_Angeles");
             test.contains(zones, "Australia/Sydney");
