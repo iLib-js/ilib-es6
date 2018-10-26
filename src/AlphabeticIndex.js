@@ -1,6 +1,7 @@
-/*
- * testSuiteFiles.js - list the test files in this directory
- * 
+/**
+ * AlphabeticIndex.js - ES6 wrappers around an ilib class
+ *
+ * @license
  * Copyright © 2018, JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,12 +18,12 @@
  * limitations under the License.
  */
 
-module.exports.files = [
-    "testaddressasync.js",
-    "testaddresspromise.js",
-    "testalphaindexasync.js",
-    "testalphaindexpromise.js",
-    "testcalasync.js",
-    "testcalpromise.js",
-    //"testtimezoneasync.js"
-];
+import promisify from './promisify';
+
+const ilibAlphabeticIndex = require('ilib/lib/AlphabeticIndex.js');
+
+export default class AlphabeticIndex {
+    constructor(options = {}) {
+        return promisify(ilibAlphabeticIndex, options);
+    }
+};
