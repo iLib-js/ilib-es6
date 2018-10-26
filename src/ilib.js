@@ -1,6 +1,7 @@
-/*
- * testSuiteFiles.js - list the test files in this directory
- * 
+/**
+ * ilib.js - ES6 wrappers around ilib
+ *
+ * @license
  * Copyright © 2018, JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,15 +18,6 @@
  * limitations under the License.
  */
 
-module.exports.files = [
-    "testaddressasync.js",
-    "testaddresspromise.js",
-    "testalphaindexasync.js",
-    "testalphaindexpromise.js",
-    "testcalasync.js",
-    "testcalpromise.js",
-    "testtimezoneasync.js",
-    "testtimezonepromise.js",
-    "testcollationasync.js",
-    "testcollationpromise.js"
-];
+const ilib = require('ilib');
+
+export default ilib;

@@ -1,6 +1,7 @@
-/*
- * testSuiteFiles.js - list the test files in this directory
- * 
+/**
+ * Collator.js - ES6 wrappers around an ilib class
+ *
+ * @license
  * Copyright © 2018, JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,15 +18,20 @@
  * limitations under the License.
  */
 
-module.exports.files = [
-    "testaddressasync.js",
-    "testaddresspromise.js",
-    "testalphaindexasync.js",
-    "testalphaindexpromise.js",
-    "testcalasync.js",
-    "testcalpromise.js",
-    "testtimezoneasync.js",
-    "testtimezonepromise.js",
-    "testcollationasync.js",
-    "testcollationpromise.js"
-];
+import promisify from './promisify';
+
+const ilibCollator = require('ilib/lib/Collator.js');
+
+export default class Collator {
+    constructor(options = {}) {
+        return promisify(ilibCollator, options);
+    }
+    
+    static getAvailableScripts() {
+        return ilibCollator.getAvailableScripts();
+    }
+
+    static getAvailableStyles(locale) {
+        return ilibCollator.getAvailableStyles(locale);
+    }
+};
