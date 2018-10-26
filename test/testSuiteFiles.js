@@ -24,5 +24,6 @@ module.exports.files = [
     "testalphaindexpromise.js",
     "testcalasync.js",
     "testcalpromise.js",
-    //"testtimezoneasync.js"
+    "testtimezoneasync.js",
+    "testtimezonepromise.js"
 ];

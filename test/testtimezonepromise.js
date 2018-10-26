@@ -19,10 +19,10 @@
 
 import TimeZone from "../src/TimeZone.js";
 
-module.exports.testtimezoneasync = {
+module.exports.testtimezonepromise = {
     testTZAsyncGetAvailableIds: function(test) {
         test.expect(2);
-        TimeZone.getAvailableIds(undefined, false, function(zones) {
+        TimeZone.getAvailableIds(undefined, false).then(function(zones) {
             test.ok(typeof(zones) !== "undefined");
 
             test.ok(zones.length > 0);
@@ -32,7 +32,7 @@ module.exports.testtimezoneasync = {
 
     testTZAsyncGetAvailableIdsRightValues: function(test) {
         test.expect(6);
-        TimeZone.getAvailableIds(undefined, false, function(zones) {
+        TimeZone.getAvailableIds(undefined, false).then(function(zones) {
             test.ok(typeof(zones) !== "undefined");
 
             //var util = require("util");
@@ -47,7 +47,7 @@ module.exports.testtimezoneasync = {
 
     testTZAsyncGetAvailableIdsNoFilterContainsLocal: function(test) {
         test.expect(2);
-        TimeZone.getAvailableIds(undefined, false, function(zones) {
+        TimeZone.getAvailableIds(undefined, false).then(function(zones) {
             test.ok(typeof(zones) !== "undefined");
 
             test.ok(zones.indexOf("local") != -1);
@@ -57,7 +57,7 @@ module.exports.testtimezoneasync = {
 
     testTZAsyncGetAvailableIdsByCountryRightLength: function(test) {
         test.expect(2);
-        TimeZone.getAvailableIds("US", false, function(zones) {
+        TimeZone.getAvailableIds("US", false).then(function(zones) {
             test.ok(typeof(zones) !== "undefined");
 
             test.equal(zones.length, 48);
@@ -67,7 +67,7 @@ module.exports.testtimezoneasync = {
 
     testTZAsyncGetAvailableIdsWithFilterContainsNoLocal: function(test) {
         try {
-            TimeZone.getAvailableIds("US", false, function(zones) {
+            TimeZone.getAvailableIds("US", false).then(function(zones) {
                 test.ok(typeof(zones) !== "undefined");
 
                 test.ok(zones.indexOf("local") == -1);
@@ -80,7 +80,7 @@ module.exports.testtimezoneasync = {
 
     testTZAsyncGetAvailableIdsByCountryRightContents: function(test) {
         test.expect(2);
-        TimeZone.getAvailableIds("US", false, function(zones) {
+        TimeZone.getAvailableIds("US", false).then(function(zones) {
             test.ok(typeof(zones) !== "undefined");
 
             var expected = [
@@ -141,7 +141,7 @@ module.exports.testtimezoneasync = {
 
     testTZAsyncGetAvailableIdsByCountry2RightLength: function(test) {
         test.expect(2);
-        var zones = TimeZone.getAvailableIds("SG", false, function(zones) {
+        var zones = TimeZone.getAvailableIds("SG", false).then(function(zones) {
             test.ok(typeof(zones) !== "undefined");
 
             test.equal(zones.length, 2);
@@ -151,7 +151,7 @@ module.exports.testtimezoneasync = {
 
     testTZAsyncGetAvailableIdsByCountry2RightContents: function(test) {
         test.expect(2);
-        var zones = TimeZone.getAvailableIds("SG", false, function(zones) {
+        var zones = TimeZone.getAvailableIds("SG", false).then(function(zones) {
             test.ok(typeof(zones) !== "undefined");
 
             var expected = [
