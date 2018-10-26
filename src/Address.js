@@ -18,28 +18,18 @@
  * limitations under the License.
  */
 
-import promisify from './promisify';
+import { promisifyFunction } from './promisify';
 
 let ilibAddress = require('ilib/lib/Address.js');
 
 export default class Address {
     constructor(address, options = {}) {
-        const { sync } = options;
-        if (typeof(sync) === 'boolean' && !sync) {
-            const { onLoad } = options;
-            return new Promise(function(resolve, reject) {
-                let tempOptions = { ...options };
-                tempOptions.onLoad = function(address) {
-                    if (address) {
-                        resolve(address);
-                    } else {
-                        reject();
-                    }
-                }
-                new ilibAddress(address, tempOptions);
-            }).then(onLoad);
-        }
-
-        return new ilibAddress(address, options);
+        return promisifyFunction(function(opts = {}) {
+            const { address, ...options } = opts;
+            return new ilibAddress(address, options);
+        }, {
+            address: address,
+            ...options
+        });
     }
 };
