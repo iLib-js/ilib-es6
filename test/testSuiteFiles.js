@@ -30,6 +30,8 @@ module.exports.files = [
     "testdatepromise.js",
     "testdatefmtasync.js",
     "testdatefmtpromise.js",
+    "testdatefmtrangeasync.js",
+    "testdatefmtrangepromise.js",
     "testtimezoneasync.js",
     "testtimezonepromise.js",
     "testcollationasync.js",
