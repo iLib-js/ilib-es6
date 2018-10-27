@@ -18,12 +18,21 @@
  * limitations under the License.
  */
 
-import promisify from './promisify';
+import { promisifyFunction } from './promisify';
 
 const ilibCharmapFactory = require('ilib/lib/CharmapFactory.js');
 
-export default class CharmapFactory {
-    constructor(options = {}) {
-        return promisify(ilibCharmapFactory, options);
+export function CharmapFactoryAsync(options = {}) {
+    var opts = { ...options };
+    opts.sync = false;
+    return promisifyFunction(ilibCharmapFactory, opts);
+};
+
+export default function CharmapFactory(options = {}) {
+    const { sync } = options;
+    if (typeof(sync) === 'boolean' && !sync) {
+        return CharmapFactoryAsync(options);
     }
+
+    return ilibCharmapFactory(options);
 };
