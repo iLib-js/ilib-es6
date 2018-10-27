@@ -103,7 +103,7 @@ var af = new AddressFmt();
 new:
 
 ```javascript
-import AddressFmt from "ilib-es6/lib/AddressFmts";
+import AddressFmt from "ilib-es6/lib/AddressFmt";
 
 const af = new AddressFmt();
 // now format some addresses using the af formatter
