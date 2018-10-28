@@ -18,12 +18,22 @@
  * limitations under the License.
  */
 
-import promisify from './promisify';
+import { promisifyFunction } from './promisify';
 
 const ilibMeasurementFactory = require('ilib/lib/MeasurementFactory.js');
 
-export default class MeasurementFactory {
-    constructor(options = {}) {
-        return promisify(ilibMeasurementFactory, options);
-    }
+export function MeasurementFactoryAsync(options = {}) {
+    var opts = { ...options };
+    opts.sync = false;
+    return promisifyFunction(ilibMeasurementFactory, opts);
 };
+
+export default function MeasurementFactory(options = {}) {
+    const { sync } = options;
+    if (typeof(sync) === 'boolean' && !sync) {
+        return MeasurementFactoryAsync(options);
+    }
+
+    return ilibMeasurementFactory(options);
+};
+
