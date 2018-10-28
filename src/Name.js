@@ -18,12 +18,18 @@
  * limitations under the License.
  */
 
-import promisify from './promisify';
+import { promisifyFunction } from './promisify';
 
 const ilibName = require('ilib/lib/Name.js');
 
 export default class Name {
-    constructor(options = {}) {
-        return promisify(ilibName, options);
+    constructor(name, options = {}) {
+        return promisifyFunction(function(opts = {}) {
+            const { name, ...options } = opts;
+            return new ilibName(name, options);
+        }, {
+            name: name,
+            ...options
+        });
     }
 };

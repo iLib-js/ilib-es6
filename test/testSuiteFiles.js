@@ -52,7 +52,7 @@ module.exports.files = [
     // "testlocaleinfopromise.js",
     "testlocalematchasync.js",
     // "testlocalematchpromise.js",
-    // "testnameasync.js",
+    "testnameasync.js",
     // "testnamepromise.js",
     // "testnamefmtasync.js",
     // "testnamefmtpromise.js",
