@@ -18,12 +18,18 @@
  * limitations under the License.
  */
 
-import promisify from './promisify';
+import { promisifyFunction } from './promisify';
 
 const ilibLocaleInfo = require('ilib/lib/LocaleInfo.js');
 
 export default class LocaleInfo {
-    constructor(options = {}) {
-        return promisify(ilibLocaleInfo, options);
+    constructor(locale, options = {}) {
+        return promisifyFunction(function(opts = {}) {
+            const { locale, ...options } = opts;
+            return new ilibLocaleInfo(locale, options);
+        }, {
+            locale: locale,
+            ...options
+        });
     }
 };

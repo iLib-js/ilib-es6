@@ -48,7 +48,7 @@ module.exports.files = [
     // "testglyphstrpromise.js",
     "testlistfmtasync.js",
     // "testlistfmtpromise.js",
-    // "testlocaleinfoasync.js",
+    "testlocaleinfoasync.js",
     // "testlocaleinfopromise.js",
     "testlocalematchasync.js",
     // "testlocalematchpromise.js",
