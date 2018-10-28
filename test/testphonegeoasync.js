@@ -18,9 +18,7 @@
  */
 
 import PhoneNumber from "../src/PhoneNumber.js";
-import PhoneLocale from "../src/PhoneLocale.js";
 import PhoneGeoLocator from "../src/PhoneGeoLocator.js";
-import NumberingPlan from "../src/NumberingPlan.js";
 
 module.exports.phonegeoasync = {
     testPhoneGeoAsyncNANP: function(test) {

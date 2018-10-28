@@ -18,7 +18,6 @@
  */
 
 import PhoneNumber from "../src/PhoneNumber.js";
-import PhoneHandlerFactory from "../src/PhoneHandlerFactory.js";
 
 module.exports.phonenumasync = {
     testPhoneParseAsyncAUFull: function(test) {
