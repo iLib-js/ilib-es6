@@ -64,7 +64,7 @@ module.exports.files = [
     // "testnumfmtpromise.js",
     "testnumplanasync.js",
     // "testnumplanpromise.js",
-    // "testnumprsasync.js",
+    "testnumprsasync.js",
     // "testnumprspromise.js",
     // "testphonefmtasync.js",
     // "testphonefmtpromise.js",
