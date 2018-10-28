@@ -58,7 +58,7 @@ module.exports.files = [
     // "testnamefmtpromise.js",
     "testnormalizeasync.js",
     // "testnormalizepromise.js",
-    // "testnormasync.js",
+    "testnormasync.js",
     // "testnormpromise.js",
     "testnumfmtasync.js",
     // "testnumfmtpromise.js",

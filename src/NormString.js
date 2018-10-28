@@ -18,12 +18,18 @@
  * limitations under the License.
  */
 
-import promisify from './promisify';
+import { promisifyFunction } from './promisify';
 
 const ilibNormString = require('ilib/lib/NormString.js');
 
 export default class NormString {
-    constructor(options = {}) {
-        return promisify(ilibNormString, options);
+    constructor(str, options = {}) {
+        return promisifyFunction(function(opts = {}) {
+            const { str, ...options } = opts;
+            return new ilibNormString(str, options);
+        }, {
+            str: str,
+            ...options
+        });
     }
 };
