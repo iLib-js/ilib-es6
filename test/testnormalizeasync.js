@@ -18,8 +18,6 @@
  */
 
 import PhoneNumber from "../src/PhoneNumber.js";
-import PhoneLocale from "../src/PhoneLocale.js";
-import NumberingPlan from "../src/NumberingPlan.js";
 
 module.exports.normalizeasync = {
     testNormalizeAsyncIDDPrefix: function(test) {

@@ -18,12 +18,18 @@
  * limitations under the License.
  */
 
-import promisify from './promisify';
+import { promisifyFunction } from './promisify';
 
 const ilibPhoneNumber = require('ilib/lib/PhoneNumber.js');
 
 export default class PhoneNumber {
-    constructor(options = {}) {
-        return promisify(ilibPhoneNumber, options);
+    constructor(phoneNumber, options = {}) {
+        return promisifyFunction(function(opts = {}) {
+            const { phoneNumber, ...options } = opts;
+            return new ilibPhoneNumber(phoneNumber, options);
+        }, {
+            phoneNumber: phoneNumber,
+            ...options
+        });
     }
 };
