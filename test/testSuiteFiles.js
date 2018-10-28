@@ -44,7 +44,7 @@ module.exports.files = [
     "testdatefmtrangepromise.js",
     "testdurfmtasync.js",
     // "testdurfmtpromise.js",
-    // "testglyphstrasync.js",
+    "testglyphstrasync.js",
     // "testglyphstrpromise.js",
     "testlistfmtasync.js",
     // "testlistfmtpromise.js",

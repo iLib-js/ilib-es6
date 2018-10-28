@@ -18,12 +18,18 @@
  * limitations under the License.
  */
 
-import promisify from './promisify';
+import { promisifyFunction } from './promisify';
 
 const ilibGlyphString = require('ilib/lib/GlyphString.js');
 
 export default class GlyphString {
-    constructor(options = {}) {
-        return promisify(ilibGlyphString, options);
+    constructor(str, options = {}) {
+        return promisifyFunction(function(opts = {}) {
+            const { str, ...options } = opts;
+            return new ilibGlyphString(str, options);
+        }, {
+            str: str,
+            ...options
+        });
     }
 };
