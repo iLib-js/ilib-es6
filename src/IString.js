@@ -18,12 +18,36 @@
  * limitations under the License.
  */
 
-import promisify from './promisify';
+import { promisifyFunction } from './promisify';
 
 const ilibIString = require('ilib/lib/IString.js');
 
 export default class IString {
-    constructor(options = {}) {
-        return promisify(ilibIString, options);
+    constructor(str) {
+        return new ilibIString(str);
+    }
+
+    static loadPlurals(sync, locale, loadParams, callback) {
+        if (typeof(sync) === "undefined" || sync) {
+            return ilibIString.loadPlurals(sync, locale, loadParams, onLoad);
+        }
+
+        return promisifyFunction(function(options = {}) {
+            const {locale, loadParams, onLoad} = options;
+            return ilibIString.loadPlurals(false, locale, loadParams, onLoad);
+        }, {
+            loadParams: loadParams,
+            locale: locale,
+            sync: false,
+            onLoad: callback
+        });
+    }
+    
+    static fromCodePoint(codepoint) {
+        return ilibIString.fromCodePoint(codepoint);
+    }
+    
+    static toCodePoint(str, index) {
+        return ilibIString.toCodePoint(str, index);
     }
 };
