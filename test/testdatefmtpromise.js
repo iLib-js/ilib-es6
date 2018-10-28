@@ -191,23 +191,21 @@ module.exports.testdatefmtpromise = {
                 minute: 45,
                 second: 0,
                 millisecond: 0,
-                sync: false,
-                onLoad: function(reference) {
-                    new GregorianDate({
-                        year: 2011,
-                        month: 11,
-                        day: 20,
-                        hour: 13,
-                        minute: 45,
-                        second: 30,
-                        millisecond: 0,
-                        sync: false,
-                        onLoad: function(date) {
-                            test.equal(fmt.formatRelative(reference, date), "in 30 seconds");
-                            test.done();
-                        }
-                    });
-                }
+                sync: false
+            }).then(function(reference) {
+                new GregorianDate({
+                    year: 2011,
+                    month: 11,
+                    day: 20,
+                    hour: 13,
+                    minute: 45,
+                    second: 30,
+                    millisecond: 0,
+                    sync: false
+                }).then(function(date) {
+                    test.equal(fmt.formatRelative(reference, date), "in 30 seconds");
+                    test.done();
+                });
             });
         });
     },
@@ -234,11 +232,10 @@ module.exports.testdatefmtpromise = {
                 millisecond: 0,
                 timezone: "America/Los_Angeles",
                 locale: "en-US",
-                sync: false,
-                onLoad: function(date) {
-                    test.equal(fmt.format(date), "20/09/2011, 21:45 GMT/BST");
-                    test.done();
-                }
+                sync: false
+            }).then(function(date) {
+                test.equal(fmt.format(date), "20/09/2011, 21:45 GMT/BST");
+                test.done();
             });
         });
     },
@@ -265,11 +262,10 @@ module.exports.testdatefmtpromise = {
                 millisecond: 0,
                 timezone: "America/Los_Angeles",
                 locale: "en-US",
-                sync: false,
-                onLoad: function(date) {
-                    test.equal(fmt.format(date), "21/9/11, 6:45 am AEST");
-                    test.done();
-                }
+                sync: false
+            }).then(function(date) {
+                test.equal(fmt.format(date), "21/9/11, 6:45 am AEST");
+                test.done();
             });
         });
     }

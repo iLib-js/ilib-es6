@@ -119,11 +119,10 @@ module.exports.testdatepromise = {
         }).then(function(ildMyBday) {
             new DateFmt({
                 length: "full",
-                sync: false,
-                onLoad: function(fmt) {
-                    test.equal(fmt.format(DateFactory._dateToIlib(datMyBday)), fmt.format(ildMyBday));
-                    test.done();
-                }
+                sync: false
+            }).then(function(fmt) {
+                test.equal(fmt.format(DateFactory._dateToIlib(datMyBday)), fmt.format(ildMyBday));
+                test.done();
             });
         });
     },

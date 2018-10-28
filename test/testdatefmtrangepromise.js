@@ -120,23 +120,21 @@ module.exports.testdatefmtrangepromise = {
                 minute: 45,
                 second: 0,
                 millisecond: 0,
-                sync: false,
-                onLoad: function(start) {
-                    new GregorianDate({
-                        year: 2011,
-                        month: 6,
-                        day: 28,
-                        hour: 14,
-                        minute: 5,
-                        second: 30,
-                        millisecond: 0,
-                        sync: false,
-                        onLoad: function(end) {
-                            test.equal(fmt.format(start, end), "06/20 – 28/2011");
-                            test.done();
-                        }
-                    });
-                }
+                sync: false
+            }).then(function(start) {
+                new GregorianDate({
+                    year: 2011,
+                    month: 6,
+                    day: 28,
+                    hour: 14,
+                    minute: 5,
+                    second: 30,
+                    millisecond: 0,
+                    sync: false
+                }).then(function(end) {
+                    test.equal(fmt.format(start, end), "06/20 – 28/2011");
+                    test.done();
+                });
             });
         });
     },
@@ -158,23 +156,21 @@ module.exports.testdatefmtrangepromise = {
                 minute: 45,
                 second: 0,
                 millisecond: 0,
-                sync: false,
-                onLoad: function(start) {
-                    new GregorianDate({
-                        year: 2011,
-                        month: 11,
-                        day: 28,
-                        hour: 14,
-                        minute: 30,
-                        second: 0,
-                        millisecond: 0,
-                        sync: false,
-                        onLoad: function(end) {
-                            test.equal(fmt.format(start, end), "06/20/2011 – 11/28/2011");
-                            test.done();
-                        }
-                    });
-                }
+                sync: false
+            }).then(function(start) {
+                new GregorianDate({
+                    year: 2011,
+                    month: 11,
+                    day: 28,
+                    hour: 14,
+                    minute: 30,
+                    second: 0,
+                    millisecond: 0,
+                    sync: false
+                }).then(function(end) {
+                    test.equal(fmt.format(start, end), "06/20/2011 – 11/28/2011");
+                    test.done();
+                });
             });
         });
     },
