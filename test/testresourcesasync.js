@@ -21,9 +21,8 @@ import ilib from "../src/ilib.js";
 
 import ResBundle from "../src/ResBundle.js";
 import Locale from "../src/Locale.js";
-if (ilib._getPlatform() === "nodejs" && ilib._dyndata && ilib._dyncode) {
-    var path = require("path");
-}
+
+import path from 'path';
 
 module.exports.testresourcesasync = {
     testResBundleAsyncConstructorEmpty: function(test) {

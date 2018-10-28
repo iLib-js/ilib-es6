@@ -72,7 +72,7 @@ module.exports.files = [
     // "testphonegeopromise.js",
     "testphonenumasync.js",
     // "testphonenumpromise.js",
-    // "testresourcesasync.js",
+    "testresourcesasync.js",
     // "testresourcespromise.js",
     // "testscriptinfoasync.js",
     // "testscriptinfopromise.js",
