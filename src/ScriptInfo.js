@@ -18,12 +18,34 @@
  * limitations under the License.
  */
 
-import promisify from './promisify';
+import { promisifyFunction } from './promisify';
 
 const ilibScriptInfo = require('ilib/lib/ScriptInfo.js');
 
 export default class ScriptInfo {
-    constructor(options = {}) {
-        return promisify(ilibScriptInfo, options);
+    constructor(script, options = {}) {
+        return promisifyFunction(function(opts = {}) {
+            const { script, ...options } = opts;
+            return new ilibScriptInfo(script, options);
+        }, {
+            script: script,
+            ...options
+        });
+    }
+    
+    static getAllScripts(sync, loadParams, callback) {
+        if (typeof(sync) === "undefined" || sync) {
+            return ilibScriptInfo.getAllScripts(sync, loadParams, callback);
+        }
+
+        return promisifyFunction(function(options = {}) {
+            const {loadParams, onLoad} = options;
+            return ilibScriptInfo.getAllScripts(false, loadParams, onLoad);
+        }, {
+            loadParams: loadParams,
+            sync: false,
+            onLoad: callback
+        });
     }
 };
+

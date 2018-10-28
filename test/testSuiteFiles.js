@@ -74,7 +74,7 @@ module.exports.files = [
     // "testphonenumpromise.js",
     "testresourcesasync.js",
     // "testresourcespromise.js",
-    // "testscriptinfoasync.js",
+    "testscriptinfoasync.js",
     // "testscriptinfopromise.js",
     // "teststringsasync.js",
     // "teststringspromise.js",
