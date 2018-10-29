@@ -22,14 +22,31 @@ import { promisifyFunction } from './promisify';
 
 const ilibPhoneNumber = require('ilib/lib/PhoneNumber.js');
 
+function wrapNormalize(phoneNumber) {
+    if (!phoneNumber) return;
+
+    const oldNormalize = ilibPhoneNumber.prototype.normalize.bind(phoneNumber);
+    phoneNumber.normalize = function(options = {}) {
+        const { sync } = options;
+        if (typeof(sync) === "undefined" || sync) {
+            return oldNormalize(options);
+        }
+
+        return promisifyFunction(function(opts = {}) {
+            return oldNormalize(opts);
+        }, options);
+    };
+
+    return phoneNumber;
+}
+
 export default class PhoneNumber {
     constructor(phoneNumber, options = {}) {
         return promisifyFunction(function(opts = {}) {
-            const { phoneNumber, ...options } = opts;
-            return new ilibPhoneNumber(phoneNumber, options);
-        }, {
-            phoneNumber: phoneNumber,
-            ...options
-        });
+            const { phoneNumber } = opts;
+            return wrapNormalize(new ilibPhoneNumber(phoneNumber, opts));
+        }, Object.assign({}, options, {
+            phoneNumber: phoneNumber
+        }));
     }
 };
