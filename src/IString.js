@@ -22,9 +22,32 @@ import { promisifyFunction } from './promisify';
 
 const ilibIString = require('ilib/lib/IString.js');
 
+function wrapSetLocale(str) {
+    if (!str) return;
+
+    const oldSetLocale = ilibIString.prototype.setLocale.bind(str);
+    str.setLocale = function(locale, sync, loadParams, onLoad) {
+        if (typeof(sync) === "undefined" || sync) {
+            return oldSetLocale(locale, sync, loadParams, onLoad);
+        }
+
+        return promisifyFunction(function(opts = {}) {
+            const { locale, sync, loadParams, onLoad } = opts;
+            return oldSetLocale(locale, sync, loadParams, onLoad);
+        }, {
+            locale: locale,
+            sync: false,
+            loadParams: loadParams,
+            onLoad: onLoad
+        });
+    };
+
+    return str;
+}
+
 export default class IString {
     constructor(str) {
-        return new ilibIString(str);
+        return wrapSetLocale(new ilibIString(str));
     }
 
     static loadPlurals(sync, locale, loadParams, callback) {

@@ -25,11 +25,10 @@ const ilibNormString = require('ilib/lib/NormString.js');
 export default class NormString {
     constructor(str, options = {}) {
         return promisifyFunction(function(opts = {}) {
-            const { str, ...options } = opts;
-            return new ilibNormString(str, options);
-        }, {
-            str: str,
-            ...options
-        });
+            const { str } = opts;
+            return new ilibNormString(str, opts);
+        }, Object.assign({}, options, {
+            str: str
+        }));
     }
 };

@@ -18,8 +18,13 @@
  * limitations under the License.
  */
 
-const UnitFmt = require('ilib/lib/UnitFmt.js');
+import promisify from './promisify';
 
-// no async operation for this function/class
+const ilibUnitFmt = require('ilib/lib/UnitFmt.js');
 
-export default UnitFmt;
+export default class UnitFmt {
+    constructor(options = {}) {
+        return promisify(ilibUnitFmt, options);
+    }
+};
+

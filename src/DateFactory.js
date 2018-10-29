@@ -23,7 +23,7 @@ import { promisifyFunction } from './promisify';
 const ilibDateFactory = require('ilib/lib/DateFactory.js');
 
 export function DateFactoryAsync(options = {}) {
-    var opts = { ...options };
+    var opts = Object.assign({}, options);
     opts.sync = false;
     return promisifyFunction(ilibDateFactory, opts);
 };

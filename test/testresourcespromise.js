@@ -63,10 +63,10 @@ module.exports.testresourcespromise = {
         test.expect(4);
 
         // clear this to be sure it is actually loading something
-        ilib.data.strings = undefined;
-        ilib.data.strings_es = undefined;
-        ilib.data.strings_und_MX = undefined;
-        ilib.data.strings_es_MX = undefined;
+        //ilib.data.strings = undefined;
+        //ilib.data.strings_es = undefined;
+        //ilib.data.strings_und_MX = undefined;
+        //ilib.data.strings_es_MX = undefined;
 
         var base = path.relative(process.cwd(), path.resolve(__dirname, "./resources"));
 
@@ -79,9 +79,9 @@ module.exports.testresourcespromise = {
         }).then(function(rb) {
             test.ok(rb !== null);
 
-            test.equal(rb.getString("Hello from {country}").toString(), "Que tal de {country}");
-            test.equal(rb.getString("Hello from {city}").toString(), "Que tal de {city}");
-            test.equal(rb.getString("Greetings from {city} in {country}").toString(), "Hola de {city} en {country}");
+            test.equal(rb.getStringJS("Hello from {country}"), "Que tal de {country}");
+            test.equal(rb.getStringJS("Hello from {city}"), "Que tal de {city}");
+            test.equal(rb.getStringJS("Greetings from {city} in {country}"), "Hola de {city} en {country}");
             test.done();
         });
 

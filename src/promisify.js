@@ -19,12 +19,9 @@
  */
 
 export function promisifyFunction(func, options = {}) {
-    const { sync, onLoad, ...rest } = options;
+    const { sync, onLoad } = options;
     if (typeof(sync) === 'boolean' && !sync) {
-        let tempOptions = {
-            sync: sync,
-            ...rest
-        };
+        let tempOptions = Object.assign({}, options);
         let promise = new Promise(function(resolve, reject) {
             tempOptions.onLoad = function(result) {
                 resolve(result);

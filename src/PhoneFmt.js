@@ -18,12 +18,35 @@
  * limitations under the License.
  */
 
-import promisify from './promisify';
+import { promisifyFunction } from './promisify';
 
 const ilibPhoneFmt = require('ilib/lib/PhoneFmt.js');
 
+function wrapFormat(phoneFmt) {
+    if (!phoneFmt) return;
+
+    const oldFormat = ilibPhoneFmt.prototype.format.bind(phoneFmt);
+    phoneFmt.format = function(number, options = {}) {
+        const { sync } = options;
+        if (typeof(sync) === "undefined" || sync) {
+            return oldFormat(number, options);
+        }
+
+        return promisifyFunction(function(opts = {}) {
+            const { number } = opts;
+            return oldFormat(number, opts);
+        }, Object.assign({}, options, {
+            number: number
+        }));
+    };
+
+    return phoneFmt;
+}
+
 export default class PhoneFmt {
     constructor(options = {}) {
-        return promisify(ilibPhoneFmt, options);
+        return promisifyFunction(function(options = {}) {
+            return wrapFormat(new ilibPhoneFmt(options));
+        }, options);
     }
 };

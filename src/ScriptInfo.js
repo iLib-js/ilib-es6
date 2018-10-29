@@ -25,12 +25,11 @@ const ilibScriptInfo = require('ilib/lib/ScriptInfo.js');
 export default class ScriptInfo {
     constructor(script, options = {}) {
         return promisifyFunction(function(opts = {}) {
-            const { script, ...options } = opts;
-            return new ilibScriptInfo(script, options);
-        }, {
-            script: script,
-            ...options
-        });
+            const { script } = opts;
+            return new ilibScriptInfo(script, opts);
+        }, Object.assign({}, options, {
+            script: script
+        }));
     }
     
     static getAllScripts(sync, loadParams, callback) {

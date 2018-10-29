@@ -69,6 +69,7 @@ module.exports.testresourcesasync = {
         ilib.data.strings_es = undefined;
         ilib.data.strings_und_MX = undefined;
         ilib.data.strings_es_MX = undefined;
+        ilib.clearCache();
 
         var base = path.relative(process.cwd(), path.resolve(__dirname, "./resources"));
 

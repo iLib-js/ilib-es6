@@ -25,11 +25,10 @@ let ilibAddress = require('ilib/lib/Address.js');
 export default class Address {
     constructor(address, options = {}) {
         return promisifyFunction(function(opts = {}) {
-            const { address, ...options } = opts;
-            return new ilibAddress(address, options);
-        }, {
+            const { address } = opts;
+            return new ilibAddress(address, opts);
+        }, Object.assign({}, options, {
             address: address,
-            ...options
-        });
+        }));
     }
 };

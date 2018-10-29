@@ -50,7 +50,7 @@ export default class AddressFmt {
         if (typeof(sync) === 'boolean' && !sync) {
             const { onLoad } = options;
             return new Promise(function(resolve, reject) {
-                let tempOptions = { ...options };
+                let tempOptions = Object.assign({}, options);
                 tempOptions.onLoad = function(af) {
                     resolve(wrapGetFormatInfo(af));
                 }

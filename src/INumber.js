@@ -25,11 +25,10 @@ const ilibINumber = require('ilib/lib/INumber.js');
 export default class INumber {
     constructor(str, options = {}) {
         return promisifyFunction(function(opts = {}) {
-            const { str, ...options } = opts;
-            return new ilibINumber(str, options);
-        }, {
-            str: str,
-            ...options
-        });
+            const { str } = opts;
+            return new ilibINumber(str, opts);
+        }, Object.assign({}, options, {
+            str: str
+        }));
     }
 };
