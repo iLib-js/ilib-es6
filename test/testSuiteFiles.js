@@ -81,5 +81,7 @@ module.exports.files = [
     "testtimezoneasync.js",
     "testtimezonepromise.js",
     "testunitfmtasync.js",
-    "testunitfmtpromise.js"
+    "testunitfmtpromise.js",
+    "testlocale.js",
+    "testglobal.js"
 ];
