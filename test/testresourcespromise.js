@@ -17,10 +17,10 @@
  * limitations under the License.
  */
 
-import ilib from "../src/ilib.js";
+import ilib from "../lib/ilib.js";
 
-import ResBundle from "../src/ResBundle.js";
-import Locale from "../src/Locale.js";
+import ResBundle from "../lib/ResBundle.js";
+import Locale from "../lib/Locale.js";
 
 import path from 'path';
 

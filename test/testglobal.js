@@ -18,7 +18,7 @@
  */
 
 import ilib from "../ilib-es6";
-import Locale from "../src/Locale.js";
+import Locale from "../lib/Locale.js";
 
 module.exports.testglobal = {
     setUp: function(callback) {

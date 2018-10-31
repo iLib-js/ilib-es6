@@ -17,9 +17,9 @@
  * limitations under the License.
  */
 
-import GregorianDate from "../src/GregorianDate.js";
-import DateFmt from "../src/DateFmt.js";
-import DateFactory from "../src/DateFactory.js";
+import GregorianDate from "../lib/GregorianDate.js";
+import DateFmt from "../lib/DateFmt.js";
+import DateFactory from "../lib/DateFactory.js";
 
 module.exports.testdateasync = {
     testDateConstructor: function(test) {

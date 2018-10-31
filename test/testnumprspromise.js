@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import INumber from "../src/INumber.js";
+import INumber from "../lib/INumber.js";
 
 module.exports.testnumprspromise = {
     testNumberAsyncConstructorDefault: function(test) {

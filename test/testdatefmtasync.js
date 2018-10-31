@@ -17,15 +17,15 @@
  * limitations under the License.
  */
 
-import ilib from "../src/ilib.js";
-import ThaiSolarDate from "../src/ThaiSolarDate.js";
-import PersianDate from "../src/PersianDate.js";
-import IslamicDate from "../src/IslamicDate.js";
-import HebrewDate from "../src/HebrewDate.js";
-import GregorianDate from "../src/GregorianDate.js";
-import JulianDate from "../src/JulianDate.js";
-import DateFmt from "../src/DateFmt.js";
-import DateFactory from "../src/DateFactory.js";
+import ilib from "../lib/ilib.js";
+import ThaiSolarDate from "../lib/ThaiSolarDate.js";
+import PersianDate from "../lib/PersianDate.js";
+import IslamicDate from "../lib/IslamicDate.js";
+import HebrewDate from "../lib/HebrewDate.js";
+import GregorianDate from "../lib/GregorianDate.js";
+import JulianDate from "../lib/JulianDate.js";
+import DateFmt from "../lib/DateFmt.js";
+import DateFactory from "../lib/DateFactory.js";
 
 module.exports.testdatefmtasync = {
     testDateFmtConstructorEmpty: function(test) {

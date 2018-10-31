@@ -17,8 +17,8 @@
  * limitations under the License.
  */
 
-import AddressFmt from '../src/AddressFmt';
-import Address from '../src/Address';
+import AddressFmt from '../lib/AddressFmt';
+import Address from '../lib/Address';
 
 function searchRegions(array, regionCode) {
     return array.find(function(region) {

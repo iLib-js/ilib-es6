@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import TimeZone from "../src/TimeZone.js";
+import TimeZone from "../lib/TimeZone.js";
 
 module.exports.testtimezonepromise = {
     testTZAsyncGetAvailableIds: function(test) {

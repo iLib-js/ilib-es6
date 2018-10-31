@@ -17,9 +17,9 @@
  * limitations under the License.
  */
 
-import NormString from "../src/NormString.js";
-import Locale from "../src/Locale.js";
-import IString from "../src/IString.js";
+import NormString from "../lib/NormString.js";
+import Locale from "../lib/Locale.js";
+import IString from "../lib/IString.js";
 
 module.exports.teststringsasync = {
     testStringLoadPlurals: function(test) {

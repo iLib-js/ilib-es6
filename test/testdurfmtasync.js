@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import DurationFmt from "../src/DurationFmt.js";
+import DurationFmt from "../lib/DurationFmt.js";
 
 module.exports.testdurfmtasync = {
     testDurFmtAsyncConstructorEmpty: function(test) {
