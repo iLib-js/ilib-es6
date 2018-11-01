@@ -118,10 +118,10 @@ the constructor returns a promise.
 Using Factories
 ---------------
 
-Factory classes in ilib now have a regular version that switches between synchronous
-and asynchronous depending on the value of the "sync" property in the options, and the
-asynchronous-only version. The async version of the factory always has "Async" at the
-end of the name.
+Factory functions in ilib now have two types: a regular version that switches
+between synchronous and asynchronous depending on the value of the "sync" property
+in the options, and the asynchronous-only version. The async version of the factory
+always has an "Async" suffix at the end of the name.
 
 ```javascript
 import CalendarFactory, {CalendarFactoryAsync} from 'ilib-es6/lib/CalendarFactory';
@@ -138,11 +138,13 @@ The above is equivalent to this:
 import CalendarFactory, {CalendarFactoryAsync} from 'ilib-es6/lib/CalendarFactory';
 
 
-let promise = CalendarFactoryAsync();
+let promise = CalendarFactoryAsync({locale: 'ja-JP'});
 promise.then(function(cal) {
   // do something with the new calendar.
 });
 ```
 
-The Async version of each factory class is always asynchronous and always returns a
-promise. The regular version will return a promise when called asynchronously.
+That is, the "Async" function is a convenience function and is equivalent to calling
+the base function with the option "sync: false". The Async version of each factory
+function is always asynchronous and always returns a promise. The regular version
+will return a promise only when called asynchronously.
