@@ -1,7 +1,7 @@
 {
     "name": "ilib-es6",
     "version": "1.0.1",
-    "main": "ilib-es6.js",
+    "main": "ilib-es6",
     "description": "ES6 wrappers around iLib classes",
     "keywords": [
         "internationalization",
