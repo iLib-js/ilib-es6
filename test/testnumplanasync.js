@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import NumberingPlan from "../src/NumberingPlan.js";
+import NumberingPlan from "../lib/NumberingPlan.js";
 
 module.exports.numplanasync = {
     testNumberingPlanAsync1: function(test) {

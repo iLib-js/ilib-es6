@@ -17,8 +17,8 @@
  * limitations under the License.
  */
 
-import PhoneNumber from "../src/PhoneNumber.js";
-import PhoneGeoLocator from "../src/PhoneGeoLocator.js";
+import PhoneNumber from "../lib/PhoneNumber.js";
+import PhoneGeoLocator from "../lib/PhoneGeoLocator.js";
 
 module.exports.phonegeoasync = {
     testPhoneGeoAsyncNANP: function(test) {

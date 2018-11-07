@@ -1,7 +1,8 @@
 {
     "name": "ilib-es6",
-    "version": "1.0.1",
-    "main": "ilib-es6",
+    "version": "1.1.0",
+    "main": "ilib",
+    "main-es6": "ilib.mjs",
     "description": "ES6 wrappers around iLib classes",
     "keywords": [
         "internationalization",
@@ -34,6 +35,9 @@
     "files": [
         "src",
         "ilib-es6.js",
+        "ilib.mjs",
+        "ilib.mjs.map",
+        "lib",
         "README.md",
         "LICENSE"
     ],
@@ -42,18 +46,27 @@
         "url": "git@github.com:iLib-js/ilib-es6.git"
     },
     "scripts": {
-        "dist": "npm pack",
-        "test": "node test/testSuite.js"
+        "build": "grunt",
+        "dist": "grunt ; npm pack",
+        "test": "npm run build ; node test/testSuite.js"
     },
     "dependencies": {
         "ilib": ">14.0.0"
     },
     "devDependencies": {
         "acorn": "^6.0.2",
+        "acorn-jsx": "^5.0.0",
         "babel-core": "^6.26.0",
         "babel-preset-env": "*",
         "babel-register": "^6.26.0",
         "babel-runtime": "^6.26.0",
+        "grunt": "^1.0.3",
+        "grunt-contrib-clean": "^2.0.0",
+        "grunt-contrib-jshint": "^2.0.0",
+        "grunt-contrib-nodeunit": "^2.0.0",
+        "grunt-contrib-uglify": "^4.0.0",
+        "grunt-babel": "^7.0.0",
+        "load-grunt-tasks": "^4.0.0",
         "promise": "8.0.1",
         "nodeunit": "0.11.0"
     }
