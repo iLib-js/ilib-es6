@@ -36,9 +36,9 @@ Asynchronous Calls Using Promises
 --------------
 
 When calling classes asynchronously, you can continue to use callbacks as before or
-you can use the promises returned from the constructors.
+you can use the promises returned from the _create_ factory method.
 
-old async call:
+old async call using callbacks:
 
 ```javascript
 var AddressFmt = require("ilib/lib/AddressFmt.js");
@@ -51,20 +51,36 @@ new AddressFmt({
 });
 ```
 
-new async calls:
+new async calls using promises:
 
 ```javascript
 import AddressFmt from "ilib-es6/lib/AddressFmt";
 
-new AddressFmt({
-  sync: false
-}).then(af => {
+AddressFmt.create().then(af => {
   // format some addresses using the af formatter
 });
 ```
 
-Note that you can leave out the onLoad callback if you like and just use the promise,
-or you can use the callback and ignore the promise.
+Note that you can still use either method above. Both are still supported.
+
+Promises with Parameters
+-------------
+
+The _create_ factory method takes the same parameters that the class's constructor takes. For example,
+to create an address formatter in Switzerland with French, you would do:
+
+```javascript
+import AddressFmt from "ilib-es6/lib/AddressFmt";
+
+AddressFmt.create({
+  locale: "fr-CH"
+}).then(af => {
+  // format some Swiss addresses using the af formatter
+});
+```
+
+Note that you do not need to pass the _sync_ or _onLoad_ parameters to the _create_ factory method. Calling
+the create factory method implies asynchronous mode using promises instead of callbacks.
 
 Asynchronous Methods
 -------------
@@ -75,9 +91,7 @@ Example:
 ```javascript
 import AddressFmt from "ilib-es6/lib/AddressFmt";
 
-new AddressFmt({
-  sync: false
-}).then(af => {
+AddressFmt.create().then(af => {
   // false for "asynchronous". getFormatInfo returns a promise as well.
   return af.getFormatInfo("en-US", false);
 }).then(info => {
