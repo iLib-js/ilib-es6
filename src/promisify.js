@@ -20,26 +20,22 @@
 
 export function promisifyFunction(func, options = {}) {
     const { sync, onLoad } = options;
-    if (typeof(sync) === 'boolean' && !sync) {
-        let tempOptions = Object.assign({}, options);
-        let promise = new Promise(function(resolve, reject) {
-            tempOptions.onLoad = function(result) {
-                resolve(result);
-            }
-            func(tempOptions);
-        });
-        if (onLoad) {
-            promise.then(onLoad);
+    let tempOptions = Object.assign({}, options, {sync: false});
+    let promise = new Promise(function(resolve, reject) {
+        tempOptions.onLoad = function(result) {
+            resolve(result);
         }
-        promise.catch(function(err) {
-            console.log("Error caught: " + err);
-            if (onLoad) onLoad(undefined);
-            return err;
-        });
-        return promise;
+        func(tempOptions);
+    });
+    if (onLoad) {
+        promise.then(onLoad);
     }
-
-    return func(options);
+    promise.catch(function(err) {
+        console.log("Error caught: " + err);
+        if (onLoad) onLoad(undefined);
+        return err;
+    });
+    return promise;
 }
 
 export default function promisify(func, options = {}) {
