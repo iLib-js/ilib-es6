@@ -17,14 +17,12 @@
  * limitations under the License.
  */
 
-import CharmapFactory from "../src/CharmapFactory.js";
+import CharmapFactory, {CharmapFactoryAsync} from "../src/CharmapFactory.js";
 
 module.exports.testcharmappromise = {
     testCharmapAsyncConstructor: function(test) {
         test.expect(1);
-        CharmapFactory({
-            sync: false
-        }).then(function(cm) {
+        CharmapFactoryAsync().then(function(cm) {
             test.ok(typeof(cm) !== "undefined");
             test.done();
         });
@@ -32,9 +30,8 @@ module.exports.testcharmappromise = {
 
     testCharmapAsyncLoadMap: function(test) {
         test.expect(3);
-        var cm = CharmapFactory({
-            name: "ISO-8859-15",
-            sync: false
+        var cm = CharmapFactoryAsync({
+            name: "ISO-8859-15"
         }).then(function(cm) {
             test.ok(typeof(cm) !== "undefined");
             test.ok(typeof(cm.map) !== "undefined");
@@ -45,9 +42,8 @@ module.exports.testcharmappromise = {
 
     testCharmapAsyncAlias: function(test) {
         test.expect(3);
-        var cm = CharmapFactory({
-            name: "ISO-Latin-9",
-            sync: false
+        var cm = CharmapFactoryAsync({
+            name: "ISO-Latin-9"
         }).then(function(cm) {
             test.ok(typeof(cm) !== "undefined");
             test.ok(typeof(cm.map) !== "undefined");
@@ -58,9 +54,8 @@ module.exports.testcharmappromise = {
 
     testCharmapAsyncLoadAlgorithmic: function(test) {
         test.expect(3);
-        var cm = CharmapFactory({
-            name: "UTF-8",
-            sync: false
+        var cm = CharmapFactoryAsync({
+            name: "UTF-8"
         }).then(function(cm) {
             test.ok(typeof(cm) !== "undefined");
             test.ok(typeof(cm.map) === "undefined"); // no map because it's algorithmic
@@ -71,9 +66,8 @@ module.exports.testcharmappromise = {
 
     testCharmapAsyncUTF8MapToUnicodeUint8ArrayExtended3: function(test) {
         test.expect(2);
-        var cm = CharmapFactory({
-            name: "UTF-8",
-            sync: false
+        var cm = CharmapFactoryAsync({
+            name: "UTF-8"
         }).then(function(cm) {
             test.ok(typeof(cm) !== "undefined");
             var input = new Uint8Array([
@@ -99,9 +93,8 @@ module.exports.testcharmappromise = {
             0xae, 0x54  // 娛
             ];
 
-        CharmapFactory({
-            name: "Big5",
-            sync: false
+        CharmapFactoryAsync({
+            name: "Big5"
         }).then(function(cm) {
             test.ok(typeof(cm) !== "undefined");
             test.deepEqual("仃人埋朋娛", cm.mapToUnicode(big5source));
@@ -118,9 +111,8 @@ module.exports.testcharmappromise = {
             0xae, 0x54  // 娛
             ];
 
-        CharmapFactory({
-            name: "Big5",
-            sync: false
+        CharmapFactoryAsync({
+            name: "Big5"
         }).then(function(cm) {
             test.ok(typeof(cm) !== "undefined");
             test.deepEqual(big5source, cm.mapToNative("仃人埋朋娛"));

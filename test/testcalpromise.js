@@ -32,9 +32,7 @@ import ThaiSolarDate from "../src/ThaiSolarDate.js";
 module.exports.testcalpromise = {
     testCalendarPromiseFactoryAsyncDefault: function(test) {
         test.expect(1);
-        CalendarFactory({
-            sync: false
-        }).then(function(cal) {
+        CalendarFactoryAsync().then(function(cal) {
             test.ok(typeof(cal) !== "undefined");
             test.done();
         });
@@ -42,9 +40,8 @@ module.exports.testcalpromise = {
 
     testCalendarPromiseFactoryAsyncSpecific: function(test) {
         test.expect(2);
-        var cal = CalendarFactory({
-            type: "julian",
-            sync: false
+        var cal = CalendarFactoryAsync({
+            type: "julian"
         }).then(function(cal) {
             test.ok(typeof(cal) !== "undefined");
 
@@ -55,9 +52,8 @@ module.exports.testcalpromise = {
 
     testCalendarPromiseFactoryAsyncUnknown: function(test) {
         test.expect(1);
-        CalendarFactory({
-            type: "asdf",
-            sync: false
+        CalendarFactoryAsync({
+            type: "asdf"
         }).then(function(cal) {
             test.ok(typeof(cal) === "undefined");
             test.done();
@@ -70,9 +66,8 @@ module.exports.testcalpromise = {
 
     testCalendarPromiseFactoryAsyncDefaultForLocale: function(test) {
         test.expect(2);
-        CalendarFactory({
-            locale: "fa-IR",
-            sync: false
+        CalendarFactoryAsync({
+            locale: "fa-IR"
         }).then(function(cal) {
             test.ok(typeof(cal) !== "undefined");
 
@@ -83,9 +78,8 @@ module.exports.testcalpromise = {
 
     testCalendarPromiseFactoryAsyncDefaultForLocaleOther: function(test) {
         test.expect(2);
-        var cal = CalendarFactory({
-            locale: "th-TH",
-            sync: false
+        var cal = CalendarFactoryAsync({
+            locale: "th-TH"
         }).then(function(cal) {
             test.ok(typeof(cal) !== "undefined");
 
@@ -96,10 +90,9 @@ module.exports.testcalpromise = {
 
     testCalendarPromiseFactoryAsyncOverrideLocale: function(test) {
         test.expect(2);
-        var cal = CalendarFactory({
+        var cal = CalendarFactoryAsync({
             locale: "fa-IR",
-            type: "gregorian",
-            sync: false
+            type: "gregorian"
         }).then(function(cal) {
             test.ok(typeof(cal) !== "undefined");
 
@@ -111,32 +104,32 @@ module.exports.testcalpromise = {
     testCopticDatePromiseConstructorFull: function(test) {
         test.expect(8);
         try {
-        CopticDate.create({
-            year: 1735,
-            month: 9,
-            day: 23,
-            hour: 16,
-            minute: 7,
-            second: 12,
-            millisecond: 123,
-            timezone: "Etc/UTC",
-            sync: false
-        }).then(function(cd) {
-            test.ok(cd !== null);
-
-            test.equal(cd.getYears(), 1735);
-            test.equal(cd.getMonths(), 9);
-            test.equal(cd.getDays(), 23);
-            test.equal(cd.getHours(), 16);
-            test.equal(cd.getMinutes(), 7);
-            test.equal(cd.getSeconds(), 12);
-            test.equal(cd.getMilliseconds(), 123);
-            test.done();
-        }).catch(function(err) {
-            console.log("Error: " + err);
-            test.fail();
-            test.done();
-        });
+            CopticDate.create({
+                year: 1735,
+                month: 9,
+                day: 23,
+                hour: 16,
+                minute: 7,
+                second: 12,
+                millisecond: 123,
+                timezone: "Etc/UTC",
+                sync: false
+            }).then(function(cd) {
+                test.ok(cd !== null);
+    
+                test.equal(cd.getYears(), 1735);
+                test.equal(cd.getMonths(), 9);
+                test.equal(cd.getDays(), 23);
+                test.equal(cd.getHours(), 16);
+                test.equal(cd.getMinutes(), 7);
+                test.equal(cd.getSeconds(), 12);
+                test.equal(cd.getMilliseconds(), 123);
+                test.done();
+            }).catch(function(err) {
+                console.log("Error: " + err);
+                test.fail();
+                test.done();
+            });
         } catch (e) {
             console.log("Got exception: " + e);
             test.fail();

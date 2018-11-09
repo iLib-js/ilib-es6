@@ -20,19 +20,11 @@
 
 import { promisifyFunction } from './promisify';
 
-const ilibCalendarFactory = require('ilib/lib/CalendarFactory.js');
+const CalendarFactory = require('ilib/lib/CalendarFactory.js');
 
 export function CalendarFactoryAsync(options = {}) {
-    var opts = Object.assign({}, options);
-    opts.sync = false;
-    return promisifyFunction(ilibCalendarFactory, opts);
+    var opts = Object.assign({}, options, {sync: false});
+    return promisifyFunction(CalendarFactory, opts);
 };
 
-export default function CalendarFactory(options = {}) {
-    const { sync } = options;
-    if (typeof(sync) === 'boolean' && !sync) {
-        return CalendarFactoryAsync(options);
-    }
-
-    return ilibCalendarFactory(options);
-};
+export default CalendarFactory;
