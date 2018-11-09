@@ -127,23 +127,21 @@ The difference is that the options for asynchronous calls contain a property
 "sync: false" whereas for synchronous calls, the "sync" property is missing
 or it is set to a truthy value. When a class is used synchronously, the constructor
 returns an instance of the class. When the same class is used asynchronously,
-the constructor returns a promise.
+the constructor does not return anything, but calls the callback function given
+in the onLoad property instead.
 
 Using Factories
 ---------------
 
-Factory functions in ilib now have two types: a regular version that switches
-between synchronous and asynchronous depending on the value of the "sync" property
-in the options, and the asynchronous-only version. The async version of the factory
-always has an "Async" suffix at the end of the name.
+Factory functions in ilib now have two types: a regular version that returns an
+instance of the class, and the asynchronous-only version that returns a promise.
+The async version of the factory always has an "Async" suffix at the end of its name.
 
 ```javascript
 import CalendarFactory, {CalendarFactoryAsync} from 'ilib-es6/lib/CalendarFactory';
 
-let promise = CalendarFactory({locale: 'ja-JP', sync: false});
-promise.then(function(cal) {
-  // do something with the new calendar.
-});
+let cal = CalendarFactory({locale: 'ja-JP'});
+// do something with the new cal calendar.
 ```
 
 The above is equivalent to this:
@@ -154,11 +152,6 @@ import CalendarFactory, {CalendarFactoryAsync} from 'ilib-es6/lib/CalendarFactor
 
 let promise = CalendarFactoryAsync({locale: 'ja-JP'});
 promise.then(function(cal) {
-  // do something with the new calendar.
+  // do something with the new cal calendar.
 });
 ```
-
-That is, the "Async" function is a convenience function and is equivalent to calling
-the base function with the option "sync: false". The Async version of each factory
-function is always asynchronous and always returns a promise. The regular version
-will return a promise only when called asynchronously.
