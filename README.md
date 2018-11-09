@@ -7,17 +7,15 @@ Usage
 -----
 
 All classes that ilib contains are echoed here in ilib-es6. You may use these as you
-had before with the exact same API. There are some differences though.
-
-(NOTE: this is a pre-release work in progress. That means wrappers for many classes
-will be missing until version 1.0.0)
+had before with the exact same API. However, there are a few additional methods and
+other differences.
 
 Including Classes
 -----------------
 
 With ilib-es6, you import classes instead of requiring them.
 
-old:
+old syntax with regular ilib:
 
 ```
 var AddressFmt = require("ilib/lib/AddressFmt.js");
@@ -25,10 +23,10 @@ var AddressFmt = require("ilib/lib/AddressFmt.js");
 
 (This old syntax is still supported, though.)
 
-new:
+new syntax with ilib-es6:
 
 ```
-import AddressFmt from 'ilib-es6/lib/AddressFmt';
+import AddressFmt from 'ilib-es6/src/AddressFmt';
 ```
 
 
@@ -54,7 +52,7 @@ new AddressFmt({
 new async calls using promises:
 
 ```javascript
-import AddressFmt from "ilib-es6/lib/AddressFmt";
+import AddressFmt from "ilib-es6/src/AddressFmt";
 
 AddressFmt.create().then(af => {
   // format some addresses using the af formatter
@@ -70,7 +68,7 @@ The _create_ factory method takes the same parameters that the class's construct
 to create an address formatter in Switzerland with French, you would do:
 
 ```javascript
-import AddressFmt from "ilib-es6/lib/AddressFmt";
+import AddressFmt from "ilib-es6/src/AddressFmt";
 
 AddressFmt.create({
   locale: "fr-CH"
@@ -89,7 +87,7 @@ Promises are also supported for some class methods that are asynchronous as well
 Example:
 
 ```javascript
-import AddressFmt from "ilib-es6/lib/AddressFmt";
+import AddressFmt from "ilib-es6/src/AddressFmt";
 
 AddressFmt.create().then(af => {
   // false for "asynchronous". getFormatInfo returns a promise as well.
@@ -102,8 +100,7 @@ AddressFmt.create().then(af => {
 Synchronous Classes
 -----------
 
-You can continue using ilib classes synchronously or asynchronously as you had
-before.
+You can continue using ilib classes synchronously as you had before.
 
 old:
 
@@ -117,18 +114,17 @@ var af = new AddressFmt();
 new:
 
 ```javascript
-import AddressFmt from "ilib-es6/lib/AddressFmt";
+import AddressFmt from "ilib-es6/src/AddressFmt";
 
 const af = new AddressFmt();
 // now format some addresses using the af formatter
 ```
 
-The difference is that the options for asynchronous calls contain a property
-"sync: false" whereas for synchronous calls, the "sync" property is missing
-or it is set to a truthy value. When a class is used synchronously, the constructor
-returns an instance of the class. When the same class is used asynchronously,
-the constructor does not return anything, but calls the callback function given
-in the onLoad property instead.
+When a class is used synchronously, the constructor
+returns an instance of the class. When an instance of the same class is
+constructed asynchronously with sync: false, the constructor returns an empty
+default instance and calls the callback function given in the onLoad property
+when all of the locale data is finished loading.
 
 Using Factories
 ---------------
@@ -137,21 +133,22 @@ Factory functions in ilib now have two types: a regular version that returns an
 instance of the class, and the asynchronous-only version that returns a promise.
 The async version of the factory always has an "Async" suffix at the end of its name.
 
+Synchronous:
+
 ```javascript
-import CalendarFactory, {CalendarFactoryAsync} from 'ilib-es6/lib/CalendarFactory';
+import CalendarFactory, {CalendarFactoryAsync} from 'ilib-es6/src/CalendarFactory';
 
 let cal = CalendarFactory({locale: 'ja-JP'});
 // do something with the new cal calendar.
 ```
 
-The above is equivalent to this:
+Asynchronous:
 
 ```javascript
-import CalendarFactory, {CalendarFactoryAsync} from 'ilib-es6/lib/CalendarFactory';
+import CalendarFactory, {CalendarFactoryAsync} from 'ilib-es6/src/CalendarFactory';
 
 
-let promise = CalendarFactoryAsync({locale: 'ja-JP'});
-promise.then(function(cal) {
+CalendarFactoryAsync({locale: 'ja-JP'}).then(function(cal) {
   // do something with the new cal calendar.
 });
 ```
