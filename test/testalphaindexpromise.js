@@ -22,7 +22,7 @@ import AlphabeticIndex from "../src/AlphabeticIndex.js";
 module.exports.testalphaindexpromise = {
     testAlphaIndexAsyncConstructor: function(test) {
         test.expect(1);
-        new AlphabeticIndex({
+        AlphabeticIndex.create({
             sync: false
         }).then(function(ai) {
             test.ok(ai);
@@ -32,7 +32,7 @@ module.exports.testalphaindexpromise = {
 
     testAlphaIndexAsyncConstructorWithParams: function(test) {
         test.expect(1);
-        new AlphabeticIndex({
+        AlphabeticIndex.create({
             locale: "en-US",
             sync: false
         }).then(function(ai) {
@@ -43,7 +43,7 @@ module.exports.testalphaindexpromise = {
 
     testAlphaIndexAsyncgetDefaultIndexStyle: function(test) {
         test.expect(2);
-        new AlphabeticIndex({
+        AlphabeticIndex.create({
             locale: "en-US",
             sync: false
         }).then(function(ai) {
@@ -55,7 +55,7 @@ module.exports.testalphaindexpromise = {
 
     testAlphaIndexAsyncConstructorWithUnknownLocale: function(test) {
         test.expect(1);
-        new AlphabeticIndex({
+        AlphabeticIndex.create({
             locale: "qq-QQ",
             sync: false
         }).then(function(ai) {
@@ -67,7 +67,7 @@ module.exports.testalphaindexpromise = {
     testAlphaIndexAsyncENUSGetBucket: function(test) {
         test.expect(3);
 
-        new AlphabeticIndex({
+        AlphabeticIndex.create({
             locale: "en-US",
             sync: false
         }).then(function(ai) {
@@ -82,7 +82,7 @@ module.exports.testalphaindexpromise = {
     testAlphaIndexAsyncENUSGetBucket2: function(test) {
         test.expect(3);
 
-        new AlphabeticIndex({
+        AlphabeticIndex.create({
             locale: "en-US",
             sync: false
         }).then(function(ai) {
@@ -98,7 +98,7 @@ module.exports.testalphaindexpromise = {
     testAlphaIndexAsyncENUSGetAllBuckets: function(test) {
         test.expect(2);
 
-        new AlphabeticIndex({
+        AlphabeticIndex.create({
             locale: "en-US",
             sync: false
         }).then(function(ai) {
@@ -176,7 +176,7 @@ module.exports.testalphaindexpromise = {
     testAlphaIndexAsyncENUSGetBucketLabels: function(test) {
         test.expect(2);
 
-        new AlphabeticIndex({
+        AlphabeticIndex.create({
             locale: "en-US",
             sync: false
         }).then(function(ai) {
@@ -236,7 +236,7 @@ module.exports.testalphaindexpromise = {
     testAlphaIndexAsyncUnknowLocaleActsLikeEnglish: function(test) {
         test.expect(2);
 
-        new AlphabeticIndex({
+        AlphabeticIndex.create({
             locale: "qq-QQ",
             sync: false
         }).then(function(ai) {
@@ -318,7 +318,7 @@ module.exports.testalphaindexpromise = {
 
     testAlphaIndexAsyncConstructorAsync_deDE: function(test) {
         test.expect(1);
-        var ai = new AlphabeticIndex({
+        var ai = AlphabeticIndex.create({
             locale: "de-DE",
             sync: false
         }).then(function(ai) {
@@ -330,7 +330,7 @@ module.exports.testalphaindexpromise = {
     testAlphaIndexAsyncGetBucket_deDE2: function(test) {
         test.expect(7);
 
-        var ai = new AlphabeticIndex({
+        var ai = AlphabeticIndex.create({
             locale: "de-DE",
             sync: false
         }).then(function(ai) {
@@ -351,7 +351,7 @@ module.exports.testalphaindexpromise = {
     testAlphaIndexAsyncGetBucketAccentInsensitiveSZ_deDE: function(test) {
         test.expect(2);
 
-        var ai = new AlphabeticIndex({
+        var ai = AlphabeticIndex.create({
             locale: "de-DE",
             sync: false
         }).then(function(ai) {
@@ -365,7 +365,7 @@ module.exports.testalphaindexpromise = {
     testAlphaIndexAsyncDEDEPhonebookStyle: function(test) {
         test.expect(2);
 
-        var ai = new AlphabeticIndex({
+        var ai = AlphabeticIndex.create({
             locale: "de-DE",
             style: "phonebook",
             sync: false
@@ -437,7 +437,7 @@ module.exports.testalphaindexpromise = {
     testAlphaIndexAsyncDEDEDictionaryStyle: function(test) {
         test.expect(2);
 
-        var ai = new AlphabeticIndex({
+        var ai = AlphabeticIndex.create({
             locale: "de-DE",
             style: "dictionary",
             sync: false
@@ -507,7 +507,7 @@ module.exports.testalphaindexpromise = {
 
     testAlphaIndexAsyncConstructorAsync: function(test) {
         test.expect(1);
-        var ai = new AlphabeticIndex({
+        var ai = AlphabeticIndex.create({
             locale: "ko-KR",
             sync: false
         }).then(function(ai) {
@@ -519,7 +519,7 @@ module.exports.testalphaindexpromise = {
     testAlphaIndexAsyncKOKRMixedScriptTest1: function(test) {
         test.expect(2);
 
-        var ai = new AlphabeticIndex({
+        var ai = AlphabeticIndex.create({
             locale: "ko-KR",
             sync: false
         }).then(function(ai) {
@@ -606,7 +606,7 @@ module.exports.testalphaindexpromise = {
     testAlphaIndexAsyncKOKRMixedScriptTest2: function(test) {
         test.expect(2);
 
-        var ai = new AlphabeticIndex({
+        var ai = AlphabeticIndex.create({
             locale: "ko-KR",
             sync: false
         }).then(function(ai) {

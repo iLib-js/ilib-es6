@@ -24,6 +24,10 @@ const ilibAlphabeticIndex = require('ilib/lib/AlphabeticIndex.js');
 
 export default class AlphabeticIndex {
     constructor(options = {}) {
+        return new ilibAlphabeticIndex(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibAlphabeticIndex, options);
     }
 };

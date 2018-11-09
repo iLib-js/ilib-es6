@@ -24,6 +24,10 @@ const ilibCopticDate = require('ilib/lib/CopticDate.js');
 
 export default class CopticDate {
     constructor(options = {}) {
+        return new ilibCopticDate(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibCopticDate, options);
     }
 };

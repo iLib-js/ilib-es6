@@ -24,6 +24,10 @@ const ilibCountry = require('ilib/lib/Country.js');
 
 export default class Country {
     constructor(options = {}) {
+        return new ilibCountry(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibCountry, options);
     }
 };

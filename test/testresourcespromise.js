@@ -29,7 +29,7 @@ module.exports.testresourcespromise = {
         test.expect(2);
         ilib.clearPseudoLocales();
 
-        new ResBundle({
+        ResBundle.create({
             sync: false
         }).then(function(rb) {
             test.ok(rb !== null);
@@ -41,7 +41,7 @@ module.exports.testresourcespromise = {
 
     testResBundleAsyncConstructorOtherLocale: function(test) {
         test.expect(2);
-        new ResBundle({
+        ResBundle.create({
             locale: "de-DE",
             sync: false
         }).then(function(rb) {
@@ -71,7 +71,7 @@ module.exports.testresourcespromise = {
 
         var base = path.relative(process.cwd(), path.resolve(__dirname, "./resources"));
 
-        new ResBundle({
+        ResBundle.create({
             locale: "es-MX",
             sync: false,
             loadParams: {
@@ -90,7 +90,7 @@ module.exports.testresourcespromise = {
 
     testResBundleAsyncGetStringOtherBundlePsuedoRaw: function(test) {
         test.expect(4);
-        new ResBundle({
+        ResBundle.create({
             name: "tester",
             locale: "zxx-XX",
             type: "raw",
@@ -108,7 +108,7 @@ module.exports.testresourcespromise = {
 
     testResBundleAsyncGetStringNonExistantTranslations: function(test) {
         test.expect(2);
-        new ResBundle({
+        ResBundle.create({
             name: "tester",
             locale: "zh-CN",
             sync: false
@@ -123,7 +123,7 @@ module.exports.testresourcespromise = {
 
     testResBundleAsyncGetStringNoResourcesReturnSource: function(test) {
         test.expect(2);
-        new ResBundle({
+        ResBundle.create({
             name: "tester",
             locale: "zz-ZZ",
             sync: false
@@ -137,7 +137,7 @@ module.exports.testresourcespromise = {
 
     testResBundleAsyncGetStringCyrlPsuedoRaw: function(test) {
         test.expect(4);
-        new ResBundle({
+        ResBundle.create({
             name: "tester",
             locale: "zxx-Cyrl-XX",
             type: "raw",
@@ -156,7 +156,7 @@ module.exports.testresourcespromise = {
 
     testResBundleAsyncGetStringHansPsuedoText: function(test) {
         test.expect(4);
-        new ResBundle({
+        ResBundle.create({
             name: "tester",
             locale: "zxx-Hans-XX",
             type: "text",
@@ -176,7 +176,7 @@ module.exports.testresourcespromise = {
 
     testResBundleAsyncGetStringHebrPsuedoText: function(test) {
         test.expect(4);
-        new ResBundle({
+        ResBundle.create({
             name: "tester",
             locale: "zxx-Hebr-XX",
             type: "text",
@@ -197,7 +197,7 @@ module.exports.testresourcespromise = {
         test.expect(1);
         ilib.clearPseudoLocales();
         ilib.setAsPseudoLocale("eu-ES");
-        new ResBundle({
+        ResBundle.create({
             locale:'eu-ES',
             sync: false
         }).then(function(rb) {
@@ -211,7 +211,7 @@ module.exports.testresourcespromise = {
         test.expect(1);
         ilib.clearPseudoLocales();
         ilib.setAsPseudoLocale("ps-AF");
-        new ResBundle({
+        ResBundle.create({
             locale:'ps-AF',
             sync: false
         }).then(function(rb) {

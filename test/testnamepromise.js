@@ -22,7 +22,7 @@ import Name from "../src/Name.js";
 module.exports.testnamepromise = {
     testNameAsyncEmptyConstructor: function(test) {
         test.expect(1);
-        new Name(undefined, {
+        Name.create(undefined, {
             sync: false
         }).then(function(name) {
             test.ok(typeof(name) === "undefined");
@@ -32,7 +32,7 @@ module.exports.testnamepromise = {
 
     testNameAsyncCopyConstructor: function(test) {
         test.expect(2);
-        new Name({
+        Name.create({
             prefix: "a",
             givenName: "b",
             middleName: "c",
@@ -51,7 +51,7 @@ module.exports.testnamepromise = {
 
     testNameAsyncDEWithMultiplePrefixes: function(test) {
         test.expect(2);
-        new Name("Herr Dr. Josef Hans Jürgen Herzheim", {
+        Name.create("Herr Dr. Josef Hans Jürgen Herzheim", {
             locale: "de-DE",
             sync: false
         }).then(function(name) {
@@ -64,7 +64,7 @@ module.exports.testnamepromise = {
 
     testNameAsyncESFull: function(test) {
         test.expect(2);
-        new Name("Juan Carlos Maria León Arroyo", {
+        Name.create("Juan Carlos Maria León Arroyo", {
             locale: "es-ES",
             sync: false
         }).then(function(name) {
@@ -77,7 +77,7 @@ module.exports.testnamepromise = {
 
     testNameAsyncZHHonorific: function(test) {
         test.expect(2);
-        new Name("堂哥胡锦涛", {
+        Name.create("堂哥胡锦涛", {
             locale: "zh-CN",
             sync: false
         }).then(function(name) {

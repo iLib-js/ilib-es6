@@ -22,7 +22,7 @@ import NumberingPlan from "../src/NumberingPlan.js";
 module.exports.numplanpromise = {
     testNumberingPlanAsync1: function(test) {
         test.expect(2);
-        new NumberingPlan({
+        NumberingPlan.create({
             locale: "en-US",
             sync: false
         }).then(function(plan) {
@@ -34,7 +34,7 @@ module.exports.numplanpromise = {
 
     testNumberingPlanAsync2: function(test) {
         test.expect(2);
-        new NumberingPlan({
+        NumberingPlan.create({
             locale: "de-DE",
             sync: false
         }).then(function(plan) {
@@ -46,7 +46,7 @@ module.exports.numplanpromise = {
 
     testNumberingPlanAsyncUnknown: function(test) {
         test.expect(2);
-        new NumberingPlan({
+        NumberingPlan.create({
             locale: "unknown-unknown",
             sync: false
         }).then(function(plan) {
@@ -58,7 +58,7 @@ module.exports.numplanpromise = {
 
     testNumberingPlanAsyncUnrecognized: function(test) {
         test.expect(2);
-        new NumberingPlan({
+        NumberingPlan.create({
             locale: "zu-ZZ",
             sync: false
         }).then(function(plan) {

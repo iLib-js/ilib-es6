@@ -30,7 +30,7 @@ import DateFactory from "../src/DateFactory.js";
 module.exports.testdatefmtpromise = {
     testDateFmtConstructorEmpty: function(test) {
         test.expect(1);
-        new DateFmt({
+        DateFmt.create({
             sync: false
         }).then(function(fmt) {
             test.ok(fmt !== null);
@@ -40,7 +40,7 @@ module.exports.testdatefmtpromise = {
 
     testDateFmtGetCalendarExplicit: function(test) {
         test.expect(3);
-        new DateFmt({
+        DateFmt.create({
             calendar: "julian",
             sync: false
         }).then(function(fmt) {
@@ -54,7 +54,7 @@ module.exports.testdatefmtpromise = {
     },
 
     testDateFmtGetCalendarNotInThisLocale: function(test) {
-        new DateFmt({
+        DateFmt.create({
             calendar: "arabic",
             locale: 'en-US',
             sync: false
@@ -72,7 +72,7 @@ module.exports.testdatefmtpromise = {
             process.env.TZ = "";
         }
 
-        new DateFmt({
+        DateFmt.create({
             sync: false
         }).then(function(fmt) {
             test.ok(fmt !== null);
@@ -84,7 +84,7 @@ module.exports.testdatefmtpromise = {
 
     testDateFmtGetTimeZone: function(test) {
         test.expect(2);
-        new DateFmt({
+        DateFmt.create({
             timezone: "Europe/Paris",
             sync: false
         }).then(function(fmt) {
@@ -97,7 +97,7 @@ module.exports.testdatefmtpromise = {
 
     testDateFmtUseTemplateNonEmptyCalendar: function(test) {
         test.expect(2);
-        new DateFmt({
+        DateFmt.create({
             calendar: 'julian',
             template: "EEE 'the' DD 'of' MM, yyyy G",
             sync: false
@@ -111,7 +111,7 @@ module.exports.testdatefmtpromise = {
 
     testDateFmtUseTemplateNonEmptyLocale: function(test) {
         test.expect(2);
-        var fmt = new DateFmt({
+        var fmt = DateFmt.create({
             locale: 'de-DE',
             template: "EEE 'the' DD 'of' MM, yyyy G",
             sync: false
@@ -125,7 +125,7 @@ module.exports.testdatefmtpromise = {
 
     testDateFmtFormatJSDate1: function(test) {
         test.expect(2);
-        new DateFmt({
+        DateFmt.create({
             type: "time",
             length: "short",
             timezone: "America/Los_Angeles",
@@ -143,7 +143,7 @@ module.exports.testdatefmtpromise = {
 
     testDateFmtFormatJSDateRightTimeZone1: function(test) {
         test.expect(2);
-        var fmt = new DateFmt({
+        var fmt = DateFmt.create({
             type: "date",
             length: "full",
             date: "w",
@@ -163,7 +163,7 @@ module.exports.testdatefmtpromise = {
     testDateFmtGetMonthsOfYearThai: function(test) {
         test.expect(2);
         // uses ThaiSolar calendar
-        var fmt = new DateFmt({
+        var fmt = DateFmt.create({
             locale: "th-TH",
             sync: false
         }).then(function(fmt) {
@@ -179,11 +179,11 @@ module.exports.testdatefmtpromise = {
 
     testDateFmtFormatRelativeWithinMinuteAfter: function(test) {
         test.expect(1);
-        new DateFmt({
+        DateFmt.create({
             length: "full",
             sync: false
         }).then(function(fmt) {
-            new GregorianDate({
+            GregorianDate.create({
                 year: 2011,
                 month: 11,
                 day: 20,
@@ -193,7 +193,7 @@ module.exports.testdatefmtpromise = {
                 millisecond: 0,
                 sync: false
             }).then(function(reference) {
-                new GregorianDate({
+                GregorianDate.create({
                     year: 2011,
                     month: 11,
                     day: 20,
@@ -212,7 +212,7 @@ module.exports.testdatefmtpromise = {
 
     testDateFmtConvertToGMT: function(test) {
         test.expect(2);
-        var fmt = new DateFmt({
+        var fmt = DateFmt.create({
             length: "short",
             type: "datetime",
             timezone: "Europe/London",
@@ -222,7 +222,7 @@ module.exports.testdatefmtpromise = {
         }).then(function(fmt) {
             test.ok(fmt !== null);
 
-            new GregorianDate({
+            GregorianDate.create({
                 year: 2011,
                 month: 9,
                 day: 20,
@@ -242,7 +242,7 @@ module.exports.testdatefmtpromise = {
 
     testDateFmtConvertToOtherTimeZone: function(test) {
         test.expect(2);
-        new DateFmt({
+        DateFmt.create({
             length: "short",
             type: "datetime",
             timezone: "Australia/Sydney",
@@ -252,7 +252,7 @@ module.exports.testdatefmtpromise = {
         }).then(function(fmt) {
             test.ok(fmt !== null);
 
-            new GregorianDate({
+            GregorianDate.create({
                 year: 2011,
                 month: 9,
                 day: 20,

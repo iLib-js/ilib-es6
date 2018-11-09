@@ -22,13 +22,13 @@ import PhoneNumber from "../src/PhoneNumber.js";
 module.exports.phonenumpromise = {
     testPhoneParseAsyncAUFull: function(test) {
         test.expect(2);
-        new PhoneNumber("(08) 1234 5678", {
+        PhoneNumber.create("(08) 1234 5678", {
             locale: "en-AU",
             sync: false
         }).then(function(parsed) {
             test.ok(typeof(parsed) !== "undefined");
 
-            new PhoneNumber({
+            PhoneNumber.create({
                 trunkAccess: "0",
                 areaCode: "8",
                 subscriberNumber: "12345678"
@@ -44,13 +44,13 @@ module.exports.phonenumpromise = {
 
     testPhoneParseAsyncHKFromIntl: function(test) {
         test.expect(2);
-        new PhoneNumber("+85223897077", {
+        PhoneNumber.create("+85223897077", {
             locale: "en-HK",
             sync: false
         }).then(function(parsed) {
             test.ok(typeof(parsed) !== "undefined");
 
-            new PhoneNumber({
+            PhoneNumber.create({
                 iddPrefix: "+",
                 countryCode: "852",
                 subscriberNumber: "23897077"
@@ -66,13 +66,13 @@ module.exports.phonenumpromise = {
 
     testPhoneParseAsyncUSFull: function(test) {
         test.expect(2);
-        new PhoneNumber("(456) 345-3434", {
+        PhoneNumber.create("(456) 345-3434", {
             locale: "en-US",
             sync: false
         }).then(function(parsed) {
             test.ok(typeof(parsed) !== "undefined");
 
-            new PhoneNumber({
+            PhoneNumber.create({
                 areaCode: "456",
                 subscriberNumber: "3453434"
             }, {
@@ -87,13 +87,13 @@ module.exports.phonenumpromise = {
 
     testPhoneParseAsyncKRFullLongAreaCode: function(test) {
         test.expect(2);
-        new PhoneNumber("033-9467-2345", {
+        PhoneNumber.create("033-9467-2345", {
             locale: "ko-KR",
             sync: false
         }).then(function(parsed) {
             test.ok(typeof(parsed) !== "undefined");
 
-            new PhoneNumber({
+            PhoneNumber.create({
                 trunkAccess: "0",
                 areaCode: "33",
                 subscriberNumber: "94672345"
@@ -109,13 +109,13 @@ module.exports.phonenumpromise = {
 
     testPhoneParseAsyncMXFull: function(test) {
         test.expect(2);
-        new PhoneNumber("6241234567", {
+        PhoneNumber.create("6241234567", {
             locale: "es-MX",
             sync: false
         }).then(function(parsed) {
             test.ok(typeof(parsed) !== "undefined");
 
-            new PhoneNumber({
+            PhoneNumber.create({
                 areaCode: "624",
                 subscriberNumber: "1234567"
             }, {
@@ -130,7 +130,7 @@ module.exports.phonenumpromise = {
 
     testPhoneParseAsyncUndefined: function(test) {
         test.expect(1);
-        new PhoneNumber(undefined, {
+        PhoneNumber.create(undefined, {
             locale: "en-AU",
             sync: false
         }).then(function(parsed) {
@@ -142,7 +142,7 @@ module.exports.phonenumpromise = {
 
     testPhoneParseAsyncEmpty: function(test) {
         test.expect(1);
-        new PhoneNumber("", {
+        PhoneNumber.create("", {
             locale: "en-AU",
             sync: false
         }).then(function(parsed) {

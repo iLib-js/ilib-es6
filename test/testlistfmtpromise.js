@@ -21,7 +21,7 @@ import ListFmt from "../src/ListFmt.js";
 
 module.exports.testlistfmtpromise = {
     testListFmtAsyncConstructorEmpty: function(test) {
-        new ListFmt({
+        ListFmt.create({
             sync: false
         }).then(function(fmt) {
             test.expect(1);
@@ -31,7 +31,7 @@ module.exports.testlistfmtpromise = {
     },
 
     testListFmtAsyncTestProperty8: function(test) {
-        new ListFmt({
+        ListFmt.create({
             sync: false
         }).then(function(fmt) {
             test.expect(2);
@@ -42,7 +42,7 @@ module.exports.testlistfmtpromise = {
     },
 
     testListFmtAsyncbnINNumberFormatFour: function(test) {
-        new ListFmt({
+        ListFmt.create({
             locale: "bn-IN",
             sync: false
         }).then(function(fmt) {
@@ -54,7 +54,7 @@ module.exports.testlistfmtpromise = {
     },
 
     testListFmtAsynckoKRNumberFormatThree: function(test) {
-        new ListFmt({
+        ListFmt.create({
             locale: "ko-KR",
             sync: false
         }).then(function(fmt) {

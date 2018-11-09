@@ -24,6 +24,10 @@ const ilibLocaleInfo = require('ilib/lib/LocaleInfo.js');
 
 export default class LocaleInfo {
     constructor(locale, options = {}) {
+        return new ilibLocaleInfo(locale, options);
+    }
+
+    static create(locale, options = {}) {
         return promisifyFunction(function(opts = {}) {
             const { locale } = opts;
             return new ilibLocaleInfo(locale, opts);

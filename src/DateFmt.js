@@ -26,6 +26,10 @@ const oldGetMeridiemsRange = ilibDateFmt.getMeridiemsRange;
 
 export default class DateFmt {
     constructor(options = {}) {
+        return new ilibDateFmt(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibDateFmt, options);
     }
 

@@ -24,6 +24,10 @@ const ilibPersianAlgoCal = require('ilib/lib/PersianAlgoCal.js');
 
 export default class PersianAlgoCal {
     constructor(options = {}) {
+        return new ilibPersianAlgoCal(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibPersianAlgoCal, options);
     }
 };

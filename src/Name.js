@@ -24,6 +24,10 @@ const ilibName = require('ilib/lib/Name.js');
 
 export default class Name {
     constructor(name, options = {}) {
+        return new ilibName(name, options);
+    }
+
+    static create(name, options = {}) {
         return promisifyFunction(function(opts = {}) {
             const { name } = opts;
             return new ilibName(name, opts);

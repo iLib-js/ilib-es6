@@ -23,7 +23,7 @@ import Collator from "../src/Collator.js";
 module.exports.testcollationpromise = {
     testCollatorAsyncConstructorNative: function(test) {
         test.expect(1);
-        var col = new Collator({
+        var col = Collator.create({
             sync: false
         }).then(function(col) {
             test.ok(typeof(col) !== "undefined");
@@ -34,7 +34,7 @@ module.exports.testcollationpromise = {
 
     testCollatorAsyncDefaultNative: function(test) {
         test.expect(5);
-        var col = new Collator({
+        var col = Collator.create({
             sync: false
         }).then(function(col) {
             test.ok(typeof(col) !== "undefined");
@@ -51,7 +51,7 @@ module.exports.testcollationpromise = {
 
     testCollatorAsyncDefaultCase: function(test) {
         test.expect(5);
-        var col = new Collator({
+        var col = Collator.create({
             sync: false
         }).then(function(col) {
             test.ok(typeof(col) !== "undefined");
@@ -80,7 +80,7 @@ module.exports.testcollationpromise = {
 
     testCollatorAsyncGetComparator: function(test) {
         test.expect(3);
-        var col = new Collator({
+        var col = Collator.create({
             sync: false
         }).then(function(col) {
             test.ok(typeof(col) !== "undefined");
@@ -96,7 +96,7 @@ module.exports.testcollationpromise = {
 
     testCollatorAsyncConstructorJS: function(test) {
         test.expect(1);
-        var col = new Collator({
+        var col = Collator.create({
             useNative: false,
             sync: false
         }).then(function(col) {
@@ -108,7 +108,7 @@ module.exports.testcollationpromise = {
 
     testCollatorAsyncDefaultJS: function(test) {
         test.expect(5);
-        var col = new Collator({
+        var col = Collator.create({
             useNative: false,
             sync: false
         }).then(function(col) {
@@ -127,7 +127,7 @@ module.exports.testcollationpromise = {
 
     testCollatorAsyncGetComparatorWorksWithCaseJS: function(test) {
         test.expect(6);
-        var col = new Collator({
+        var col = Collator.create({
             useNative: false,
             sync: false
         }).then(function(col) {
@@ -152,7 +152,7 @@ module.exports.testcollationpromise = {
             test.done();
             return;
         }
-        var col = new Collator({
+        var col = Collator.create({
             sync: false
         }).then(function(col) {
             test.expect(2);
@@ -167,7 +167,7 @@ module.exports.testcollationpromise = {
 
     testCollatorAsyncGetSortKeySimpleUpper: function(test) {
         test.expect(2);
-        var col = new Collator({
+        var col = Collator.create({
             useNative: false,
             sync: false
         }).then(function(col) {
@@ -181,7 +181,7 @@ module.exports.testcollationpromise = {
 
     testCollatorAsyncGetSortKeyMixed: function(test) {
         test.expect(2);
-        var col = new Collator({
+        var col = Collator.create({
             useNative: false,
             sync: false
         }).then(function(col) {
@@ -195,7 +195,7 @@ module.exports.testcollationpromise = {
 
     testCollatorAsyncWithSort: function(test) {
         test.expect(2);
-        var col = new Collator({
+        var col = Collator.create({
             sync: false
         }).then(function(col) {
             test.ok(typeof(col) !== "undefined");
@@ -213,7 +213,7 @@ module.exports.testcollationpromise = {
 
     testCollatorAsyncWithSortJS: function(test) {
         test.expect(2);
-        var col = new Collator({
+        var col = Collator.create({
             useNative: false,
             sync: false
         }).then(function(col) {
@@ -232,7 +232,7 @@ module.exports.testcollationpromise = {
 
     testCollatorAsyncWithSortUpperFirstJS: function(test) {
         test.expect(2);
-        var col = new Collator({
+        var col = Collator.create({
             upperFirst: true,
             useNative: false,
             sync: false
@@ -264,7 +264,7 @@ module.exports.testcollationpromise = {
 
     testCollatorAsyncPhonebookQuatAE_de: function(test) {
         test.expect(5);
-        var col = new Collator({
+        var col = Collator.create({
             locale: "de-DE",
             useNative: false,
             sensitivity: "quaternary",
@@ -286,7 +286,7 @@ module.exports.testcollationpromise = {
 
     testCollatorAsyncQuat_el: function(test) {
         test.expect(91);
-        var col = new Collator({
+        var col = Collator.create({
             locale: "el-GR",
             useNative: false,
             sensitivity: "quaternary",
@@ -394,7 +394,7 @@ module.exports.testcollationpromise = {
 
     testCollatorAsyncPriL_ko: function(test) {
         test.expect(5);
-        var col = new Collator({
+        var col = Collator.create({
             locale: "ko-KR",
             useNative: false,
             sensitivity: "primary",
@@ -414,7 +414,7 @@ module.exports.testcollationpromise = {
 
     testCollatorAsyncQuatHanzi_zh_Hans: function(test) {
         test.expect(21);
-        var col = new Collator({
+        var col = Collator.create({
             locale: "zh-Hans-CN",
             useNative: false,
             sensitivity: "quaternary",
@@ -452,7 +452,7 @@ module.exports.testcollationpromise = {
 
     testCollatorAsyncTraditionalQuatCH_es: function(test) {
         test.expect(6);
-        var col = new Collator({
+        var col = Collator.create({
             locale: "es-ES",
             useNative: false,
             sensitivity: "quaternary",

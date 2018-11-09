@@ -24,6 +24,10 @@ const ilibNumFmt = require('ilib/lib/NumFmt.js');
 
 export default class NumFmt {
     constructor(options = {}) {
+        return new ilibNumFmt(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibNumFmt, options);
     }
 };

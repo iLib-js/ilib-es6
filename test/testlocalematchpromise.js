@@ -22,7 +22,7 @@ import LocaleMatcher from "../src/LocaleMatcher.js";
 module.exports.testlocalematchpromise = {
     testLocaleMatcherAsyncConstructor: function(test) {
         test.expect(1);
-        new LocaleMatcher({
+        LocaleMatcher.create({
             sync: false
         }).then(function(lm) {
             test.ok(lm !== null);
@@ -32,7 +32,7 @@ module.exports.testlocalematchpromise = {
 
     testLocaleMatcherAsyncGetLikelyLocaleByLanguage1: function(test) {
         test.expect(3);
-        new LocaleMatcher({
+        LocaleMatcher.create({
             locale: "uz",
             sync: false
         }).then(function(lm) {
@@ -46,7 +46,7 @@ module.exports.testlocalematchpromise = {
 
     testLocaleMatcherAsyncGetLikelyLocaleByRegion: function(test) {
         test.expect(3);
-        new LocaleMatcher({
+        LocaleMatcher.create({
             locale: "UZ",
             sync: false
         }).then(function(lm) {
@@ -60,7 +60,7 @@ module.exports.testlocalematchpromise = {
 
     testLocaleMatcherAsyncGetLikelyLocaleByScript: function(test) {
         test.expect(3);
-        new LocaleMatcher({
+        LocaleMatcher.create({
             locale: "Arab",
             sync: false
         }).then(function(lm) {

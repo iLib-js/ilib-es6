@@ -24,6 +24,10 @@ const ilibThaiSolarCal = require('ilib/lib/ThaiSolarCal.js');
 
 export default class ThaiSolarCal {
     constructor(options = {}) {
+        return new ilibThaiSolarCal(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibThaiSolarCal, options);
     }
 };

@@ -24,6 +24,10 @@ const ilibLocaleMatcher = require('ilib/lib/LocaleMatcher.js');
 
 export default class LocaleMatcher {
     constructor(options = {}) {
+        return new ilibLocaleMatcher(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibLocaleMatcher, options);
     }
 };

@@ -24,6 +24,10 @@ const ilibJulianCal = require('ilib/lib/JulianCal.js');
 
 export default class JulianCal {
     constructor(options = {}) {
+        return new ilibJulianCal(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibJulianCal, options);
     }
 };

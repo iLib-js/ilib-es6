@@ -24,6 +24,10 @@ const ilibNameFmt = require('ilib/lib/NameFmt.js');
 
 export default class NameFmt {
     constructor(options = {}) {
+        return new ilibNameFmt(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibNameFmt, options);
     }
 };

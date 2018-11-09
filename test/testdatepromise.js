@@ -117,7 +117,7 @@ module.exports.testdatepromise = {
             timezone: "America/Los_Angeles",
             sync: false
         }).then(function(ildMyBday) {
-            new DateFmt({
+            DateFmt.create({
                 length: "full",
                 sync: false
             }).then(function(fmt) {

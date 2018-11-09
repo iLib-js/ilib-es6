@@ -24,14 +24,14 @@ module.exports.phonefmtpromise = {
     testFormatAsyncUSNoLocale: function(test) {
         test.expect(1);
         var formatted;
-        new PhoneNumber({
+        PhoneNumber.create({
             areaCode: "456",
             subscriberNumber: "3453434"
         }, {
             sync: false
         }).then(function(parsed) {
             // default to US format
-            new PhoneFmt({
+            return PhoneFmt.create({
                 style: "default",
                 sync: false
             }).then(function(fmt) {
@@ -49,7 +49,7 @@ module.exports.phonefmtpromise = {
     testFormatAsyncUSPlusIDDtoUnknownCountry: function(test) {
         test.expect(1);
         var formatted;
-        new PhoneNumber({
+        PhoneNumber.create({
             iddPrefix: "+",
             countryCode: "506",    // costa rica
             subscriberNumber: "87654321"
@@ -57,7 +57,7 @@ module.exports.phonefmtpromise = {
             sync: false
         }).then(function(parsed) {
             // default to US format
-            new PhoneFmt({
+            return PhoneFmt.create({
                 locale: "en-US",
                 style: "dashes",
                 sync: false
@@ -77,13 +77,13 @@ module.exports.phonefmtpromise = {
     testFormatAsyncUSStyle0Emergency: function(test) {
         test.expect(1);
         var formatted;
-        new PhoneNumber({
+        PhoneNumber.create({
             emergency: "911"
         }, {
             sync: false
         }).then(function(parsed) {
             // default to US format
-            new PhoneFmt({
+            return PhoneFmt.create({
                 locale: "en-US",
                 style: "default",
                 sync: false
@@ -103,7 +103,7 @@ module.exports.phonefmtpromise = {
     testFormatAsyncUSNumberWithFRMCC: function(test) {
         test.expect(1);
         var formatted;
-        new PhoneNumber({
+        PhoneNumber.create({
             trunkAccess: "0",
             areaCode: "6",
             subscriberNumber: "15987654"
@@ -111,7 +111,7 @@ module.exports.phonefmtpromise = {
             sync: false
         }).then(function(parsed) {
             // default to US format
-            new PhoneFmt({
+            return PhoneFmt.create({
                 locale: "en-US",
                 style: "default",
                 mcc: "208",
@@ -132,7 +132,7 @@ module.exports.phonefmtpromise = {
     testFormatAsyncWithParamsFormatUSInternational: function(test) {
         test.expect(1);
         var formatted;
-        new PhoneNumber({
+        PhoneNumber.create({
             iddPrefix: "+",
             countryCode: "33",
             areaCode: "1",
@@ -141,7 +141,7 @@ module.exports.phonefmtpromise = {
             locale: "en-US",
             sync: false
         }).then(function(parsed) {
-            new PhoneFmt({
+            return PhoneFmt.create({
                 locale: "en-US",
                 sync: false
             }).then(function(fmt) {
@@ -160,7 +160,7 @@ module.exports.phonefmtpromise = {
     testFormatAsyncGBLongAreaCode: function(test) {
         test.expect(1);
         var formatted;
-        new PhoneNumber({
+        PhoneNumber.create({
             trunkAccess: "0",
             areaCode: "17684",
             subscriberNumber: "12345"
@@ -168,7 +168,7 @@ module.exports.phonefmtpromise = {
             locale: "en-GB",
             sync: false
         }).then(function(parsed) {
-            new PhoneFmt({
+            return PhoneFmt.create({
                 locale: "en-GB",
                 style: "default",
                 sync: false
@@ -190,7 +190,7 @@ module.exports.phonefmtpromise = {
     testFormatAsyncDEStyle1: function(test) {
         test.expect(1);
         var formatted;
-        new PhoneNumber({
+        PhoneNumber.create({
             trunkAccess: "0",
             areaCode: "6224",
             subscriberNumber: "1234567"
@@ -198,7 +198,7 @@ module.exports.phonefmtpromise = {
             locale: "de-DE",
             sync: false
         }).then(function(parsed) {
-            new PhoneFmt({
+            return PhoneFmt.create({
                 locale: "de-DE",
                 style: "alten",
                 sync: false
@@ -218,11 +218,11 @@ module.exports.phonefmtpromise = {
     testFormatAsyncJPStyle1: function(test) {
         test.expect(1);
         var formatted;
-        new PhoneNumber("0668795111", {
+        PhoneNumber.create("0668795111", {
             locale: "ja-JP",
             sync: false
         }).then(function(parsed) {
-            new PhoneFmt({
+            return PhoneFmt.create({
                 locale: "ja-JP",
                 style: "default",
                 sync: false

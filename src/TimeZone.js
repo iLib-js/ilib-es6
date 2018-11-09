@@ -40,6 +40,10 @@ ilibTimeZone.getAvailableIds = function(country, sync, callback) {
 
 export default class TimeZone {
     constructor(options = {}) {
+        return new ilibTimeZone(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibTimeZone, options);
     }
 

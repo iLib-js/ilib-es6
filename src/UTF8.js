@@ -24,6 +24,10 @@ const ilibUTF8 = require('ilib/lib/UTF8.js');
 
 export default class UTF8 {
     constructor(options = {}) {
+        return new ilibUTF8(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibUTF8, options);
     }
 };

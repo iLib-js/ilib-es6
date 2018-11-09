@@ -22,7 +22,7 @@ import Country from "../src/Country.js";
 module.exports.testcountrypromise = {
     testCountryAsyncConstructorEmpty: function(test) {
         test.expect(1);
-        new Country({
+        Country.create({
             sync: false
         }).then(function(ctry) {
             test.ok(ctry !== null);
@@ -32,7 +32,7 @@ module.exports.testcountrypromise = {
 
     testCountryAsyncLocale1: function(test) {
         test.expect(4);
-        new Country({
+        Country.create({
             locale: "ko-KR",
             sync: false
         }).then(function(ctry) {
@@ -48,7 +48,7 @@ module.exports.testcountrypromise = {
 
     testCountryAsyncLocale2: function(test) {
         test.expect(4);
-        new Country({
+        Country.create({
             locale: "en-US",
             sync: false
         }).then(function(ctry) {
@@ -63,7 +63,7 @@ module.exports.testcountrypromise = {
     },
 
     testCountryAsyncGetByCodeUnknown: function(test) {
-        new Country({
+        Country.create({
             locale: "en-US",
             sync: false
         }).then(function(ctry) {
@@ -79,7 +79,7 @@ module.exports.testcountrypromise = {
 
     testCountryAsyncJP: function(test) {
         test.expect(4);
-        new Country({
+        Country.create({
             locale: "ja-JP",
             sync: false
         }).then(function (ctry) {

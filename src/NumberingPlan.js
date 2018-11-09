@@ -24,6 +24,10 @@ const ilibNumberingPlan = require('ilib/lib/NumberingPlan.js');
 
 export default class NumberingPlan {
     constructor(options = {}) {
+        return new ilibNumberingPlan(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibNumberingPlan, options);
     }
 };

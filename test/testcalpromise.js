@@ -111,7 +111,7 @@ module.exports.testcalpromise = {
     testCopticDatePromiseConstructorFull: function(test) {
         test.expect(8);
         try {
-        new CopticDate({
+        CopticDate.create({
             year: 1735,
             month: 9,
             day: 23,
@@ -146,7 +146,7 @@ module.exports.testcalpromise = {
 
     testEthiopicDatePromiseConstructorFull: function(test) {
         test.expect(8);
-        new EthiopicDate({
+        EthiopicDate.create({
             year: 2011,
             month: 9,
             day: 23,
@@ -172,7 +172,7 @@ module.exports.testcalpromise = {
 
     testGregDatePromiseConstructorFull: function(test) {
         test.expect(8);
-        new GregorianDate({
+        GregorianDate.create({
             year: 2011,
             month: 9,
             day: 23,
@@ -198,7 +198,7 @@ module.exports.testcalpromise = {
 
     testHanDatePromiseConstructorFull: function(test) {
         test.expect(10);
-        new HanDate({
+        HanDate.create({
             year: 4711,
             month: 9,
             day: 23,
@@ -227,7 +227,7 @@ module.exports.testcalpromise = {
 
     testHebrewDatePromiseConstructorFull: function(test) {
         test.expect(8);
-        new HebrewDate({
+        HebrewDate.create({
             year: 2011,
             month: 9,
             day: 23,
@@ -254,7 +254,7 @@ module.exports.testcalpromise = {
 
     testIslamicDatePromiseConstructorFull: function(test) {
         test.expect(8);
-        new IslamicDate({
+        IslamicDate.create({
             year: 2011,
             month: 9,
             day: 23,
@@ -281,7 +281,7 @@ module.exports.testcalpromise = {
 
     testJulDatePromiseConstructorFull: function(test) {
         test.expect(8);
-        new JulianDate({
+        JulianDate.create({
             year: 2011,
             month: 9,
             day: 23,
@@ -308,7 +308,7 @@ module.exports.testcalpromise = {
 
     testPersAlgoDatePromiseConstructorFull: function(test) {
         test.expect(8);
-        new PersianAlgoDate({
+        PersianAlgoDate.create({
             year: 1392,
             month: 9,
             day: 23,
@@ -335,7 +335,7 @@ module.exports.testcalpromise = {
 
     testPersDateAstroAsyncConstructorFull: function(test) {
         test.expect(8);
-        new PersianDate({
+        PersianDate.create({
             year: 1392,
             month: 9,
             day: 23,
@@ -362,7 +362,7 @@ module.exports.testcalpromise = {
 
     testThaiSolarDatePromiseConstructorFull: function(test) {
         test.expect(8);
-        new ThaiSolarDate({
+        ThaiSolarDate.create({
             year: 2553,
             month: 9,
             day: 23,

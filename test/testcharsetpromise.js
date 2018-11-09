@@ -22,7 +22,7 @@ import Charset from "../src/Charset.js";
 module.exports.testcharsetpromise = {
     testCharsetAsyncConstructor: function(test) {
         test.expect(1);
-        new Charset({
+        Charset.create({
             sync: false
         }).then(function(cs) {
             test.ok(cs !== null);
@@ -32,12 +32,12 @@ module.exports.testcharsetpromise = {
 
     testCharsetAsyncGetStandardNameIdentity: function(test) {
         test.expect(2);
-        new Charset({
+        Charset.create({
             name: "UTF-8",
             sync: false
         }).then(function(cs) {
             test.equal(cs.getName(), "UTF-8");
-            return new Charset({
+            return Charset.create({
                 name: "KOI8-R",
                 sync: false
             });
@@ -49,7 +49,7 @@ module.exports.testcharsetpromise = {
 
     testCharsetAsyncGetStandardNameUndefined: function(test) {
         test.expect(1);
-        new Charset({
+        Charset.create({
             sync: false
         }).then(function(cs) {
             test.ok(typeof(cs) !== "undefined");
@@ -59,7 +59,7 @@ module.exports.testcharsetpromise = {
 
     testCharsetAsyncGetStandardNameIdentityUnknown: function(test) {
         test.expect(1);
-        new Charset({
+        Charset.create({
             name: "foobarfoo",
             sync: false
         }).then(function(cs) {
@@ -70,7 +70,7 @@ module.exports.testcharsetpromise = {
 
     testCharsetAsyncGetStandardNameUTF8: function(test) {
         test.expect(1);
-        new Charset({
+        Charset.create({
             name: "UTF8",
             sync: false
         }).then(function(cs) {
@@ -81,18 +81,18 @@ module.exports.testcharsetpromise = {
 
     testCharsetAsyncGetStandardNameISOLatin1: function(test) {
         test.expect(3);
-        new Charset({
+        Charset.create({
             name: "Latin1",
             sync: false
         }).then(function(cs) {
             test.equal(cs.getName(), "ISO-8859-1");
-            return new Charset({
+            return Charset.create({
                 name: "ISO-8859-1",
                 sync: false
             });
         }).then(function(cs) {
             test.equal(cs.getName(), "ISO-8859-1");
-            return new Charset({
+            return Charset.create({
                 name: "ISO-Latin-1",
                 sync: false
             });
@@ -104,7 +104,7 @@ module.exports.testcharsetpromise = {
 
     testCharsetAsyncGetOriginalNameUnknown: function(test) {
         test.expect(1);
-        new Charset({
+        Charset.create({
             name: "foobarfoo",
             sync: false
         }).then(function(cs) {
@@ -115,7 +115,7 @@ module.exports.testcharsetpromise = {
 
     testCharsetAsyncMinCharWidth1: function(test) {
         test.expect(1);
-        new Charset({
+        Charset.create({
             name: "Latin1",
             sync: false
         }).then(function(cs) {
@@ -127,7 +127,7 @@ module.exports.testcharsetpromise = {
     testCharsetAsyncMinCharWidth2: function(test) {
         test.expect(1);
         // built-in
-        new Charset({
+        Charset.create({
             name: "UCS-2",
             sync: false
         }).then(function(cs) {
@@ -138,7 +138,7 @@ module.exports.testcharsetpromise = {
 
     testCharsetAsyncIsMultibyteTrue: function(test) {
         test.expect(1);
-        new Charset({
+        Charset.create({
             name: "Shift_JIS",
             sync: false
         }).then(function(cs) {
@@ -150,7 +150,7 @@ module.exports.testcharsetpromise = {
 
     testCharsetAsyncIsBigEndianUTF16: function(test) {
         test.expect(1);
-        new Charset({
+        Charset.create({
             name: "UTF-16",
             sync: false
         }).then(function(cs) {

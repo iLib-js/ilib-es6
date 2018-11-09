@@ -24,6 +24,10 @@ const ilibJulianDate = require('ilib/lib/JulianDate.js');
 
 export default class JulianDate {
     constructor(options = {}) {
+        return new ilibJulianDate(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibJulianDate, options);
     }
 };

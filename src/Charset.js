@@ -24,6 +24,10 @@ const ilibCharset = require('ilib/lib/Charset.js');
 
 export default class Charset {
     constructor(options = {}) {
+        return new ilibCharset(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibCharset, options);
     }
 };

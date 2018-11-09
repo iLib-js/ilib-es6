@@ -40,7 +40,7 @@ module.exports.testnormpromise = {
     testNormStringAsyncNormalizeNFD: function(test) {
         test.expect(1);
 
-        new NormString("ᄀ각ᆨ", {
+        NormString.create("ᄀ각ᆨ", {
             sync: false
         }).then(function(str) {
             test.equal(str.normalize("nfd"), "ᄀ각ᆨ");
@@ -50,7 +50,7 @@ module.exports.testnormpromise = {
 
     testNormStringAsyncNormalizeNFKD: function(test) {
         test.expect(1);
-        new NormString("ᄀ각ᆨ", {
+        NormString.create("ᄀ각ᆨ", {
             sync: false
         }).then(function(str) {
             test.equal(str.normalize("nfkd"), "ᄀ각ᆨ");
@@ -60,7 +60,7 @@ module.exports.testnormpromise = {
 
     testNormStringAsyncNormalizeNFC: function(test) {
         test.expect(1);
-        new NormString("ᄀ각ᆨ", {
+        NormString.create("ᄀ각ᆨ", {
             sync: false
         }).then(function(str) {
             test.equal(str.normalize("nfc"), "ᄀ각ᆨ");
@@ -70,7 +70,7 @@ module.exports.testnormpromise = {
 
     testNormStringAsyncNormalizeNFKC: function(test) {
         test.expect(1);
-        new NormString("ᄀ각ᆨ", {
+        NormString.create("ᄀ각ᆨ", {
             sync: false
         }).then(function(str) {
             test.equal(str.normalize("nfkc"), "ᄀ각ᆨ");
@@ -80,7 +80,7 @@ module.exports.testnormpromise = {
 
     testNormStringAsyncCharIteratorDecomposed: function(test) {
         test.expect(8);
-        var s = new NormString("aÄa", { // the A umlaut is a decomposed char
+        var s = NormString.create("aÄa", { // the A umlaut is a decomposed char
             sync: false
         }).then(function(str) {
             var it = str.charIterator();

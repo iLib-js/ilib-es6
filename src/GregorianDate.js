@@ -24,6 +24,10 @@ const ilibGregorianDate = require('ilib/lib/GregorianDate.js');
 
 export default class GregorianDate {
     constructor(options = {}) {
+        return new ilibGregorianDate(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibGregorianDate, options);
     }
 };

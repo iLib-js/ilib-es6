@@ -22,7 +22,7 @@ import GlyphString from "../src/GlyphString.js";
 module.exports.testglyphstrpromise = {
     testGlyphStrAsyncCharIteratorNormal: function(test) {
         test.expect(8);
-        new GlyphString("aÄa", { // the A umlaut is a decomposed char
+        GlyphString.create("aÄa", { // the A umlaut is a decomposed char
             sync: false
         }).then(function(s) {
             var it = s.charIterator();
@@ -41,7 +41,7 @@ module.exports.testglyphstrpromise = {
 
     testGlyphStrAsyncCharIteratorEmpty: function(test) {
         test.expect(2);
-        var s = new GlyphString("", {
+        var s = GlyphString.create("", {
             sync: false
         }).then(function(s) {
             var it = s.charIterator();
@@ -54,7 +54,7 @@ module.exports.testglyphstrpromise = {
 
     testGlyphStrAsyncCharIteratorMultipleDecomposed: function(test) {
         test.expect(8);
-        var s = new GlyphString("aẬa", { // the accented A is a decomposed char with 2 accents
+        var s = GlyphString.create("aẬa", { // the accented A is a decomposed char with 2 accents
             sync: false
         }).then(function(s) {
             var it = s.charIterator();
@@ -73,7 +73,7 @@ module.exports.testglyphstrpromise = {
 
     testGlyphStrAsyncTruncateWithCombiningAccentsWholeGlyphs: function(test) {
         test.expect(1);
-        var s = new GlyphString("aẬbẬcẬdẬe", { // the accented A is a decomposed char with 2 accents
+        var s = GlyphString.create("aẬbẬcẬdẬe", { // the accented A is a decomposed char with 2 accents
             sync: false
         }).then(function(s) {
             test.equal(s.truncate(4), "aẬbẬ");
@@ -83,7 +83,7 @@ module.exports.testglyphstrpromise = {
 
     testGlyphStrAsyncTruncateThai: function(test) {
         test.expect(1);
-        var s = new GlyphString("สวัุสดีคุณเป็นอย่างไรบ้าง", {
+        var s = GlyphString.create("สวัุสดีคุณเป็นอย่างไรบ้าง", {
             sync: false
         }).then(function(s) {
             // this tests non-spacing marks that are also non-combining
@@ -95,7 +95,7 @@ module.exports.testglyphstrpromise = {
 
     testGlyphStrAsyncTruncateDevanagari1: function(test) {
         test.expect(1);
-        var s = new GlyphString("हैलो, आप कैसे हैं?", {
+        var s = GlyphString.create("हैलो, आप कैसे हैं?", {
             sync: false
         }).then(function(s) {
             // if the 2nd base character has combining spacing accents on it,
@@ -108,7 +108,7 @@ module.exports.testglyphstrpromise = {
 
     testGlyphStrAsyncEllipsizeDevanagari2: function(test) {
         test.expect(1);
-        var s = new GlyphString("हैलो, आप कैसे हैं?", {
+        var s = GlyphString.create("हैलो, आप कैसे हैं?", {
             sync: false
         }).then(function(s) {
             test.equal(s.ellipsize(8), "हैलो, आप …");
@@ -118,7 +118,7 @@ module.exports.testglyphstrpromise = {
 
     testGlyphStrAsyncEllipsizeJapanese: function(test) {
         test.expect(1);
-        var s = new GlyphString("ェドイン", {
+        var s = GlyphString.create("ェドイン", {
             sync: false
         }).then(function(s) {
             test.equal(s.ellipsize(3), "ェド…");

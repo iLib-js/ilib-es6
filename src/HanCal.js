@@ -24,6 +24,10 @@ const ilibHanCal = require('ilib/lib/HanCal.js');
 
 export default class HanCal {
     constructor(options = {}) {
+        return new ilibHanCal(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibHanCal, options);
     }
 };

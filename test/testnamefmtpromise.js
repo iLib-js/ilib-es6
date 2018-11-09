@@ -23,7 +23,7 @@ import Name from "../src/Name.js";
 module.exports.testnamefmtpromise = {
     testNameFmtAsyncConstructor: function(test) {
         test.expect(1);
-        new NameFmt({
+        NameFmt.create({
             sync: false
         }).then(function(fmt) {
             test.ok(typeof(fmt) !== "undefined");
@@ -33,7 +33,7 @@ module.exports.testnamefmtpromise = {
 
     testNameFmtAsyncGetBogus: function(test) {
         test.expect(1);
-        new NameFmt({
+        NameFmt.create({
             locale: "ii-II",
             sync: false
         }).then(function(fmt) {
@@ -45,7 +45,7 @@ module.exports.testnamefmtpromise = {
 
     testNameFmtAsyncENFull: function(test) {
         test.expect(1);
-        new Name({
+        Name.create({
             prefix: "Mr.",
             givenName: "John",
             middleName: "Kevin",
@@ -54,7 +54,7 @@ module.exports.testnamefmtpromise = {
         }, {
             sync: false
         }).then(function(name) {
-            return new NameFmt({
+            return NameFmt.create({
                 style: "full",
                 sync: false
             }).then(function(fmt) {
@@ -66,7 +66,7 @@ module.exports.testnamefmtpromise = {
 
     testNameFmtAsyncDEFull: function(test) {
         test.expect(1);
-        new Name({
+        Name.create({
             prefix: "Hr.",
             givenName: "Andreas",
             middleName: "Helmut",
@@ -76,7 +76,7 @@ module.exports.testnamefmtpromise = {
             locale: "de-DE",
             sync: false
         }).then(function(name) {
-            new NameFmt({
+            NameFmt.create({
                 style: "full",
                 locale: "de-DE",
                 sync: false
@@ -89,7 +89,7 @@ module.exports.testnamefmtpromise = {
 
     testNameFmtAsyncZHFormalLong: function(test) {
         test.expect(1);
-        new Name({
+        Name.create({
             honorific: "医生",
             givenName: "芳",
             familyName: "李"
@@ -97,7 +97,7 @@ module.exports.testnamefmtpromise = {
             locale: "zh-Hans-CN",
             sync: false
         }).then(function(name) {
-            new NameFmt({
+            NameFmt.create({
                 style: "formal_long",
                 locale: "zh-Hans-CN",
                 sync: false
@@ -110,7 +110,7 @@ module.exports.testnamefmtpromise = {
 
     testNameFmtAsyncZHFormalLong: function(test) {
         test.expect(1);
-        new Name({
+        Name.create({
             honorific: "닥터",
             givenName: "은성",
             familyName: "박"
@@ -118,7 +118,7 @@ module.exports.testnamefmtpromise = {
             locale: "ko-KR",
             sync: false
         }).then(function(name) {
-            new NameFmt({
+            NameFmt.create({
                 style: "formal_long",
                 locale: "ko-KR",
                 sync: false

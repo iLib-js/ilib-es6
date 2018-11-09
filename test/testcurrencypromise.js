@@ -22,7 +22,7 @@ import Currency from "../src/Currency.js";
 module.exports.testcurrencypromise = {
     testCurrencyAsyncDefaults: function(test) {
         test.expect(7);
-        new Currency({
+        Currency.create({
             sync: false
         }).then(function(cur) {
             test.ok(cur !== null);
@@ -40,7 +40,7 @@ module.exports.testcurrencypromise = {
 
     testCurrencyAsyncGetByCode1: function(test) {
         test.expect(6);
-        new Currency({
+        Currency.create({
             code: "EUR",
             sync: false
         }).then(function(cur) {
@@ -57,7 +57,7 @@ module.exports.testcurrencypromise = {
     },
 
     testCurrencyAsyncGetByCodeUnknown: function(test) {
-        new Currency({
+        Currency.create({
             code: "xxx",
             sync: false
         }).then(function(cur) {
@@ -68,7 +68,7 @@ module.exports.testcurrencypromise = {
 
     testCurrencyAsyncGetBySignUnambiguous: function(test) {
         test.expect(6);
-        new Currency({
+        Currency.create({
             sign: "€",
             sync: false
         }).then(function(cur) {
@@ -86,7 +86,7 @@ module.exports.testcurrencypromise = {
 
     testCurrencyAsync: function(test) {
         test.expect(6);
-        new Currency({
+        Currency.create({
             locale: "en-GB",
             sign: "$",
             sync: false
