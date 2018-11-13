@@ -1,8 +1,8 @@
 {
     "name": "ilib-es6",
     "version": "1.1.0",
-    "main": "ilib",
-    "main-es6": "ilib.mjs",
+    "main": "./ilib.js",
+    "main-es6": "./ilib-es6.js",
     "description": "ES6 wrappers around iLib classes",
     "keywords": [
         "internationalization",
@@ -35,8 +35,8 @@
     "files": [
         "src",
         "ilib-es6.js",
-        "ilib.mjs",
-        "ilib.mjs.map",
+        "ilib.js",
+        "ilib.js.map",
         "lib",
         "README.md",
         "LICENSE"
@@ -46,8 +46,8 @@
         "url": "git@github.com:iLib-js/ilib-es6.git"
     },
     "scripts": {
-        "build": "grunt",
-        "dist": "grunt ; npm pack",
+        "build": "grunt babel",
+        "dist": "npm run build ; npm pack",
         "test": "npm run build ; node test/testSuite.js"
     },
     "dependencies": {
