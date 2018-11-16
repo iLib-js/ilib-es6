@@ -3,6 +3,8 @@ node_js:
   - "8"
   - "9"
   - "10"
+before_install:
+  - export TZ=America/Los_Angeles
 install:
   # Qt
   - npm install
@@ -10,7 +12,8 @@ install:
   - export NODE_OPTIONS="--max-old-space-size=3072"
 script:
   - npm run clean
-  - npm run test
+  - npm run build
+  - node test/testSuite.js
 branches:
   only:
     - master
