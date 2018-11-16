@@ -24,6 +24,10 @@ const ilibCopticCal = require('ilib/lib/CopticCal.js');
 
 export default class CopticCal {
     constructor(options = {}) {
+        return new ilibCopticCal(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibCopticCal, options);
     }
 };

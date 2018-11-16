@@ -24,6 +24,10 @@ const ilibIslamicDate = require('ilib/lib/IslamicDate.js');
 
 export default class IslamicDate {
     constructor(options = {}) {
+        return new ilibIslamicDate(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibIslamicDate, options);
     }
 };

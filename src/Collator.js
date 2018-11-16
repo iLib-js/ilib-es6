@@ -24,6 +24,10 @@ const ilibCollator = require('ilib/lib/Collator.js');
 
 export default class Collator {
     constructor(options = {}) {
+        return new ilibCollator(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibCollator, options);
     }
     

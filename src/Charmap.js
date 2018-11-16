@@ -24,6 +24,10 @@ const ilibCharmap = require('ilib/lib/Charmap.js');
 
 export default class Charmap {
     constructor(options = {}) {
+        return new ilibCharmap(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibCharmap, options);
     }
 };

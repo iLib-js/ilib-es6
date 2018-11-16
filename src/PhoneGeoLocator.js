@@ -24,6 +24,10 @@ const ilibPhoneGeoLocator = require('ilib/lib/PhoneGeoLocator.js');
 
 export default class PhoneGeoLocator {
     constructor(options = {}) {
+        return new ilibPhoneGeoLocator(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibPhoneGeoLocator, options);
     }
 };

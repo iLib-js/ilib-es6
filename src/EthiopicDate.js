@@ -24,6 +24,10 @@ const ilibEthiopicDate = require('ilib/lib/EthiopicDate.js');
 
 export default class EthiopicDate {
     constructor(options = {}) {
+        return new ilibEthiopicDate(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibEthiopicDate, options);
     }
 };

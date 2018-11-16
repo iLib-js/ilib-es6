@@ -24,6 +24,10 @@ const ilibThaiSolarDate = require('ilib/lib/ThaiSolarDate.js');
 
 export default class ThaiSolarDate {
     constructor(options = {}) {
+        return new ilibThaiSolarDate(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibThaiSolarDate, options);
     }
 };

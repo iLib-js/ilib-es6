@@ -27,7 +27,7 @@ module.exports.testunitfmtpromise = {
             amount: 3000,
             unit: "meter"
         });
-        new UnitFmt({
+        UnitFmt.create({
             autoConvert: false,
             sync: false
         }).then(function(fmt) {
@@ -44,7 +44,7 @@ module.exports.testunitfmtpromise = {
             amount: 1233453
         });
 
-        new UnitFmt({
+        UnitFmt.create({
             autoScale: false, 
             autoConvert:false,
             sync: false
@@ -62,7 +62,7 @@ module.exports.testunitfmtpromise = {
             amount: 2
         });
 
-        new UnitFmt({
+        UnitFmt.create({
             autoConvert:false,
             sync: false
         }).then(function(fmt) {
@@ -79,7 +79,7 @@ module.exports.testunitfmtpromise = {
             amount: 2
         });
 
-        new UnitFmt({
+        UnitFmt.create({
             locale: "ru-RU",
             autoConvert: false,
             sync: false
@@ -97,7 +97,7 @@ module.exports.testunitfmtpromise = {
             amount: 1000
         });
 
-        new UnitFmt({
+        UnitFmt.create({
             locale: "ko-KR",
             autoConvert: false,
             sync: false
@@ -115,7 +115,7 @@ module.exports.testunitfmtpromise = {
             amount: 1000
         });
 
-        new UnitFmt({
+        UnitFmt.create({
             locale: "fr-FR",
             autoConvert: false,
             sync: false

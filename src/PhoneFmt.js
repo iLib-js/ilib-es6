@@ -45,6 +45,10 @@ function wrapFormat(phoneFmt) {
 
 export default class PhoneFmt {
     constructor(options = {}) {
+        return wrapFormat(new ilibPhoneFmt(options));
+    }
+
+    static create(options = {}) {
         return promisifyFunction(function(options = {}) {
             return wrapFormat(new ilibPhoneFmt(options));
         }, options);

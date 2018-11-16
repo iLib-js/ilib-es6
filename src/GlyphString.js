@@ -24,6 +24,10 @@ const ilibGlyphString = require('ilib/lib/GlyphString.js');
 
 export default class GlyphString {
     constructor(str, options = {}) {
+        return new ilibGlyphString(str, options);
+    }
+
+    static create(str, options = {}) {
         return promisifyFunction(function(opts = {}) {
             const { str } = opts;
             return new ilibGlyphString(str, opts);

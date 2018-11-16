@@ -57,16 +57,18 @@ module.exports.testcalasync = {
 
     testCalendarFactoryAsyncUnknown: function(test) {
         test.expect(1);
-        CalendarFactory({
-            type: "asdf",
-            sync: false,
-            onLoad: function(cal) {
-                test.ok(typeof(cal) === "undefined");
-                test.done();
-            }
-        }).catch(function(e) {
+        try {
+            CalendarFactory({
+                type: "asdf",
+                sync: false,
+                onLoad: function(cal) {
+                    test.ok(typeof(cal) === "undefined");
+                    test.done();
+                }
+            });
+        } catch (e) {
             console.log("caught: " + e);
-        });
+        }
     },
 
     testCalendarFactoryAsyncDefaultForLocale: function(test) {

@@ -25,7 +25,7 @@ import DateFmt from "../lib/DateFmt.js";
 module.exports.testdatefmtrangepromise = {
     testDateRngFmtConstructorEmpty: function(test) {
         test.expect(1);
-        new DateRngFmt({
+        DateRngFmt.create({
             sync: false
         }).then(function(fmt) {
             test.ok(fmt !== null);
@@ -36,7 +36,7 @@ module.exports.testdatefmtrangepromise = {
 
     testDateRngFmtGetCalendarExplicit: function(test) {
         test.expect(3);
-        new DateRngFmt({
+        DateRngFmt.create({
             calendar: "julian",
             sync: false
         }).then(function(fmt) {
@@ -50,7 +50,7 @@ module.exports.testdatefmtrangepromise = {
     },
 
     testDateRngFmtGetCalendarNotInThisLocale: function(test) {
-        new DateRngFmt({
+        DateRngFmt.create({
             calendar: "arabic",
             locale: 'en-US',
             sync: false
@@ -63,7 +63,7 @@ module.exports.testdatefmtrangepromise = {
 
     testDateRngFmtGetLocale: function(test) {
         test.expect(2);
-        var fmt = new DateRngFmt({
+        var fmt = DateRngFmt.create({
             locale: "de-DE",
             sync: false
         }).then(function(fmt) {
@@ -76,7 +76,7 @@ module.exports.testdatefmtrangepromise = {
 
     testDateRngFmtGetTimeZone: function(test) {
         test.expect(2);
-        var fmt = new DateRngFmt({
+        var fmt = DateRngFmt.create({
             timezone: "Europe/Paris",
             sync: false
         }).then(function(fmt) {
@@ -90,7 +90,7 @@ module.exports.testdatefmtrangepromise = {
 
     testDateRngFmtGetDefaultLocale: function(test) {
         test.expect(2);
-        var fmt = new DateRngFmt({
+        var fmt = DateRngFmt.create({
             locale: "yy-YY",
             sync: false
         }).then(function(fmt) {
@@ -105,14 +105,14 @@ module.exports.testdatefmtrangepromise = {
 
     testDateRngFmtesPAMultiDayMedium: function(test) {
         test.expect(2);
-        var fmt = new DateRngFmt({
+        var fmt = DateRngFmt.create({
             locale: "es-PA",
             length: "medium",
             sync: false
         }).then(function(fmt) {
             test.ok(fmt !== null);
 
-            new GregorianDate({
+            GregorianDate.create({
                 year: 2011,
                 month: 6,
                 day: 20,
@@ -122,7 +122,7 @@ module.exports.testdatefmtrangepromise = {
                 millisecond: 0,
                 sync: false
             }).then(function(start) {
-                new GregorianDate({
+                GregorianDate.create({
                     year: 2011,
                     month: 6,
                     day: 28,
@@ -141,14 +141,14 @@ module.exports.testdatefmtrangepromise = {
 
     testDateRngFmtesPRNextMonthMedium: function(test) {
         test.expect(2);
-        var fmt = new DateRngFmt({
+        var fmt = DateRngFmt.create({
             locale: "es-PR",
             length: "medium",
             sync: false
         }).then(function(fmt) {
             test.ok(fmt !== null);
 
-            new GregorianDate({
+            GregorianDate.create({
                 year: 2011,
                 month: 6,
                 day: 20,
@@ -158,7 +158,7 @@ module.exports.testdatefmtrangepromise = {
                 millisecond: 0,
                 sync: false
             }).then(function(start) {
-                new GregorianDate({
+                GregorianDate.create({
                     year: 2011,
                     month: 11,
                     day: 28,
@@ -177,7 +177,7 @@ module.exports.testdatefmtrangepromise = {
 
     testDateRngFmtAcceptJSIntrisicDates: function(test) {
         test.expect(2);
-        var fmt = new DateRngFmt({
+        var fmt = DateRngFmt.create({
             locale: "en-US",
             length: "short",
             sync: false
@@ -193,7 +193,7 @@ module.exports.testdatefmtrangepromise = {
 
     testDateRngFmtAcceptUnixTimes: function(test) {
         test.expect(2);
-        var fmt = new DateRngFmt({
+        var fmt = DateRngFmt.create({
             locale: "en-US",
             length: "short",
             sync: false

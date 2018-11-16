@@ -20,19 +20,12 @@
 
 import { promisifyFunction } from './promisify';
 
-const ilibCharmapFactory = require('ilib/lib/CharmapFactory.js');
+const CharmapFactory = require('ilib/lib/CharmapFactory.js');
 
 export function CharmapFactoryAsync(options = {}) {
     var opts = Object.assign({}, options);
     opts.sync = false;
-    return promisifyFunction(ilibCharmapFactory, opts);
+    return promisifyFunction(CharmapFactory, opts);
 };
 
-export default function CharmapFactory(options = {}) {
-    const { sync } = options;
-    if (typeof(sync) === 'boolean' && !sync) {
-        return CharmapFactoryAsync(options);
-    }
-
-    return ilibCharmapFactory(options);
-};
+export default CharmapFactory;

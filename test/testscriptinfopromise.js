@@ -22,7 +22,7 @@ import ScriptInfo from "../lib/ScriptInfo.js";
 module.exports.testscriptinfopromise = {
     testScriptInfoAsyncConstructor: function(test) {
         test.expect(1);
-        var si = new ScriptInfo(undefined, {
+        var si = ScriptInfo.create(undefined, {
             sync: false
         }).then(function(si) {
             test.ok(si !== null);
@@ -32,7 +32,7 @@ module.exports.testscriptinfopromise = {
 
     testScriptInfoAsyncGet1: function(test) {
         test.expect(8);
-        var si = new ScriptInfo("Latn", {
+        var si = ScriptInfo.create("Latn", {
             sync: false
         }).then(function(si) {
             test.ok(si !== null);
@@ -50,7 +50,7 @@ module.exports.testscriptinfopromise = {
 
     testScriptInfoAsyncGet4: function(test) {
         test.expect(8);
-        var si = new ScriptInfo("Hans", {
+        var si = ScriptInfo.create("Hans", {
             sync: false
         }).then(function(si) {
             test.ok(si !== null);
@@ -68,7 +68,7 @@ module.exports.testscriptinfopromise = {
 
     testScriptInfoAsyncGetDefaultLongCodeArab: function(test) {
         test.expect(8);
-        var si = new ScriptInfo("Arab", {
+        var si = ScriptInfo.create("Arab", {
             sync: false
         }).then(function(si) {
             test.ok(si !== null);
@@ -85,7 +85,7 @@ module.exports.testscriptinfopromise = {
     },
     testScriptInfoAsyncGetUnknown: function(test) {
         test.expect(5);
-        var si = new ScriptInfo("Fooo", {
+        var si = ScriptInfo.create("Fooo", {
             sync: false
         }).then(function(si) {
             test.ok(si !== null);

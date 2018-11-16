@@ -22,7 +22,7 @@ import DurationFmt from "../lib/DurationFmt.js";
 module.exports.testdurfmtpromise = {
     testDurFmtAsyncConstructorEmpty: function(test) {
         test.expect(1);
-        new DurationFmt({
+        DurationFmt.create({
             sync: false
         }).then(function(fmt) {
             test.ok(fmt !== null);
@@ -33,7 +33,7 @@ module.exports.testdurfmtpromise = {
 
     testDurFmtAsyncGetLocale: function(test) {
         test.expect(2);
-        new DurationFmt({
+        DurationFmt.create({
             locale: "de-DE",
             sync: false
         }).then(function(fmt) {
@@ -46,7 +46,7 @@ module.exports.testdurfmtpromise = {
 
     testDurFmtAsyncGetLocaleBogus: function(test) {
         test.expect(2);
-        new DurationFmt({
+        DurationFmt.create({
             locale: "zyy-XX",
             sync: false
         }).then(function(fmt) {
@@ -59,7 +59,7 @@ module.exports.testdurfmtpromise = {
 
     testDurFmtAsyncFormatShortText: function(test) {
         test.expect(2);
-        new DurationFmt({
+        DurationFmt.create({
             length: "short",
             sync: false
         }).then(function(fmt) {
@@ -82,7 +82,7 @@ module.exports.testdurfmtpromise = {
 
     testDurFmtAsyncFormatLongSingle: function(test) {
         test.expect(2);
-        new DurationFmt({
+        DurationFmt.create({
             length: "long",
             sync: false
         }).then(function(fmt) {
@@ -105,7 +105,7 @@ module.exports.testdurfmtpromise = {
 
     testDurFmtAsyncFormatFullPlural: function(test) {
         test.expect(2);
-        new DurationFmt({
+        DurationFmt.create({
             length: "full",
             sync: false
         }).then(function(fmt) {
@@ -128,7 +128,7 @@ module.exports.testdurfmtpromise = {
 
     testDurFmtAsyncFormatShortDEDefaultStyle: function(test) {
         test.expect(2);
-        new DurationFmt({
+        DurationFmt.create({
             locale: "de-DE",
             length: "short",
             sync: false
@@ -151,7 +151,7 @@ module.exports.testdurfmtpromise = {
 
     testDurFmtAsyncFormatFullDESingle: function(test) {
         test.expect(2);
-        new DurationFmt({
+        DurationFmt.create({
             locale: "de-DE",
             length: "full",
             sync: false
@@ -175,7 +175,7 @@ module.exports.testdurfmtpromise = {
 
     testDurFmtAsyncFormatShortZHText: function(test) {
         test.expect(2);
-        new DurationFmt({
+        DurationFmt.create({
             locale: "zh-Hans-CN",
             length: "short",
             style: "text",
@@ -200,7 +200,7 @@ module.exports.testdurfmtpromise = {
 
     testDurFmtAsyncFormatShortZHClock: function(test) {
         test.expect(2);
-        new DurationFmt({
+        DurationFmt.create({
             locale: "zh-Hans-CN",
             length: "short",
             style: "clock",
@@ -225,7 +225,7 @@ module.exports.testdurfmtpromise = {
 
     testDurFmtAsyncFormatFullZH: function(test) {
         test.expect(2);
-        new DurationFmt({
+        DurationFmt.create({
             locale: "zh-Hans-CN",
             length: "full",
             sync: false

@@ -22,7 +22,7 @@ import NumFmt from "../lib/NumFmt.js";
 module.exports.testnumfmtpromise = {
     testNumFmtAsyncDefaults: function(test) {
         test.expect(7);
-        new NumFmt({
+        NumFmt.create({
             sync: false
         }).then(function(fmt) {
             test.ok(fmt !== null);
@@ -40,7 +40,7 @@ module.exports.testnumfmtpromise = {
 
     testNumFmtAsyncNumberFormatSimple: function(test) {
         test.expect(2);
-        new NumFmt({
+        NumFmt.create({
             sync: false
         }).then(function(fmt) {
             test.ok(fmt !== null);
@@ -52,7 +52,7 @@ module.exports.testnumfmtpromise = {
 
     testNumFmtAsyncNumberStyleStringArgument: function(test) {
         test.expect(2);
-        new NumFmt({
+        NumFmt.create({
             style: "standard",
             sync: false
         }).then(function(fmt) {
@@ -66,7 +66,7 @@ module.exports.testnumfmtpromise = {
 
     testNumFmtAsyncFormatNativeDefaultTrue: function(test) {
         test.expect(2);
-        new NumFmt({
+        NumFmt.create({
             locale: "bn-IN",
             sync: false
         }).then(function(fmt) {
@@ -79,7 +79,7 @@ module.exports.testnumfmtpromise = {
 
     testNumFmtAsyncCurrencyFormatUS: function(test) {
         test.expect(2);
-        new NumFmt({
+        NumFmt.create({
             type: "currency",
             currency: "USD",
             sync: false
@@ -93,7 +93,7 @@ module.exports.testnumfmtpromise = {
 
     testNumFmtAsyncCurrencyGetFractionDigitsOtherCurrency: function(test) {
         test.expect(3);
-        new NumFmt({
+        NumFmt.create({
             type: "currency",
             currency: "JPY",  // Japanese yen
             sync: false
@@ -108,7 +108,7 @@ module.exports.testnumfmtpromise = {
 
     testNumFmtAsyncPercentageFormatRegular_kn_IN: function(test) {
         test.expect(2);
-        new NumFmt({
+        NumFmt.create({
             locale: "kn-IN",
             useNative: true,
             type: "percentage",

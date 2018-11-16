@@ -24,6 +24,10 @@ const ilibPersianCal = require('ilib/lib/PersianCal.js');
 
 export default class PersianCal {
     constructor(options = {}) {
+        return new ilibPersianCal(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibPersianCal, options);
     }
 };

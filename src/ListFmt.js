@@ -24,6 +24,10 @@ const ilibListFmt = require('ilib/lib/ListFmt.js');
 
 export default class ListFmt {
     constructor(options = {}) {
+        return new ilibListFmt(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibListFmt, options);
     }
 };

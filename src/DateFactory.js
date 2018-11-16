@@ -20,23 +20,11 @@
 
 import { promisifyFunction } from './promisify';
 
-const ilibDateFactory = require('ilib/lib/DateFactory.js');
+const DateFactory = require('ilib/lib/DateFactory.js');
 
 export function DateFactoryAsync(options = {}) {
-    var opts = Object.assign({}, options);
-    opts.sync = false;
-    return promisifyFunction(ilibDateFactory, opts);
+    var opts = Object.assign({}, options, {sync: false});
+    return promisifyFunction(DateFactory, opts);
 };
-
-function DateFactory(options = {}) {
-    const { sync } = options;
-    if (typeof(sync) === 'boolean' && !sync) {
-        return DateFactoryAsync(options);
-    }
-
-    return ilibDateFactory(options);
-};
-
-DateFactory._dateToIlib = ilibDateFactory._dateToIlib;
 
 export default DateFactory;

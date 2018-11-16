@@ -24,6 +24,10 @@ const ilibUnitFmt = require('ilib/lib/UnitFmt.js');
 
 export default class UnitFmt {
     constructor(options = {}) {
+        return new ilibUnitFmt(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibUnitFmt, options);
     }
 };

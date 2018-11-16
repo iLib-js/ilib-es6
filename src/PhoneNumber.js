@@ -42,6 +42,10 @@ function wrapNormalize(phoneNumber) {
 
 export default class PhoneNumber {
     constructor(phoneNumber, options = {}) {
+        return wrapNormalize(new ilibPhoneNumber(phoneNumber, options));
+    }
+
+    static create(phoneNumber, options = {}) {
         return promisifyFunction(function(opts = {}) {
             const { phoneNumber } = opts;
             return wrapNormalize(new ilibPhoneNumber(phoneNumber, opts));

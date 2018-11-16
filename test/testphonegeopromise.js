@@ -23,10 +23,10 @@ import PhoneGeoLocator from "../lib/PhoneGeoLocator.js";
 module.exports.phonegeopromise = {
     testPhoneGeoAsyncNANP: function(test) {
         test.expect(6);
-        new PhoneNumber("+1 650 654 3210", {
+        PhoneNumber.create("+1 650 654 3210", {
             sync: false
         }).then(function(parsed) {
-            new PhoneGeoLocator({
+            PhoneGeoLocator.create({
                 sync: false
             }).then(function(locator) {
                 var expected = {
@@ -56,10 +56,10 @@ module.exports.phonegeopromise = {
 
     testPhoneGeoAsyncNANPOtherLocale: function(test) {
         test.expect(6);
-        new PhoneNumber("+1 650 654 3210", {
+        PhoneNumber.create("+1 650 654 3210", {
             sync: false
         }).then(function(parsed) {
-            new PhoneGeoLocator({
+            PhoneGeoLocator.create({
                 locale: 'fr-FR',
                 sync: false
             }).then(function(locator) {
@@ -91,10 +91,10 @@ module.exports.phonegeopromise = {
 //  for bug NOV-118981
     testPhoneGeoAsyncNANPInvalidNumber: function(test) {
         test.expect(6);
-        new PhoneNumber("1 234", {
+        PhoneNumber.create("1 234", {
             sync: false
         }).then(function(parsed) {
-            new PhoneGeoLocator({
+            PhoneGeoLocator.create({
                 locale: 'en-US',
                 sync: false
             }).then(function(locator) {
@@ -126,11 +126,11 @@ module.exports.phonegeopromise = {
 
     testPhoneGeoAsyncDefaultDE: function(test) {
         test.expect(6);
-        new PhoneNumber("06224 123456", {
+        PhoneNumber.create("06224 123456", {
             locale: "de-DE",
             sync: false
         }).then(function(parsed) {
-            new PhoneGeoLocator({
+            PhoneGeoLocator.create({
                 locale: 'de-DE',
                 sync: false
             }).then(function(locator) {
@@ -161,11 +161,11 @@ module.exports.phonegeopromise = {
 
     testPhoneGeoAsyncDEMobileNumber: function(test) {
         test.expect(6);
-        new PhoneNumber("017 12345678", {
+        PhoneNumber.create("017 12345678", {
             locale: "de-DE",
             sync: false
         }).then(function(parsed) {
-            new PhoneGeoLocator({
+            PhoneGeoLocator.create({
                 locale: 'de-DE',
                 sync: false
             }).then(function(locator) {
@@ -196,11 +196,11 @@ module.exports.phonegeopromise = {
 
     testPhoneGeoAsyncDefaultHK: function(test) {
         test.expect(6);
-        new PhoneNumber("0663 12345678", {
+        PhoneNumber.create("0663 12345678", {
             locale: 'en-CN',
             sync: false
         }).then(function(parsed) {
-            new PhoneGeoLocator({
+            PhoneGeoLocator.create({
                 locale: 'zh-HK',
                 mcc: "460",
                 sync: false

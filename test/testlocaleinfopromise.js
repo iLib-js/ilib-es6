@@ -22,7 +22,7 @@ import LocaleInfo from "../lib/LocaleInfo.js";
 module.exports.testlocaleinfopromise = {
     testLocaleInfoAsyncConstructor: function(test) {
         test.expect(5);
-        new LocaleInfo(undefined, {
+        LocaleInfo.create(undefined, {
             sync: false
         }).then(function(info) {
             test.ok(info !== null);
@@ -39,7 +39,7 @@ module.exports.testlocaleinfopromise = {
 
     testLocaleInfoAsyncConstructorGivenLocale: function(test) {
         test.expect(4);
-        new LocaleInfo("de-DE", {
+        LocaleInfo.create("de-DE", {
             sync: false
         }).then(function(info) {
             test.ok(info !== null);
@@ -55,7 +55,7 @@ module.exports.testlocaleinfopromise = {
 
     testLocaleInfoAsyncGetTimeZoneDefault: function(test) {
         test.expect(2);
-        new LocaleInfo("zz-ZZ", {
+        LocaleInfo.create("zz-ZZ", {
             sync: false
         }).then(function(info) {
             test.ok(info !== null);
@@ -67,7 +67,7 @@ module.exports.testlocaleinfopromise = {
 
     testLocaleInfoAsyncGetCurrencyUnknown: function(test) {
         test.expect(2);
-        new LocaleInfo("zxx-XX", {
+        LocaleInfo.create("zxx-XX", {
             sync: false
         }).then(function(info) {
             test.ok(info !== null);
@@ -79,7 +79,7 @@ module.exports.testlocaleinfopromise = {
 
     testLocaleInfoAsyncGetDecimalSeparatorfor_ko_KR: function(test) {
         test.expect(5);
-        new LocaleInfo("ko-KR", {
+        LocaleInfo.create("ko-KR", {
             sync: false
         }).then(function(info) {
             test.ok(info !== null);
@@ -93,7 +93,7 @@ module.exports.testlocaleinfopromise = {
 
     testLocaleInfoAsyncGetDecimalSeparatorfor_fr_FR: function(test) {
         test.expect(5);
-        new LocaleInfo("fr-FR", {
+        LocaleInfo.create("fr-FR", {
             sync: false
         }).then(function(info) {
             test.ok(info !== null);
@@ -108,7 +108,7 @@ module.exports.testlocaleinfopromise = {
     testLocaleInfoAsyncGetDecimalSeparatorfor_zh_Hant_US: function(test) {
         test.expect(5);
         // test mixing locale parts for a non-standard locale
-        new LocaleInfo("zh-Hant-US", {
+        LocaleInfo.create("zh-Hant-US", {
             sync: false
         }).then(function(info) {
             test.ok(info !== null);

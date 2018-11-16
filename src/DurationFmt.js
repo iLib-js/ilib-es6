@@ -24,6 +24,10 @@ const ilibDurationFmt = require('ilib/lib/DurationFmt.js');
 
 export default class DurationFmt {
     constructor(options = {}) {
+        return new ilibDurationFmt(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibDurationFmt, options);
     }
 };

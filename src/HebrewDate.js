@@ -24,6 +24,10 @@ const ilibHebrewDate = require('ilib/lib/HebrewDate.js');
 
 export default class HebrewDate {
     constructor(options = {}) {
+        return new ilibHebrewDate(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibHebrewDate, options);
     }
 };

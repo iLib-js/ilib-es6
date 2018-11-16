@@ -24,6 +24,10 @@ const ilibHebrewCal = require('ilib/lib/HebrewCal.js');
 
 export default class HebrewCal {
     constructor(options = {}) {
+        return new ilibHebrewCal(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibHebrewCal, options);
     }
 };

@@ -24,6 +24,10 @@ const ilibEthiopicCal = require('ilib/lib/EthiopicCal.js');
 
 export default class EthiopicCal {
     constructor(options = {}) {
+        return new ilibEthiopicCal(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibEthiopicCal, options);
     }
 };

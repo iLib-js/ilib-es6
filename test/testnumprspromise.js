@@ -22,7 +22,7 @@ import INumber from "../lib/INumber.js";
 module.exports.testnumprspromise = {
     testNumberAsyncConstructorDefault: function(test) {
         test.expect(2);
-        var num = new INumber("3.4", {
+        var num = INumber.create("3.4", {
             sync: false
         }).then(function(num) {
             test.ok(num !== null);
@@ -33,10 +33,10 @@ module.exports.testnumprspromise = {
 
     testNumberAsyncConstructorWithIlibNumber: function(test) {
         test.expect(2);
-        new INumber("3.4", {
+        INumber.create("3.4", {
             sync: false
         }).then(function(num) {
-            var num = new INumber(num, {
+            return INumber.create(num, {
                 sync: false
             }).then(function(num2) {
                 test.ok(num2 !== null);
@@ -48,7 +48,7 @@ module.exports.testnumprspromise = {
 
     testNumberAsyncGetLocaleOther: function(test) {
         test.expect(3);
-        var num = new INumber("3,4", {
+        var num = INumber.create("3,4", {
             locale: "de-DE",
             sync: false
         }).then(function(num) {
@@ -62,7 +62,7 @@ module.exports.testnumprspromise = {
 
     testNumberAsyncPercentage: function(test) {
         test.expect(2);
-        var num = new INumber("58.3%", {
+        var num = INumber.create("58.3%", {
             type: "percentage",
             sync: false
         }).then(function(num) {
@@ -75,7 +75,7 @@ module.exports.testnumprspromise = {
 
     testNumberAsyncCurrencyValue: function(test) {
         test.expect(2);
-        var num = new INumber("$5.80", {
+        var num = INumber.create("$5.80", {
             type: "currency",
             sync: false
         }).then(function(num) {
@@ -88,7 +88,7 @@ module.exports.testnumprspromise = {
 
     testNumberAsyncCurrencyForLocale: function(test) {
         test.expect(3);
-        var num = new INumber("£5.80", {
+        var num = INumber.create("£5.80", {
             type: "currency",
             sync: false
         }).then(function(num) {
@@ -105,7 +105,7 @@ module.exports.testnumprspromise = {
         test.expect(2);
 
         // tests that the CType isDigit data is loaded
-        new INumber("১২৩.৪৫৬", {
+        INumber.create("১২৩.৪৫৬", {
             locale: "bn-IN",
             sync: false
         }).then(function(num) {
@@ -119,7 +119,7 @@ module.exports.testnumprspromise = {
         test.expect(2);
 
         // tests that CType isSpace data is loaded
-        new INumber("1 234 567,745", {
+        INumber.create("1 234 567,745", {
             locale: "fr-FR",
             sync: false
         }).then(function(num) {

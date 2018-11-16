@@ -24,6 +24,10 @@ const ilibPersianAlgoDate = require('ilib/lib/PersianAlgoDate.js');
 
 export default class PersianAlgoDate {
     constructor(options = {}) {
+        return new ilibPersianAlgoDate(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibPersianAlgoDate, options);
     }
 };

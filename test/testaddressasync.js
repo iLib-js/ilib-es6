@@ -45,23 +45,6 @@ module.exports.testaddressasync = {
         });
     },
 
-    testParseAddressAsyncSimplePromise: function(test) {
-        test.expect(7);
-        new Address("950 W Maude Ave.\nSunnyvale, CA 94085\nUSA", {
-            locale: 'en-US',
-            sync: false
-        }).then(function(parsedAddress) {
-            test.ok(typeof(parsedAddress) !== "undefined");
-            test.equal(parsedAddress.streetAddress, "950 W Maude Ave.");
-            test.equal(parsedAddress.locality, "Sunnyvale");
-            test.equal(parsedAddress.region, "CA");
-            test.equal(parsedAddress.postalCode, "94085");
-            test.equal(parsedAddress.country, "USA");
-            test.equal(parsedAddress.countryCode, "US");
-            test.done();
-        });
-    },
-
     // to verify NOV-111026
     testParseAddressAsyncSimple2: function(test) {
         test.expect(7);

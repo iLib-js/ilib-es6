@@ -24,6 +24,10 @@ const ilibUTF16LE = require('ilib/lib/UTF16LE.js');
 
 export default class UTF16LE {
     constructor(options = {}) {
+        return new ilibUTF16LE(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibUTF16LE, options);
     }
 };

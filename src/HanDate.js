@@ -24,6 +24,10 @@ const ilibHanDate = require('ilib/lib/HanDate.js');
 
 export default class HanDate {
     constructor(options = {}) {
+        return new ilibHanDate(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibHanDate, options);
     }
 };

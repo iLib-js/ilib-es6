@@ -24,6 +24,10 @@ const ilibGregorianCal = require('ilib/lib/GregorianCal.js');
 
 export default class GregorianCal {
     constructor(options = {}) {
+        return new ilibGregorianCal(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibGregorianCal, options);
     }
 };

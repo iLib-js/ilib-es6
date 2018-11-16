@@ -46,18 +46,16 @@ function wrapGetFormatInfo(formatter) {
 
 export default class AddressFmt {
     constructor(options = {}) {
-        const { sync } = options;
-        if (typeof(sync) === 'boolean' && !sync) {
-            const { onLoad } = options;
-            return new Promise(function(resolve, reject) {
-                let tempOptions = Object.assign({}, options);
-                tempOptions.onLoad = function(af) {
-                    resolve(wrapGetFormatInfo(af));
-                }
-                new ilibAddressFmt(tempOptions);
-            }).then(onLoad);
-        }
-
         return wrapGetFormatInfo(new ilibAddressFmt(options));
+    }
+
+    static create(options = {}) {
+        return new Promise(function(resolve, reject) {
+            let tempOptions = Object.assign({}, options, {
+                sync: false,
+                onLoad: af => resolve(wrapGetFormatInfo(af))
+            });
+            new ilibAddressFmt(tempOptions);
+        });
     }
 };

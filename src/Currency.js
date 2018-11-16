@@ -24,6 +24,10 @@ const ilibCurrency = require('ilib/lib/Currency.js');
 
 export default class Currency {
     constructor(options = {}) {
+        return new ilibCurrency(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibCurrency, options);
     }
 };

@@ -19,14 +19,12 @@
 
 import GregorianDate from "../lib/GregorianDate.js";
 import DateFmt from "../lib/DateFmt.js";
-import DateFactory from "../lib/DateFactory.js";
+import DateFactory, {DateFactoryAsync} from "../lib/DateFactory.js";
 
 module.exports.testdatepromise = {
     testDateConstructor: function(test) {
         test.expect(1);
-        DateFactory({
-            sync: false
-        }).then(function(gd) {
+        DateFactoryAsync().then(function(gd) {
             test.ok(gd !== null);
             test.done();
         });
@@ -34,15 +32,14 @@ module.exports.testdatepromise = {
 
     testDateConstructorFull: function(test) {
         test.expect(8);
-        DateFactory({
+        DateFactoryAsync({
             year: 2011,
             month: 9,
             day: 23,
             hour: 16,
             minute: 7,
             second: 12,
-            millisecond: 123,
-            sync: false
+            millisecond: 123
         }).then(function(gd) {
             test.ok(gd !== null);
 
@@ -59,9 +56,8 @@ module.exports.testdatepromise = {
 
     testDateFactoryRightType: function(test) {
         test.expect(2);
-        DateFactory({
-            type: "gregorian",
-            sync: false
+        DateFactoryAsync({
+            type: "gregorian"
         }).then(function(gd) {
             test.ok(gd !== null);
             test.equal(gd.getCalendar(), "gregorian");
@@ -71,9 +67,8 @@ module.exports.testdatepromise = {
 
     testDateFactoryNonGregorian: function(test) {
         test.expect(2);
-        DateFactory({
-            type: "hebrew",
-            sync: false
+        DateFactoryAsync({
+            type: "hebrew"
         }).then(function(hd) {
             test.ok(hd !== null);
             test.equal(hd.getCalendar(), "hebrew");
@@ -83,9 +78,8 @@ module.exports.testdatepromise = {
 
     testDateFactoryNonGregorianWithCalendar: function(test) {
         test.expect(2);
-        DateFactory({
-            calendar: "hebrew",
-            sync: false
+        DateFactoryAsync({
+            calendar: "hebrew"
         }).then(function(hd) {
             test.ok(hd !== null);
             test.equal(hd.getCalendar(), "hebrew");
@@ -95,9 +89,8 @@ module.exports.testdatepromise = {
 
     testDateFactoryBogus: function(test) {
         test.expect(1);
-        DateFactory({
-            type: "asdf",
-            sync: false
+        DateFactoryAsync({
+            type: "asdf"
         }).then(function(gd) {
             test.ok(typeof(gd) === "undefined");
             test.done();
@@ -107,17 +100,16 @@ module.exports.testdatepromise = {
     testDateToIlibDate: function(test) {
         test.expect(1);
         var datMyBday = new Date("Fri Aug 13 1982 13:37:35 GMT-0700");
-        DateFactory({
+        DateFactoryAsync({
             year: 1982,
             month: 8,
             day: 13,
             hour: 13,
             minute: 37,
             second: 35,
-            timezone: "America/Los_Angeles",
-            sync: false
+            timezone: "America/Los_Angeles"
         }).then(function(ildMyBday) {
-            new DateFmt({
+            DateFmt.create({
                 length: "full",
                 sync: false
             }).then(function(fmt) {
@@ -129,15 +121,14 @@ module.exports.testdatepromise = {
 
     testDstStartBoundary_Azores: function(test) {
         test.expect(1);
-        DateFactory({
+        DateFactoryAsync({
             year: 2019,
             month: 3,
             day: 31,
             hour: 0,
             minute: 0,
             second: 0,
-            timezone: "Atlantic/Azores",
-            sync: false
+            timezone: "Atlantic/Azores"
         }).then(function(boundaryiLib) {
             // we can't set time zone to Date object, so compare with constant value
             // 1553994000000: new Date(2019, 2, 31, 0, 0, 0).getTime() with Azores local time

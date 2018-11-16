@@ -7,17 +7,15 @@ Usage
 -----
 
 All classes that ilib contains are echoed here in ilib-es6. You may use these as you
-had before with the exact same API. There are some differences though.
-
-(NOTE: this is a pre-release work in progress. That means wrappers for many classes
-will be missing until version 1.0.0)
+had before with the exact same API. However, there are a few additional methods and
+other differences.
 
 Including Classes
 -----------------
 
 With ilib-es6, you import classes instead of requiring them.
 
-old:
+old syntax with regular ilib:
 
 ```
 var AddressFmt = require("ilib/lib/AddressFmt.js");
@@ -25,10 +23,10 @@ var AddressFmt = require("ilib/lib/AddressFmt.js");
 
 (This old syntax is still supported, though.)
 
-new:
+new syntax with ilib-es6:
 
 ```
-import AddressFmt from 'ilib-es6/lib/AddressFmt';
+import AddressFmt from 'ilib-es6/src/AddressFmt';
 ```
 
 
@@ -36,9 +34,9 @@ Asynchronous Calls Using Promises
 --------------
 
 When calling classes asynchronously, you can continue to use callbacks as before or
-you can use the promises returned from the constructors.
+you can use the promises returned from the _create_ factory method.
 
-old async call:
+old async call using callbacks:
 
 ```javascript
 var AddressFmt = require("ilib/lib/AddressFmt.js");
@@ -51,20 +49,36 @@ new AddressFmt({
 });
 ```
 
-new async calls:
+new async calls using promises:
 
 ```javascript
-import AddressFmt from "ilib-es6/lib/AddressFmt";
+import AddressFmt from "ilib-es6/src/AddressFmt";
 
-new AddressFmt({
-  sync: false
-}).then(af => {
+AddressFmt.create().then(af => {
   // format some addresses using the af formatter
 });
 ```
 
-Note that you can leave out the onLoad callback if you like and just use the promise,
-or you can use the callback and ignore the promise.
+Note that you can still use either method above. Both are still supported.
+
+Promises with Parameters
+-------------
+
+The _create_ factory method takes the same parameters that the class's constructor takes. For example,
+to create an address formatter in Switzerland with French, you would do:
+
+```javascript
+import AddressFmt from "ilib-es6/src/AddressFmt";
+
+AddressFmt.create({
+  locale: "fr-CH"
+}).then(af => {
+  // format some Swiss addresses using the af formatter
+});
+```
+
+Note that you do not need to pass the _sync_ or _onLoad_ parameters to the _create_ factory method. Calling
+the create factory method implies asynchronous mode using promises instead of callbacks.
 
 Asynchronous Methods
 -------------
@@ -73,11 +87,9 @@ Promises are also supported for some class methods that are asynchronous as well
 Example:
 
 ```javascript
-import AddressFmt from "ilib-es6/lib/AddressFmt";
+import AddressFmt from "ilib-es6/src/AddressFmt";
 
-new AddressFmt({
-  sync: false
-}).then(af => {
+AddressFmt.create().then(af => {
   // false for "asynchronous". getFormatInfo returns a promise as well.
   return af.getFormatInfo("en-US", false);
 }).then(info => {
@@ -88,8 +100,7 @@ new AddressFmt({
 Synchronous Classes
 -----------
 
-You can continue using ilib classes synchronously or asynchronously as you had
-before.
+You can continue using ilib classes synchronously as you had before.
 
 old:
 
@@ -103,48 +114,41 @@ var af = new AddressFmt();
 new:
 
 ```javascript
-import AddressFmt from "ilib-es6/lib/AddressFmt";
+import AddressFmt from "ilib-es6/src/AddressFmt";
 
 const af = new AddressFmt();
 // now format some addresses using the af formatter
 ```
 
-The difference is that the options for asynchronous calls contain a property
-"sync: false" whereas for synchronous calls, the "sync" property is missing
-or it is set to a truthy value. When a class is used synchronously, the constructor
-returns an instance of the class. When the same class is used asynchronously,
-the constructor returns a promise.
+When a class is used synchronously, the constructor
+returns an instance of the class. When an instance of the same class is
+constructed asynchronously with sync: false, the constructor returns an empty
+default instance and calls the callback function given in the onLoad property
+when all of the locale data is finished loading.
 
 Using Factories
 ---------------
 
-Factory functions in ilib now have two types: a regular version that switches
-between synchronous and asynchronous depending on the value of the "sync" property
-in the options, and the asynchronous-only version. The async version of the factory
-always has an "Async" suffix at the end of the name.
+Factory functions in ilib now have two types: a regular version that returns an
+instance of the class, and the asynchronous-only version that returns a promise.
+The async version of the factory always has an "Async" suffix at the end of its name.
+
+Synchronous:
 
 ```javascript
-import CalendarFactory, {CalendarFactoryAsync} from 'ilib-es6/lib/CalendarFactory';
+import CalendarFactory, {CalendarFactoryAsync} from 'ilib-es6/src/CalendarFactory';
 
-let promise = CalendarFactory({locale: 'ja-JP', sync: false});
-promise.then(function(cal) {
-  // do something with the new calendar.
-});
+let cal = CalendarFactory({locale: 'ja-JP'});
+// do something with the new cal calendar.
 ```
 
-The above is equivalent to this:
+Asynchronous:
 
 ```javascript
-import CalendarFactory, {CalendarFactoryAsync} from 'ilib-es6/lib/CalendarFactory';
+import CalendarFactory, {CalendarFactoryAsync} from 'ilib-es6/src/CalendarFactory';
 
 
-let promise = CalendarFactoryAsync({locale: 'ja-JP'});
-promise.then(function(cal) {
-  // do something with the new calendar.
+CalendarFactoryAsync({locale: 'ja-JP'}).then(function(cal) {
+  // do something with the new cal calendar.
 });
 ```
-
-That is, the "Async" function is a convenience function and is equivalent to calling
-the base function with the option "sync: false". The Async version of each factory
-function is always asynchronous and always returns a promise. The regular version
-will return a promise only when called asynchronously.

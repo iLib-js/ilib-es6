@@ -24,6 +24,10 @@ const ilibDateRngFmt = require('ilib/lib/DateRngFmt.js');
 
 export default class DateRngFmt {
     constructor(options = {}) {
+        return new ilibDateRngFmt(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibDateRngFmt, options);
     }
 };

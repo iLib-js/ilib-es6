@@ -22,7 +22,7 @@ import PhoneNumber from "../lib/PhoneNumber.js";
 module.exports.normalizepromise = {
     testNormalizeAsyncIDDPrefix: function(test) {
         test.expect(1);
-        new PhoneNumber("011 31 456 3453434", {
+        PhoneNumber.create("011 31 456 3453434", {
             locale: 'en-US',
             sync: false
         }).then(function(parsed) {
@@ -39,7 +39,7 @@ module.exports.normalizepromise = {
 
     testNormalizeAsyncLDNumberUsingDEMCC: function(test) {
         test.expect(1);
-        new PhoneNumber("02302 654321", {
+        PhoneNumber.create("02302 654321", {
             locale: 'de-DE',
             sync: false
         }).then(function(parsed) {
@@ -58,7 +58,7 @@ module.exports.normalizepromise = {
 
     testNormalizeAsyncLDNumberUsingUSSpanishLocale: function(test) {
         test.expect(1);
-        new PhoneNumber("650 7654321", {
+        PhoneNumber.create("650 7654321", {
             locale: 'es-US',
             sync: false
         }).then(function(parsed) {

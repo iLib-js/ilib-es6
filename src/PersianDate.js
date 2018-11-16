@@ -24,6 +24,10 @@ const ilibPersianDate = require('ilib/lib/PersianDate.js');
 
 export default class PersianDate {
     constructor(options = {}) {
+        return new ilibPersianDate(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibPersianDate, options);
     }
 };

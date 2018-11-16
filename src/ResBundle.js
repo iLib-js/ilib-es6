@@ -24,6 +24,10 @@ const ilibResBundle = require('ilib/lib/ResBundle.js');
 
 export default class ResBundle {
     constructor(options = {}) {
+        return new ilibResBundle(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibResBundle, options);
     }
 };

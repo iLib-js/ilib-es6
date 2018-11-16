@@ -24,6 +24,10 @@ const ilibIslamicCal = require('ilib/lib/IslamicCal.js');
 
 export default class IslamicCal {
     constructor(options = {}) {
+        return new ilibIslamicCal(options);
+    }
+
+    static create(options = {}) {
         return promisify(ilibIslamicCal, options);
     }
 };
