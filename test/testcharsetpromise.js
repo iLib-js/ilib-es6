@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import Charset from "../src/Charset.js";
+import Charset from "../lib/Charset.js";
 
 module.exports.testcharsetpromise = {
     testCharsetAsyncConstructor: function(test) {

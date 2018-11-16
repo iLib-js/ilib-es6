@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import NumFmt from "../src/NumFmt.js";
+import NumFmt from "../lib/NumFmt.js";
 
 module.exports.testnumfmtasync = {
     testNumFmtAsyncDefaults: function(test) {

@@ -17,8 +17,8 @@
  * limitations under the License.
  */
 
-import ilib from "../ilib-es6";
-import Locale from "../src/Locale.js";
+import ilib from "../ilib";
+import Locale from "../lib/Locale";
 
 module.exports.testlocale = {
     setUp: function(callback) {
