@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import Name from "../src/Name.js";
+import Name from "../lib/Name.js";
 
 module.exports.testnamepromise = {
     testNameAsyncEmptyConstructor: function(test) {

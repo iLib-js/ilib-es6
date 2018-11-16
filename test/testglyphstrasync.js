@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import GlyphString from "../src/GlyphString.js";
+import GlyphString from "../lib/GlyphString.js";
 
 module.exports.testglyphstrasync = {
     testGlyphStrAsyncCharIteratorNormal: function(test) {

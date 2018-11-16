@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import CharmapFactory, {CharmapFactoryAsync} from "../src/CharmapFactory.js";
+import CharmapFactory, {CharmapFactoryAsync} from "../lib/CharmapFactory.js";
 
 module.exports.testcharmappromise = {
     testCharmapAsyncConstructor: function(test) {

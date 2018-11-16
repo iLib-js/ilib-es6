@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import ListFmt from "../src/ListFmt.js";
+import ListFmt from "../lib/ListFmt.js";
 
 module.exports.testlistfmtpromise = {
     testListFmtAsyncConstructorEmpty: function(test) {

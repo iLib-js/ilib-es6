@@ -17,8 +17,8 @@
  * limitations under the License.
  */
 
-import PhoneNumber from "../src/PhoneNumber.js";
-import PhoneFmt from "../src/PhoneFmt.js";
+import PhoneNumber from "../lib/PhoneNumber.js";
+import PhoneFmt from "../lib/PhoneFmt.js";
 
 module.exports.phonefmtasync = {
     testFormatAsyncUSNoLocale: function(test) {

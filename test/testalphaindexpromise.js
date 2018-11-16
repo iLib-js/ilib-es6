@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import AlphabeticIndex from "../src/AlphabeticIndex.js";
+import AlphabeticIndex from "../lib/AlphabeticIndex.js";
 
 module.exports.testalphaindexpromise = {
     testAlphaIndexAsyncConstructor: function(test) {

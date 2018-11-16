@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import PhoneNumber from "../src/PhoneNumber.js";
+import PhoneNumber from "../lib/PhoneNumber.js";
 
 module.exports.normalizepromise = {
     testNormalizeAsyncIDDPrefix: function(test) {

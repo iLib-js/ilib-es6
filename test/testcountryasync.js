@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import Country from "../src/Country.js";
+import Country from "../lib/Country.js";
 
 module.exports.testcountryasync = {
     testCountryAsyncConstructorEmpty: function(test) {

@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import ScriptInfo from "../src/ScriptInfo.js";
+import ScriptInfo from "../lib/ScriptInfo.js";
 
 module.exports.testscriptinfopromise = {
     testScriptInfoAsyncConstructor: function(test) {

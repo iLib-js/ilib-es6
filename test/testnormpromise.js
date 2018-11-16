@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import NormString from "../src/NormString.js";
+import NormString from "../lib/NormString.js";
 
 function toHexString(string) {
     var i, result = ""; 

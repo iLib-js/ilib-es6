@@ -17,8 +17,8 @@
  * limitations under the License.
  */
 
-import ilib from "../src/ilib.js";
-import Collator from "../src/Collator.js";
+import ilib from "../lib/ilib.js";
+import Collator from "../lib/Collator.js";
 
 module.exports.testcollationpromise = {
     testCollatorAsyncConstructorNative: function(test) {

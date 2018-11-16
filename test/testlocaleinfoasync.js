@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import LocaleInfo from "../src/LocaleInfo.js";
+import LocaleInfo from "../lib/LocaleInfo.js";
 
 module.exports.testlocaleinfoasync = {
     testLocaleInfoAsyncConstructor: function(test) {

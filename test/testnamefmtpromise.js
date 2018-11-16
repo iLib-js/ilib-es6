@@ -17,8 +17,8 @@
  * limitations under the License.
  */
 
-import NameFmt from "../src/NameFmt.js";
-import Name from "../src/Name.js";
+import NameFmt from "../lib/NameFmt.js";
+import Name from "../lib/Name.js";
 
 module.exports.testnamefmtpromise = {
     testNameFmtAsyncConstructor: function(test) {

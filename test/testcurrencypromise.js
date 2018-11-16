@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import Currency from "../src/Currency.js";
+import Currency from "../lib/Currency.js";
 
 module.exports.testcurrencypromise = {
     testCurrencyAsyncDefaults: function(test) {

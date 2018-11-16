@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import LocaleMatcher from "../src/LocaleMatcher.js";
+import LocaleMatcher from "../lib/LocaleMatcher.js";
 
 module.exports.testlocalematchasync = {
     testLocaleMatcherAsyncConstructor: function(test) {
