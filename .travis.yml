@@ -12,8 +12,7 @@ install:
   - export NODE_OPTIONS="--max-old-space-size=3072"
 script:
   - npm run clean
-  - npm run build
-  - node test/testSuite.js
+  - npm run test
 branches:
   only:
     - master
