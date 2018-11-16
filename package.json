@@ -49,7 +49,8 @@
         "build": "grunt babel",
         "dist": "npm run build ; npm pack",
         "test": "npm run build ; node test/testSuite.js",
-        "debug": "npm run build ; node --inspect-brk test/testSuite.js"
+        "debug": "npm run build ; node --inspect-brk test/testSuite.js",
+        "clean": "git clean -f -d *"
     },
     "dependencies": {
         "ilib": ">14.0.0"
