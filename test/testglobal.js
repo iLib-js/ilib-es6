@@ -100,6 +100,8 @@ module.exports.testglobal = {
             return;
         }
 
+        ilib._platform = undefined;
+        ilib.tz = undefined; // clear this first
         var ro = new Intl.DateTimeFormat().resolvedOptions();
         var expected = ro && ro.timeZone;
         if (expected) {
