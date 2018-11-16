@@ -11,7 +11,8 @@ install:
   - export PATH=$PWD/node_modules/.bin:$PATH
   - export NODE_OPTIONS="--max-old-space-size=3072"
 script:
-  - npm run clean test
+  - npm run clean
+  - npm run test
 branches:
   only:
     - master
