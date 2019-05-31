@@ -152,3 +152,18 @@ CalendarFactoryAsync({locale: 'ja-JP'}).then(function(cal) {
   // do something with the new cal calendar.
 });
 ```
+
+Versions
+--------
+
+Starting with version 14.2.0, the version of ilib-es6 will echo the version of ilib
+that it goes with. Earlier than that, version 2.0.0 of ilib-es6 went with ilib versions
+14.0.0 to 14.1.2.
+
+You should not use ilib-es6 with ilib 13.X and earlier, as the async support in ilib
+didn't work in all cases. Although many of the async calls did work in 13.X, a few
+important ones did not. (For example, there were missing callbacks, some classes were
+missing async mode, some static methods were not able to be called asynchronously,
+and in some cases, it was calling the callback before the async call was done, etc.)
+These problems were all fixed and tested in 14.X, so it is highly recommended to use
+14.X versions of ilib with ilib-es6.
