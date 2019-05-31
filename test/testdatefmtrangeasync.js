@@ -1,7 +1,7 @@
 /*
  * testdatefmtrangeasync.js - test the date range formatter object
  *
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018-2019, JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -177,7 +177,7 @@ module.exports.testdatefmtrangeasync = {
                             millisecond: 0,
                             sync: false,
                             onLoad: function(end) {
-                                test.equal(fmt.format(start, end), "06/20/2011 – 11/28/2011");
+                                test.equal(fmt.format(start, end), "06/20 – 11/28/2011");
                                 test.done();
                             }
                         });
