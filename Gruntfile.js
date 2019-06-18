@@ -2,7 +2,7 @@
  * Gruntfile.js - build the ilib-es6 project
  *
  * @license
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018-2019, JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
         babel: {
             options: {
                 sourceMap: true,
-                presets: ['babel-preset-env'],
+                presets: ['@babel/preset-env'],
                 minified: true
             },
             dist: {
