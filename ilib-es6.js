@@ -1,5 +1,5 @@
 /**
- * ilis-es6.js - ES6 wrappers around ilib classes
+ * ilib-es6.js - ES6 wrappers around ilib classes
  *
  * @license
  * Copyright © 2018, JEDLSoft

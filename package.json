@@ -1,6 +1,6 @@
 {
     "name": "ilib-es6",
-    "version": "14.2.0",
+    "version": "14.3.0",
     "main": "./ilib.js",
     "main-es6": "./ilib-es6.js",
     "description": "ES6 wrappers around iLib classes",
@@ -53,7 +53,7 @@
         "clean": "git clean -f -d * ; rm -rf lib"
     },
     "dependencies": {
-        "ilib": "^14.2.0",
+        "ilib": "14.3.0",
         "promise": "^8.0.3"
     },
     "devDependencies": {
