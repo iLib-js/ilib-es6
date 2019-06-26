@@ -1,5 +1,5 @@
 /*
- * testdatefmtinfopromise.js - test the date formatter info object asynchronously
+ * testdatefmtinfopromise.js - test the date formatter info object Promisehronously
  *
  * Copyright © 2019, JEDLSoft
  *
@@ -18,7 +18,7 @@
  */
 
 import ilib from "../lib/ilib.js";
-import DateFmtInfo from "../lib/DateFmt.js";
+import DateFmtInfo from "../lib/DateFmtInfo.js";
 import DateFactory from "../lib/DateFactory.js";
 
 module.exports.testdatefmtinfopromise = {
@@ -80,7 +80,7 @@ module.exports.testdatefmtinfopromise = {
         });
     },
 
-    testDateFmtGetFormatInfoGregorianTranslatedAsync: function(test) {
+    testDateFmtGetFormatInfoGregorianTranslatedPromise: function(test) {
         test.expect(16);
 
         DateFmtInfo.create({
@@ -93,6 +93,7 @@ module.exports.testdatefmtinfopromise = {
             test.ok(fmt !== null);
 
             return fmt.getFormatInfo({
+                sync: false,
                 year: 2019
             });
         }).then(function(info) {
@@ -144,10 +145,13 @@ module.exports.testdatefmtinfopromise = {
             test.equal(info[4].label, "Jahr");
             test.equal(info[4].constraint, "\\d{4}");
             test.done();
+        }).catch(function(err) {
+            console.log(err);
+            test.fail();
         });
     },
 
-    testDateFmtInfoGetFormatInfoUSFullAllFieldsAsync: function(test) {
+    testDateFmtInfoGetFormatInfoUSFullAllFieldsPromise: function(test) {
         test.expect(172);
 
         DateFmtInfo.create({
@@ -161,8 +165,9 @@ module.exports.testdatefmtinfopromise = {
             test.ok(fmt !== null);
 
             return fmt.getFormatInfo({
+                sync: false,
                 year: 2019 // non leap year
-            })
+            });
         }).then(function(info) {
             test.ok(info);
 
@@ -189,7 +194,7 @@ module.exports.testdatefmtinfopromise = {
                 {label: "October", value: 10},
                 {label: "November", value: 11},
                 {label: "December", value: 12}
-                ]);
+            ]);
 
             test.ok(!info[3].component);
             test.equal(info[3].label, " ");
@@ -267,6 +272,9 @@ module.exports.testdatefmtinfopromise = {
             test.equal(info[16].constraint.length, 511);
 
             test.done();
+        }).catch(function(err) {
+            console.log(err);
+            test.fail();
         });
     }
 };

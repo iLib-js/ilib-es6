@@ -59,7 +59,7 @@ module.exports.testdatefmtinfoasync = {
             sync: false,
             onLoad: function(fmt) {
                 test.ok(fmt !== null);
-                
+
                 test.equal(fmt.getDateComponentOrder(), "dmy");
                 test.done();
             }
@@ -69,14 +69,14 @@ module.exports.testdatefmtinfoasync = {
     testDateFmtInfoGetDaysOfWeekOtherCalendar: function(test) {
         test.expect(2);
         new DateFmtInfo({
-            locale: "en-US", 
+            locale: "en-US",
             calendar: "hebrew",
             sync: false,
             onLoad: function(fmt) {
                 test.ok(fmt !== null);
-                
+
                 var arrDays = fmt.getDaysOfWeek({length: 'long'});
-                
+
                 var expected = ["ris", "she", "shl", "rvi", "ḥam", "shi", "sha"];
                 test.deepEqual(arrDays, expected);
                 test.done();
@@ -153,7 +153,7 @@ module.exports.testdatefmtinfoasync = {
             }
         });
     },
-    
+
     testDateFmtInfoGetFormatInfoUSFullAllFieldsAsync: function(test) {
         test.expect(172);
 
@@ -166,21 +166,21 @@ module.exports.testdatefmtinfoasync = {
             sync: false,
             onLoad: function(fmt) {
                 test.ok(fmt !== null);
-                
+
                 fmt.getFormatInfo({
                     sync: false,
                     year: 2019, // non leap year
                     onLoad: function(info) {
                         test.ok(info);
-                        
+
                         test.equal(info.length, 17);
-                        
+
                         test.equal(info[0].label, "Day of Week"),
                         test.equal(typeof(info[0].value), "function");
-                        
+
                         test.ok(!info[1].component);
                         test.equal(info[1].label, ", ");
-                        
+
                         test.equal(info[2].component, "month");
                         test.equal(info[2].label, "Month");
                         test.deepEqual(info[2].constraint, [
@@ -197,10 +197,10 @@ module.exports.testdatefmtinfoasync = {
                             {label: "November", value: 11},
                             {label: "December", value: 12}
                         ]);
-                        
+
                         test.ok(!info[3].component);
                         test.equal(info[3].label, " ");
-                        
+
                         test.equal(info[4].component, "day");
                         test.equal(info[4].label, "Day");
                         test.deepEqual(info[4].constraint, {
@@ -218,27 +218,27 @@ module.exports.testdatefmtinfoasync = {
                             "12": [1, 31]
                         });
                         test.equal(info[4].validation, "\\d{1,2}");
-                        
+
                         test.ok(!info[5].component);
                         test.equal(info[5].label, ", ");
-                        
+
                         test.equal(info[6].component, "year");
                         test.equal(info[6].label, "Year");
                         test.equal(info[6].placeholder, "YYYY");
                         test.equal(info[6].constraint, "\\d{4}");
-                        
+
                         test.ok(!info[7].component);
                         test.equal(info[7].label, " at ");
-                        
+
                         test.equal(info[8].component, "hour");
                         test.equal(info[8].label, "Hour");
                         test.equal(info[8].placeholder, "H");
                         test.deepEqual(info[8].constraint, ["12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]);
                         test.equal(info[8].validation, "\\d{1,2}");
-                        
+
                         test.ok(!info[9].component);
                         test.equal(info[9].label, ":");
-                        
+
                         test.equal(info[10].component, "minute");
                         test.equal(info[10].label, "Minute");
                         test.equal(info[10].placeholder, "mm");
@@ -246,10 +246,10 @@ module.exports.testdatefmtinfoasync = {
                             test.equal(Number(info[10].constraint[i]), i);
                         }
                         test.equal(info[10].validation, "\\d{2}");
-                        
+
                         test.ok(!info[11].component);
                         test.equal(info[11].label, ":");
-                        
+
                         test.equal(info[12].component, "second");
                         test.equal(info[12].label, "Second");
                         test.equal(info[12].placeholder, "ss");
@@ -257,25 +257,26 @@ module.exports.testdatefmtinfoasync = {
                             test.equal(Number(info[12].constraint[i]), i);
                         }
                         test.equal(info[12].validation, "\\d{2}");
-                        
+
                         test.ok(!info[13].component);
                         test.equal(info[13].label, " ");
-                        
+
                         test.equal(info[14].component, "meridiem");
                         test.equal(info[14].label, "AM/PM");
                         test.deepEqual(info[14].constraint, ["AM", "PM"]);
-                        
+
                         test.ok(!info[15].component);
                         test.equal(info[15].label, " ");
-                        
+
                         test.equal(info[16].component, "timezone");
                         test.equal(info[16].label, "Time zone");
                         test.equal(typeof(info[16].constraint), "object");
                         test.equal(info[16].constraint.length, 511);
+
+                        test.done();
                     }
                 });
-                
-                test.done();
+
             }
         });
     }

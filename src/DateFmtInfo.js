@@ -43,6 +43,12 @@ export default class DateFmtInfo {
     }
 
     static create(options = {}) {
-        return promisify(ilibDateFmtInfo, options);
+        return new Promise(function(resolve, reject) {
+            let tempOptions = Object.assign({}, options, {
+                sync: false,
+                onLoad: dfi => resolve(wrapGetFormatInfo(dfi))
+            });
+            new ilibDateFmtInfo(tempOptions);
+        });
     }
 };
