@@ -46,10 +46,12 @@
         "url": "git@github.com:iLib-js/ilib-es6.git"
     },
     "scripts": {
-        "build": "grunt babel",
-        "dist": "npm run build ; npm pack",
-        "test": "npm run build ; node test/testSuite.js",
-        "debug": "npm run build ; node --inspect-brk test/testSuite.js",
+        "build": "npm run build",
+        "build:prod": "grunt babel --mode=prod",
+        "build:dev": "grunt babel --mode=dev",
+        "dist": "npm run build:prod ; npm pack",
+        "test": "npm run build:dev ; node test/testSuite.js",
+        "debug": "npm run build:dev ; node --inspect-brk test/testSuite.js",
         "clean": "git clean -f -d * ; rm -rf lib"
     },
     "dependencies": {

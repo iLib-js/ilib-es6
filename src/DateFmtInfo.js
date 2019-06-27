@@ -27,11 +27,12 @@ function wrapGetFormatInfo(formatter) {
 
     const oldGetFormatInfo = ilibDateFmtInfo.prototype.getFormatInfo.bind(formatter);
     formatter.getFormatInfo = function(options) {
-        if (typeof(sync) === "undefined" || sync) {
+        let sync = options && typeof(options.sync) === "boolean" ? options.sync : true;
+        if (sync) {
             return oldGetFormatInfo(options);
         }
 
-        return promisify(oldGetFormatInfo, options);
+        return promisifyFunction(oldGetFormatInfo, options);
     };
 
     return formatter;
