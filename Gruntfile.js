@@ -21,6 +21,8 @@
 module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
+    var debug = grunt.option('mode') === 'dev';
+
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -37,7 +39,7 @@ module.exports = function(grunt) {
             options: {
                 sourceMap: true,
                 presets: ['@babel/preset-env'],
-                minified: true
+                minified: !debug
             },
             dist: {
                 files: [{
@@ -61,5 +63,5 @@ module.exports = function(grunt) {
 
     // Default task(s).
     grunt.registerTask('default', ['babel']);
-    grunt.registerTask('uglify', ['uglify']);
+    if (!debug) grunt.registerTask('uglify', ['uglify']);
 };
