@@ -1,7 +1,7 @@
 /*
  * testSuiteFiles.js - list the test files in this directory
  * 
- * Copyright © 2018-2019, JEDLSoft
+ * Copyright © 2018, JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,8 +40,6 @@ module.exports.files = [
     "testdatepromise.js",
     "testdatefmtasync.js",
     "testdatefmtpromise.js",
-    "testdatefmtinfoasync.js",
-    "testdatefmtinfopromise.js",
     "testdatefmtrangeasync.js",
     "testdatefmtrangepromise.js",
     "testdurfmtasync.js",
