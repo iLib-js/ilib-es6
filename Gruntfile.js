@@ -48,8 +48,6 @@ module.exports = function(grunt) {
                     src: ['*.js'],
                     dest: 'lib/',
                     ext: '.js'
-                },{
-                    'ilib.js': 'ilib-es6.js'
                 }]
             }
         },

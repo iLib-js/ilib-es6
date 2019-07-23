@@ -26,7 +26,7 @@ var AddressFmt = require("ilib/lib/AddressFmt.js");
 new syntax with ilib-es6:
 
 ```
-import AddressFmt from 'ilib-es6/src/AddressFmt';
+import { AddressFmt } from 'ilib-es6';
 ```
 
 
@@ -52,7 +52,7 @@ new AddressFmt({
 new async calls using promises:
 
 ```javascript
-import AddressFmt from "ilib-es6/src/AddressFmt";
+import { AddressFmt } from "ilib-es6";
 
 AddressFmt.create().then(af => {
   // format some addresses using the af formatter
@@ -68,7 +68,7 @@ The _create_ factory method takes the same parameters that the class's construct
 to create an address formatter in Switzerland with French, you would do:
 
 ```javascript
-import AddressFmt from "ilib-es6/src/AddressFmt";
+import { AddressFmt } from "ilib-es6";
 
 AddressFmt.create({
   locale: "fr-CH"
@@ -87,7 +87,7 @@ Promises are also supported for some class methods that are asynchronous as well
 Example:
 
 ```javascript
-import AddressFmt from "ilib-es6/src/AddressFmt";
+import { AddressFmt } from "ilib-es6";
 
 AddressFmt.create().then(af => {
   // false for "asynchronous". getFormatInfo returns a promise as well.
@@ -114,7 +114,7 @@ var af = new AddressFmt();
 new:
 
 ```javascript
-import AddressFmt from "ilib-es6/src/AddressFmt";
+import { AddressFmt } from "ilib-es6";
 
 const af = new AddressFmt();
 // now format some addresses using the af formatter
@@ -136,7 +136,7 @@ The async version of the factory always has an "Async" suffix at the end of its 
 Synchronous:
 
 ```javascript
-import CalendarFactory, {CalendarFactoryAsync} from 'ilib-es6/src/CalendarFactory';
+import { CalendarFactory } from 'ilib-es6';
 
 let cal = CalendarFactory({locale: 'ja-JP'});
 // do something with the new cal calendar.
@@ -145,7 +145,7 @@ let cal = CalendarFactory({locale: 'ja-JP'});
 Asynchronous:
 
 ```javascript
-import CalendarFactory, {CalendarFactoryAsync} from 'ilib-es6/src/CalendarFactory';
+import { CalendarFactoryAsync } from 'ilib-es6';
 
 
 CalendarFactoryAsync({locale: 'ja-JP'}).then(function(cal) {
