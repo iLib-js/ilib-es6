@@ -1,7 +1,7 @@
 /*
  * testlocale.js - test the locale object
  * 
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018-2019, JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import ilib from "../ilib";
+import ilib from "../lib/ilib";
 import Locale from "../lib/Locale";
 
 module.exports.testlocale = {

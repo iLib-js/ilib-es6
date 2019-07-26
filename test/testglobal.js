@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import ilib from '../ilib';
+import ilib from "../lib/ilib.js";
 import Locale from "../lib/Locale.js";
 
 module.exports.testglobal = {

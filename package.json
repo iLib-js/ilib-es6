@@ -1,8 +1,8 @@
 {
     "name": "ilib-es6",
     "version": "14.3.0",
-    "main": "./ilib.js",
-    "main-es6": "./ilib-es6.js",
+    "main": "./lib/index.js",
+    "main-es6": "./src/index.js",
     "description": "ES6 wrappers around iLib classes",
     "keywords": [
         "internationalization",
@@ -34,9 +34,6 @@
     ],
     "files": [
         "src",
-        "ilib-es6.js",
-        "ilib.js",
-        "ilib.js.map",
         "lib",
         "README.md",
         "LICENSE"
