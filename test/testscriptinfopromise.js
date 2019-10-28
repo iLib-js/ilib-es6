@@ -103,7 +103,7 @@ module.exports.testscriptinfopromise = {
         ScriptInfo.getAllScripts(false, undefined, function(scripts) {
             test.ok(scripts !== null);
 
-            test.equal(scripts.length, 189);
+            test.equal(scripts.length, 202);
 
             test.equal(scripts[0], "Adlm");
             test.equal(scripts[1], "Afak");
@@ -115,7 +115,7 @@ module.exports.testscriptinfopromise = {
             ScriptInfo.getAllScripts(false, undefined, function(scripts) {
                 test.ok(scripts !== null);
 
-                test.equal(scripts.length, 189);
+                test.equal(scripts.length, 202);
 
                 test.equal(scripts[0], "Adlm");
                 test.equal(scripts[scripts.length-1], "Zzzz");

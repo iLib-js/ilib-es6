@@ -52,7 +52,7 @@
         "clean": "git clean -f -d * ; rm -rf lib"
     },
     "dependencies": {
-        "ilib": "^14.3.0",
+        "ilib": "^14.4.0",
         "promise": "^8.0.3"
     },
     "devDependencies": {
