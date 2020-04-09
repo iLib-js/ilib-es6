@@ -30,13 +30,13 @@ module.exports.testlistfmtpromise = {
         });
     },
 
-    testListFmtAsyncTestProperty8: function(test) {
+    testListFmtAsyncTestPropertyTwo: function(test) {
         ListFmt.create({
             sync: false
         }).then(function(fmt) {
             test.expect(2);
             test.ok(fmt !== null);
-            test.equal(fmt.format(["true", "false"]), "true and false");
+            test.equal(fmt.format(["true", "false"]), "true & false");
             test.done();
         });
     },

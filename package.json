@@ -1,6 +1,6 @@
 {
     "name": "ilib-es6",
-    "version": "14.5.0",
+    "version": "14.6.0",
     "main": "./lib/index.js",
     "main-es6": "./src/index.js",
     "description": "ES6 wrappers around iLib classes",
@@ -43,7 +43,7 @@
         "url": "git@github.com:iLib-js/ilib-es6.git"
     },
     "scripts": {
-        "build": "npm run build",
+        "build": "npm run build:prod",
         "build:prod": "grunt babel --mode=prod",
         "build:dev": "grunt babel --mode=dev",
         "dist": "npm run build:prod ; npm pack",
@@ -52,7 +52,7 @@
         "clean": "git clean -f -d * ; rm -rf lib"
     },
     "dependencies": {
-        "ilib": "14.5.0",
+        "ilib": "14.6.0",
         "promise": "^8.1.0"
     },
     "devDependencies": {
