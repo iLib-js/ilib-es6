@@ -17,7 +17,7 @@ jobs:
       - run:
           name: Running all unit tests
           command: |
-		    env
+            env
             node -v
             npm -v
             npm run test
