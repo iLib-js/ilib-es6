@@ -56,10 +56,10 @@
         "promise": "^8.1.0"
     },
     "devDependencies": {
-        "@babel/core": "^7.16.7",
-        "@babel/preset-env": "^7.16.8",
-        "@babel/register": "^7.16.9",
-        "@babel/runtime": "^7.16.7",
+        "@babel/core": "^7.17.4",
+        "@babel/preset-env": "^7.16.11",
+        "@babel/register": "^7.17.0",
+        "@babel/runtime": "^7.17.2",
         "acorn": "^8.7.0",
         "acorn-jsx": "^5.3.2",
         "assertextras": "^1.1.0",
@@ -67,9 +67,9 @@
         "grunt-babel": "^8.0.0",
         "grunt-cli": "^1.4.3",
         "grunt-contrib-clean": "^2.0.0",
-        "grunt-contrib-jshint": "^2.1.0",
-        "grunt-contrib-nodeunit": "^2.1.0",
-        "grunt-contrib-uglify": "^4.0.1",
+        "grunt-contrib-jshint": "^3.1.1",
+        "grunt-contrib-nodeunit": "^4.0.0",
+        "grunt-contrib-uglify": "^5.0.1",
         "load-grunt-tasks": "^5.1.0",
         "nodeunit": "^0.11.3"
     }
