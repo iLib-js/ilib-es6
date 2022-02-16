@@ -129,5 +129,46 @@ module.exports.testunitfmtasync = {
                 test.done();
             }
         });
+    },
+
+    testUnitFormatPressure: function(test) {
+        test.expect(1);
+        var m1 = MeasurementFactory({
+            unit: "Pa",
+            amount: 1000
+        });
+
+        new UnitFmt({
+            locale: "de-DE",
+            autoConvert: false,
+            autoScale: false,
+            sync: false,
+            length: "long",
+            onLoad: function(fmt) {
+                var str = fmt.format(m1);
+                test.equal(str, "1.000 Pascal");
+                test.done();
+            }
+        });
+    },
+
+    testUnitFormatForce: function(test) {
+        test.expect(1);
+        var m1 = MeasurementFactory({
+            unit: "N",
+            amount: 100
+        });
+
+        new UnitFmt({
+            locale: "ja-JP",
+            autoConvert: false,
+            sync: false,
+            length: "long",
+            onLoad: function(fmt) {
+                var str = fmt.format(m1);
+                test.equal(str, "100 ニュートン");
+                test.done();
+            }
+        });
     }
 };
