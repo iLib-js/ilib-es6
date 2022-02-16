@@ -1,7 +1,7 @@
 /*
  * testunitsasync.js - test the units formatter object
  * 
- * Copyright © 2018-2019, JEDLSoft
+ * Copyright © 2018-2019, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -126,6 +126,25 @@ module.exports.testunitfmtasync = {
             onLoad: function(fmt) {
                 var str = fmt.format(m1);
                 test.equal(str, "1 000 centimètres carrés");
+                test.done();
+            }
+        });
+    },
+
+    testUnitFormatPower: function(test) {
+        test.expect(1);
+        var m1 = MeasurementFactory({
+            unit: "kW",
+            amount: 1000
+        });
+
+        new UnitFmt({
+            locale: "fr-FR",
+            autoConvert: false,
+            sync: false,
+            onLoad: function(fmt) {
+                var str = fmt.format(m1);
+                test.equal(str, "1 mégawatt");
                 test.done();
             }
         });
