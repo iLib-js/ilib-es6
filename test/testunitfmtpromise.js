@@ -1,7 +1,7 @@
 /*
- * testunitsasync.js - test the units formatter object
+ * testunitfmtpromise.js - test the units formatter object
  * 
- * Copyright © 2018-2019, JEDLSoft
+ * Copyright © 2018-2019, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -118,10 +118,68 @@ module.exports.testunitfmtpromise = {
         UnitFmt.create({
             locale: "fr-FR",
             autoConvert: false,
+            scale: false,
             sync: false
         }).then(function(fmt) {
             var str = fmt.format(m1);
             test.equal(str, "1 000 centimètres carrés");
+            test.done();
+        });
+    },
+
+    testUnitFormatPower: function(test) {
+        test.expect(1);
+        var m1 = MeasurementFactory({
+            unit: "kW",
+            amount: 1000
+        });
+
+        UnitFmt.create({
+            locale: "fr-FR",
+            autoConvert: false,
+            sync: false
+        }).then(function(fmt) {
+            var str = fmt.format(m1);
+            test.equal(str, "1 mégawatt");
+            test.done();
+        });
+    },
+
+    testUnitFormatPressure: function(test) {
+        test.expect(1);
+        var m1 = MeasurementFactory({
+            unit: "Pa",
+            amount: 1000
+        });
+
+        UnitFmt.create({
+            locale: "de-DE",
+            autoConvert: false,
+            autoScale: false,
+            sync: false,
+            length: "long"
+        }).then(function(fmt) {
+            var str = fmt.format(m1);
+            test.equal(str, "1.000 Pascal");
+            test.done();
+        });
+    },
+
+    testUnitFormatForce: function(test) {
+        test.expect(1);
+        var m1 = MeasurementFactory({
+            unit: "N",
+            amount: 100
+        });
+
+        UnitFmt.create({
+            locale: "ja-JP",
+            autoConvert: false,
+            sync: false,
+            length: "long"
+        }).then(function(fmt) {
+            var str = fmt.format(m1);
+            test.equal(str, "100 ニュートン");
             test.done();
         });
     }
