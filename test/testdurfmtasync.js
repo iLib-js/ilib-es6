@@ -1,7 +1,7 @@
 /*
  * testdurfmtasync.js - test the duration formatter object
  *
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -227,7 +227,7 @@ module.exports.testdurfmtasync = {
                     second: 1,
                     millisecond: 1
                 });
-                test.equal(duration.toString(), "1年1个月1周1天1:01:01");
+                test.equal(duration.toString(), "1年1个月1周1天01:01:01");
                 test.done();
             }
         });
