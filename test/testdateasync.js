@@ -1,7 +1,7 @@
 /*
  * testdateasync.js - test the date object asynchronously
  *
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,11 +17,11 @@
  * limitations under the License.
  */
 
-import GregorianDate from "../lib/GregorianDate.js";
-import DateFmt from "../lib/DateFmt.js";
-import DateFactory from "../lib/DateFactory.js";
+import GregorianDate from "../src/GregorianDate.js";
+import DateFmt from "../src/DateFmt.js";
+import DateFactory from "../src/DateFactory.js";
 
-module.exports.testdateasync = {
+export const testdateasync = {
     testDateConstructor: function(test) {
         test.expect(1);
         DateFactory({

@@ -1,7 +1,7 @@
 /*
  * testcurrencyasync.js - test the currency routines
  *
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,9 +17,9 @@
  * limitations under the License.
  */
 
-import Currency from "../lib/Currency.js";
+import Currency from "../src/Currency.js";
 
-module.exports.testcurrencyasync = {
+export const testcurrencyasync = {
     testCurrencyAsyncDefaults: function(test) {
         test.expect(7);
         new Currency({

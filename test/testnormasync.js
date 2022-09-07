@@ -1,7 +1,7 @@
 /*
  * testnormasync.js - test the Unicode Normalization Algorithm routines
  * 
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import NormString from "../lib/NormString.js";
+import NormString from "../src/NormString.js";
 
 function toHexString(string) {
     var i, result = ""; 
@@ -36,7 +36,7 @@ function toHexString(string) {
 }
 
 
-module.exports.testnormasync = {
+export const testnormasync = {
     testNormStringAsyncNormalizeNFD: function(test) {
         test.expect(1);
 

@@ -1,7 +1,7 @@
 /*
  * testnumfmtasync.js - test the number formatter object
  *
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,9 +17,9 @@
  * limitations under the License.
  */
 
-import NumFmt from "../lib/NumFmt.js";
+import NumFmt from "../src/NumFmt.js";
 
-module.exports.testnumfmtpromise = {
+export const testnumfmtpromise = {
     testNumFmtAsyncDefaults: function(test) {
         test.expect(7);
         NumFmt.create({

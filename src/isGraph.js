@@ -2,7 +2,7 @@
  * isGraph.js - ES6 wrappers around an ilib class
  *
  * @license
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,9 +18,9 @@
  * limitations under the License.
  */
 
-import { promisifyFunction } from './promisify';
+import { promisifyFunction } from './promisify.js';
 
-const ilibisGraph = require('ilib/lib/isGraph.js');
+import { default as ilibisGraph } from 'ilib/lib/isGraph.js';
 
 function isGraph(ch) {
     return ilibisGraph(ch);

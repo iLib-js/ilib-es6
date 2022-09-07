@@ -2,7 +2,7 @@
  * Charmap.js - ES6 wrappers around an ilib class
  *
  * @license
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,9 +18,9 @@
  * limitations under the License.
  */
 
-import promisify from './promisify';
+import promisify from './promisify.js';
 
-const ilibCharmap = require('ilib/lib/Charmap.js');
+import { default as ilibCharmap } from 'ilib/lib/Charmap.js';
 
 export default class Charmap {
     constructor(options = {}) {

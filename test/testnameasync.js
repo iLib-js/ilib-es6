@@ -1,7 +1,7 @@
 /*
  * testnameasync.js - test the name object
  *
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,9 +17,9 @@
  * limitations under the License.
  */
 
-import Name from "../lib/Name.js";
+import Name from "../src/Name.js";
 
-module.exports.testnameasync = {
+export const testnameasync = {
     testNameAsyncEmptyConstructor: function(test) {
         test.expect(1);
         new Name(undefined, {

@@ -1,7 +1,7 @@
 /*
  * testnumprsasync.js - test the number parsing routines
  *
- * Copyright © 2012-2018, JEDLSoft
+ * Copyright © 2012-2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,9 +17,9 @@
  * limitations under the License.
  */
 
-import INumber from "../lib/INumber.js";
+import INumber from "../src/INumber.js";
 
-module.exports.testnumprsasync = {
+export const testnumprsasync = {
     testNumberAsyncConstructorDefault: function(test) {
         test.expect(2);
         var num = new INumber("3.4", {

@@ -1,7 +1,7 @@
 /*
  * testglyphstrasync.js - test the glyph iteration routines
  * 
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,9 +17,9 @@
  * limitations under the License.
  */
 
-import GlyphString from "../lib/GlyphString.js";
+import GlyphString from "../src/GlyphString.js";
 
-module.exports.testglyphstrasync = {
+export const testglyphstrasync = {
     testGlyphStrAsyncCharIteratorNormal: function(test) {
         test.expect(8);
         new GlyphString("aÄa", { // the A umlaut is a decomposed char

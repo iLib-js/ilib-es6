@@ -18,7 +18,7 @@
  * limitations under the License.
  */
 
-const ForceUnit = require('ilib/lib/ForceUnit.js');
+import { ForceUnit } from 'ilib/lib/ForceUnit.js';
 
 // no async operation for this function/class
 

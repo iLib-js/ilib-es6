@@ -17,12 +17,12 @@
  * limitations under the License.
  */
 
-import LocaleInfo from "../lib/LocaleInfo.js";
-import GregorianDate from "../lib/GregorianDate.js";
-import DateRngFmt from "../lib/DateRngFmt.js";
-import DateFmt from "../lib/DateFmt.js";
+import LocaleInfo from "../src/LocaleInfo.js";
+import GregorianDate from "../src/GregorianDate.js";
+import DateRngFmt from "../src/DateRngFmt.js";
+import DateFmt from "../src/DateFmt.js";
 
-module.exports.testdatefmtrangepromise = {
+export const testdatefmtrangepromise = {
     testDateRngFmtConstructorEmpty: function(test) {
         test.expect(1);
         DateRngFmt.create({

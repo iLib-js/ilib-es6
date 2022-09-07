@@ -1,7 +1,7 @@
 /*
  * teststringsasync.js - test the String object
  *
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,11 +17,11 @@
  * limitations under the License.
  */
 
-import NormString from "../lib/NormString.js";
-import Locale from "../lib/Locale.js";
-import IString from "../lib/IString.js";
+import NormString from "../src/NormString.js";
+import Locale from "../src/Locale.js";
+import IString from "../src/IString.js";
 
-module.exports.teststringspromise = {
+export const teststringspromise = {
     testStringLoadPlurals: function(test) {
         test.expect(1);
         IString.loadPlurals(false, undefined).then(function() {

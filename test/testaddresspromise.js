@@ -1,7 +1,7 @@
 /*
  * testaddressasync.js - test the address parsing and formatting routines asynchronously
  *
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,8 +17,8 @@
  * limitations under the License.
  */
 
-import AddressFmt from '../lib/AddressFmt';
-import Address from '../lib/Address';
+import AddressFmt from "../src/AddressFmt.js";
+import Address from "../src/Address.js";
 
 function searchRegions(array, regionCode) {
     return array.find(function(region) {
@@ -26,7 +26,7 @@ function searchRegions(array, regionCode) {
     });
 }
 
-module.exports.testaddresspromise = {
+export const testaddresspromise = {
     testPromiseParseAddressAsyncSimple: function(test) {
         test.expect(7);
         Address.create("950 W Maude Ave.\nSunnyvale, CA 94085\nUSA", {

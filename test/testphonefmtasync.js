@@ -1,7 +1,7 @@
 /*
  * testphonefmtasync.js - Test the phonefmt
  *
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,10 +17,10 @@
  * limitations under the License.
  */
 
-import PhoneNumber from "../lib/PhoneNumber.js";
-import PhoneFmt from "../lib/PhoneFmt.js";
+import PhoneNumber from "../src/PhoneNumber.js";
+import PhoneFmt from "../src/PhoneFmt.js";
 
-module.exports.phonefmtasync = {
+export const testphonefmtasync = {
     testFormatAsyncUSNoLocale: function(test) {
         test.expect(1);
         var formatted;

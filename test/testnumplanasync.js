@@ -1,7 +1,7 @@
 /*
  * testnumplanasync.js - Test the phone numbering plan.
  *
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,9 +17,9 @@
  * limitations under the License.
  */
 
-import NumberingPlan from "../lib/NumberingPlan.js";
+import NumberingPlan from "../src/NumberingPlan.js";
 
-module.exports.numplanasync = {
+export const testnumplanasync = {
     testNumberingPlanAsync1: function(test) {
         test.expect(2);
         new NumberingPlan({

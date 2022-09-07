@@ -1,7 +1,7 @@
 /*
  * testcalpromise.js - test the calendar objects asynchronously with promises
  *
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,19 +17,19 @@
  * limitations under the License.
  */
 
-import CalendarFactory, {CalendarFactoryAsync} from "../lib/CalendarFactory.js";
-import CopticDate from "../lib/CopticDate.js";
-import EthiopicDate from "../lib/EthiopicDate.js";
-import GregorianDate from "../lib/GregorianDate.js";
-import HanDate from "../lib/HanDate.js";
-import HebrewDate from "../lib/HebrewDate.js";
-import IslamicDate from "../lib/IslamicDate.js";
-import JulianDate from "../lib/JulianDate.js";
-import PersianAlgoDate from "../lib/PersianAlgoDate.js";
-import PersianDate from "../lib/PersianDate.js";
-import ThaiSolarDate from "../lib/ThaiSolarDate.js";
+import CalendarFactory, {CalendarFactoryAsync} from "../src/CalendarFactory.js";
+import CopticDate from "../src/CopticDate.js";
+import EthiopicDate from "../src/EthiopicDate.js";
+import GregorianDate from "../src/GregorianDate.js";
+import HanDate from "../src/HanDate.js";
+import HebrewDate from "../src/HebrewDate.js";
+import IslamicDate from "../src/IslamicDate.js";
+import JulianDate from "../src/JulianDate.js";
+import PersianAlgoDate from "../src/PersianAlgoDate.js";
+import PersianDate from "../src/PersianDate.js";
+import ThaiSolarDate from "../src/ThaiSolarDate.js";
 
-module.exports.testcalpromise = {
+export const testcalpromise = {
     testCalendarPromiseFactoryAsyncDefault: function(test) {
         test.expect(1);
         CalendarFactoryAsync().then(function(cal) {

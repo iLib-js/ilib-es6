@@ -1,7 +1,7 @@
 /*
  * testlistfmtasync.js - test the list formatter object
  *
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,9 +17,9 @@
  * limitations under the License.
  */
 
-import ListFmt from "../lib/ListFmt.js";
+import ListFmt from "../src/ListFmt.js";
 
-module.exports.testlistfmtpromise = {
+export const testlistfmtpromise = {
     testListFmtAsyncConstructorEmpty: function(test) {
         ListFmt.create({
             sync: false

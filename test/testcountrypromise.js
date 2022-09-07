@@ -17,9 +17,9 @@
  * limitations under the License.
  */
 
-import Country from "../lib/Country.js";
+import Country from "../src/Country.js";
 
-module.exports.testcountrypromise = {
+export const testcountrypromise = {
     testCountryAsyncConstructorEmpty: function(test) {
         test.expect(1);
         Country.create({

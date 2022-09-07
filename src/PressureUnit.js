@@ -18,7 +18,7 @@
  * limitations under the License.
  */
 
-const PressureUnit = require('ilib/lib/PressureUnit.js');
+import { PressureUnit } from 'ilib/lib/PressureUnit.js';
 
 // no async operation for this function/class
 
