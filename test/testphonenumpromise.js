@@ -1,7 +1,7 @@
 /*
  * testphonenumasync.js - test phonenumber class
  *
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,9 +17,9 @@
  * limitations under the License.
  */
 
-import PhoneNumber from "../lib/PhoneNumber.js";
+import PhoneNumber from "../src/PhoneNumber.js";
 
-module.exports.phonenumpromise = {
+export const testphonenumpromise = {
     testPhoneParseAsyncAUFull: function(test) {
         test.expect(2);
         PhoneNumber.create("(08) 1234 5678", {

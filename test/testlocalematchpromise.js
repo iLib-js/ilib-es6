@@ -1,7 +1,7 @@
 /*
  * testlocalematchasync.js - test the locale matcher object
  *
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,9 +17,9 @@
  * limitations under the License.
  */
 
-import LocaleMatcher from "../lib/LocaleMatcher.js";
+import LocaleMatcher from "../src/LocaleMatcher.js";
 
-module.exports.testlocalematchpromise = {
+export const testlocalematchpromise = {
     testLocaleMatcherAsyncConstructor: function(test) {
         test.expect(1);
         LocaleMatcher.create({

@@ -1,7 +1,7 @@
 /*
  * testnormalizeasync.js - test phonenumber normalize function()
  *
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,9 +17,9 @@
  * limitations under the License.
  */
 
-import PhoneNumber from "../lib/PhoneNumber.js";
+import PhoneNumber from "../src/PhoneNumber.js";
 
-module.exports.normalizeasync = {
+export const testnormalizeasync = {
     testNormalizeAsyncIDDPrefix: function(test) {
         test.expect(1);
         new PhoneNumber("011 31 456 3453434", {

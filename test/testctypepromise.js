@@ -1,7 +1,7 @@
 /*
  * testctypepromise.js - test the character type information functions
  *
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,24 +17,24 @@
  * limitations under the License.
  */
 
-import isXdigit from "../lib/isXdigit.js";
-import isUpper from "../lib/isUpper.js";
-import isSpace from "../lib/isSpace.js";
-import isScript from "../lib/isScript.js";
-import isPunct from "../lib/isPunct.js";
-import isPrint from "../lib/isPrint.js";
-import isLower from "../lib/isLower.js";
-import isIdeo from "../lib/isIdeo.js";
-import isGraph from "../lib/isGraph.js";
-import isDigit from "../lib/isDigit.js";
-import isCntrl from "../lib/isCntrl.js";
-import isBlank from "../lib/isBlank.js";
-import isAscii from "../lib/isAscii.js";
-import isAlpha from "../lib/isAlpha.js";
-import isAlnum from "../lib/isAlnum.js";
-import CType from "../lib/CType.js";
+import isXdigit from "../src/isXdigit.js";
+import isUpper from "../src/isUpper.js";
+import isSpace from "../src/isSpace.js";
+import isScript from "../src/isScript.js";
+import isPunct from "../src/isPunct.js";
+import isPrint from "../src/isPrint.js";
+import isLower from "../src/isLower.js";
+import isIdeo from "../src/isIdeo.js";
+import isGraph from "../src/isGraph.js";
+import isDigit from "../src/isDigit.js";
+import isCntrl from "../src/isCntrl.js";
+import isBlank from "../src/isBlank.js";
+import isAscii from "../src/isAscii.js";
+import isAlpha from "../src/isAlpha.js";
+import isAlnum from "../src/isAlnum.js";
+import CType from "../src/CType.js";
 
-module.exports.testctypepromise = {
+export const testctypepromise = {
     testIsAlphaTrue: function(test) {
         test.expect(5);
         isAlpha._init(false).then(function() {

@@ -1,7 +1,7 @@
 /*
  * testphonegeoasync.js - Test the GeoLocator Object.
  *
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,10 +17,10 @@
  * limitations under the License.
  */
 
-import PhoneNumber from "../lib/PhoneNumber.js";
-import PhoneGeoLocator from "../lib/PhoneGeoLocator.js";
+import PhoneNumber from "../src/PhoneNumber.js";
+import PhoneGeoLocator from "../src/PhoneGeoLocator.js";
 
-module.exports.phonegeopromise = {
+export const testphonegeopromise = {
     testPhoneGeoAsyncNANP: function(test) {
         test.expect(6);
         PhoneNumber.create("+1 650 654 3210", {

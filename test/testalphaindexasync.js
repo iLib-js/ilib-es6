@@ -1,7 +1,7 @@
 /*
  * testalphaindexasync.js - test the Alphabetic Index class asynchronously
  *
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,9 +17,9 @@
  * limitations under the License.
  */
 
-import AlphabeticIndex from "../lib/AlphabeticIndex.js";
+import AlphabeticIndex from "../src/AlphabeticIndex.js";
 
-module.exports.testalphaindexasync = {
+export const testalphaindexasync = {
     testAlphaIndexAsyncConstructor: function(test) {
         test.expect(1);
         new AlphabeticIndex({

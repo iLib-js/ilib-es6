@@ -167,3 +167,8 @@ missing async mode, some static methods were not able to be called asynchronousl
 and in some cases, it was calling the callback before the async call was done, etc.)
 These problems were all fixed and tested in 14.X, so it is highly recommended to use
 14.X versions of ilib with ilib-es6.
+
+As of v14.15.0, ilib-es6 will no longer have transpiled sources in it will be listed
+as an ESM-only project in its package.json. If you need commonjs sources, use ilib
+directly. Because of this, this package will no longer work on node versions less
+than 12.

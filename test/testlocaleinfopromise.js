@@ -17,9 +17,9 @@
  * limitations under the License.
  */
 
-import LocaleInfo from "../lib/LocaleInfo.js";
+import LocaleInfo from "../src/LocaleInfo.js";
 
-module.exports.testlocaleinfopromise = {
+export const testlocaleinfopromise = {
     testLocaleInfoAsyncConstructor: function(test) {
         test.expect(5);
         LocaleInfo.create(undefined, {

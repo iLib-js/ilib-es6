@@ -17,10 +17,10 @@
  * limitations under the License.
  */
 
-import ilib from "../lib/ilib.js";
-import Locale from "../lib/Locale.js";
+import ilib from "../src/ilib.js";
+import Locale from "../src/Locale.js";
 
-module.exports.testglobal = {
+export const testglobal = {
     setUp: function(callback) {
         ilib.clearCache();
         callback();

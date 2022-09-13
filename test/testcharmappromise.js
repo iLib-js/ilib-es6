@@ -1,7 +1,7 @@
 /*
  * testcharmapasync.js - Test the charset mapping routines
  *
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,9 +17,9 @@
  * limitations under the License.
  */
 
-import CharmapFactory, {CharmapFactoryAsync} from "../lib/CharmapFactory.js";
+import CharmapFactory, {CharmapFactoryAsync} from "../src/CharmapFactory.js";
 
-module.exports.testcharmappromise = {
+export const testcharmappromise = {
     testCharmapAsyncConstructor: function(test) {
         test.expect(1);
         CharmapFactoryAsync().then(function(cm) {

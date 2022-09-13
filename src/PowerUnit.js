@@ -18,7 +18,7 @@
  * limitations under the License.
  */
 
-const PowerUnit = require('ilib/lib/PowerUnit.js');
+import { PowerUnit } from 'ilib/lib/PowerUnit.js';
 
 // no async operation for this function/class
 

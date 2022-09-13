@@ -2,7 +2,7 @@
  * LocaleInfo.js - ES6 wrappers around an ilib class
  *
  * @license
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,9 +18,9 @@
  * limitations under the License.
  */
 
-import { promisifyFunction } from './promisify';
+import { promisifyFunction } from './promisify.js';
 
-const ilibLocaleInfo = require('ilib/lib/LocaleInfo.js');
+import { default as ilibLocaleInfo } from 'ilib/lib/LocaleInfo.js';
 
 export default class LocaleInfo {
     constructor(locale, options = {}) {

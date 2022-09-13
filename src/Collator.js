@@ -2,7 +2,7 @@
  * Collator.js - ES6 wrappers around an ilib class
  *
  * @license
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,9 +18,9 @@
  * limitations under the License.
  */
 
-import promisify from './promisify';
+import promisify from './promisify.js';
 
-const ilibCollator = require('ilib/lib/Collator.js');
+import { default as ilibCollator } from 'ilib/lib/Collator.js';
 
 export default class Collator {
     constructor(options = {}) {

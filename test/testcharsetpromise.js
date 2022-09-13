@@ -1,7 +1,7 @@
 /*
  * testcharsetasync.js - test the charset info object
  *
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,9 +17,9 @@
  * limitations under the License.
  */
 
-import Charset from "../lib/Charset.js";
+import Charset from "../src/Charset.js";
 
-module.exports.testcharsetpromise = {
+export const testcharsetpromise = {
     testCharsetAsyncConstructor: function(test) {
         test.expect(1);
         Charset.create({

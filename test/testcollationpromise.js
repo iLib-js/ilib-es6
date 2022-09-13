@@ -1,7 +1,7 @@
 /*
  * testcollationpromise.js - test the Collator object asynchronously
  *
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,10 +17,10 @@
  * limitations under the License.
  */
 
-import ilib from "../lib/ilib.js";
-import Collator from "../lib/Collator.js";
+import ilib from "../src/ilib.js";
+import Collator from "../src/Collator.js";
 
-module.exports.testcollationpromise = {
+export const testcollationpromise = {
     testCollatorAsyncConstructorNative: function(test) {
         test.expect(1);
         var col = Collator.create({

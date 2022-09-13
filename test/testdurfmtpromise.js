@@ -17,9 +17,9 @@
  * limitations under the License.
  */
 
-import DurationFmt from "../lib/DurationFmt.js";
+import DurationFmt from "../src/DurationFmt.js";
 
-module.exports.testdurfmtpromise = {
+export const testdurfmtpromise = {
     testDurFmtAsyncConstructorEmpty: function(test) {
         test.expect(1);
         DurationFmt.create({

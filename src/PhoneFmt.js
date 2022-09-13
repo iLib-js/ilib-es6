@@ -2,7 +2,7 @@
  * PhoneFmt.js - ES6 wrappers around an ilib class
  *
  * @license
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,9 +18,9 @@
  * limitations under the License.
  */
 
-import { promisifyFunction } from './promisify';
+import { promisifyFunction } from './promisify.js';
 
-const ilibPhoneFmt = require('ilib/lib/PhoneFmt.js');
+import { default as ilibPhoneFmt } from 'ilib/lib/PhoneFmt.js';
 
 function wrapFormat(phoneFmt) {
     if (!phoneFmt) return;

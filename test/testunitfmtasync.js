@@ -17,10 +17,10 @@
  * limitations under the License.
  */
 
-import UnitFmt from "../lib/UnitFmt.js";
-import MeasurementFactory from "../lib/MeasurementFactory.js";
+import UnitFmt from "../src/UnitFmt.js";
+import MeasurementFactory from "../src/MeasurementFactory.js";
 
-module.exports.testunitfmtasync = {
+export const testunitfmtasync = {
     testUnitFormatWithScale1: function(test) {
         test.expect(1);
         var m = MeasurementFactory({

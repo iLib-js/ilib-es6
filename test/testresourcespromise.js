@@ -1,7 +1,7 @@
 /*
  * testresourcesasync.js - test the Resources object
  *
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,14 +17,17 @@
  * limitations under the License.
  */
 
-import ilib from "../lib/ilib.js";
+import ilib from "../src/ilib.js";
 
-import ResBundle from "../lib/ResBundle.js";
-import Locale from "../lib/Locale.js";
+import ResBundle from "../src/ResBundle.js";
+import Locale from "../src/Locale.js";
 
 import path from 'path';
 
-module.exports.testresourcespromise = {
+import * as url from 'url';
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+
+export const testresourcespromise = {
     testResBundleAsyncConstructorEmpty: function(test) {
         test.expect(2);
         ilib.clearPseudoLocales();

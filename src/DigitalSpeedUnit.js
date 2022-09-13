@@ -2,7 +2,7 @@
  * DigitalSpeedUnit.js - ES6 wrappers around an ilib class
  *
  * @license
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
  * limitations under the License.
  */
 
-const DigitalSpeedUnit = require('ilib/lib/DigitalSpeedUnit.js');
+import { DigitalSpeedUnit } from 'ilib/lib/DigitalSpeedUnit.js';
 
 // no async operation for this function/class
 

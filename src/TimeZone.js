@@ -2,7 +2,7 @@
  * TimeZone.js - ES6 wrappers around an ilib class
  *
  * @license
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,11 +18,12 @@
  * limitations under the License.
  */
 
-import promisify, {promisifyFunction} from './promisify';
+import promisify, {promisifyFunction} from './promisify.js';
 
-let ilibTimeZone = require('ilib/lib/TimeZone.js');
+import { default as ilibTimeZone } from 'ilib/lib/TimeZone.js';
 
 const oldGetAvailableIds = ilibTimeZone.getAvailableIds;
+
 ilibTimeZone.getAvailableIds = function(country, sync, callback) {
     if (typeof(sync) === "undefined" || sync) {
         return oldGetAvailableIds(country, sync, callback);

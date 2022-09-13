@@ -1,7 +1,7 @@
 /*
  * testtimezoneasync.js - test the timezone objects asynchronously
  *
- * Copyright © 2018, JEDLSoft
+ * Copyright © 2018, 2022 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,9 +17,9 @@
  * limitations under the License.
  */
 
-import TimeZone from "../lib/TimeZone.js";
+import TimeZone from "../src/TimeZone.js";
 
-module.exports.testtimezonepromise = {
+export const testtimezonepromise = {
     testTZAsyncGetAvailableIds: function(test) {
         test.expect(2);
         TimeZone.getAvailableIds(undefined, false).then(function(zones) {
