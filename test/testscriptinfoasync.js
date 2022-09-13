@@ -108,7 +108,7 @@ export const testscriptinfoasync = {
         ScriptInfo.getAllScripts(false, undefined, function(scripts) {
             test.ok(scripts !== null);
 
-            test.equal(scripts.length, 210);
+            test.equal(scripts.length, 213);
 
             test.equal(scripts[0], "Adlm");
             test.equal(scripts[1], "Afak");
@@ -120,7 +120,7 @@ export const testscriptinfoasync = {
             ScriptInfo.getAllScripts(false, undefined, function(scripts) {
                 test.ok(scripts !== null);
 
-                test.equal(scripts.length, 210);
+                test.equal(scripts.length, 213);
 
                 test.equal(scripts[0], "Adlm");
                 test.equal(scripts[scripts.length-1], "Zzzz");
