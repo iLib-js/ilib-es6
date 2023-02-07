@@ -78,7 +78,7 @@ export { default as LocaleInfo } from './LocaleInfo.js';
 export { default as Locale } from './Locale.js';
 export { default as LocaleMatcher } from './LocaleMatcher.js';
 export { default as MassUnit } from './MassUnit.js';
-export { default as MeasurementFactory, MeasurementFactoryAsync  } from './MeasurementFactory.js';
+export { default as MeasurementFactory } from './MeasurementFactory.js';
 export { default as NameFmt } from './NameFmt.js';
 export { default as Name } from './Name.js';
 export { default as NormString } from './NormString.js';
