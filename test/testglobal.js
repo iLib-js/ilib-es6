@@ -66,7 +66,7 @@ export const testglobal = {
     
     testGetVersion: function(test) {
         test.expect(1);
-        test.equal(ilib.getVersion().substring(0,5), "14.15");
+        test.equal(ilib.getVersion().substring(0,5), "14.16");
         test.done();
     },
     

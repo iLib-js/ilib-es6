@@ -2,7 +2,7 @@
  * DigitalStorageUnit.js - ES6 wrappers around an ilib class
  *
  * @license
- * Copyright © 2018, 2022 JEDLSoft
+ * Copyright © 2018, 2022-2023 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
  * limitations under the License.
  */
 
-import { DigitalStorageUnit } from 'ilib/lib/DigitalStorageUnit.js';
+import { default as DigitalStorageUnit } from 'ilib/lib/DigitalStorageUnit.js';
 
 // no async operation for this function/class
 
