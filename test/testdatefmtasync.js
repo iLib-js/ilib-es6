@@ -143,7 +143,7 @@ export const testdatefmtasync = {
                 // test formatting a javascript date. It should be converted to
                 // an ilib date object automatically and then formatted
                 var datMyBday = new Date("Fri Aug 13 1982 13:37:35 GMT-0700");
-                test.equal(fmt.format(datMyBday), "1:37 PM");
+                test.equal(fmt.format(datMyBday), "1:37 PM");
                 test.done();
             }
         });
@@ -279,7 +279,7 @@ export const testdatefmtasync = {
                     locale: "en-US",
                     sync: false,
                     onLoad: function(date) {
-                        test.equal(fmt.format(date), "21/9/11, 6:45 am AEST");
+                        test.equal(fmt.format(date), "21/9/11, 6:45 am AEST");
                         test.done();
                     }
                 });
