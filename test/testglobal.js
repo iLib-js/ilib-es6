@@ -1,7 +1,7 @@
 /*
  * testglobal.js - test the ilib static routines
  *
- * Copyright © 2012-2015, 2017-2022, JEDLSoft
+ * Copyright © 2012-2015, 2017-2023, JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -66,7 +66,7 @@ export const testglobal = {
     
     testGetVersion: function(test) {
         test.expect(1);
-        test.equal(ilib.getVersion().substring(0,5), "14.17");
+        test.equal(ilib.getVersion().substring(0,5), "14.18");
         test.done();
     },
     

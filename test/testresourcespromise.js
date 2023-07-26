@@ -1,7 +1,7 @@
 /*
  * testresourcesasync.js - test the Resources object
  *
- * Copyright © 2018, 2022 JEDLSoft
+ * Copyright © 2018, 2022-2023 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -102,9 +102,9 @@ export const testresourcespromise = {
             test.ok(rb !== null);
 
             // should not pseudo-ize the replacement parameter names
-            test.equal(rb.getString("Hello from {country}").toString(), "Ħëľľõ fŕõm {çõüñţŕÿ}");
-            test.equal(rb.getString("Hello from {city}").toString(), "Ħëľľõ fŕõm {çíţÿ}");
-            test.equal(rb.getString("Greetings from {city} in {country}").toString(), "Ĝŕëëţíñğš fŕõm {çíţÿ} íñ {çõüñţŕÿ}");
+            test.equal(rb.getString("Hello from {country}").toString(), "[Ħëľľõ fŕõm {çõüñţŕÿ}]");
+            test.equal(rb.getString("Hello from {city}").toString(), "[Ħëľľõ fŕõm {çíţÿ}]");
+            test.equal(rb.getString("Greetings from {city} in {country}").toString(), "[Ĝŕëëţíñğš fŕõm {çíţÿ} íñ {çõüñţŕÿ}]");
             test.done();
         });
     },
@@ -149,9 +149,9 @@ export const testresourcespromise = {
             test.ok(rb !== null);
 
             // should pseudo-ize the replacement parameter names
-            test.equal(rb.getString("Hello from {country}").toString(), "Хэлло фром {чоунтря}");
-            test.equal(rb.getString("Hello from {city}").toString(), "Хэлло фром {читя}");
-            test.equal(rb.getString("Greetings from {city} in {country}").toString(), "Грээтингс фром {читя} ин {чоунтря}");
+            test.equal(rb.getString("Hello from {country}").toString(), "[Хэлло фром {чоунтря}]");
+            test.equal(rb.getString("Hello from {city}").toString(), "[Хэлло фром {читя}]");
+            test.equal(rb.getString("Greetings from {city} in {country}").toString(), "[Грээтингс фром {читя} ин {чоунтря}]");
             test.done();
         });
 
@@ -169,9 +169,9 @@ export const testresourcespromise = {
 
             // should not pseudo-ize the replacement parameter names
             // for Chinese scripts, remove the spaces to the simulate Chinese writing style
-            test.equal(rb.getString("Hello from {country}").toString(), "和俄了了夥凡熱夥们{country}");
-            test.equal(rb.getString("Hello from {city}").toString(), "和俄了了夥凡熱夥们{city}");
-            test.equal(rb.getString("Greetings from {city} in {country}").toString(), "个熱俄俄推意尼个思凡熱夥们{city}意尼{country}");
+            test.equal(rb.getString("Hello from {country}").toString(), "[和俄了了夥凡熱夥们{country}]");
+            test.equal(rb.getString("Hello from {city}").toString(), "[和俄了了夥凡熱夥们{city}]");
+            test.equal(rb.getString("Greetings from {city} in {country}").toString(), "[个熱俄俄推意尼个思凡熱夥们{city}意尼{country}]");
             test.done();
         });
 
@@ -188,9 +188,9 @@ export const testresourcespromise = {
             test.ok(rb !== null);
 
             // should not pseudo-ize the replacement parameter names
-            test.equal(rb.getString("Hello from {country}").toString(), "הֶללֹ פרֹמ {country}");
-            test.equal(rb.getString("Hello from {city}").toString(), "הֶללֹ פרֹמ {city}");
-            test.equal(rb.getString("Greetings from {city} in {country}").toString(), "גרֶֶטִנגס פרֹמ {city} ִנ {country}");
+            test.equal(rb.getString("Hello from {country}").toString(), "[הֶללֹ פרֹמ {country}]");
+            test.equal(rb.getString("Hello from {city}").toString(), "[הֶללֹ פרֹמ {city}]");
+            test.equal(rb.getString("Greetings from {city} in {country}").toString(), "[גרֶֶטִנגס פרֹמ {city} ִנ {country}]");
             test.done();
         });
 
@@ -204,7 +204,7 @@ export const testresourcespromise = {
             locale:'eu-ES',
             sync: false
         }).then(function(rb) {
-            test.equal(rb.getString("This is psuedo string test").toString(), "Ťĥíš íš þšüëðõ šţŕíñğ ţëšţ");
+            test.equal(rb.getString("This is psuedo string test").toString(), "[Ťĥíš íš þšüëðõ šţŕíñğ ţëšţ]");
             test.done();
             ilib.clearPseudoLocales();
         });
@@ -218,7 +218,7 @@ export const testresourcespromise = {
             locale:'ps-AF',
             sync: false
         }).then(function(rb) {
-            test.equal(rb.getString("This is psuedo string test").toString(), "טהִס ִס פסֶֻדֹ סטרִנג טֶסט");
+            test.equal(rb.getString("This is psuedo string test").toString(), "[טהִס ִס פסֶֻדֹ סטרִנג טֶסט]");
             test.done();
             ilib.clearPseudoLocales();
         });
