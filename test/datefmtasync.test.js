@@ -1,7 +1,7 @@
 /*
  * datefmtasync.test.js - test the date formatter object asynchronously
  *
- * Copyright © 2018, 2024 2022, 2024 JEDLSoft
+ * Copyright © 2018, 2022, 2024 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -271,6 +271,56 @@ describe("testdatefmtasync", () => {
                     }
                 });
 
+            }
+        });
+    });
+
+    test("DateFmtGetMeridiemsRangeName_with_am_ET_locale", () => {
+        expect.assertions(2);
+        DateFmt.getMeridiemsRange({
+            locale: "am-ET",
+            sync: false,
+            onLoad: fmt => {
+                expect(fmt !== null).toBeTruthy();
+                expect(fmt[0].name).toBe("ጥዋት");
+            }
+        });
+    });
+
+    test("DateFmtGetMeridiemsRangeName_with_am_ET_locale_gregorian_meridiems", () => {
+        expect.assertions(2);
+        DateFmt.getMeridiemsRange({
+            locale: "am-ET",
+            meridiems: "gregorian",
+            sync: false,
+            onLoad: fmt => {
+                expect(fmt !== null).toBeTruthy();
+                expect(fmt[0].name).toBe("ጥዋት");
+            }
+        });
+    });
+
+    test("DateFmtGetMeridiemsRangeName_with_zh_CN_locale", () => {
+        expect.assertions(2);
+        DateFmt.getMeridiemsRange({
+            locale: "zh-CN",
+            sync: false,
+            onLoad: fmt => {
+                expect(fmt !== null).toBeTruthy();
+                expect(fmt[0].name).toBe("上午");
+            }
+        });
+    });
+
+    test("DateFmtGetMeridiemsRangeName_with_zh_CN_locale_chinese_meridiems", () => {
+        expect.assertions(2);
+        DateFmt.getMeridiemsRange({
+            locale: "zh-CN",
+            meridiems: "chinese",
+            sync: false,
+            onLoad: fmt => {
+                expect(fmt !== null).toBeTruthy();
+                expect(fmt[0].name).toBe("凌晨");
             }
         });
     });
