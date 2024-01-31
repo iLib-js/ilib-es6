@@ -28,7 +28,7 @@ function isDigit(ch) {
 
 isDigit._init = function (sync, loadParams, onLoad) {
     if (typeof(sync) === "undefined" || sync) {
-        return ilibisDigit(sync, loadParams, onLoad);
+        return ilibisDigit._init(sync, loadParams, onLoad);
     }
 
     return promisifyFunction(function(options = {}) {

@@ -28,7 +28,7 @@ function isPunct(ch) {
 
 isPunct._init = function (sync, loadParams, onLoad) {
     if (typeof(sync) === "undefined" || sync) {
-        return ilibisPunct(sync, loadParams, onLoad);
+        return ilibisPunct._init(sync, loadParams, onLoad);
     }
 
     return promisifyFunction(function(options = {}) {

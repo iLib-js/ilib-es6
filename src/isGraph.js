@@ -28,7 +28,7 @@ function isGraph(ch) {
 
 isGraph._init = function (sync, loadParams, onLoad) {
     if (typeof(sync) === "undefined" || sync) {
-        return ilibisGraph(sync, loadParams, onLoad);
+        return ilibisGraph._init(sync, loadParams, onLoad);
     }
 
     return promisifyFunction(function(options = {}) {

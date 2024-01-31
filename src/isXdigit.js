@@ -28,7 +28,7 @@ function isXdigit(ch) {
 
 isXdigit._init = function (sync, loadParams, onLoad) {
     if (typeof(sync) === "undefined" || sync) {
-        return ilibisXdigit(sync, loadParams, onLoad);
+        return ilibisXdigit._init(sync, loadParams, onLoad);
     }
 
     return promisifyFunction(function(options = {}) {

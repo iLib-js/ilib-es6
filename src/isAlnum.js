@@ -28,7 +28,7 @@ function isAlnum(ch) {
 
 isAlnum._init = function (sync, loadParams, onLoad) {
     if (typeof(sync) === "undefined" || sync) {
-        return ilibisAlnum(sync, loadParams, onLoad);
+        return ilibisAlnum._init(sync, loadParams, onLoad);
     }
 
     return promisifyFunction(function(options = {}) {

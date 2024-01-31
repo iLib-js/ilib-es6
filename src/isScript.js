@@ -22,13 +22,13 @@ import { promisifyFunction } from './promisify.js';
 
 import { default as ilibisScript } from 'ilib/lib/isScript.js';
 
-function isScript(ch) {
-    return ilibisScript(ch);
+function isScript(ch, scriptName) {
+    return ilibisScript(ch, scriptName);
 };
 
 isScript._init = function (sync, loadParams, onLoad) {
     if (typeof(sync) === "undefined" || sync) {
-        return ilibisScript(sync, loadParams, onLoad);
+        return ilibisScript._init(sync, loadParams, onLoad);
     }
 
     return promisifyFunction(function(options = {}) {

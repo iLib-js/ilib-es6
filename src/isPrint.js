@@ -28,7 +28,7 @@ function isPrint(ch) {
 
 isPrint._init = function (sync, loadParams, onLoad) {
     if (typeof(sync) === "undefined" || sync) {
-        return ilibisPrint(sync, loadParams, onLoad);
+        return ilibisPrint._init(sync, loadParams, onLoad);
     }
 
     return promisifyFunction(function(options = {}) {

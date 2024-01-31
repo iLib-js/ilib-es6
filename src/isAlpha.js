@@ -28,7 +28,7 @@ function isAlpha(ch) {
 
 isAlpha._init = function (sync, loadParams, onLoad) {
     if (typeof(sync) === "undefined" || sync) {
-        return ilibisAlpha(sync, loadParams, onLoad);
+        return ilibisAlpha._init(sync, loadParams, onLoad);
     }
 
     return promisifyFunction(function(options = {}) {

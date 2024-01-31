@@ -28,7 +28,7 @@ function isAscii(ch) {
 
 isAscii._init = function (sync, loadParams, onLoad) {
     if (typeof(sync) === "undefined" || sync) {
-        return ilibisAscii(sync, loadParams, onLoad);
+        return ilibisAscii._init(sync, loadParams, onLoad);
     }
 
     return promisifyFunction(function(options = {}) {

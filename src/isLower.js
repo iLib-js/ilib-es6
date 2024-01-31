@@ -28,7 +28,7 @@ function isLower(ch) {
 
 isLower._init = function (sync, loadParams, onLoad) {
     if (typeof(sync) === "undefined" || sync) {
-        return ilibisLower(sync, loadParams, onLoad);
+        return ilibisLower._init(sync, loadParams, onLoad);
     }
 
     return promisifyFunction(function(options = {}) {

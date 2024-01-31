@@ -28,7 +28,7 @@ function isIdeo(ch) {
 
 isIdeo._init = function (sync, loadParams, onLoad) {
     if (typeof(sync) === "undefined" || sync) {
-        return ilibisIdeo(sync, loadParams, onLoad);
+        return ilibisIdeo._init(sync, loadParams, onLoad);
     }
 
     return promisifyFunction(function(options = {}) {

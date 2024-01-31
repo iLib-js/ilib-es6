@@ -28,7 +28,7 @@ function isSpace(ch) {
 
 isSpace._init = function (sync, loadParams, onLoad) {
     if (typeof(sync) === "undefined" || sync) {
-        return ilibisSpace(sync, loadParams, onLoad);
+        return ilibisSpace._init(sync, loadParams, onLoad);
     }
 
     return promisifyFunction(function(options = {}) {

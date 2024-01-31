@@ -28,7 +28,7 @@ function isUpper(ch) {
 
 isUpper._init = function (sync, loadParams, onLoad) {
     if (typeof(sync) === "undefined" || sync) {
-        return ilibisUpper(sync, loadParams, onLoad);
+        return ilibisUpper._init(sync, loadParams, onLoad);
     }
 
     return promisifyFunction(function(options = {}) {

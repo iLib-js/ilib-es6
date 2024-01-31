@@ -28,7 +28,7 @@ function isCntrl(ch) {
 
 isCntrl._init = function (sync, loadParams, onLoad) {
     if (typeof(sync) === "undefined" || sync) {
-        return ilibisCntrl(sync, loadParams, onLoad);
+        return ilibisCntrl._init(sync, loadParams, onLoad);
     }
 
     return promisifyFunction(function(options = {}) {
