@@ -17,6 +17,7 @@
  * limitations under the License.
  */
 
+import ilib from '../src/ilib.js';
 import isXdigit from "../src/isXdigit.js";
 import isUpper from "../src/isUpper.js";
 import isSpace from "../src/isSpace.js";
@@ -35,6 +36,17 @@ import isAlnum from "../src/isAlnum.js";
 import CType from "../src/CType.js";
 
 describe("testctypepromise", () => {
+    beforeEach(() => {
+        ilib.clearCache();
+        ilib.data.ctype = null;
+        ilib.data.ctype_c = null;
+        ilib.data.ctype_l = null;
+        ilib.data.ctype_m = null;
+        ilib.data.ctype_p = null;
+        ilib.data.ctype_z = null;
+        ilib.data.scriptToRange = null;
+    });
+
     test("IsAlphaTrue", () => {
         expect.assertions(5);
         return isAlpha._init(false).then(() => {
