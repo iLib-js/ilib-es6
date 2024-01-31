@@ -1,7 +1,7 @@
 /*
  * timezoneasync.test.js - test the timezone objects asynchronously
  *
- * Copyright © 2018, 2024 2022, 2024 JEDLSoft
+ * Copyright © 2018, 2022, 2024 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
