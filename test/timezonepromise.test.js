@@ -17,9 +17,14 @@
  * limitations under the License.
  */
 
+import ilib from '../src/ilib.js';
 import TimeZone from "../src/TimeZone.js";
 
 describe("testtimezonepromise", () => {
+    beforeEach(() => {
+        ilib.clearCache();
+    });
+
     test("TZAsyncGetAvailableIds", () => {
         expect.assertions(2);
         return TimeZone.getAvailableIds(undefined, false).then(zones => {

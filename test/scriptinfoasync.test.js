@@ -17,9 +17,14 @@
  * limitations under the License.
  */
 
+import ilib from '../src/ilib.js';
 import ScriptInfo from "../src/ScriptInfo.js";
 
 describe("testscriptinfoasync", () => {
+    beforeEach(() => {
+        ilib.clearCache();
+    });
+
     test("ScriptInfoAsyncConstructor", () => {
         expect.assertions(1);
         var si = new ScriptInfo(undefined, {

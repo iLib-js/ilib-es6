@@ -17,17 +17,25 @@
  * limitations under the License.
  */
 
+import ilib from '../src/ilib.js';
 import NormString from "../src/NormString.js";
 import Locale from "../src/Locale.js";
 import IString from "../src/IString.js";
 
 describe("teststringspromise", () => {
+    beforeEach(() => {
+        ilib.clearCache();
+    });
+
     test("StringLoadPlurals", () => {
-        expect.assertions(1);
+        expect.assertions(2);
         return IString.loadPlurals(false, undefined).then(function() {
             var str = new IString("asdf");
-
             expect(str !== null).toBeTruthy();
+
+            // plurals should already be loaded
+            str.setLocale("ru-RU");
+            expect(str.getLocale()).toBe("ru-RU");
         });
     });
 
@@ -54,7 +62,7 @@ describe("teststringspromise", () => {
     test("StringFormatChoiceSimpleRussian", () => {
         expect.assertions(3);
         var str = new IString("1#first string|few#second string|many#third string");
-        return str.setLocale("ru-RU", false).then(function() {
+        return str.setLocale("ru-RU", false).then(() => {
             expect(str !== null).toBeTruthy();
 
             expect(str.formatChoice(2)).toBe("second string");
@@ -64,19 +72,19 @@ describe("teststringspromise", () => {
 
     test("StringFormatChoiceSimpleRussianTwice", () => {
         expect.assertions(4);
-        var str = new IString("1#first string|few#second string|many#third string");
-        return str.setLocale("ru-RU", false).then(function() {
+        var str = new IString("1#one|few#few|many#many");
+        return str.setLocale("ru-RU", false).then(() => {
             expect(str !== null).toBeTruthy();
 
-            expect(str.formatChoice(5)).toBe("third string");
-            str = new IString("1#single|few#few|many#many");
+            expect(str.formatChoice(3)).toBe("few");
+            str = new IString("1#single|few#double|many#multiple");
 
             // Russian rules should already be loaded. Need to make sure
             // the callback is still called anyways
-            str.setLocale("ru-RU", false).then(function() {
-                expect(str !== null).toBeTruthy();
-                expect(str.formatChoice(5)).toBe("many");
-            });
+            return str.setLocale("ru-RU", false);
+        }).then(() => {
+            expect(str !== null).toBeTruthy();
+            expect(str.formatChoice(5)).toBe("multiple");
         });
     });
 

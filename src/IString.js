@@ -35,10 +35,10 @@ function wrapSetLocale(str) {
             const { locale, sync, loadParams, onLoad } = opts;
             return oldSetLocale(locale, sync, loadParams, onLoad);
         }, {
-            locale: locale,
+            locale,
             sync: false,
-            loadParams: loadParams,
-            onLoad: onLoad
+            loadParams,
+            onLoad
         });
     };
 
@@ -50,7 +50,7 @@ export default class IString {
         return wrapSetLocale(new ilibIString(str));
     }
 
-    static loadPlurals(sync, locale, loadParams, callback) {
+    static loadPlurals(sync, locale, loadParams, onLoad) {
         if (typeof(sync) === "undefined" || sync) {
             return ilibIString.loadPlurals(sync, locale, loadParams, onLoad);
         }
@@ -59,10 +59,10 @@ export default class IString {
             const {locale, loadParams, onLoad} = options;
             return ilibIString.loadPlurals(false, locale, loadParams, onLoad);
         }, {
-            loadParams: loadParams,
-            locale: locale,
+            loadParams,
+            locale,
             sync: false,
-            onLoad: callback
+            onLoad
         });
     }
     

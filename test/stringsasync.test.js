@@ -17,17 +17,25 @@
  * limitations under the License.
  */
 
+import ilib from '../src/ilib.js';
 import NormString from "../src/NormString.js";
 import Locale from "../src/Locale.js";
 import IString from "../src/IString.js";
 
 describe("teststringsasync", () => {
+    beforeEach(() => {
+        ilib.clearCache();
+    });
+
     test("StringLoadPlurals", () => {
-        expect.assertions(1);
+        expect.assertions(2);
         IString.loadPlurals(false, undefined, undefined, function() {
             var str = new IString("asdf");
-
             expect(str !== null).toBeTruthy();
+
+            // plurals should already be loaded
+            str.setLocale("ru-RU", true);
+            expect(str.getLocale()).toBe("ru-RU");
         })
     });
 
@@ -64,18 +72,18 @@ describe("teststringsasync", () => {
 
     test("StringFormatChoiceSimpleRussianTwice", () => {
         expect.assertions(4);
-        var str = new IString("1#first string|few#second string|many#third string");
+        var str = new IString("1#one|few#few|many#many");
         str.setLocale("ru-RU", false, undefined, function() {
             expect(str !== null).toBeTruthy();
 
-            expect(str.formatChoice(5)).toBe("third string");
-            str = new IString("1#single|few#few|many#many");
+            expect(str.formatChoice(3)).toBe("few");
+            str = new IString("1#single|few#double|many#multiple");
 
             // Russian rules should already be loaded. Need to make sure
             // the callback is still called anyways
             str.setLocale("ru-RU", false, undefined, function() {
                 expect(str !== null).toBeTruthy();
-                expect(str.formatChoice(5)).toBe("many");
+                expect(str.formatChoice(5)).toBe("multiple");
             });
         });
     });
