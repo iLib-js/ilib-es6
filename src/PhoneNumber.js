@@ -26,13 +26,13 @@ function wrapNormalize(phoneNumber) {
     if (!phoneNumber) return;
 
     const oldNormalize = ilibPhoneNumber.prototype.normalize.bind(phoneNumber);
-    phoneNumber.normalize = function(options = {}) {
+    phoneNumber.normalize = (options = {}) => {
         const { sync } = options;
         if (typeof(sync) === "undefined" || sync) {
             return oldNormalize(options);
         }
 
-        return promisifyFunction(function(opts = {}) {
+        return promisifyFunction((opts = {}) => {
             return oldNormalize(opts);
         }, options);
     };
@@ -46,11 +46,22 @@ export default class PhoneNumber {
     }
 
     static create(phoneNumber, options = {}) {
-        return promisifyFunction(function(opts = {}) {
+        return promisifyFunction((opts = {}) => {
             const { phoneNumber } = opts;
             return wrapNormalize(new ilibPhoneNumber(phoneNumber, opts));
         }, Object.assign({}, options, {
             phoneNumber: phoneNumber
         }));
+    }
+
+    static parseImsi(imsi, options = {}) {
+        const { sync } = options;
+        if (typeof(sync) === "undefined" || sync) {
+            return ilibPhoneNumber.parseImsi(imsi, options);
+        }
+
+        return promisifyFunction((opts = {}) => {
+            return ilibPhoneNumber.parseImsi(imsi, opts);
+        }, options);
     }
 };

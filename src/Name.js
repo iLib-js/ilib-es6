@@ -28,7 +28,7 @@ export default class Name {
     }
 
     static create(name, options = {}) {
-        return promisifyFunction(function(opts = {}) {
+        return promisifyFunction((opts = {}) => {
             const { name } = opts;
             return new ilibName(name, opts);
         }, Object.assign({}, options, {

@@ -2,7 +2,7 @@
  * CalendarFactory.js - ES6 wrappers around an ilib class
  *
  * @license
- * Copyright © 2018, 2022 JEDLSoft
+ * Copyright © 2018, 2022, 2024 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@ import { promisifyFunction } from './promisify.js';
 import {default as CalendarFactory } from 'ilib/lib/CalendarFactory.js';
 
 export function CalendarFactoryAsync(options = {}) {
-    var opts = Object.assign({}, options, {sync: false});
+    const opts = Object.assign({}, options, {sync: false});
     return promisifyFunction(CalendarFactory, opts);
 };
 

@@ -28,7 +28,7 @@ export default class NormString {
     }
 
     static create(str, options = {}) {
-        return promisifyFunction(function(opts = {}) {
+        return promisifyFunction((opts = {}) => {
             const { str } = opts;
             return new ilibNormString(str, opts);
         }, Object.assign({}, options, {

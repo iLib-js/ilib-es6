@@ -2,7 +2,7 @@
  * isGraph.js - ES6 wrappers around an ilib class
  *
  * @license
- * Copyright © 2018, 2022 JEDLSoft
+ * Copyright © 2018, 2022, 2024 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,12 +26,12 @@ function isGraph(ch) {
     return ilibisGraph(ch);
 };
 
-isGraph._init = function (sync, loadParams, onLoad) {
+isGraph._init = (sync, loadParams, onLoad) => {
     if (typeof(sync) === "undefined" || sync) {
-        return ilibisGraph(sync, loadParams, onLoad);
+        return ilibisGraph._init(sync, loadParams, onLoad);
     }
 
-    return promisifyFunction(function(options = {}) {
+    return promisifyFunction((options = {}) => {
         const { sync, loadParams, onLoad } = options;
         return ilibisGraph._init(sync, loadParams, onLoad);
     }, {

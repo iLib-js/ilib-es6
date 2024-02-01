@@ -2,7 +2,7 @@
  * isSpace.js - ES6 wrappers around an ilib class
  *
  * @license
- * Copyright © 2018, 2022 JEDLSoft
+ * Copyright © 2018, 2022, 2024 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,12 +26,12 @@ function isSpace(ch) {
     return ilibisSpace(ch);
 };
 
-isSpace._init = function (sync, loadParams, onLoad) {
+isSpace._init = (sync, loadParams, onLoad) => {
     if (typeof(sync) === "undefined" || sync) {
-        return ilibisSpace(sync, loadParams, onLoad);
+        return ilibisSpace._init(sync, loadParams, onLoad);
     }
 
-    return promisifyFunction(function(options = {}) {
+    return promisifyFunction((options = {}) => {
         const { sync, loadParams, onLoad } = options;
         return ilibisSpace._init(sync, loadParams, onLoad);
     }, {

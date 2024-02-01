@@ -2,7 +2,7 @@
  * isAlpha.js - ES6 wrappers around an ilib class
  *
  * @license
- * Copyright © 2018, 2022 JEDLSoft
+ * Copyright © 2018, 2022, 2024 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,12 +26,12 @@ function isAlpha(ch) {
     return ilibisAlpha(ch);
 };
 
-isAlpha._init = function (sync, loadParams, onLoad) {
+isAlpha._init = (sync, loadParams, onLoad) => {
     if (typeof(sync) === "undefined" || sync) {
-        return ilibisAlpha(sync, loadParams, onLoad);
+        return ilibisAlpha._init(sync, loadParams, onLoad);
     }
 
-    return promisifyFunction(function(options = {}) {
+    return promisifyFunction((options = {}) => {
         const { sync, loadParams, onLoad } = options;
         return ilibisAlpha._init(sync, loadParams, onLoad);
     }, {

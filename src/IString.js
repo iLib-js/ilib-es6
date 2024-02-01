@@ -2,7 +2,7 @@
  * IString.js - ES6 wrappers around an ilib class
  *
  * @license
- * Copyright © 2018, 2022 JEDLSoft
+ * Copyright © 2018, 2022, 2024 JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,19 +26,19 @@ function wrapSetLocale(str) {
     if (!str) return;
 
     const oldSetLocale = ilibIString.prototype.setLocale.bind(str);
-    str.setLocale = function(locale, sync, loadParams, onLoad) {
+    str.setLocale = (locale, sync, loadParams, onLoad) => {
         if (typeof(sync) === "undefined" || sync) {
             return oldSetLocale(locale, sync, loadParams, onLoad);
         }
 
-        return promisifyFunction(function(opts = {}) {
+        return promisifyFunction((opts = {}) => {
             const { locale, sync, loadParams, onLoad } = opts;
             return oldSetLocale(locale, sync, loadParams, onLoad);
         }, {
-            locale: locale,
+            locale,
             sync: false,
-            loadParams: loadParams,
-            onLoad: onLoad
+            loadParams,
+            onLoad
         });
     };
 
@@ -50,19 +50,19 @@ export default class IString {
         return wrapSetLocale(new ilibIString(str));
     }
 
-    static loadPlurals(sync, locale, loadParams, callback) {
+    static loadPlurals(sync, locale, loadParams, onLoad) {
         if (typeof(sync) === "undefined" || sync) {
             return ilibIString.loadPlurals(sync, locale, loadParams, onLoad);
         }
 
-        return promisifyFunction(function(options = {}) {
+        return promisifyFunction((options = {}) => {
             const {locale, loadParams, onLoad} = options;
             return ilibIString.loadPlurals(false, locale, loadParams, onLoad);
         }, {
-            loadParams: loadParams,
-            locale: locale,
+            loadParams,
+            locale,
             sync: false,
-            onLoad: callback
+            onLoad
         });
     }
     

@@ -24,12 +24,12 @@ import { default as ilibTimeZone } from 'ilib/lib/TimeZone.js';
 
 const oldGetAvailableIds = ilibTimeZone.getAvailableIds;
 
-ilibTimeZone.getAvailableIds = function(country, sync, callback) {
+ilibTimeZone.getAvailableIds = (country, sync, callback) => {
     if (typeof(sync) === "undefined" || sync) {
         return oldGetAvailableIds(country, sync, callback);
     }
 
-    return promisifyFunction(function(options = {}) {
+    return promisifyFunction((options = {}) => {
         const {country, onLoad} = options;
         return oldGetAvailableIds(country, false, onLoad);
     }, {
@@ -53,7 +53,7 @@ export default class TimeZone {
             return oldGetAvailableIds(country, sync, callback);
         }
 
-        return promisifyFunction(function(options = {}) {
+        return promisifyFunction((options = {}) => {
             const {country, onLoad} = options;
             return oldGetAvailableIds(country, false, onLoad);
         }, {
