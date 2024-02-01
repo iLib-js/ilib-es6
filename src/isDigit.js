@@ -26,12 +26,12 @@ function isDigit(ch) {
     return ilibisDigit(ch);
 };
 
-isDigit._init = function (sync, loadParams, onLoad) {
+isDigit._init = (sync, loadParams, onLoad) => {
     if (typeof(sync) === "undefined" || sync) {
         return ilibisDigit._init(sync, loadParams, onLoad);
     }
 
-    return promisifyFunction(function(options = {}) {
+    return promisifyFunction((options = {}) => {
         const { sync, loadParams, onLoad } = options;
         return ilibisDigit._init(sync, loadParams, onLoad);
     }, {

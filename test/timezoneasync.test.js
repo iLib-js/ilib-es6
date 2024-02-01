@@ -27,7 +27,7 @@ describe("testtimezoneasync", () => {
 
     test("TZAsyncGetAvailableIds", () => {
         expect.assertions(2);
-        TimeZone.getAvailableIds(undefined, false, function(zones) {
+        TimeZone.getAvailableIds(undefined, false, zones => {
             expect(typeof(zones) !== "undefined").toBeTruthy();
 
             expect(zones.length > 0).toBeTruthy();
@@ -36,7 +36,7 @@ describe("testtimezoneasync", () => {
 
     test("TZAsyncGetAvailableIdsRightValues", () => {
         expect.assertions(2);
-        TimeZone.getAvailableIds(undefined, false, function(zones) {
+        TimeZone.getAvailableIds(undefined, false, zones => {
             expect(typeof(zones) !== "undefined").toBeTruthy();
 
             // not the full list, but the array should at least contain these
@@ -54,7 +54,7 @@ describe("testtimezoneasync", () => {
 
     test("TZAsyncGetAvailableIdsNoFilterContainsLocal", () => {
         expect.assertions(2);
-        TimeZone.getAvailableIds(undefined, false, function(zones) {
+        TimeZone.getAvailableIds(undefined, false, zones => {
             expect(typeof(zones) !== "undefined").toBeTruthy();
 
             expect(zones.indexOf("local") != -1).toBeTruthy();
@@ -63,7 +63,7 @@ describe("testtimezoneasync", () => {
 
     test("TZAsyncGetAvailableIdsByCountryRightLength", () => {
         expect.assertions(2);
-        TimeZone.getAvailableIds("US", false, function(zones) {
+        TimeZone.getAvailableIds("US", false, zones => {
             expect(typeof(zones) !== "undefined").toBeTruthy();
 
             expect(zones.length).toBe(48);
@@ -72,7 +72,7 @@ describe("testtimezoneasync", () => {
 
     test("TZAsyncGetAvailableIdsWithFilterContainsNoLocal", () => {
         try {
-            TimeZone.getAvailableIds("US", false, function(zones) {
+            TimeZone.getAvailableIds("US", false, zones => {
                 expect(typeof(zones) !== "undefined").toBeTruthy();
 
                 expect(zones.indexOf("local") == -1).toBeTruthy();
@@ -84,7 +84,7 @@ describe("testtimezoneasync", () => {
 
     test("TZAsyncGetAvailableIdsByCountryRightContents", () => {
         expect.assertions(2);
-        TimeZone.getAvailableIds("US", false, function(zones) {
+        TimeZone.getAvailableIds("US", false, zones => {
             expect(typeof(zones) !== "undefined").toBeTruthy();
 
             const expected = [
@@ -144,7 +144,7 @@ describe("testtimezoneasync", () => {
 
     test("TZAsyncGetAvailableIdsByCountry2RightLength", () => {
         expect.assertions(2);
-        const zones = TimeZone.getAvailableIds("SG", false, function(zones) {
+        const zones = TimeZone.getAvailableIds("SG", false, zones => {
             expect(typeof(zones) !== "undefined").toBeTruthy();
 
             expect(zones.length).toBe(2);
@@ -153,7 +153,7 @@ describe("testtimezoneasync", () => {
 
     test("TZAsyncGetAvailableIdsByCountry2RightContents", () => {
         expect.assertions(2);
-        const zones = TimeZone.getAvailableIds("SG", false, function(zones) {
+        const zones = TimeZone.getAvailableIds("SG", false, zones => {
             expect(typeof(zones) !== "undefined").toBeTruthy();
 
             const expected = [

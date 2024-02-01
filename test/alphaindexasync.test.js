@@ -24,7 +24,7 @@ describe("testalphaindexasync", () => {
         expect.assertions(1);
         new AlphabeticIndex({
             sync: false,
-            onLoad: function(ai) {
+            onLoad: ai => {
                 expect(ai).toBeTruthy();
             }
         });
@@ -35,7 +35,7 @@ describe("testalphaindexasync", () => {
         new AlphabeticIndex({
             locale: "en-US",
             sync: false,
-            onLoad: function(ai) {
+            onLoad: ai => {
                 expect(ai).toBeTruthy();
             }
         });
@@ -46,7 +46,7 @@ describe("testalphaindexasync", () => {
         new AlphabeticIndex({
             locale: "en-US",
             sync: false,
-            onLoad: function(ai) {
+            onLoad: ai => {
                 expect(ai).toBeTruthy();
                 expect("latin").toBe(ai.getIndexStyle());
             }
@@ -58,7 +58,7 @@ describe("testalphaindexasync", () => {
         new AlphabeticIndex({
             locale: "qq-QQ",
             sync: false,
-            onLoad: function(ai) {
+            onLoad: ai => {
                 expect(ai).toBeTruthy();
             }
         });
@@ -70,7 +70,7 @@ describe("testalphaindexasync", () => {
         new AlphabeticIndex({
             locale: "en-US",
             sync: false,
-            onLoad: function(ai) {
+            onLoad: ai => {
                 expect(ai).toBeTruthy();
                 expect("B").toBe(ai.getBucket("belarus"));
                 expect("B").toBe(ai.getBucket("Belarus"));
@@ -84,7 +84,7 @@ describe("testalphaindexasync", () => {
         new AlphabeticIndex({
             locale: "en-US",
             sync: false,
-            onLoad: function(ai) {
+            onLoad: ai => {
                 expect(ai).toBeTruthy();
 
                 expect("E").toBe(ai.getBucket("Élan"));
@@ -99,7 +99,7 @@ describe("testalphaindexasync", () => {
         new AlphabeticIndex({
             locale: "en-US",
             sync: false,
-            onLoad: function(ai) {
+            onLoad: ai => {
                 expect(ai).toBeTruthy();
 
                 const items = [
@@ -119,7 +119,7 @@ describe("testalphaindexasync", () => {
                     "gamma"
                     ];
 
-                items.forEach(function(item) {
+                items.forEach(item => {
                     ai.addElement(item);
                 });
 
@@ -177,7 +177,7 @@ describe("testalphaindexasync", () => {
         new AlphabeticIndex({
             locale: "en-US",
             sync: false,
-            onLoad: function(ai) {
+            onLoad: ai => {
                 expect(ai).toBeTruthy();
 
                 const items = [
@@ -203,7 +203,7 @@ describe("testalphaindexasync", () => {
                     "gamma"
                     ];
 
-                items.forEach(function(item) {
+                items.forEach(item => {
                     ai.addElement(item);
                 });
 
@@ -237,7 +237,7 @@ describe("testalphaindexasync", () => {
         new AlphabeticIndex({
             locale: "qq-QQ",
             sync: false,
-            onLoad: function(ai) {
+            onLoad: ai => {
                 expect(ai).toBeTruthy();
 
                 const items = [
@@ -258,7 +258,7 @@ describe("testalphaindexasync", () => {
                     "ürgen"
                     ];
 
-                items.forEach(function(item) {
+                items.forEach(item => {
                     ai.addElement(item);
                 });
 
@@ -319,7 +319,7 @@ describe("testalphaindexasync", () => {
         const ai = new AlphabeticIndex({
             locale: "de-DE",
             sync: false,
-            onLoad: function(ai) {
+            onLoad: ai => {
                 expect(ai).toBeTruthy();
             }
         });
@@ -331,7 +331,7 @@ describe("testalphaindexasync", () => {
         const ai = new AlphabeticIndex({
             locale: "de-DE",
             sync: false,
-            onLoad: function(ai) {
+            onLoad: ai => {
                 expect(ai).toBeTruthy();
 
                 expect("U").toBe(ai.getBucket("über"));
@@ -351,7 +351,7 @@ describe("testalphaindexasync", () => {
         const ai = new AlphabeticIndex({
             locale: "de-DE",
             sync: false,
-            onLoad: function(ai) {
+            onLoad: ai => {
                 expect(ai).toBeTruthy();
                 // no words start with sz, but handle this just in case
                 expect("S").toBe(ai.getBucket("ß"));
@@ -366,7 +366,7 @@ describe("testalphaindexasync", () => {
             locale: "de-DE",
             style: "phonebook",
             sync: false,
-            onLoad: function(ai) {
+            onLoad: ai => {
                 expect(ai).toBeTruthy();
 
                 const items = [
@@ -390,7 +390,7 @@ describe("testalphaindexasync", () => {
                     "Judrich"
                     ];
 
-                items.forEach(function(item) {
+                items.forEach(item => {
                     ai.addElement(item);
                 });
 
@@ -438,7 +438,7 @@ describe("testalphaindexasync", () => {
             locale: "de-DE",
             style: "dictionary",
             sync: false,
-            onLoad: function(ai) {
+            onLoad: ai => {
                 expect(ai).toBeTruthy();
 
                 const items = [
@@ -462,7 +462,7 @@ describe("testalphaindexasync", () => {
                     "Judrich"
                     ];
 
-                items.forEach(function(item) {
+                items.forEach(item => {
                     ai.addElement(item);
                 });
 
@@ -507,7 +507,7 @@ describe("testalphaindexasync", () => {
         const ai = new AlphabeticIndex({
             locale: "ko-KR",
             sync: false,
-            onLoad: function(ai) {
+            onLoad: ai => {
                 expect(ai).toBeTruthy();
             }
         });
@@ -519,7 +519,7 @@ describe("testalphaindexasync", () => {
         const ai = new AlphabeticIndex({
             locale: "ko-KR",
             sync: false,
-            onLoad: function(ai) {
+            onLoad: ai => {
                 expect(ai).toBeTruthy();
 
                 const items = [
@@ -547,7 +547,7 @@ describe("testalphaindexasync", () => {
                     "박세진"
                     ];
 
-                items.forEach(function(item) {
+                items.forEach(item => {
                     ai.addElement(item);
                 });
 
@@ -606,7 +606,7 @@ describe("testalphaindexasync", () => {
         const ai = new AlphabeticIndex({
             locale: "ko-KR",
             sync: false,
-            onLoad: function(ai) {
+            onLoad: ai => {
                 expect(ai).toBeTruthy();
 
                 const items = [
@@ -627,7 +627,7 @@ describe("testalphaindexasync", () => {
                     "박세진"
                     ];
 
-                items.forEach(function(item) {
+                items.forEach(item => {
                     ai.addElement(item);
                 });
 

@@ -28,7 +28,7 @@ export default class Address {
     }
 
     static create(address, options = {}) {
-        return promisifyFunction(function(opts = {}) {
+        return promisifyFunction((opts = {}) => {
             const { address } = opts;
             return new ilibAddress(address, opts);
         }, Object.assign({}, options, {

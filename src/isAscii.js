@@ -26,12 +26,12 @@ function isAscii(ch) {
     return ilibisAscii(ch);
 };
 
-isAscii._init = function (sync, loadParams, onLoad) {
+isAscii._init = (sync, loadParams, onLoad) => {
     if (typeof(sync) === "undefined" || sync) {
         return ilibisAscii._init(sync, loadParams, onLoad);
     }
 
-    return promisifyFunction(function(options = {}) {
+    return promisifyFunction((options = {}) => {
         const { sync, loadParams, onLoad } = options;
         return ilibisAscii._init(sync, loadParams, onLoad);
     }, {

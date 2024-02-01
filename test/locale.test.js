@@ -624,7 +624,7 @@ describe("testlocale", () => {
 
     test("LocaleGetAvailableLocalesCallback", () => {
         expect.assertions(2);
-        Locale.getAvailableLocales(true, function(locales) {
+        Locale.getAvailableLocales(true, locales => {
             expect(typeof(locales) !== "undefined").toBeTruthy();
             expect(locales.length > 0).toBeTruthy();
         });

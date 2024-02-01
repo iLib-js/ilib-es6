@@ -24,7 +24,7 @@ describe("testnumfmtasync", () => {
         expect.assertions(7);
         new NumFmt({
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 expect(fmt.getType()).toBe("number");
@@ -42,7 +42,7 @@ describe("testnumfmtasync", () => {
         expect.assertions(2);
         new NumFmt({
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 expect(fmt.format(1.745)).toBe("1.745");
@@ -55,7 +55,7 @@ describe("testnumfmtasync", () => {
         new NumFmt({
             style: "standard",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 // should work with string arguments
@@ -69,7 +69,7 @@ describe("testnumfmtasync", () => {
         new NumFmt({
             locale: "bn-IN",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 expect(fmt.format(123.456)).toBe("১২৩.৪৫৬");
@@ -83,7 +83,7 @@ describe("testnumfmtasync", () => {
             type: "currency",
             currency: "USD",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 expect(fmt.format(57.3467)).toBe("$57.35");
@@ -97,7 +97,7 @@ describe("testnumfmtasync", () => {
             type: "currency",
             currency: "JPY",  // Japanese yen
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 expect(fmt.getMaxFractionDigits()).toBe(0);
@@ -113,7 +113,7 @@ describe("testnumfmtasync", () => {
             useNative: true,
             type: "percentage",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 expect(fmt.format(57.8)).toBe("೫೭.೮%");

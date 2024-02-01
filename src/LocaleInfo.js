@@ -28,7 +28,7 @@ export default class LocaleInfo {
     }
 
     static create(locale, options = {}) {
-        return promisifyFunction(function(opts = {}) {
+        return promisifyFunction((opts = {}) => {
             const { locale } = opts;
             return new ilibLocaleInfo(locale, opts);
         }, Object.assign({}, options, {

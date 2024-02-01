@@ -24,7 +24,7 @@ describe("testcountryasync", () => {
         expect.assertions(1);
         new Country({
             sync: false,
-            onLoad: function(ctry) {
+            onLoad: ctry => {
                 expect(ctry !== null).toBeTruthy();
             }
         });
@@ -35,7 +35,7 @@ describe("testcountryasync", () => {
         new Country({
             locale: "ko-KR",
             sync: false,
-            onLoad: function(ctry) {
+            onLoad: ctry => {
                 expect(ctry !== null).toBeTruthy();
 
                 expect(ctry.getName("CD")).toBe("콩고-킨샤사");
@@ -51,7 +51,7 @@ describe("testcountryasync", () => {
         new Country({
             locale: "en-US",
             sync: false,
-            onLoad: function(ctry) {
+            onLoad: ctry => {
                 expect(ctry !== null).toBeTruthy();
 
                 expect(ctry.getName("CD")).toBe("Congo - Kinshasa");
@@ -66,7 +66,7 @@ describe("testcountryasync", () => {
         new Country({
             locale: "en-US",
             sync: false,
-            onLoad: function(ctry) {
+            onLoad: ctry => {
                 try {
                     ctry.getName('xxx');
                     test.fail();
@@ -82,7 +82,7 @@ describe("testcountryasync", () => {
         new Country({
             locale: "ja-JP",
             sync: false,
-            onLoad: function (ctry) {
+            onLoad: ctry => {
                 expect(ctry !== null).toBeTruthy();
 
                 expect(ctry.getName("JP")).toBe("日本");

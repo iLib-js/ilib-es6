@@ -21,8 +21,8 @@
 export function promisifyFunction(func, options = {}) {
     const { sync, onLoad } = options;
     let tempOptions = Object.assign({}, options, {sync: false});
-    let promise = new Promise(function(resolve, reject) {
-        tempOptions.onLoad = function(result) {
+    let promise = new Promise((resolve, reject) => {
+        tempOptions.onLoad = (result) => {
             resolve(result);
         }
         func(tempOptions);
@@ -30,7 +30,7 @@ export function promisifyFunction(func, options = {}) {
     if (onLoad) {
         promise.then(onLoad);
     }
-    promise.catch(function(err) {
+    promise.catch(err => {
         console.log("Error caught: " + err);
         if (onLoad) onLoad(undefined);
         return err;
@@ -39,7 +39,7 @@ export function promisifyFunction(func, options = {}) {
 }
 
 export default function promisify(func, options = {}) {
-    return promisifyFunction(function(opts) {
+    return promisifyFunction(opts => {
         return new func(opts);
     }, options);
 };

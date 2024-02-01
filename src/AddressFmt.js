@@ -26,12 +26,12 @@ function wrapGetFormatInfo(formatter) {
     if (!formatter) return;
 
     const oldGetFormatInfo = ilibAddressFmt.prototype.getFormatInfo.bind(formatter);
-    formatter.getFormatInfo = function(locale, sync, callback) {
+    formatter.getFormatInfo = (locale, sync, callback) => {
         if (typeof(sync) === "undefined" || sync) {
             return oldGetFormatInfo(locale, sync, callback);
         }
 
-        return promisifyFunction(function(options = {}) {
+        return promisifyFunction((options = {}) => {
             const {locale, onLoad} = options;
             return oldGetFormatInfo(locale, false, onLoad);
         }, {
@@ -50,7 +50,7 @@ export default class AddressFmt {
     }
 
     static create(options = {}) {
-        return new Promise(function(resolve, reject) {
+        return new Promise((resolve, reject) => {
             let tempOptions = Object.assign({}, options, {
                 sync: false,
                 onLoad: af => resolve(wrapGetFormatInfo(af))

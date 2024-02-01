@@ -24,7 +24,7 @@ describe("testnameasync", () => {
         expect.assertions(1);
         new Name(undefined, {
             sync: false,
-            onLoad: function(name) {
+            onLoad: name => {
                 expect(typeof(name) === "undefined").toBeTruthy();
             }
         });
@@ -41,7 +41,7 @@ describe("testnameasync", () => {
             honorific: "x"
         }, {
             sync: false,
-            onLoad: function(name) {
+            onLoad: name => {
                 expect(typeof(name) !== "undefined").toBeTruthy();
 
                 expect(name).toEqual(expect.objectContaining({
@@ -61,7 +61,7 @@ describe("testnameasync", () => {
         new Name("Herr Dr. Josef Hans Jürgen Herzheim", {
             locale: "de-DE",
             sync: false,
-            onLoad: function(name) {
+            onLoad: name => {
                 expect(typeof(name) !== "undefined").toBeTruthy();
 
                 expect(name).toEqual(expect.objectContaining({
@@ -79,7 +79,7 @@ describe("testnameasync", () => {
         new Name("Juan Carlos Maria León Arroyo", {
             locale: "es-ES",
             sync: false,
-            onLoad: function(name) {
+            onLoad: name => {
                 expect(typeof(name) !== "undefined").toBeTruthy();
 
                 expect(name).toEqual(expect.objectContaining({
@@ -96,7 +96,7 @@ describe("testnameasync", () => {
         new Name("堂哥胡锦涛", {
             locale: "zh-CN",
             sync: false,
-            onLoad: function(name) {
+            onLoad: name => {
                 expect(typeof(name) !== "undefined").toBeTruthy();
 
                 expect(name).toEqual(expect.objectContaining({

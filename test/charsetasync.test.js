@@ -24,7 +24,7 @@ describe("testcharsetasync", () => {
         expect.assertions(1);
         new Charset({
             sync: false,
-            onLoad: function(cs) {
+            onLoad: cs => {
                 expect(cs !== null).toBeTruthy();
             }
         });
@@ -35,12 +35,12 @@ describe("testcharsetasync", () => {
         new Charset({
             name: "UTF-8",
             sync: false,
-            onLoad: function(cs) {
+            onLoad: cs => {
                 expect(cs.getName()).toBe("UTF-8");
                 new Charset({
                     name: "KOI8-R",
                     sync: false,
-                    onLoad: function(cs) {
+                    onLoad: cs => {
                         expect(cs.getName()).toBe("KOI8-R");
                     }
                 });
@@ -52,7 +52,7 @@ describe("testcharsetasync", () => {
         expect.assertions(1);
         new Charset({
             sync: false,
-            onLoad: function(cs) {
+            onLoad: cs => {
                 expect(typeof(cs) !== "undefined").toBeTruthy();
             }
         });
@@ -63,7 +63,7 @@ describe("testcharsetasync", () => {
         new Charset({
             name: "foobarfoo",
             sync: false,
-            onLoad: function(cs) {
+            onLoad: cs => {
                 expect(cs.getName()).toBe("foobarfoo");
             }
         });
@@ -74,7 +74,7 @@ describe("testcharsetasync", () => {
         new Charset({
             name: "UTF8",
             sync: false,
-            onLoad: function(cs) {
+            onLoad: cs => {
                 expect(cs.getName()).toBe("UTF-8");
             }
         });
@@ -85,17 +85,17 @@ describe("testcharsetasync", () => {
         new Charset({
             name: "Latin1",
             sync: false,
-            onLoad: function(cs) {
+            onLoad: cs => {
                 expect(cs.getName()).toBe("ISO-8859-1");
                 new Charset({
                     name: "ISO-8859-1",
                     sync: false,
-                    onLoad: function(cs) {
+                    onLoad: cs => {
                         expect(cs.getName()).toBe("ISO-8859-1");
                         new Charset({
                             name: "ISO-Latin-1",
                             sync: false,
-                            onLoad: function(cs) {
+                            onLoad: cs => {
                                 expect(cs.getName()).toBe("ISO-8859-1");
                             }
                         });
@@ -110,7 +110,7 @@ describe("testcharsetasync", () => {
         new Charset({
             name: "foobarfoo",
             sync: false,
-            onLoad: function(cs) {
+            onLoad: cs => {
                 expect(cs.getOriginalName()).toBe("foobarfoo");
             }
         })
@@ -121,7 +121,7 @@ describe("testcharsetasync", () => {
         new Charset({
             name: "Latin1",
             sync: false,
-            onLoad: function(cs) {
+            onLoad: cs => {
                 expect(cs.getMinCharWidth()).toBe(1);
             }
         });
@@ -133,7 +133,7 @@ describe("testcharsetasync", () => {
         new Charset({
             name: "UCS-2",
             sync: false,
-            onLoad: function(cs) {
+            onLoad: cs => {
                 expect(cs.getMinCharWidth()).toBe(2);
             }
         });
@@ -144,7 +144,7 @@ describe("testcharsetasync", () => {
         new Charset({
             name: "Shift_JIS",
             sync: false,
-            onLoad: function(cs) {
+            onLoad: cs => {
                 expect(cs.isMultibyte()).toBeTruthy();
             }
         });
@@ -156,7 +156,7 @@ describe("testcharsetasync", () => {
         new Charset({
             name: "UTF-16",
             sync: false,
-            onLoad: function(cs) {
+            onLoad: cs => {
                 expect(cs.isBigEndian()).toBeTruthy();
             }
         });

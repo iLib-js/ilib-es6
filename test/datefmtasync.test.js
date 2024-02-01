@@ -32,7 +32,7 @@ describe("testdatefmtasync", () => {
         expect.assertions(1);
         new DateFmt({
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
             }
         });
@@ -43,7 +43,7 @@ describe("testdatefmtasync", () => {
         new DateFmt({
             calendar: "julian",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt).toBeTruthy();
                 const cal = fmt.getCalendar();
                 expect(cal).toBeTruthy();
@@ -58,7 +58,7 @@ describe("testdatefmtasync", () => {
             calendar: "arabic",
             locale: 'en-US',
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 // "No formats available for calendar arabic in locale en-US"
                 expect(!fmt).toBeTruthy();
             }
@@ -74,7 +74,7 @@ describe("testdatefmtasync", () => {
 
         new DateFmt({
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 expect(fmt.getTimeZone().getId()).toBe("local");
@@ -87,7 +87,7 @@ describe("testdatefmtasync", () => {
         new DateFmt({
             timezone: "Europe/Paris",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 expect(fmt.getTimeZone().getId()).toBe("Europe/Paris");
@@ -101,7 +101,7 @@ describe("testdatefmtasync", () => {
             calendar: 'julian',
             template: "EEE 'the' DD 'of' MM, yyyy G",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 expect(fmt.getCalendar()).toBe("julian");
@@ -115,7 +115,7 @@ describe("testdatefmtasync", () => {
             locale: 'de-DE',
             template: "EEE 'the' DD 'of' MM, yyyy G",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 expect(fmt.getLocale().toString()).toBe("de-DE");
@@ -130,7 +130,7 @@ describe("testdatefmtasync", () => {
             length: "short",
             timezone: "America/Los_Angeles",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 // test formatting a javascript date. It should be converted to
@@ -149,7 +149,7 @@ describe("testdatefmtasync", () => {
             date: "w",
             timezone: "America/Los_Angeles",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 // test formatting a javascript date. It should be converted to
@@ -166,7 +166,7 @@ describe("testdatefmtasync", () => {
         const fmt = new DateFmt({
             locale: "th-TH",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 const arrMonths = fmt.getMonthsOfYear({length: "long"});
@@ -182,7 +182,7 @@ describe("testdatefmtasync", () => {
         new DateFmt({
             length: "full",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 new GregorianDate({
                     year: 2011,
                     month: 11,
@@ -192,7 +192,7 @@ describe("testdatefmtasync", () => {
                     second: 0,
                     millisecond: 0,
                     sync: false,
-                    onLoad: function(reference) {
+                    onLoad: reference => {
                         new GregorianDate({
                             year: 2011,
                             month: 11,
@@ -202,7 +202,7 @@ describe("testdatefmtasync", () => {
                             second: 30,
                             millisecond: 0,
                             sync: false,
-                            onLoad: function(date) {
+                            onLoad: date => {
                                 expect(fmt.formatRelative(reference, date)).toBe("in 30 seconds");
                             }
                         });
@@ -221,7 +221,7 @@ describe("testdatefmtasync", () => {
             locale: "en-GB",
             time: "hmaz",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 new GregorianDate({
@@ -235,7 +235,7 @@ describe("testdatefmtasync", () => {
                     timezone: "America/Los_Angeles",
                     locale: "en-US",
                     sync: false,
-                    onLoad: function(date) {
+                    onLoad: date => {
                         expect(fmt.format(date)).toBe("20/09/2011, 21:45 GMT/BST");
                     }
                 });
@@ -252,7 +252,7 @@ describe("testdatefmtasync", () => {
             locale: "en-AU",
             time: "hmaz",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 new GregorianDate({
@@ -266,7 +266,7 @@ describe("testdatefmtasync", () => {
                     timezone: "America/Los_Angeles",
                     locale: "en-US",
                     sync: false,
-                    onLoad: function(date) {
+                    onLoad: date => {
                         expect(fmt.format(date)).toBe("21/9/11, 6:45 am AEST");
                     }
                 });

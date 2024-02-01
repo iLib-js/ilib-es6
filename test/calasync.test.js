@@ -34,7 +34,7 @@ describe("testcalasync", () => {
         expect.assertions(1);
         CalendarFactory({
             sync: false,
-            onLoad: function(cal) {
+            onLoad: cal => {
                 expect(typeof(cal) !== "undefined").toBeTruthy();
             }
         });
@@ -45,7 +45,7 @@ describe("testcalasync", () => {
         const cal = CalendarFactory({
             type: "julian",
             sync: false,
-            onLoad: function(cal) {
+            onLoad: cal => {
                 expect(typeof(cal) !== "undefined").toBeTruthy();
 
                 expect(cal.getType()).toBe("julian");
@@ -59,7 +59,7 @@ describe("testcalasync", () => {
             CalendarFactory({
                 type: "asdf",
                 sync: false,
-                onLoad: function(cal) {
+                onLoad: cal => {
                     expect(typeof(cal) === "undefined").toBeTruthy();
                 }
             });
@@ -73,7 +73,7 @@ describe("testcalasync", () => {
         CalendarFactory({
             locale: "fa-IR",
             sync: false,
-            onLoad: function(cal) {
+            onLoad: cal => {
                 expect(typeof(cal) !== "undefined").toBeTruthy();
 
                 expect(cal.getType()).toBe("persian");
@@ -86,7 +86,7 @@ describe("testcalasync", () => {
         const cal = CalendarFactory({
             locale: "th-TH",
             sync: false,
-            onLoad: function(cal) {
+            onLoad: cal => {
                 expect(typeof(cal) !== "undefined").toBeTruthy();
 
                 expect(cal.getType()).toBe("thaisolar");
@@ -100,7 +100,7 @@ describe("testcalasync", () => {
             locale: "fa-IR",
             type: "gregorian",
             sync: false,
-            onLoad: function(cal) {
+            onLoad: cal => {
                 expect(typeof(cal) !== "undefined").toBeTruthy();
 
                 expect(cal.getType()).toBe("gregorian");
@@ -120,7 +120,7 @@ describe("testcalasync", () => {
             millisecond: 123,
             timezone: "Etc/UTC",
             sync: false,
-            onLoad: function(cd) {
+            onLoad: cd => {
                 expect(cd !== null).toBeTruthy();
 
                 expect(cd.getYears()).toBe(1735);
@@ -146,7 +146,7 @@ describe("testcalasync", () => {
             millisecond: 123,
             timezone: "Etc/UTC",
             sync: false,
-            onLoad: function(ed) {
+            onLoad: ed => {
                 expect(ed !== null).toBeTruthy();
 
                 expect(ed.getYears()).toBe(2011);
@@ -171,7 +171,7 @@ describe("testcalasync", () => {
             second: 12,
             millisecond: 123,
             sync: false,
-            onLoad: function(gd) {
+            onLoad: gd => {
                 expect(gd !== null).toBeTruthy();
 
                 expect(gd.getYears()).toBe(2011);
@@ -198,7 +198,7 @@ describe("testcalasync", () => {
             millisecond: 123,
             timezone: "Etc/UTC",
             sync: false,
-            onLoad: function(hd) {
+            onLoad: hd => {
                 expect(hd !== null).toBeTruthy();
 
                 expect(hd.getYears()).toBe(4711);
@@ -227,7 +227,7 @@ describe("testcalasync", () => {
             millisecond: 123,
             timezone: "Etc/UTC",
             sync: false,
-            onLoad: function(hd) {
+            onLoad: hd => {
                 expect(hd !== null).toBeTruthy();
 
                 expect(hd.getYears()).toBe(2011);
@@ -254,7 +254,7 @@ describe("testcalasync", () => {
             millisecond: 123,
             timezone: "Etc/UTC",
             sync: false,
-            onLoad: function(id) {
+            onLoad: id => {
                 expect(id !== null).toBeTruthy();
 
                 expect(id.getYears()).toBe(2011);
@@ -281,7 +281,7 @@ describe("testcalasync", () => {
             millisecond: 123,
             timezone: "Etc/UTC",
             sync: false,
-            onLoad: function(jul) {
+            onLoad: jul => {
                 expect(jul !== null).toBeTruthy();
 
                 expect(jul.getYears()).toBe(2011);
@@ -308,7 +308,7 @@ describe("testcalasync", () => {
             millisecond: 123,
             timezone: "Etc/UTC",
             sync: false,
-            onLoad: function(pd) {
+            onLoad: pd => {
                 expect(pd !== null).toBeTruthy();
 
                 expect(pd.getYears()).toBe(1392);
@@ -335,7 +335,7 @@ describe("testcalasync", () => {
             millisecond: 123,
             timezone: "Etc/UTC",
             sync: false,
-            onLoad: function(pd) {
+            onLoad: pd => {
                 expect(pd !== null).toBeTruthy();
 
                 expect(pd.getYears()).toBe(1392);
@@ -362,7 +362,7 @@ describe("testcalasync", () => {
             millisecond: 123,
             timezone: "Etc/UTC",
             sync: false,
-            onLoad: function(td) {
+            onLoad: td => {
                 expect(td !== null).toBeTruthy();
 
                 expect(td.getYears()).toBe(2553);
@@ -380,7 +380,7 @@ describe("testcalasync", () => {
         expect.assertions(2);
         const cal = CalendarFactoryAsync({
             locale: "th-TH",
-            onLoad: function(cal) {
+            onLoad: cal => {
                 expect(typeof(cal) !== "undefined").toBeTruthy();
 
                 expect(cal.getType()).toBe("thaisolar");

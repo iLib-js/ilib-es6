@@ -34,7 +34,7 @@ describe("testresourcesasync", () => {
 
         new ResBundle({
             sync: false,
-            onLoad: function(rb) {
+            onLoad: rb => {
                 expect(rb !== null).toBeTruthy();
 
                 expect(rb.getName()).toBe("strings");
@@ -47,7 +47,7 @@ describe("testresourcesasync", () => {
         new ResBundle({
             locale: "de-DE",
             sync: false,
-            onLoad: function(rb) {
+            onLoad: rb => {
                 expect(rb !== null).toBeTruthy();
 
                 const loc = rb.getLocale();
@@ -79,7 +79,7 @@ describe("testresourcesasync", () => {
             loadParams: {
                 base: base
             },
-            onLoad: function(rb) {
+            onLoad: rb => {
                 expect(rb !== null).toBeTruthy();
 
                 expect(rb.getString("Hello from {country}").toString()).toBe("Que tal de {country}");
@@ -97,7 +97,7 @@ describe("testresourcesasync", () => {
             locale: "zxx-XX",
             type: "raw",
             sync: false,
-            onLoad: function(rb) {
+            onLoad: rb => {
                 expect(rb !== null).toBeTruthy();
 
                 // should not pseudo-ize the replacement parameter names
@@ -114,7 +114,7 @@ describe("testresourcesasync", () => {
             name: "tester",
             locale: "zh-CN",
             sync: false,
-            onLoad: function(rb) {
+            onLoad: rb => {
                 expect(rb !== null).toBeTruthy();
 
                 // should return source
@@ -129,7 +129,7 @@ describe("testresourcesasync", () => {
             name: "tester",
             locale: "zz-ZZ",
             sync: false,
-            onLoad: function(rb) {
+            onLoad: rb => {
                 expect(rb !== null).toBeTruthy();
 
                 expect(rb.getString("This is a test.").toString()).toBe("This is a test.");
@@ -144,7 +144,7 @@ describe("testresourcesasync", () => {
             locale: "zxx-Cyrl-XX",
             type: "raw",
             sync: false,
-            onLoad: function(rb) {
+            onLoad: rb => {
                 expect(rb !== null).toBeTruthy();
 
                 // should pseudo-ize the replacement parameter names
@@ -163,7 +163,7 @@ describe("testresourcesasync", () => {
             locale: "zxx-Hans-XX",
             type: "text",
             sync: false,
-            onLoad: function(rb) {
+            onLoad: rb => {
                 expect(rb !== null).toBeTruthy();
 
                 // should not pseudo-ize the replacement parameter names
@@ -183,7 +183,7 @@ describe("testresourcesasync", () => {
             locale: "zxx-Hebr-XX",
             type: "text",
             sync: false,
-            onLoad: function(rb) {
+            onLoad: rb => {
                 expect(rb !== null).toBeTruthy();
 
                 // should not pseudo-ize the replacement parameter names
@@ -202,7 +202,7 @@ describe("testresourcesasync", () => {
         new ResBundle({
             locale:'eu-ES',
             sync: false,
-            onLoad: function(rb) {
+            onLoad: rb => {
                 expect(rb.getString("This is psuedo string test").toString()).toBe("[Ťĥíš íš þšüëðõ šţŕíñğ ţëšţ]");
                 ilib.clearPseudoLocales();
             }
@@ -216,7 +216,7 @@ describe("testresourcesasync", () => {
         new ResBundle({
             locale:'ps-AF',
             sync: false,
-            onLoad: function(rb) {
+            onLoad: rb => {
                 expect(rb.getString("This is psuedo string test").toString()).toBe("[טהִס ִס פסֶֻדֹ סטרִנג טֶסט]");
                 ilib.clearPseudoLocales();
             }

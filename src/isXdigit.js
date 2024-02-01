@@ -26,12 +26,12 @@ function isXdigit(ch) {
     return ilibisXdigit(ch);
 };
 
-isXdigit._init = function (sync, loadParams, onLoad) {
+isXdigit._init = (sync, loadParams, onLoad) => {
     if (typeof(sync) === "undefined" || sync) {
         return ilibisXdigit._init(sync, loadParams, onLoad);
     }
 
-    return promisifyFunction(function(options = {}) {
+    return promisifyFunction((options = {}) => {
         const { sync, loadParams, onLoad } = options;
         return ilibisXdigit._init(sync, loadParams, onLoad);
     }, {

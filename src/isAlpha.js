@@ -26,12 +26,12 @@ function isAlpha(ch) {
     return ilibisAlpha(ch);
 };
 
-isAlpha._init = function (sync, loadParams, onLoad) {
+isAlpha._init = (sync, loadParams, onLoad) => {
     if (typeof(sync) === "undefined" || sync) {
         return ilibisAlpha._init(sync, loadParams, onLoad);
     }
 
-    return promisifyFunction(function(options = {}) {
+    return promisifyFunction((options = {}) => {
         const { sync, loadParams, onLoad } = options;
         return ilibisAlpha._init(sync, loadParams, onLoad);
     }, {

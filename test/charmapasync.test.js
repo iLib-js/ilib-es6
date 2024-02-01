@@ -24,7 +24,7 @@ describe("testcharmapasync", () => {
         expect.assertions(1);
         CharmapFactory({
             sync: false,
-            onLoad: function(cm) {
+            onLoad: cm => {
                 expect(typeof(cm) !== "undefined").toBeTruthy();
             }
         });
@@ -35,7 +35,7 @@ describe("testcharmapasync", () => {
         const cm = CharmapFactory({
             name: "ISO-8859-15",
             sync: false,
-            onLoad: function(cm) {
+            onLoad: cm => {
                 expect(typeof(cm) !== "undefined").toBeTruthy();
                 expect(typeof(cm.map) !== "undefined").toBeTruthy();
                 expect(cm.getName()).toBe("ISO-8859-15");
@@ -48,7 +48,7 @@ describe("testcharmapasync", () => {
         const cm = CharmapFactory({
             name: "ISO-Latin-9",
             sync: false,
-            onLoad: function(cm) {
+            onLoad: cm => {
                 expect(typeof(cm) !== "undefined").toBeTruthy();
                 expect(typeof(cm.map) !== "undefined").toBeTruthy();
                 expect(cm.getName()).toBe("ISO-8859-15");
@@ -61,7 +61,7 @@ describe("testcharmapasync", () => {
         const cm = CharmapFactory({
             name: "UTF-8",
             sync: false,
-            onLoad: function(cm) {
+            onLoad: cm => {
                 expect(typeof(cm) !== "undefined").toBeTruthy();
                 expect(typeof(cm.map) === "undefined").toBeTruthy(); // no map because it's algorithmic
                 expect(cm.getName()).toBe("UTF-8");
@@ -74,7 +74,7 @@ describe("testcharmapasync", () => {
         const cm = CharmapFactory({
             name: "UTF-8",
             sync: false,
-            onLoad: function(cm) {
+            onLoad: cm => {
                 expect(typeof(cm) !== "undefined").toBeTruthy();
                 const input = new Uint8Array([
                     0xe4, 0xb8, 0x80,
@@ -102,7 +102,7 @@ describe("testcharmapasync", () => {
         CharmapFactory({
             name: "Big5",
             sync: false,
-            onLoad: function(cm) {
+            onLoad: cm => {
                 expect(typeof(cm) !== "undefined").toBeTruthy();
                 expect(cm.mapToUnicode(big5source)).toStrictEqual("仃人埋朋娛");
             }
@@ -121,7 +121,7 @@ describe("testcharmapasync", () => {
         CharmapFactory({
             name: "Big5",
             sync: false,
-            onLoad: function(cm) {
+            onLoad: cm => {
                 expect(typeof(cm) !== "undefined").toBeTruthy();
                 expect(cm.mapToNative("仃人埋朋娛")).toStrictEqual(big5source);
             }

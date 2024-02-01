@@ -26,12 +26,12 @@ function isBlank(ch) {
     return ilibisBlank(ch);
 };
 
-isBlank._init = function (sync, loadParams, onLoad) {
+isBlank._init = (sync, loadParams, onLoad) => {
     if (typeof(sync) === "undefined" || sync) {
         return ilibisBlank._init(sync, loadParams, onLoad);
     }
 
-    return promisifyFunction(function(options = {}) {
+    return promisifyFunction((options = {}) => {
         const { sync, loadParams, onLoad } = options;
         return ilibisBlank._init(sync, loadParams, onLoad);
     }, {

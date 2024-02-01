@@ -26,12 +26,12 @@ function isPunct(ch) {
     return ilibisPunct(ch);
 };
 
-isPunct._init = function (sync, loadParams, onLoad) {
+isPunct._init = (sync, loadParams, onLoad) => {
     if (typeof(sync) === "undefined" || sync) {
         return ilibisPunct._init(sync, loadParams, onLoad);
     }
 
-    return promisifyFunction(function(options = {}) {
+    return promisifyFunction((options = {}) => {
         const { sync, loadParams, onLoad } = options;
         return ilibisPunct._init(sync, loadParams, onLoad);
     }, {

@@ -23,7 +23,7 @@ describe("testlistfmtasync", () => {
     test("ListFmtAsyncConstructorEmpty", () => {
         new ListFmt({
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect.assertions(1);
                 expect(fmt !== null).toBeTruthy();
             }
@@ -33,7 +33,7 @@ describe("testlistfmtasync", () => {
     test("ListFmtAsyncTestPropertyTwo", () => {
         new ListFmt({
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect.assertions(2);
                 expect(fmt !== null).toBeTruthy();
                 expect(fmt.format(["true", "false"])).toBe("true & false");
@@ -45,7 +45,7 @@ describe("testlistfmtasync", () => {
         new ListFmt({
             locale: "bn-IN",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect.assertions(2);
                 expect(fmt !== null).toBeTruthy();
                 expect(fmt.format(["এক", "দুই", "তিন", "চার"])).toBe("এক, দুই, তিন এবং চার");
@@ -57,7 +57,7 @@ describe("testlistfmtasync", () => {
         new ListFmt({
             locale: "ko-KR",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect.assertions(2);
                 expect(fmt !== null).toBeTruthy();
                 expect(fmt.format(["하나", "둘", "셋"])).toBe("하나, 둘 및 셋");

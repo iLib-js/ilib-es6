@@ -30,7 +30,7 @@ describe("testunitfmtasync", () => {
         new UnitFmt({
             autoConvert: false,
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 const str = fmt.format(m);
                 expect(str).toBe("3 kilometers");
             }
@@ -48,7 +48,7 @@ describe("testunitfmtasync", () => {
             autoScale: false,
             autoConvert:false,
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 const str = fmt.format(m1);
                 expect(str).toBe("1,233,453 kilowatt-hours");
             }
@@ -65,7 +65,7 @@ describe("testunitfmtasync", () => {
         new UnitFmt({
             autoConvert:false,
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 const str = fmt.format(m1);
                 expect(str).toBe("2 krunghoonfoop");
             }
@@ -83,7 +83,7 @@ describe("testunitfmtasync", () => {
             locale: "ru-RU",
             autoConvert: false,
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 const str = fmt.format(m1);
                 expect(str).toBe("2 квадратных сантиметра");
             }});
@@ -100,7 +100,7 @@ describe("testunitfmtasync", () => {
             locale: "ko-KR",
             autoConvert: false,
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 const str = fmt.format(m1);
                 expect(str).toBe("1,000제곱센티미터");
             }
@@ -118,7 +118,7 @@ describe("testunitfmtasync", () => {
             locale: "fr-FR",
             autoConvert: false,
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 const str = fmt.format(m1);
                 expect(str).toBe("1 000 centimètres carrés");
             }
@@ -136,7 +136,7 @@ describe("testunitfmtasync", () => {
             locale: "fr-FR",
             autoConvert: false,
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 const str = fmt.format(m1);
                 expect(str).toBe("1 mégawatt");
             }
@@ -156,7 +156,7 @@ describe("testunitfmtasync", () => {
             autoScale: false,
             sync: false,
             length: "long",
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 const str = fmt.format(m1);
                 expect(str).toBe("1.000 Pascal");
             }
@@ -175,7 +175,7 @@ describe("testunitfmtasync", () => {
             autoConvert: false,
             sync: false,
             length: "long",
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 const str = fmt.format(m1);
                 expect(str).toBe("100 ニュートン");
             }

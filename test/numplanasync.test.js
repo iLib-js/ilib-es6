@@ -25,7 +25,7 @@ describe("testnumplanasync", () => {
         new NumberingPlan({
             locale: "en-US",
             sync: false,
-            onLoad: function(plan) {
+            onLoad: plan => {
                 expect(typeof(plan) !== "undefined").toBeTruthy();
                 expect(plan.getName()).toBe("US");
             }
@@ -37,7 +37,7 @@ describe("testnumplanasync", () => {
         new NumberingPlan({
             locale: "de-DE",
             sync: false,
-            onLoad: function(plan) {
+            onLoad: plan => {
                 expect(typeof(plan) !== "undefined").toBeTruthy();
                 expect(plan.getName()).toBe("DE");
             }
@@ -49,7 +49,7 @@ describe("testnumplanasync", () => {
         new NumberingPlan({
             locale: "unknown-unknown",
             sync: false,
-            onLoad: function(plan) {
+            onLoad: plan => {
                 expect(typeof(plan) !== "undefined").toBeTruthy();
                 expect(plan.getName()).toBe("XX");
             }
@@ -61,7 +61,7 @@ describe("testnumplanasync", () => {
         new NumberingPlan({
             locale: "zu-ZZ",
             sync: false,
-            onLoad: function(plan) {
+            onLoad: plan => {
                 expect(typeof(plan) !== "undefined").toBeTruthy();
                 expect(plan.getName()).toBe("XX");
             }

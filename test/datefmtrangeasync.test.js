@@ -27,7 +27,7 @@ describe("testdatefmtrangeasync", () => {
         expect.assertions(1);
         new DateRngFmt({
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
             }
         });
@@ -39,7 +39,7 @@ describe("testdatefmtrangeasync", () => {
         new DateRngFmt({
             calendar: "julian",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
                 const cal = fmt.getCalendar();
                 expect(cal !== null).toBeTruthy();
@@ -54,7 +54,7 @@ describe("testdatefmtrangeasync", () => {
             calendar: "arabic",
             locale: 'en-US',
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 // "No formats available for calendar arabic in locale en-US"
                 expect(!fmt).toBeTruthy();
             }
@@ -66,7 +66,7 @@ describe("testdatefmtrangeasync", () => {
         const fmt = new DateRngFmt({
             locale: "de-DE",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 expect(fmt.getLocale().toString()).toBe("de-DE");
@@ -79,7 +79,7 @@ describe("testdatefmtrangeasync", () => {
         const fmt = new DateRngFmt({
             timezone: "Europe/Paris",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 const tz = fmt.getTimeZone();
@@ -93,7 +93,7 @@ describe("testdatefmtrangeasync", () => {
         const fmt = new DateRngFmt({
             locale: "yy-YY",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 expect(fmt.getLocale().toString()).toBe("yy-YY");
@@ -109,7 +109,7 @@ describe("testdatefmtrangeasync", () => {
             locale: "es-PA",
             length: "medium",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 new GregorianDate({
@@ -121,7 +121,7 @@ describe("testdatefmtrangeasync", () => {
                     second: 0,
                     millisecond: 0,
                     sync: false,
-                    onLoad: function(start) {
+                    onLoad: start => {
                         new GregorianDate({
                             year: 2011,
                             month: 6,
@@ -131,7 +131,7 @@ describe("testdatefmtrangeasync", () => {
                             second: 30,
                             millisecond: 0,
                             sync: false,
-                            onLoad: function(end) {
+                            onLoad: end => {
                                 expect(fmt.format(start, end)).toBe("06/20 – 28/2011");
                             }
                         });
@@ -147,7 +147,7 @@ describe("testdatefmtrangeasync", () => {
             locale: "es-PR",
             length: "medium",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 new GregorianDate({
@@ -159,7 +159,7 @@ describe("testdatefmtrangeasync", () => {
                     second: 0,
                     millisecond: 0,
                     sync: false,
-                    onLoad: function(start) {
+                    onLoad: start => {
                         new GregorianDate({
                             year: 2011,
                             month: 11,
@@ -169,7 +169,7 @@ describe("testdatefmtrangeasync", () => {
                             second: 0,
                             millisecond: 0,
                             sync: false,
-                            onLoad: function(end) {
+                            onLoad: end => {
                                 expect(fmt.format(start, end)).toBe("06/20 – 11/28/2011");
                             }
                         });
@@ -185,7 +185,7 @@ describe("testdatefmtrangeasync", () => {
             locale: "en-US",
             length: "short",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 const start = new Date(2011, 5, 20, 13, 45, 0);
@@ -201,7 +201,7 @@ describe("testdatefmtrangeasync", () => {
             locale: "en-US",
             length: "short",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 const start = 1308602700000;

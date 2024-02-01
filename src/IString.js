@@ -26,12 +26,12 @@ function wrapSetLocale(str) {
     if (!str) return;
 
     const oldSetLocale = ilibIString.prototype.setLocale.bind(str);
-    str.setLocale = function(locale, sync, loadParams, onLoad) {
+    str.setLocale = (locale, sync, loadParams, onLoad) => {
         if (typeof(sync) === "undefined" || sync) {
             return oldSetLocale(locale, sync, loadParams, onLoad);
         }
 
-        return promisifyFunction(function(opts = {}) {
+        return promisifyFunction((opts = {}) => {
             const { locale, sync, loadParams, onLoad } = opts;
             return oldSetLocale(locale, sync, loadParams, onLoad);
         }, {
@@ -55,7 +55,7 @@ export default class IString {
             return ilibIString.loadPlurals(sync, locale, loadParams, onLoad);
         }
 
-        return promisifyFunction(function(options = {}) {
+        return promisifyFunction((options = {}) => {
             const {locale, loadParams, onLoad} = options;
             return ilibIString.loadPlurals(false, locale, loadParams, onLoad);
         }, {

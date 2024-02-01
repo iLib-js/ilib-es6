@@ -26,12 +26,12 @@ function isIdeo(ch) {
     return ilibisIdeo(ch);
 };
 
-isIdeo._init = function (sync, loadParams, onLoad) {
+isIdeo._init = (sync, loadParams, onLoad) => {
     if (typeof(sync) === "undefined" || sync) {
         return ilibisIdeo._init(sync, loadParams, onLoad);
     }
 
-    return promisifyFunction(function(options = {}) {
+    return promisifyFunction((options = {}) => {
         const { sync, loadParams, onLoad } = options;
         return ilibisIdeo._init(sync, loadParams, onLoad);
     }, {

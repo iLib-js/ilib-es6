@@ -24,7 +24,7 @@ describe("testlocalematchasync", () => {
         expect.assertions(1);
         new LocaleMatcher({
             sync: false,
-            onLoad: function(lm) {
+            onLoad: lm => {
                 expect(lm !== null).toBeTruthy();
             }
         });
@@ -35,7 +35,7 @@ describe("testlocalematchasync", () => {
         new LocaleMatcher({
             locale: "uz",
             sync: false,
-            onLoad: function(lm) {
+            onLoad: lm => {
                 expect(typeof(lm) !== "undefined").toBeTruthy();
                 const locale = lm.getLikelyLocale();
                 expect(typeof(locale) !== "undefined").toBeTruthy();
@@ -49,7 +49,7 @@ describe("testlocalematchasync", () => {
         new LocaleMatcher({
             locale: "UZ",
             sync: false,
-            onLoad: function(lm) {
+            onLoad: lm => {
                 expect(typeof(lm) !== "undefined").toBeTruthy();
                 const locale = lm.getLikelyLocale();
                 expect(typeof(locale) !== "undefined").toBeTruthy();
@@ -63,7 +63,7 @@ describe("testlocalematchasync", () => {
         new LocaleMatcher({
             locale: "Arab",
             sync: false,
-            onLoad: function(lm) {
+            onLoad: lm => {
                 expect(typeof(lm) !== "undefined").toBeTruthy();
                 const locale = lm.getLikelyLocale();
                 expect(typeof(locale) !== "undefined").toBeTruthy();

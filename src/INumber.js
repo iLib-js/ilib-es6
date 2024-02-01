@@ -28,7 +28,7 @@ export default class INumber {
     }
 
     static create(str, options = {}) {
-        return promisifyFunction(function(opts = {}) {
+        return promisifyFunction((opts = {}) => {
             const { str } = opts;
             return new ilibINumber(str, opts);
         }, Object.assign({}, options, {

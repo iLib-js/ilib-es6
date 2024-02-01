@@ -25,7 +25,7 @@ describe("testnamefmtasync", () => {
         expect.assertions(1);
         new NameFmt({
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(typeof(fmt) !== "undefined").toBeTruthy();
             }
         });
@@ -36,7 +36,7 @@ describe("testnamefmtasync", () => {
         new NameFmt({
             locale: "ii-II",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt.getLocale().getSpec()).toBe("ii-II");
             }
         });
@@ -53,11 +53,11 @@ describe("testnamefmtasync", () => {
             suffix: "Phd."
         }, {
             sync: false,
-            onLoad: function(name) {
+            onLoad: name => {
                 new NameFmt({
                     style: "full",
                     sync: false,
-                    onLoad: function(fmt) {
+                    onLoad: fmt => {
                         expect(fmt.format(name)).toBe("Mr. John Kevin Smith Phd.");
                     }
                 });
@@ -77,12 +77,12 @@ describe("testnamefmtasync", () => {
         }, {
             locale: "de-DE",
             sync: false,
-            onLoad: function(name) {
+            onLoad: name => {
                 new NameFmt({
                     style: "full",
                     locale: "de-DE",
                     sync: false,
-                    onLoad: function(fmt) {
+                    onLoad: fmt => {
                         expect(fmt.format(name)).toBe("Hr. Andreas Helmut Schmidt MdB");
                     }
                 });
@@ -99,12 +99,12 @@ describe("testnamefmtasync", () => {
         }, {
             locale: "zh-Hans-CN",
             sync: false,
-            onLoad: function(name) {
+            onLoad: name => {
                 new NameFmt({
                     style: "formal_long",
                     locale: "zh-Hans-CN",
                     sync: false,
-                    onLoad: function(fmt) {
+                    onLoad: fmt => {
                         expect(fmt.format(name)).toBe("李芳医生");
                     }
                 });
@@ -122,12 +122,12 @@ describe("testnamefmtasync", () => {
         }, {
             locale: "ko-KR",
             sync: false,
-            onLoad: function(name) {
+            onLoad: name => {
                 new NameFmt({
                     style: "formal_long",
                     locale: "ko-KR",
                     sync: false,
-                    onLoad: function(fmt) {
+                    onLoad: fmt => {
                         expect(fmt.format(name)).toBe("닥터 박은성");
                     }
                 });

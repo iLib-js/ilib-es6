@@ -24,7 +24,7 @@ describe("testcurrencyasync", () => {
         expect.assertions(7);
         new Currency({
             sync: false,
-            onLoad: function(cur) {
+            onLoad: cur => {
                 expect(cur !== null).toBeTruthy();
 
                 expect(cur.getCode()).toBe("USD");
@@ -43,7 +43,7 @@ describe("testcurrencyasync", () => {
         new Currency({
             code: "EUR",
             sync: false,
-            onLoad: function(cur) {
+            onLoad: cur => {
                 expect(cur !== null).toBeTruthy();
 
                 expect(cur.getCode()).toBe("EUR");
@@ -60,7 +60,7 @@ describe("testcurrencyasync", () => {
         new Currency({
             code: "xxx",
             sync: false,
-            onLoad: function(cur) {
+            onLoad: cur => {
                 expect(!cur).toBeTruthy();
             }
         });
@@ -71,7 +71,7 @@ describe("testcurrencyasync", () => {
         new Currency({
             sign: "€",
             sync: false,
-            onLoad: function(cur) {
+            onLoad: cur => {
                 expect(cur !== null).toBeTruthy();
 
                 expect(cur.getCode()).toBe("EUR");
@@ -90,7 +90,7 @@ describe("testcurrencyasync", () => {
             locale: "en-GB",
             sign: "$",
             sync: false,
-            onLoad: function (cur) {
+            onLoad: cur => {
                 expect(cur !== null).toBeTruthy();
 
                 expect(cur.getCode()).toBe("USD");

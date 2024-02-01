@@ -26,12 +26,12 @@ function isScript(ch, scriptName) {
     return ilibisScript(ch, scriptName);
 };
 
-isScript._init = function (sync, loadParams, onLoad) {
+isScript._init = (sync, loadParams, onLoad) => {
     if (typeof(sync) === "undefined" || sync) {
         return ilibisScript._init(sync, loadParams, onLoad);
     }
 
-    return promisifyFunction(function(options = {}) {
+    return promisifyFunction((options = {}) => {
         const { sync, loadParams, onLoad } = options;
         return ilibisScript._init(sync, loadParams, onLoad);
     }, {

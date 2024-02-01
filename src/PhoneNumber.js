@@ -26,7 +26,7 @@ function wrapNormalize(phoneNumber) {
     if (!phoneNumber) return;
 
     const oldNormalize = ilibPhoneNumber.prototype.normalize.bind(phoneNumber);
-    phoneNumber.normalize = function(options = {}) {
+    phoneNumber.normalize = (options = {}) => {
         const { sync } = options;
         if (typeof(sync) === "undefined" || sync) {
             return oldNormalize(options);

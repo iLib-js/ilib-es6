@@ -26,12 +26,12 @@ function isLower(ch) {
     return ilibisLower(ch);
 };
 
-isLower._init = function (sync, loadParams, onLoad) {
+isLower._init = (sync, loadParams, onLoad) => {
     if (typeof(sync) === "undefined" || sync) {
         return ilibisLower._init(sync, loadParams, onLoad);
     }
 
-    return promisifyFunction(function(options = {}) {
+    return promisifyFunction((options = {}) => {
         const { sync, loadParams, onLoad } = options;
         return ilibisLower._init(sync, loadParams, onLoad);
     }, {

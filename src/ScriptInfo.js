@@ -28,7 +28,7 @@ export default class ScriptInfo {
     }
 
     static create(script, options = {}) {
-        return promisifyFunction(function(opts = {}) {
+        return promisifyFunction((opts = {}) => {
             const { script } = opts;
             return new ilibScriptInfo(script, opts);
         }, Object.assign({}, options, {
@@ -41,7 +41,7 @@ export default class ScriptInfo {
             return ilibScriptInfo.getAllScripts(sync, loadParams, callback);
         }
 
-        return promisifyFunction(function(options = {}) {
+        return promisifyFunction((options = {}) => {
             const {loadParams, onLoad} = options;
             return ilibScriptInfo.getAllScripts(false, loadParams, onLoad);
         }, {

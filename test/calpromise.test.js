@@ -54,7 +54,7 @@ describe("testcalpromise", () => {
             type: "asdf"
         }).then(cal => {
             expect(typeof(cal) === "undefined").toBeTruthy();
-        }).catch(function(e) {
+        }).catch(e => {
             test.fail();
             console.log("caught: " + e);
         });
@@ -117,7 +117,7 @@ describe("testcalpromise", () => {
                 expect(cd.getMinutes()).toBe(7);
                 expect(cd.getSeconds()).toBe(12);
                 expect(cd.getMilliseconds()).toBe(123);
-            }).catch(function(err) {
+            }).catch(err => {
                 console.log("Error: " + err);
                 test.fail();
             });

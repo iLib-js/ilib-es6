@@ -28,7 +28,7 @@ export default class GlyphString {
     }
 
     static create(str, options = {}) {
-        return promisifyFunction(function(opts = {}) {
+        return promisifyFunction((opts = {}) => {
             const { str } = opts;
             return new ilibGlyphString(str, opts);
         }, Object.assign({}, options, {

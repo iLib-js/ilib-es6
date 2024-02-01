@@ -21,7 +21,7 @@ import AddressFmt from "../src/AddressFmt.js";
 import Address from "../src/Address.js";
 
 function searchRegions(array, regionCode) {
-    return array.find(function(region) {
+    return array.find(region => {
         return region.code === regionCode;
     });
 }
@@ -32,7 +32,7 @@ describe("testAddressAsync", () => {
         new Address("950 W Maude Ave.\nSunnyvale, CA 94085\nUSA", {
             locale: 'en-US',
             sync: false,
-            onLoad: function(parsedAddress) {
+            onLoad: parsedAddress => {
                 expect(typeof(parsedAddress) !== "undefined").toBeTruthy();
                 expect(parsedAddress.streetAddress).toBe("950 W Maude Ave.");
                 expect(parsedAddress.locality).toBe("Sunnyvale");
@@ -50,7 +50,7 @@ describe("testAddressAsync", () => {
         new Address("20 Main St.\nMyTown, NY 11530\nUSA", {
             locale: 'en-US',
             sync: false,
-            onLoad: function(parsedAddress) {
+            onLoad: parsedAddress => {
                 expect(typeof(parsedAddress) !== "undefined").toBeTruthy();
                 expect(parsedAddress.streetAddress).toBe("20 Main St.");
                 expect(parsedAddress.locality).toBe("MyTown");
@@ -67,7 +67,7 @@ describe("testAddressAsync", () => {
         const pa = new Address("5-2-1 Ginza, Chuo-ku\nTokyo 170-3293\nJapan", {
             locale: 'en-US',
             sync: false,
-            onLoad: function(parsedAddress) {
+            onLoad: parsedAddress => {
                 expect(typeof(parsedAddress) !== "undefined").toBeTruthy();
                 expect(parsedAddress.streetAddress).toBe("5-2-1 Ginza");
                 expect(parsedAddress.locality).toBe("Chuo-ku");
@@ -84,7 +84,7 @@ describe("testAddressAsync", () => {
         const pa = new Address("950 W 21st Ave, Apt 45\nNY, NY 10234", {
             locale: 'en-US',
             sync: false,
-            onLoad: function(parsedAddress) {
+            onLoad: parsedAddress => {
                 expect(typeof(parsedAddress) !== "undefined").toBeTruthy();
                 expect(parsedAddress.streetAddress).toBe("950 W 21st Ave, Apt 45");
                 expect(parsedAddress.locality).toBe("NY");
@@ -101,7 +101,7 @@ describe("testAddressAsync", () => {
         const pa = new Address("20 Main St.\nMyTown, Arizona 11530\nUSA", {
             locale: 'en-US',
             sync: false,
-            onLoad: function(parsedAddress) {
+            onLoad: parsedAddress => {
                 expect(typeof(parsedAddress) !== "undefined").toBeTruthy();
                 expect(parsedAddress.streetAddress).toBe("20 Main St.");
                 expect(parsedAddress.locality).toBe("MyTown");
@@ -118,7 +118,7 @@ describe("testAddressAsync", () => {
         const pa = new Address("20 Main St.\nMyTown, New York 11530\nUSA", {
             locale: 'en-US',
             sync: false,
-            onLoad: function(parsedAddress) {
+            onLoad: parsedAddress => {
                 expect(typeof(parsedAddress) !== "undefined").toBeTruthy();
                 expect(parsedAddress.streetAddress).toBe("20 Main St.");
                 expect(parsedAddress.locality).toBe("MyTown");
@@ -136,7 +136,7 @@ describe("testAddressAsync", () => {
         const pa = new Address("123 Main Street, Pretoria 5678, South Africa", {
             locale: 'en-US',
             sync: false,
-            onLoad: function(parsedAddress) {
+            onLoad: parsedAddress => {
                 expect(typeof(parsedAddress) !== "undefined").toBeTruthy();
                 expect(parsedAddress.streetAddress).toBe("123 Main Street");
                 expect(parsedAddress.locality).toBe("Pretoria");
@@ -153,7 +153,7 @@ describe("testAddressAsync", () => {
         const pa = new Address("Achterberglaan 23, 2345 GD Uithoorn, Netherlands", {
             locale: 'en-US',
             sync: false,
-            onLoad: function(parsedAddress) {
+            onLoad: parsedAddress => {
                 expect(typeof(parsedAddress) !== "undefined").toBeTruthy();
                 expect(parsedAddress.streetAddress).toBe("Achterberglaan 23");
                 expect(parsedAddress.locality).toBe("Uithoorn");
@@ -180,7 +180,7 @@ describe("testAddressAsync", () => {
         const f = new AddressFmt({
             locale: 'en-US',
             sync: false,
-            onLoad: function(formatter) {
+            onLoad: formatter => {
                 expect(typeof(formatter) !== "undefined").toBeTruthy();
                 expect(formatter.format(pa)).toBe(expected);
             }
@@ -203,7 +203,7 @@ describe("testAddressAsync", () => {
             locale: 'en-QQ',
             style: 'nocountry',
             sync: false,
-            onLoad: function(formatter) {
+            onLoad: formatter => {
                 expect(typeof(formatter) !== "undefined").toBeTruthy();
                 expect(formatter.format(pa)).toBe(expected);
             }
@@ -215,7 +215,7 @@ describe("testAddressAsync", () => {
         const pa = new Address("〒150-2345 東京都渋谷区本町2丁目4-7サニーマンション203",  {
             locale: 'ja-JP',
             sync: false,
-            onLoad: function(parsedAddress) {
+            onLoad: parsedAddress => {
                 expect(typeof(parsedAddress) !== "undefined").toBeTruthy();
                 expect(parsedAddress.streetAddress).toBe("本町2丁目4-7サニーマンション203");
                 expect(parsedAddress.locality).toBe("渋谷区");
@@ -242,7 +242,7 @@ describe("testAddressAsync", () => {
         const f = new AddressFmt({
             locale: 'ja-JP',
             sync: false,
-            onLoad: function(formatter) {
+            onLoad: formatter => {
                 expect(typeof(formatter) !== "undefined").toBeTruthy();
                 expect(formatter.format(parsedAddress)).toBe(expected);
             }
@@ -255,7 +255,7 @@ describe("testAddressAsync", () => {
         const pa = new Address("中国北京市朝阳区建国路112号 中国惠普大厦100022", {
             locale: 'zh-CN',
             sync: false,
-            onLoad: function(parsedAddress) {
+            onLoad: parsedAddress => {
                 expect(typeof(parsedAddress) !== "undefined").toBeTruthy();
                 expect(parsedAddress.streetAddress).toBe("建国路112号 中国惠普大厦");
                 expect(parsedAddress.locality).toBe("朝阳区");
@@ -272,7 +272,7 @@ describe("testAddressAsync", () => {
         const pa = new Address("Herrenberger Straße 140, 71034 Böblingen, Deutschland", {
             locale: 'de-DE',
             sync: false,
-            onLoad: function(parsedAddress) {
+            onLoad: parsedAddress => {
                 expect(typeof(parsedAddress) !== "undefined").toBeTruthy();
                 expect(parsedAddress.streetAddress).toBe("Herrenberger Straße 140");
                 expect(parsedAddress.locality).toBe("Böblingen");
@@ -289,7 +289,7 @@ describe("testAddressAsync", () => {
         const pa = new Address("49 ซอยร่วมฤดี, ถนนเพลินจิต, ลุมพินี\nเขตปทุมวัน กรุงเทพฯ 10330\nประเทศไทย", {
             locale: 'th-Th',
             sync: false,
-            onLoad: function(parsedAddress) {
+            onLoad: parsedAddress => {
                 expect(typeof(parsedAddress) !== "undefined").toBeTruthy();
                 expect(parsedAddress.streetAddress).toBe("49 ซอยร่วมฤดี, ถนนเพลินจิต, ลุมพินี");
                 expect(parsedAddress.locality).toBe("เขตปทุมวัน");
@@ -306,7 +306,7 @@ describe("testAddressAsync", () => {
         const pa = new Address("Петров Иван Сергеевич ул. Лесная D. 5 поз. Лесной\nАЛЕКСЕЕВСКИЙ R-N\nВоронежская область\nРоссия\n247112", {
             locale: 'ru-RU',
             sync: false,
-            onLoad: function(parsedAddress) {
+            onLoad: parsedAddress => {
                 expect(typeof(parsedAddress) !== "undefined").toBeTruthy();
                 expect(parsedAddress.streetAddress).toBe("Петров Иван Сергеевич ул. Лесная D. 5 поз. Лесной");
                 expect(parsedAddress.locality).toBe("АЛЕКСЕЕВСКИЙ R-N");
@@ -323,7 +323,7 @@ describe("testAddressAsync", () => {
         const pa = new Address("السيد عبد الله ناصر\nمكة المكرمة ٢١۴۵۴\nالمملكة العربية السعودية", {
             locale: 'ar-SA',
             sync: false,
-            onLoad: function(parsedAddress) {
+            onLoad: parsedAddress => {
                 expect(typeof(parsedAddress) !== "undefined").toBeTruthy();
                 expect(parsedAddress.streetAddress).toBe("السيد عبد الله ناصر");
                 expect(parsedAddress.locality).toBe("مكة المكرمة");
@@ -340,7 +340,7 @@ describe("testAddressAsync", () => {
         const pa = new Address("१२५/१, एजी टावर्स. ३ तल, पार्क स्ट्रीट. सर्कस एवेन्यू\nकोलकाता\nपश्चिम बंगाल\n७०००१७\nभारत", {
             locale: 'hi-IN',
             sync: false,
-            onLoad: function(parsedAddress) {
+            onLoad: parsedAddress => {
                 expect(typeof(parsedAddress) !== "undefined").toBeTruthy();
                 expect(parsedAddress.streetAddress).toBe("१२५/१, एजी टावर्स. ३ तल, पार्क स्ट्रीट. सर्कस एवेन्यू");
                 expect(parsedAddress.locality).toBe("कोलकाता");
@@ -357,7 +357,7 @@ describe("testAddressAsync", () => {
         const pa = new Address("125/1, એજી ટાવર્સ. 3 જો માળ, પાર્ક સ્ટ્રીટ. સર્કસ એવન્યુ\nકોલકાતા\nપશ્ચિમ બંગાળ\nભારત", {
             locale: 'gu-IN',
             sync: false,
-            onLoad: function(parsedAddress) {
+            onLoad: parsedAddress => {
                 expect(typeof(parsedAddress) !== "undefined").toBeTruthy();
                 expect(parsedAddress.streetAddress).toBe("125/1, એજી ટાવર્સ. 3 જો માળ, પાર્ક સ્ટ્રીટ. સર્કસ એવન્યુ");
                 expect(parsedAddress.locality).toBe("કોલકાતા");
@@ -374,8 +374,8 @@ describe("testAddressAsync", () => {
         new AddressFmt({
             locale: 'en-US',
             sync: false,
-            onLoad: function(formatter) {
-                formatter.getFormatInfo(undefined, false, function(info) {
+            onLoad: formatter => {
+                formatter.getFormatInfo(undefined, false, info => {
                     expect(info).toBeTruthy();
 
                     expect(info[1][2].component).toBe("postalCode");

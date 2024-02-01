@@ -25,7 +25,7 @@ describe("testphonenumasync", () => {
         new PhoneNumber("(08) 1234 5678", {
             locale: "en-AU",
             sync: false,
-            onLoad: function(parsed) {
+            onLoad: parsed => {
                 expect(typeof(parsed) !== "undefined").toBeTruthy();
 
                 new PhoneNumber({
@@ -35,7 +35,7 @@ describe("testphonenumasync", () => {
                 }, {
                     locale: "en-AU",
                     sync: false,
-                    onLoad: function(expected) {
+                    onLoad: expected => {
                         expect(parsed.equals(expected)).toBeTruthy();
                     }
                 });
@@ -48,7 +48,7 @@ describe("testphonenumasync", () => {
         new PhoneNumber("+85223897077", {
             locale: "en-HK",
             sync: false,
-            onLoad: function(parsed) {
+            onLoad: parsed => {
                 expect(typeof(parsed) !== "undefined").toBeTruthy();
 
                 new PhoneNumber({
@@ -58,7 +58,7 @@ describe("testphonenumasync", () => {
                 }, {
                     locale: "en-HK",
                     sync: false,
-                    onLoad: function(expected) {
+                    onLoad: expected => {
                         expect(parsed.equals(expected)).toBeTruthy();
                     }
                 });
@@ -71,7 +71,7 @@ describe("testphonenumasync", () => {
         new PhoneNumber("(456) 345-3434", {
             locale: "en-US",
             sync: false,
-            onLoad: function(parsed) {
+            onLoad: parsed => {
                 expect(typeof(parsed) !== "undefined").toBeTruthy();
 
                 new PhoneNumber({
@@ -80,7 +80,7 @@ describe("testphonenumasync", () => {
                 }, {
                     locale: "en-US",
                     sync: false,
-                    onLoad: function(expected) {
+                    onLoad: expected => {
                         expect(parsed.equals(expected)).toBeTruthy();
                     }
                 });
@@ -93,7 +93,7 @@ describe("testphonenumasync", () => {
         new PhoneNumber("033-9467-2345", {
             locale: "ko-KR",
             sync: false,
-            onLoad: function(parsed) {
+            onLoad: parsed => {
                 expect(typeof(parsed) !== "undefined").toBeTruthy();
 
                 new PhoneNumber({
@@ -103,7 +103,7 @@ describe("testphonenumasync", () => {
                 }, {
                     locale: "ko-KR",
                     sync: false,
-                    onLoad: function(expected) {
+                    onLoad: expected => {
                         expect(parsed.equals(expected)).toBeTruthy();
                     }
                 });
@@ -116,7 +116,7 @@ describe("testphonenumasync", () => {
         new PhoneNumber("6241234567", {
             locale: "es-MX",
             sync: false,
-            onLoad: function(parsed) {
+            onLoad: parsed => {
                 expect(typeof(parsed) !== "undefined").toBeTruthy();
 
                 new PhoneNumber({
@@ -125,7 +125,7 @@ describe("testphonenumasync", () => {
                 }, {
                     locale: "es-MX",
                     sync: false,
-                    onLoad: function(expected) {
+                    onLoad: expected => {
                         expect(parsed.equals(expected)).toBeTruthy();
                     }
                 });
@@ -138,7 +138,7 @@ describe("testphonenumasync", () => {
         new PhoneNumber(undefined, {
             locale: "en-AU",
             sync: false,
-            onLoad: function(parsed) {
+            onLoad: parsed => {
                 expect(typeof(parsed) === "undefined").toBeTruthy();
             }
         });
@@ -149,7 +149,7 @@ describe("testphonenumasync", () => {
         new PhoneNumber("", {
             locale: "en-AU",
             sync: false,
-            onLoad: function(parsed) {
+            onLoad: parsed => {
                 expect(typeof(parsed) === "undefined").toBeTruthy();
             }
         });

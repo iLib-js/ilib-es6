@@ -24,7 +24,7 @@ describe("testglyphstrasync", () => {
         expect.assertions(8);
         new GlyphString("aÄa", { // the A umlaut is a decomposed char
             sync: false,
-            onLoad: function(s) {
+            onLoad: s => {
                 const it = s.charIterator();
 
                 expect(it.hasNext()).toBeTruthy();
@@ -43,7 +43,7 @@ describe("testglyphstrasync", () => {
         expect.assertions(2);
         const s = new GlyphString("", {
             sync: false,
-            onLoad: function(s) {
+            onLoad: s => {
                 const it = s.charIterator();
 
                 expect(!it.hasNext()).toBeTruthy();
@@ -56,7 +56,7 @@ describe("testglyphstrasync", () => {
         expect.assertions(8);
         const s = new GlyphString("aẬa", { // the accented A is a decomposed char with 2 accents
             sync: false,
-            onLoad: function(s) {
+            onLoad: s => {
                 const it = s.charIterator();
 
                 expect(it.hasNext()).toBeTruthy();
@@ -75,7 +75,7 @@ describe("testglyphstrasync", () => {
         expect.assertions(1);
         const s = new GlyphString("aẬbẬcẬdẬe", { // the accented A is a decomposed char with 2 accents
             sync: false,
-            onLoad: function(s) {
+            onLoad: s => {
                 expect(s.truncate(4)).toBe("aẬbẬ");
             }
         });
@@ -85,7 +85,7 @@ describe("testglyphstrasync", () => {
         expect.assertions(1);
         const s = new GlyphString("สวัุสดีคุณเป็นอย่างไรบ้าง", {
             sync: false,
-            onLoad: function(s) {
+            onLoad: s => {
                 // this tests non-spacing marks that are also non-combining
 
                 expect(s.truncate(4)).toBe("สวัุสดี");
@@ -97,7 +97,7 @@ describe("testglyphstrasync", () => {
         expect.assertions(1);
         const s = new GlyphString("हैलो, आप कैसे हैं?", {
             sync: false,
-            onLoad: function(s) {
+            onLoad: s => {
                 // if the 2nd base character has combining spacing accents on it,
                 // then it will not fit in the two spaces available, so the base
                 // and all its combining spacing accents have to be removed.
@@ -110,7 +110,7 @@ describe("testglyphstrasync", () => {
         expect.assertions(1);
         const s = new GlyphString("हैलो, आप कैसे हैं?", {
             sync: false,
-            onLoad: function(s) {
+            onLoad: s => {
                 expect(s.ellipsize(8)).toBe("हैलो, आप …");
             }
         });
@@ -120,7 +120,7 @@ describe("testglyphstrasync", () => {
         expect.assertions(1);
         const s = new GlyphString("ェドイン", {
             sync: false,
-            onLoad: function(s) {
+            onLoad: s => {
                 expect(s.ellipsize(3)).toBe("ェド…");
             }
         });

@@ -26,12 +26,12 @@ function CType(ch) {
     return ilibCType(ch);
 };
 
-CType._init = function (sync, loadParams, onLoad) {
+CType._init = (sync, loadParams, onLoad) => {
     if (typeof(sync) === "undefined" || sync) {
         return ilibCType._init(sync, loadParams, onLoad);
     }
 
-    return promisifyFunction(function(options = {}) {
+    return promisifyFunction((options = {}) => {
         const { sync, loadParams, onLoad } = options;
         return ilibCType._init(sync, loadParams, onLoad);
     }, {
@@ -41,12 +41,12 @@ CType._init = function (sync, loadParams, onLoad) {
     });
 };
 
-CType._load = function (name, sync, loadParams, onLoad) {
+CType._load = (name, sync, loadParams, onLoad) => {
     if (typeof(sync) === "undefined" || sync) {
         return ilibCType._load(name, sync, loadParams, onLoad);
     }
 
-    return promisifyFunction(function(options = {}) {
+    return promisifyFunction((options = {}) => {
         const { name, sync, loadParams, onLoad } = options;
         return ilibCType._init(name, sync, loadParams, onLoad);
     }, {

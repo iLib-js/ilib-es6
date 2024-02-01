@@ -25,7 +25,7 @@ describe("testcollationasync", () => {
         expect.assertions(1);
         const col = new Collator({
             sync: false,
-            onLoad: function(col) {
+            onLoad: col => {
                 expect(typeof(col) !== "undefined").toBeTruthy();
             }
         });
@@ -35,7 +35,7 @@ describe("testcollationasync", () => {
         expect.assertions(5);
         const col = new Collator({
             sync: false,
-            onLoad: function(col) {
+            onLoad: col => {
                 expect(typeof(col) !== "undefined").toBeTruthy();
 
                 // should compare in English
@@ -52,7 +52,7 @@ describe("testcollationasync", () => {
         expect.assertions(5);
         const col = new Collator({
             sync: false,
-            onLoad: function(col) {
+            onLoad: col => {
                 expect(typeof(col) !== "undefined").toBeTruthy();
                 // netscape and ie do not work properly on some platforms
                 const browser = ilib._getBrowser();
@@ -81,7 +81,7 @@ describe("testcollationasync", () => {
         expect.assertions(3);
         const col = new Collator({
             sync: false,
-            onLoad: function(col) {
+            onLoad: col => {
                 expect(typeof(col) !== "undefined").toBeTruthy();
 
                 // should compare in English
@@ -98,7 +98,7 @@ describe("testcollationasync", () => {
         const col = new Collator({
             useNative: false,
             sync: false,
-            onLoad: function(col) {
+            onLoad: col => {
                 expect(typeof(col) !== "undefined").toBeTruthy();
             }
         });
@@ -110,7 +110,7 @@ describe("testcollationasync", () => {
         const col = new Collator({
             useNative: false,
             sync: false,
-            onLoad: function(col) {
+            onLoad: col => {
                 expect(typeof(col) !== "undefined").toBeTruthy();
 
                 // should compare in English
@@ -129,7 +129,7 @@ describe("testcollationasync", () => {
         const col = new Collator({
             useNative: false,
             sync: false,
-            onLoad: function(col) {
+            onLoad: col => {
                 expect(typeof(col) !== "undefined").toBeTruthy();
 
                 const func = col.getComparator();
@@ -152,7 +152,7 @@ describe("testcollationasync", () => {
         }
         const col = new Collator({
             sync: false,
-            onLoad: function(col) {
+            onLoad: col => {
                 expect.assertions(2);
                 expect(typeof(col) !== "undefined").toBeTruthy();
 
@@ -168,7 +168,7 @@ describe("testcollationasync", () => {
         const col = new Collator({
             useNative: false,
             sync: false,
-            onLoad: function(col) {
+            onLoad: col => {
                 expect(typeof(col) !== "undefined").toBeTruthy();
 
                 expect(col.sortKey("ABCDEF")).toBe("4204404604804a04c0");
@@ -182,7 +182,7 @@ describe("testcollationasync", () => {
         const col = new Collator({
             useNative: false,
             sync: false,
-            onLoad: function(col) {
+            onLoad: col => {
                 expect(typeof(col) !== "undefined").toBeTruthy();
 
                 expect(col.sortKey("String")).toBe("6606826425225c24e2");
@@ -195,7 +195,7 @@ describe("testcollationasync", () => {
         expect.assertions(2);
         const col = new Collator({
             sync: false,
-            onLoad: function(col) {
+            onLoad: col => {
                 expect(typeof(col) !== "undefined").toBeTruthy();
 
                 const input = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"];
@@ -214,7 +214,7 @@ describe("testcollationasync", () => {
         const col = new Collator({
             useNative: false,
             sync: false,
-            onLoad: function(col) {
+            onLoad: col => {
                 expect(typeof(col) !== "undefined").toBeTruthy();
 
                 const input = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"];
@@ -234,7 +234,7 @@ describe("testcollationasync", () => {
             upperFirst: true,
             useNative: false,
             sync: false,
-            onLoad: function(col) {
+            onLoad: col => {
                 expect(typeof(col) !== "undefined").toBeTruthy();
 
                 const input = ["q", "I", "e", "r", "T", "U", "i", "E", "o", "p"];
@@ -267,7 +267,7 @@ describe("testcollationasync", () => {
             style: "phonebook",
             usage: "search",
             sync: false,
-            onLoad: function(col) {
+            onLoad: col => {
                 expect(typeof(col) !== "undefined").toBeTruthy();
 
                 // aa ae äa äz af
@@ -288,7 +288,7 @@ describe("testcollationasync", () => {
             sensitivity: "quaternary",
             usage: "search",
             sync: false,
-            onLoad: function(col) {
+            onLoad: col => {
                 expect(typeof(col) !== "undefined").toBeTruthy();
 
                 // Α α Ά Ά ά ά Β β Γ γ Δ δ Ε ε Έ Έ έ έ Ζ ζ Η η Ή Ή ή ή Θ θ Ι ι Ί Ί ί ί Ϊ Ϊ ϊ ϊ ΐ ΐ ί̈ Κ κ Λ λ Μ μ Ν ν Ξ ξ Ο ο Ό Ό ό ό Π π Ρ ρ Σ σ ς Τ τ Υ υ Ύ Ύ ύ ύ Ϋ Ϋ ϋ ϋ ΰ ΰ ύ̈ Φ φ Χ χ Ψ ψ Ω ω Ώ Ώ ώ ώ
@@ -395,7 +395,7 @@ describe("testcollationasync", () => {
             useNative: false,
             sensitivity: "primary",
             sync: false,
-            onLoad: function(col) {
+            onLoad: col => {
                 expect(typeof(col) !== "undefined").toBeTruthy();
 
                 // 가까나다따
@@ -416,7 +416,7 @@ describe("testcollationasync", () => {
             sensitivity: "quaternary",
             usage: "search",
             sync: false,
-            onLoad: function(col) {
+            onLoad: col => {
                 // Hanzi are all primary differences from each other
 
                 expect(typeof(col) !== "undefined").toBeTruthy();
@@ -454,7 +454,7 @@ describe("testcollationasync", () => {
             sensitivity: "quaternary",
             style: "traditional",
             sync: false,
-            onLoad: function(col) {
+            onLoad: col => {
                 expect(typeof(col) !== "undefined").toBeTruthy();
 
                 // a b c ch d

@@ -26,12 +26,12 @@ function isGraph(ch) {
     return ilibisGraph(ch);
 };
 
-isGraph._init = function (sync, loadParams, onLoad) {
+isGraph._init = (sync, loadParams, onLoad) => {
     if (typeof(sync) === "undefined" || sync) {
         return ilibisGraph._init(sync, loadParams, onLoad);
     }
 
-    return promisifyFunction(function(options = {}) {
+    return promisifyFunction((options = {}) => {
         const { sync, loadParams, onLoad } = options;
         return ilibisGraph._init(sync, loadParams, onLoad);
     }, {

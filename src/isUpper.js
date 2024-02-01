@@ -26,12 +26,12 @@ function isUpper(ch) {
     return ilibisUpper(ch);
 };
 
-isUpper._init = function (sync, loadParams, onLoad) {
+isUpper._init = (sync, loadParams, onLoad) => {
     if (typeof(sync) === "undefined" || sync) {
         return ilibisUpper._init(sync, loadParams, onLoad);
     }
 
-    return promisifyFunction(function(options = {}) {
+    return promisifyFunction((options = {}) => {
         const { sync, loadParams, onLoad } = options;
         return ilibisUpper._init(sync, loadParams, onLoad);
     }, {

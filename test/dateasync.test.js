@@ -26,7 +26,7 @@ describe("testdateasync", () => {
         expect.assertions(1);
         DateFactory({
             sync: false,
-            onLoad: function(gd) {
+            onLoad: gd => {
                 expect(gd !== null).toBeTruthy();
             }
         });
@@ -43,7 +43,7 @@ describe("testdateasync", () => {
             second: 12,
             millisecond: 123,
             sync: false,
-            onLoad: function(gd) {
+            onLoad: gd => {
                 expect(gd !== null).toBeTruthy();
 
                 expect(gd.getYears()).toBe(2011);
@@ -62,7 +62,7 @@ describe("testdateasync", () => {
         DateFactory({
             type: "gregorian",
             sync: false,
-            onLoad: function(gd) {
+            onLoad: gd => {
                 expect(gd !== null).toBeTruthy();
                 expect(gd.getCalendar()).toBe("gregorian");
             }
@@ -74,7 +74,7 @@ describe("testdateasync", () => {
         DateFactory({
             type: "hebrew",
             sync: false,
-            onLoad: function(hd) {
+            onLoad: hd => {
                 expect(hd !== null).toBeTruthy();
                 expect(hd.getCalendar()).toBe("hebrew");
             }
@@ -86,7 +86,7 @@ describe("testdateasync", () => {
         DateFactory({
             calendar: "hebrew",
             sync: false,
-            onLoad: function(hd) {
+            onLoad: hd => {
                 expect(hd !== null).toBeTruthy();
                 expect(hd.getCalendar()).toBe("hebrew");
             }
@@ -98,7 +98,7 @@ describe("testdateasync", () => {
         DateFactory({
             type: "asdf",
             sync: false,
-            onLoad: function(gd) {
+            onLoad: gd => {
                 expect(typeof(gd) === "undefined").toBeTruthy();
             }
         });
@@ -116,11 +116,11 @@ describe("testdateasync", () => {
             second: 35,
             timezone: "America/Los_Angeles",
             sync: false,
-            onLoad: function(ildMyBday) {
+            onLoad: ildMyBday => {
                 new DateFmt({
                     length: "full",
                     sync: false,
-                    onLoad: function(fmt) {
+                    onLoad: fmt => {
                         expect(fmt.format(DateFactory._dateToIlib(datMyBday))).toBe(fmt.format(ildMyBday));
                     }
                 });
@@ -139,7 +139,7 @@ describe("testdateasync", () => {
             second: 0,
             timezone: "Atlantic/Azores",
             sync: false,
-            onLoad: function(boundaryiLib) {
+            onLoad: boundaryiLib => {
                 // we can't set time zone to Date object, so compare with constant value
                 // 1553994000000: new Date(2019, 2, 31, 0, 0, 0).getTime() with Azores local time
                 expect(boundaryiLib.getTimeExtended()).toBe(1553994000000);

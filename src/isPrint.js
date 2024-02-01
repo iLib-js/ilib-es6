@@ -26,12 +26,12 @@ function isPrint(ch) {
     return ilibisPrint(ch);
 };
 
-isPrint._init = function (sync, loadParams, onLoad) {
+isPrint._init = (sync, loadParams, onLoad) => {
     if (typeof(sync) === "undefined" || sync) {
         return ilibisPrint._init(sync, loadParams, onLoad);
     }
 
-    return promisifyFunction(function(options = {}) {
+    return promisifyFunction((options = {}) => {
         const { sync, loadParams, onLoad } = options;
         return ilibisPrint._init(sync, loadParams, onLoad);
     }, {

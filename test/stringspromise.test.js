@@ -29,7 +29,7 @@ describe("teststringspromise", () => {
 
     test("StringLoadPlurals", () => {
         expect.assertions(2);
-        return IString.loadPlurals(false, undefined).then(function() {
+        return IString.loadPlurals(false, undefined).then(() => {
             const str = new IString("asdf");
             expect(str !== null).toBeTruthy();
 
@@ -42,7 +42,7 @@ describe("teststringspromise", () => {
     test("StringSetLocale", () => {
         expect.assertions(2);
         const str = new IString("1#first string|2#second string");
-        return str.setLocale("de-DE", false).then(function() {
+        return str.setLocale("de-DE", false).then(() => {
             expect(str !== null).toBeTruthy();
 
             expect(str.toString()).toBe("1#first string|2#second string");

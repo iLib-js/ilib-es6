@@ -31,7 +31,7 @@ describe("imsiasync", () => {
 
         PhoneNumber.parseImsi(imsi, {
             sync: false,
-            onLoad: function(actual) {
+            onLoad: actual => {
                 expect(actual).toStrictEqual(expected);
             }
         })
@@ -48,7 +48,7 @@ describe("imsiasync", () => {
 
         PhoneNumber.parseImsi(imsi, {
             sync: false,
-            onLoad: function(actual) {
+            onLoad: actual => {
                 expect(actual).toStrictEqual(expected);
             }
         });
@@ -66,7 +66,7 @@ describe("imsiasync", () => {
         // should default to a 3 digit mnc
         PhoneNumber.parseImsi(imsi, {
             sync: false,
-            onLoad: function(actual) {
+            onLoad: actual => {
                 expect(actual).toStrictEqual(expected);
             }
         });
@@ -84,7 +84,7 @@ describe("imsiasync", () => {
         // should default to a 3 digit mnc
         PhoneNumber.parseImsi(imsi, {
             sync: false,
-            onLoad: function(actual) {
+            onLoad: actual => {
                 expect(actual).toStrictEqual(expected);
             }
         });
@@ -95,7 +95,7 @@ describe("imsiasync", () => {
         const imsi = "31";
         PhoneNumber.parseImsi(imsi, {
             sync: false,
-            onLoad: function(actual) {
+            onLoad: actual => {
                 expect(actual).toBeFalsy();
             }
         });
@@ -105,7 +105,7 @@ describe("imsiasync", () => {
         expect.assertions(1);
         PhoneNumber.parseImsi(undefined, {
             sync: false,
-            onLoad: function(actual) {
+            onLoad: actual => {
                 expect(actual).toBeFalsy();
             }
         });

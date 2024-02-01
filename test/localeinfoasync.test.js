@@ -24,7 +24,7 @@ describe("testlocaleinfoasync", () => {
         expect.assertions(5);
         new LocaleInfo(undefined, {
             sync: false,
-            onLoad: function(info) {
+            onLoad: info => {
                 expect(info !== null).toBeTruthy();
 
                 const loc = info.getLocale();
@@ -41,7 +41,7 @@ describe("testlocaleinfoasync", () => {
         expect.assertions(4);
         new LocaleInfo("de-DE", {
             sync: false,
-            onLoad: function(info) {
+            onLoad: info => {
                 expect(info !== null).toBeTruthy();
 
                 const loc = info.getLocale();
@@ -57,7 +57,7 @@ describe("testlocaleinfoasync", () => {
         expect.assertions(2);
         new LocaleInfo("zz-ZZ", {
             sync: false,
-            onLoad: function(info) {
+            onLoad: info => {
                 expect(info !== null).toBeTruthy();
 
                 expect(info.getTimeZone()).toBe("Etc/UTC");
@@ -69,7 +69,7 @@ describe("testlocaleinfoasync", () => {
         expect.assertions(2);
         new LocaleInfo("zxx-XX", {
             sync: false,
-            onLoad: function(info) {
+            onLoad: info => {
                 expect(info !== null).toBeTruthy();
 
                 expect(info.getCurrency()).toBe("USD");
@@ -81,7 +81,7 @@ describe("testlocaleinfoasync", () => {
         expect.assertions(5);
         new LocaleInfo("ko-KR", {
             sync: false,
-            onLoad: function(info) {
+            onLoad: info => {
                 expect(info !== null).toBeTruthy();
                 expect(info.getDecimalSeparator()).toBe(".");
                 expect(info.getGroupingSeparator()).toBe(",");
@@ -95,7 +95,7 @@ describe("testlocaleinfoasync", () => {
         expect.assertions(5);
         new LocaleInfo("fr-FR", {
             sync: false,
-            onLoad: function(info) {
+            onLoad: info => {
                 expect(info !== null).toBeTruthy();
                 expect(info.getDecimalSeparator()).toBe(",");
                 expect(info.getGroupingSeparator()).toBe(" ");
@@ -110,7 +110,7 @@ describe("testlocaleinfoasync", () => {
         // test mixing locale parts for a non-standard locale
         new LocaleInfo("zh-Hant-US", {
             sync: false,
-            onLoad: function(info) {
+            onLoad: info => {
                 expect(info !== null).toBeTruthy();
                 expect(info.getDecimalSeparator()).toBe(".");
                 expect(info.getGroupingSeparator()).toBe(",");

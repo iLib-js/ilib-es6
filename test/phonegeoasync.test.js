@@ -25,10 +25,10 @@ describe("testphonegeoasync", () => {
         expect.assertions(6);
         new PhoneNumber("+1 650 654 3210", {
             sync: false,
-            onLoad: function(parsed) {
+            onLoad: parsed => {
                 new PhoneGeoLocator({
                     sync: false,
-                    onLoad: function(locator) {
+                    onLoad: locator => {
                         const expected = {
                             country: {
                                 sn: "North America",
@@ -59,11 +59,11 @@ describe("testphonegeoasync", () => {
         expect.assertions(6);
         new PhoneNumber("+1 650 654 3210", {
             sync: false,
-            onLoad: function(parsed) {
+            onLoad: parsed => {
                 new PhoneGeoLocator({
                     locale: 'fr-FR',
                     sync: false,
-                    onLoad: function(locator) {
+                    onLoad: locator => {
                         const expected = {
                             country: {
                                 sn: "Amérique du Nord",
@@ -95,11 +95,11 @@ describe("testphonegeoasync", () => {
         expect.assertions(6);
         new PhoneNumber("1 234", {
             sync: false,
-            onLoad: function(parsed) {
+            onLoad: parsed => {
                 new PhoneGeoLocator({
                     locale: 'en-US',
                     sync: false,
-                    onLoad: function(locator) {
+                    onLoad: locator => {
                         const expected = {
                             country: {
                                 sn: "North America",
@@ -132,11 +132,11 @@ describe("testphonegeoasync", () => {
         new PhoneNumber("06224 123456", {
             locale: "de-DE",
             sync: false,
-            onLoad: function(parsed) {
+            onLoad: parsed => {
                 new PhoneGeoLocator({
                     locale: 'de-DE',
                     sync: false,
-                    onLoad: function(locator) {
+                    onLoad: locator => {
                         const expected = {
                             country: {
                                 sn: "Deutschland",
@@ -168,11 +168,11 @@ describe("testphonegeoasync", () => {
         new PhoneNumber("017 12345678", {
             locale: "de-DE",
             sync: false,
-            onLoad: function(parsed) {
+            onLoad: parsed => {
                 new PhoneGeoLocator({
                     locale: 'de-DE',
                     sync: false,
-                    onLoad: function(locator) {
+                    onLoad: locator => {
                         const expected = {
                             country: {
                                 sn: "Deutschland",
@@ -204,12 +204,12 @@ describe("testphonegeoasync", () => {
         new PhoneNumber("0663 12345678", {
             locale: 'en-CN',
             sync: false,
-            onLoad: function(parsed) {
+            onLoad: parsed => {
                 new PhoneGeoLocator({
                     locale: 'zh-HK',
                     mcc: "460",
                     sync: false,
-                    onLoad: function(locator) {
+                    onLoad: locator => {
                         const expected = {
                             country: {
                                 sn: "中国",

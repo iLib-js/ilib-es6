@@ -25,11 +25,11 @@ describe("testnormalizeasync", () => {
         new PhoneNumber("011 31 456 3453434", {
             locale: 'en-US',
             sync: false,
-            onLoad: function(parsed) {
+            onLoad: parsed => {
                 parsed.normalize({
                     locale: 'en-US',
                     sync: false,
-                    onLoad: function(normalized) {
+                    onLoad: normalized => {
                         const expected = "+314563453434";
                         expect(normalized).toBe(expected);
                     }
@@ -43,12 +43,12 @@ describe("testnormalizeasync", () => {
         new PhoneNumber("02302 654321", {
             locale: 'de-DE',
             sync: false,
-            onLoad: function(parsed) {
+            onLoad: parsed => {
                 parsed.normalize({
                     mcc: "262",
                     locale: 'en-US',
                     sync: false,
-                    onLoad: function(normalized) {
+                    onLoad: normalized => {
                         const expected = "+492302654321";
 
                         expect(normalized).toBe(expected); // 'de-DE'
@@ -63,11 +63,11 @@ describe("testnormalizeasync", () => {
         new PhoneNumber("650 7654321", {
             locale: 'es-US',
             sync: false,
-            onLoad: function(parsed) {
+            onLoad: parsed => {
                 parsed.normalize({
                     locale: 'en-US',
                     sync: false,
-                    onLoad: function(normalized) {
+                    onLoad: normalized => {
                         const expected = "+16507654321";
 
                         expect(normalized).toBe(expected); // 'es-US'

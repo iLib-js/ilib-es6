@@ -26,12 +26,12 @@ function isAlnum(ch) {
     return ilibisAlnum(ch);
 };
 
-isAlnum._init = function (sync, loadParams, onLoad) {
+isAlnum._init = (sync, loadParams, onLoad) => {
     if (typeof(sync) === "undefined" || sync) {
         return ilibisAlnum._init(sync, loadParams, onLoad);
     }
 
-    return promisifyFunction(function(options = {}) {
+    return promisifyFunction((options = {}) => {
         const { sync, loadParams, onLoad } = options;
         return ilibisAlnum._init(sync, loadParams, onLoad);
     }, {

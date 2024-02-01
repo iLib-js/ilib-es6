@@ -26,12 +26,12 @@ function isSpace(ch) {
     return ilibisSpace(ch);
 };
 
-isSpace._init = function (sync, loadParams, onLoad) {
+isSpace._init = (sync, loadParams, onLoad) => {
     if (typeof(sync) === "undefined" || sync) {
         return ilibisSpace._init(sync, loadParams, onLoad);
     }
 
-    return promisifyFunction(function(options = {}) {
+    return promisifyFunction((options = {}) => {
         const { sync, loadParams, onLoad } = options;
         return ilibisSpace._init(sync, loadParams, onLoad);
     }, {

@@ -49,7 +49,7 @@ describe("testctypeasync", () => {
 
     test("IsAlphaTrue", () => {
         expect.assertions(5);
-        isAlpha._init(false, undefined, function() {
+        isAlpha._init(false, undefined,() => {
             expect(isAlpha('a')).toBeTruthy();
             expect(isAlpha('m')).toBeTruthy();
             expect(isAlpha('z')).toBeTruthy();
@@ -60,7 +60,7 @@ describe("testctypeasync", () => {
 
     test("IsLowerTrue", () => {
         expect.assertions(11);
-        isLower._init(false, undefined, function() {
+        isLower._init(false, undefined,() => {
             expect(isLower('a')).toBeTruthy();
             expect(isLower('m')).toBeTruthy();
             expect(isLower('щ')).toBeTruthy();
@@ -77,7 +77,7 @@ describe("testctypeasync", () => {
 
     test("IsUpperTrue", () => {
         expect.assertions(11);
-        isUpper._init(false, undefined, function() {
+        isUpper._init(false, undefined,() => {
             expect(isUpper('A')).toBeTruthy();
             expect(isUpper('M')).toBeTruthy();
             expect(isUpper('Щ')).toBeTruthy();
@@ -94,7 +94,7 @@ describe("testctypeasync", () => {
 
     test("IsPrintTrue", () => {
         expect.assertions(7);
-        isPrint._init(false, undefined, function() {
+        isPrint._init(false, undefined,() => {
             expect(isPrint(' ')).toBeTruthy();
             expect(isPrint('A')).toBeTruthy();
             expect(isPrint('M')).toBeTruthy();
@@ -107,7 +107,7 @@ describe("testctypeasync", () => {
 
     test("IsAsciiTrue", () => {
         expect.assertions(13);
-        isAscii._init(false, undefined, function() {
+        isAscii._init(false, undefined,() => {
             expect(isAscii('a')).toBeTruthy();
             expect(isAscii('m')).toBeTruthy();
             expect(isAscii('z')).toBeTruthy();
@@ -126,7 +126,7 @@ describe("testctypeasync", () => {
 
     test("IsBlankTrue", () => {
         expect.assertions(13);
-        isBlank._init(false, undefined, function() {
+        isBlank._init(false, undefined,() => {
             expect(isBlank(' ')).toBeTruthy();
             expect(!isBlank('a')).toBeTruthy();
             expect(!isBlank('m')).toBeTruthy();
@@ -145,7 +145,7 @@ describe("testctypeasync", () => {
 
     test("IsSpaceTrue", () => {
         expect.assertions(11);
-        isSpace._init(false, undefined, function() {
+        isSpace._init(false, undefined,() => {
             expect(isSpace(' ')).toBeTruthy();
             expect(isSpace('\t')).toBeTruthy();
             expect(isSpace('\n')).toBeTruthy();
@@ -162,7 +162,7 @@ describe("testctypeasync", () => {
 
     test("IsPunctTrue", () => {
         expect.assertions(17);
-        isPunct._init(false, undefined, function() {
+        isPunct._init(false, undefined,() => {
             expect(isPunct('?')).toBeTruthy();
             expect(isPunct('.')).toBeTruthy();
             expect(isPunct('\u2010')).toBeTruthy(); // hyphen
@@ -185,7 +185,7 @@ describe("testctypeasync", () => {
 
     test("IsIdeoTrue", () => {
         expect.assertions(10);
-        isIdeo._init(false, undefined, function() {
+        isIdeo._init(false, undefined,() => {
             expect(isIdeo('碗')).toBeTruthy();
             expect(isIdeo('人')).toBeTruthy();
             expect(!isIdeo(' ')).toBeTruthy();
@@ -201,7 +201,7 @@ describe("testctypeasync", () => {
 
     test("IsCntrlTrue", () => {
         expect.assertions(10);
-        isCntrl._init(false, undefined, function() {
+        isCntrl._init(false, undefined,() => {
             expect(isCntrl('\u0001')).toBeTruthy();
             expect(isCntrl('\u0085')).toBeTruthy();
             expect(!isCntrl(' ')).toBeTruthy();
@@ -217,7 +217,7 @@ describe("testctypeasync", () => {
 
     test("IsDigitTrue", () => {
         expect.assertions(20);
-        isDigit._init(false, undefined, function() {
+        isDigit._init(false, undefined,() => {
             expect(isDigit('0')).toBeTruthy();
             expect(isDigit('1')).toBeTruthy();
             expect(isDigit('2')).toBeTruthy();
@@ -242,7 +242,7 @@ describe("testctypeasync", () => {
     });
     test("IsXdigitTrue", () => {
         expect.assertions(32);
-        isXdigit._init(false, undefined, function() {
+        isXdigit._init(false, undefined,() => {
             expect(isXdigit('0')).toBeTruthy();
             expect(isXdigit('1')).toBeTruthy();
             expect(isXdigit('2')).toBeTruthy();
@@ -280,7 +280,7 @@ describe("testctypeasync", () => {
 
     test("WithinRangeTrue", () => {
         expect.assertions(5);
-        CType._init(false, undefined, function() {
+        CType._init(false, undefined,() => {
             expect(CType.withinRange('a', 'ascii')).toBeTruthy();
             expect(!CType.withinRange('\u2000a', 'ascii')).toBeTruthy();
             expect(CType.withinRange('a', 'ASCII')).toBeTruthy();
@@ -291,7 +291,7 @@ describe("testctypeasync", () => {
 
     test("IsScriptTrue", () => {
         expect.assertions(16);
-        isScript._init(false, undefined, function() {
+        isScript._init(false, undefined,() => {
             expect(isScript("a", "Latn")).toBeTruthy();
             expect(isScript("Д", "Cyrl")).toBeTruthy();
             expect(isScript("ώ", "Grek")).toBeTruthy();
@@ -313,7 +313,7 @@ describe("testctypeasync", () => {
 
     test("IsAlnum", () => {
         expect.assertions(11);
-        isAlnum._init(false, undefined, function() {
+        isAlnum._init(false, undefined,() => {
             expect(isAlnum('a')).toBeTruthy();
             expect(isAlnum('m')).toBeTruthy();
             expect(isAlnum('z')).toBeTruthy();
@@ -330,7 +330,7 @@ describe("testctypeasync", () => {
 
     test("IsGraphTrue", () => {
         expect.assertions(5);
-        isGraph._init(false, undefined, function() {
+        isGraph._init(false, undefined,() => {
             expect(isGraph('A')).toBeTruthy();
             expect(isGraph('Q')).toBeTruthy();
             expect(isGraph('碗')).toBeTruthy();

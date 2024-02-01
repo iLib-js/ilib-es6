@@ -100,7 +100,7 @@ describe("testscriptinfopromise", () => {
 
     test("ScriptInfoAsyncGetAllScripts", () => {
         expect.assertions(11);
-        ScriptInfo.getAllScripts(false, undefined, function(scripts) {
+        ScriptInfo.getAllScripts(false, undefined, scripts => {
             expect(scripts !== null).toBeTruthy();
 
             expect(scripts.length).toBe(213);
@@ -112,7 +112,7 @@ describe("testscriptinfopromise", () => {
             expect(scripts[scripts.length-1]).toBe("Zzzz");
 
             // make sure the callback is called after the 2nd call
-            ScriptInfo.getAllScripts(false, undefined, function(scripts) {
+            ScriptInfo.getAllScripts(false, undefined, scripts => {
                 expect(scripts !== null).toBeTruthy();
 
                 expect(scripts.length).toBe(213);

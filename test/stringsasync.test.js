@@ -29,7 +29,7 @@ describe("teststringsasync", () => {
 
     test("StringLoadPlurals", () => {
         expect.assertions(2);
-        IString.loadPlurals(false, undefined, undefined, function() {
+        IString.loadPlurals(false, undefined, undefined,() => {
             const str = new IString("asdf");
             expect(str !== null).toBeTruthy();
 
@@ -42,7 +42,7 @@ describe("teststringsasync", () => {
     test("StringSetLocale", () => {
         expect.assertions(2);
         const str = new IString("1#first string|2#second string");
-        str.setLocale("de-DE", false, undefined, function() {
+        str.setLocale("de-DE", false, undefined,() => {
             expect(str !== null).toBeTruthy();
 
             expect(str.toString()).toBe("1#first string|2#second string");
@@ -62,7 +62,7 @@ describe("teststringsasync", () => {
     test("StringFormatChoiceSimpleRussian", () => {
         expect.assertions(3);
         const str = new IString("1#first string|few#second string|many#third string");
-        str.setLocale("ru-RU", false, undefined, function() {
+        str.setLocale("ru-RU", false, undefined,() => {
             expect(str !== null).toBeTruthy();
 
             expect(str.formatChoice(2)).toBe("second string");
@@ -73,7 +73,7 @@ describe("teststringsasync", () => {
     test("StringFormatChoiceSimpleRussianTwice", () => {
         expect.assertions(4);
         let str = new IString("1#one|few#few|many#many");
-        str.setLocale("ru-RU", false, undefined, function() {
+        str.setLocale("ru-RU", false, undefined,() => {
             expect(str !== null).toBeTruthy();
 
             expect(str.formatChoice(3)).toBe("few");
@@ -81,7 +81,7 @@ describe("teststringsasync", () => {
 
             // Russian rules should already be loaded. Need to make sure
             // the callback is still called anyways
-            str.setLocale("ru-RU", false, undefined, function() {
+            str.setLocale("ru-RU", false, undefined,() => {
                 expect(str !== null).toBeTruthy();
                 expect(str.formatChoice(5)).toBe("multiple");
             });

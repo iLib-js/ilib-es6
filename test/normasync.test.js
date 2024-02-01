@@ -42,7 +42,7 @@ describe("testnormasync", () => {
 
         new NormString("ᄀ각ᆨ", {
             sync: false,
-            onLoad: function(str) {
+            onLoad: str => {
                 expect(str.normalize("nfd").toString()).toBe("ᄀ각ᆨ");
             }
         });
@@ -52,7 +52,7 @@ describe("testnormasync", () => {
         expect.assertions(1);
         new NormString("ᄀ각ᆨ", {
             sync: false,
-            onLoad: function(str) {
+            onLoad: str => {
                 expect(str.normalize("nfkd").toString()).toBe("ᄀ각ᆨ");
             }
         });
@@ -62,7 +62,7 @@ describe("testnormasync", () => {
         expect.assertions(1);
         new NormString("ᄀ각ᆨ", {
             sync: false,
-            onLoad: function(str) {
+            onLoad: str => {
                 expect(str.normalize("nfc").toString()).toBe("ᄀ각ᆨ");
             }
         });
@@ -72,7 +72,7 @@ describe("testnormasync", () => {
         expect.assertions(1);
         new NormString("ᄀ각ᆨ", {
             sync: false,
-            onLoad: function(str) {
+            onLoad: str => {
                 expect(str.normalize("nfkc").toString()).toBe("ᄀ각ᆨ");
             }
         });
@@ -82,7 +82,7 @@ describe("testnormasync", () => {
         expect.assertions(8);
         const s = new NormString("aÄa", { // the A umlaut is a decomposed char
             sync: false,
-            onLoad: function(str) {
+            onLoad: str => {
                 const it = str.charIterator();
 
                 expect(it.hasNext()).toBeTruthy();

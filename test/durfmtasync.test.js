@@ -24,7 +24,7 @@ describe("testdurfmtasync", () => {
         expect.assertions(1);
         new DurationFmt({
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
             }
         });
@@ -36,7 +36,7 @@ describe("testdurfmtasync", () => {
         new DurationFmt({
             locale: "de-DE",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 expect(fmt.getLocale().toString()).toBe("de-DE");
@@ -49,7 +49,7 @@ describe("testdurfmtasync", () => {
         new DurationFmt({
             locale: "zyy-XX",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 expect(fmt.getLocale().toString()).toBe("zyy-XX");
@@ -62,7 +62,7 @@ describe("testdurfmtasync", () => {
         new DurationFmt({
             length: "short",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 const duration = fmt.format({
@@ -85,7 +85,7 @@ describe("testdurfmtasync", () => {
         new DurationFmt({
             length: "long",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 const duration = fmt.format({
@@ -108,7 +108,7 @@ describe("testdurfmtasync", () => {
         new DurationFmt({
             length: "full",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 const duration = fmt.format({
@@ -132,7 +132,7 @@ describe("testdurfmtasync", () => {
             locale: "de-DE",
             length: "short",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
                 const duration = fmt.format({
                     year: 1,
@@ -155,7 +155,7 @@ describe("testdurfmtasync", () => {
             locale: "de-DE",
             length: "full",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 const duration = fmt.format({
@@ -180,7 +180,7 @@ describe("testdurfmtasync", () => {
             length: "short",
             style: "text",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 const duration = fmt.format({
@@ -205,7 +205,7 @@ describe("testdurfmtasync", () => {
             length: "short",
             style: "clock",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 const duration = fmt.format({
@@ -229,7 +229,7 @@ describe("testdurfmtasync", () => {
             locale: "zh-Hans-CN",
             length: "full",
             sync: false,
-            onLoad: function(fmt) {
+            onLoad: fmt => {
                 expect(fmt !== null).toBeTruthy();
 
                 const duration = fmt.format({

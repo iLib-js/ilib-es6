@@ -29,16 +29,16 @@ describe("testphonefmtasync", () => {
             subscriberNumber: "3453434"
         }, {
             sync: false,
-            onLoad: function(parsed) {
+            onLoad: parsed => {
                 // default to US format
                 new PhoneFmt({
                     style: "default",
                     sync: false,
-                    onLoad: function(fmt) {
+                    onLoad: fmt => {
                         const expected = "(456) 345-3434";
                         fmt.format(parsed, {
                             sync: false,
-                            onLoad: function(formatted) {
+                            onLoad: formatted => {
                                 expect(formatted).toBe(expected);
                             }
                         });
@@ -57,18 +57,18 @@ describe("testphonefmtasync", () => {
             subscriberNumber: "87654321"
         }, {
             sync: false,
-            onLoad: function(parsed) {
+            onLoad: parsed => {
                 // default to US format
                 new PhoneFmt({
                     locale: "en-US",
                     style: "dashes",
                     sync: false,
-                    onLoad: function(fmt) {
+                    onLoad: fmt => {
                         const expected = "+506 87654321";    // use last resort rule for subscriber number
 
                         fmt.format(parsed, {
                             sync: false,
-                            onLoad: function(formatted) {
+                            onLoad: formatted => {
                                 expect(formatted).toBe(expected);
                             }
                         });
@@ -85,18 +85,18 @@ describe("testphonefmtasync", () => {
             emergency: "911"
         }, {
             sync: false,
-            onLoad: function(parsed) {
+            onLoad: parsed => {
                 // default to US format
                 new PhoneFmt({
                     locale: "en-US",
                     style: "default",
                     sync: false,
-                    onLoad: function(fmt) {
+                    onLoad: fmt => {
                         const expected = "911 ";
 
                         fmt.format(parsed, {
                             sync: false,
-                            onLoad: function(formatted) {
+                            onLoad: formatted => {
                                 expect(formatted).toBe(expected);
                             }
                         });
@@ -115,19 +115,19 @@ describe("testphonefmtasync", () => {
             subscriberNumber: "15987654"
         }, {
             sync: false,
-            onLoad: function(parsed) {
+            onLoad: parsed => {
                 // default to US format
                 new PhoneFmt({
                     locale: "en-US",
                     style: "default",
                     mcc: "208",
                     sync: false,
-                    onLoad: function(fmt) {
+                    onLoad: fmt => {
                         const expected = "06 15 98 76 54";
 
                         fmt.format(parsed, {
                             sync: false,
-                            onLoad: function(formatted) {
+                            onLoad: formatted => {
                                 expect(formatted).toBe(expected);
                             }
                         });
@@ -148,16 +148,16 @@ describe("testphonefmtasync", () => {
         }, {
             locale: "en-US",
             sync: false,
-            onLoad: function(parsed) {
+            onLoad: parsed => {
                 new PhoneFmt({
                     locale: "en-US",
                     sync: false,
-                    onLoad: function(fmt) {
+                    onLoad: fmt => {
                         const expected = "+33 1 12 34 56 78";
 
                         fmt.format(parsed, {
                             sync: false,
-                            onLoad: function(formatted) {
+                            onLoad: formatted => {
                                 expect(formatted).toBe(expected);
                             }
                         });
@@ -177,17 +177,17 @@ describe("testphonefmtasync", () => {
         }, {
             locale: "en-GB",
             sync: false,
-            onLoad: function(parsed) {
+            onLoad: parsed => {
                 new PhoneFmt({
                     locale: "en-GB",
                     style: "default",
                     sync: false,
-                    onLoad: function(fmt) {
+                    onLoad: fmt => {
                         const expected = "(0176 84) 12345";
 
                         fmt.format(parsed, {
                             sync: false,
-                            onLoad: function(formatted) {
+                            onLoad: formatted => {
                                 expect(formatted).toBe(expected);
                             }
                         });
@@ -209,17 +209,17 @@ describe("testphonefmtasync", () => {
         }, {
             locale: "de-DE",
             sync: false,
-            onLoad: function(parsed) {
+            onLoad: parsed => {
                 new PhoneFmt({
                     locale: "de-DE",
                     style: "alten",
                     sync: false,
-                    onLoad: function(fmt) {
+                    onLoad: fmt => {
                         const expected = "06224/1 23 45 67";
 
                         fmt.format(parsed, {
                             sync: false,
-                            onLoad: function(formatted) {
+                            onLoad: formatted => {
                                 expect(formatted).toBe(expected);
                             }
                         });
@@ -235,17 +235,17 @@ describe("testphonefmtasync", () => {
         new PhoneNumber("0668795111", {
             locale: "ja-JP",
             sync: false,
-            onLoad: function(parsed) {
+            onLoad: parsed => {
                 new PhoneFmt({
                     locale: "ja-JP",
                     style: "default",
                     sync: false,
-                    onLoad: function(fmt) {
+                    onLoad: fmt => {
                         const expected = "06-6879-5111";
 
                         fmt.format(parsed, {
                             sync: false,
-                            onLoad: function(formatted) {
+                            onLoad: formatted => {
                                 expect(formatted).toBe(expected);
                             }
                         });

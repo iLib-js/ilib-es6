@@ -26,13 +26,13 @@ function wrapFormat(phoneFmt) {
     if (!phoneFmt) return;
 
     const oldFormat = ilibPhoneFmt.prototype.format.bind(phoneFmt);
-    phoneFmt.format = function(number, options = {}) {
+    phoneFmt.format = (number, options = {}) => {
         const { sync } = options;
         if (typeof(sync) === "undefined" || sync) {
             return oldFormat(number, options);
         }
 
-        return promisifyFunction(function(opts = {}) {
+        return promisifyFunction((opts = {}) => {
             const { number } = opts;
             return oldFormat(number, opts);
         }, Object.assign({}, options, {
@@ -49,7 +49,7 @@ export default class PhoneFmt {
     }
 
     static create(options = {}) {
-        return promisifyFunction(function(options = {}) {
+        return promisifyFunction((options = {}) => {
             return wrapFormat(new ilibPhoneFmt(options));
         }, options);
     }

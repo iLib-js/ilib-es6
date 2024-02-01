@@ -24,7 +24,7 @@ describe("testnumprsasync", () => {
         expect.assertions(2);
         const num = new INumber("3.4", {
             sync: false,
-            onLoad: function(num) {
+            onLoad: num => {
                 expect(num !== null).toBeTruthy();
                 expect(num.valueOf()).toBe(3.4);
             }
@@ -35,10 +35,10 @@ describe("testnumprsasync", () => {
         expect.assertions(2);
         new INumber("3.4", {
             sync: false,
-            onLoad: function(num) {
+            onLoad: num => {
                 new INumber(num, {
                     sync: false,
-                    onLoad: function(num2) {
+                    onLoad: num2 => {
                         expect(num2 !== null).toBeTruthy();
                         expect(num2.valueOf()).toBe(3.4);
                     }
@@ -52,7 +52,7 @@ describe("testnumprsasync", () => {
         const num = new INumber("3,4", {
             locale: "de-DE",
             sync: false,
-            onLoad: function(num) {
+            onLoad: num => {
                 expect(num !== null).toBeTruthy();
 
                 expect(num.getLocale().getSpec()).toBe("de-DE");
@@ -66,7 +66,7 @@ describe("testnumprsasync", () => {
         const num = new INumber("58.3%", {
             type: "percentage",
             sync: false,
-            onLoad: function(num) {
+            onLoad: num => {
                 expect(num !== null).toBeTruthy();
 
                 expect(num.valueOf()).toBe(0.583);
@@ -79,7 +79,7 @@ describe("testnumprsasync", () => {
         const num = new INumber("$5.80", {
             type: "currency",
             sync: false,
-            onLoad: function(num) {
+            onLoad: num => {
                 expect(num !== null).toBeTruthy();
 
                 expect(num.valueOf()).toBe(5.80);
@@ -92,7 +92,7 @@ describe("testnumprsasync", () => {
         const num = new INumber("£5.80", {
             type: "currency",
             sync: false,
-            onLoad: function(num) {
+            onLoad: num => {
                 expect(num !== null).toBeTruthy();
 
                 const cur = num.getCurrency();
@@ -109,7 +109,7 @@ describe("testnumprsasync", () => {
         new INumber("১২৩.৪৫৬", {
             locale: "bn-IN",
             sync: false,
-            onLoad: function(num) {
+            onLoad: num => {
                 expect(num !== null).toBeTruthy();
                 expect(num.valueOf()).toBe(123.456);
             }
@@ -123,7 +123,7 @@ describe("testnumprsasync", () => {
         new INumber("1 234 567,745", {
             locale: "fr-FR",
             sync: false,
-            onLoad: function(num) {
+            onLoad: num => {
                 expect(num !== null).toBeTruthy();
                 expect(num.valueOf()).toBe(1234567.745);
             }

@@ -26,12 +26,12 @@ function isCntrl(ch) {
     return ilibisCntrl(ch);
 };
 
-isCntrl._init = function (sync, loadParams, onLoad) {
+isCntrl._init = (sync, loadParams, onLoad) => {
     if (typeof(sync) === "undefined" || sync) {
         return ilibisCntrl._init(sync, loadParams, onLoad);
     }
 
-    return promisifyFunction(function(options = {}) {
+    return promisifyFunction((options = {}) => {
         const { sync, loadParams, onLoad } = options;
         return ilibisCntrl._init(sync, loadParams, onLoad);
     }, {

@@ -29,7 +29,7 @@ describe("testscriptinfoasync", () => {
         expect.assertions(1);
         const si = new ScriptInfo(undefined, {
             sync: false,
-            onLoad: function(si) {
+            onLoad: si => {
                 expect(si !== null).toBeTruthy();
             }
         });
@@ -39,7 +39,7 @@ describe("testscriptinfoasync", () => {
         expect.assertions(8);
         const si = new ScriptInfo("Latn", {
             sync: false,
-            onLoad: function(si) {
+            onLoad: si => {
                 expect(si !== null).toBeTruthy();
 
                 expect(si.getCode()).toBe("Latn");
@@ -57,7 +57,7 @@ describe("testscriptinfoasync", () => {
         expect.assertions(8);
         const si = new ScriptInfo("Hans", {
             sync: false,
-            onLoad: function(si) {
+            onLoad: si => {
                 expect(si !== null).toBeTruthy();
 
                 expect(si.getCode()).toBe("Hans");
@@ -75,7 +75,7 @@ describe("testscriptinfoasync", () => {
         expect.assertions(8);
         const si = new ScriptInfo("Arab", {
             sync: false,
-            onLoad: function(si) {
+            onLoad: si => {
                 expect(si !== null).toBeTruthy();
 
                 expect(si.getCode()).toBe("Arab");
@@ -92,7 +92,7 @@ describe("testscriptinfoasync", () => {
         expect.assertions(5);
         const si = new ScriptInfo("Fooo", {
             sync: false,
-            onLoad: function(si) {
+            onLoad: si => {
                 expect(si !== null).toBeTruthy();
 
                 expect(si.getCode()).toBe(undefined);
@@ -105,7 +105,7 @@ describe("testscriptinfoasync", () => {
 
     test("ScriptInfoAsyncGetAllScripts", () => {
         expect.assertions(11);
-        ScriptInfo.getAllScripts(false, undefined, function(scripts) {
+        ScriptInfo.getAllScripts(false, undefined, scripts => {
             expect(scripts !== null).toBeTruthy();
 
             expect(scripts.length).toBe(213);
@@ -117,7 +117,7 @@ describe("testscriptinfoasync", () => {
             expect(scripts[scripts.length-1]).toBe("Zzzz");
 
             // make sure the callback is called after the 2nd call
-            ScriptInfo.getAllScripts(false, undefined, function(scripts) {
+            ScriptInfo.getAllScripts(false, undefined, scripts => {
                 expect(scripts !== null).toBeTruthy();
 
                 expect(scripts.length).toBe(213);

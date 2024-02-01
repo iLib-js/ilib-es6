@@ -113,7 +113,7 @@ describe("testalphaindexpromise", () => {
                 "gamma"
                 ];
 
-            items.forEach(function(item) {
+            items.forEach(item => {
                 ai.addElement(item);
             });
 
@@ -196,7 +196,7 @@ describe("testalphaindexpromise", () => {
                 "gamma"
                 ];
 
-            items.forEach(function(item) {
+            items.forEach(item => {
                 ai.addElement(item);
             });
 
@@ -250,7 +250,7 @@ describe("testalphaindexpromise", () => {
                 "ürgen"
                 ];
 
-            items.forEach(function(item) {
+            items.forEach(item => {
                 ai.addElement(item);
             });
 
@@ -378,7 +378,7 @@ describe("testalphaindexpromise", () => {
                 "Judrich"
                 ];
 
-            items.forEach(function(item) {
+            items.forEach(item => {
                 ai.addElement(item);
             });
 
@@ -449,7 +449,7 @@ describe("testalphaindexpromise", () => {
                 "Judrich"
                 ];
 
-            items.forEach(function(item) {
+            items.forEach(item => {
                 ai.addElement(item);
             });
 
@@ -532,7 +532,7 @@ describe("testalphaindexpromise", () => {
                 "박세진"
                 ];
 
-            items.forEach(function(item) {
+            items.forEach(item => {
                 ai.addElement(item);
             });
 
@@ -611,7 +611,7 @@ describe("testalphaindexpromise", () => {
                 "박세진"
                 ];
 
-            items.forEach(function(item) {
+            items.forEach(item => {
                 ai.addElement(item);
             });
 
