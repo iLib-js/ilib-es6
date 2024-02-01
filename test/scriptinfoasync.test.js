@@ -27,7 +27,7 @@ describe("testscriptinfoasync", () => {
 
     test("ScriptInfoAsyncConstructor", () => {
         expect.assertions(1);
-        var si = new ScriptInfo(undefined, {
+        const si = new ScriptInfo(undefined, {
             sync: false,
             onLoad: function(si) {
                 expect(si !== null).toBeTruthy();
@@ -37,7 +37,7 @@ describe("testscriptinfoasync", () => {
 
     test("ScriptInfoAsyncGet1", () => {
         expect.assertions(8);
-        var si = new ScriptInfo("Latn", {
+        const si = new ScriptInfo("Latn", {
             sync: false,
             onLoad: function(si) {
                 expect(si !== null).toBeTruthy();
@@ -55,7 +55,7 @@ describe("testscriptinfoasync", () => {
 
     test("ScriptInfoAsyncGet4", () => {
         expect.assertions(8);
-        var si = new ScriptInfo("Hans", {
+        const si = new ScriptInfo("Hans", {
             sync: false,
             onLoad: function(si) {
                 expect(si !== null).toBeTruthy();
@@ -73,7 +73,7 @@ describe("testscriptinfoasync", () => {
 
     test("ScriptInfoAsyncGetDefaultLongCodeArab", () => {
         expect.assertions(8);
-        var si = new ScriptInfo("Arab", {
+        const si = new ScriptInfo("Arab", {
             sync: false,
             onLoad: function(si) {
                 expect(si !== null).toBeTruthy();
@@ -90,7 +90,7 @@ describe("testscriptinfoasync", () => {
     });
     test("ScriptInfoAsyncGetUnknown", () => {
         expect.assertions(5);
-        var si = new ScriptInfo("Fooo", {
+        const si = new ScriptInfo("Fooo", {
             sync: false,
             onLoad: function(si) {
                 expect(si !== null).toBeTruthy();

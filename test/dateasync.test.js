@@ -106,7 +106,7 @@ describe("testdateasync", () => {
 
     test("DateToIlibDate", () => {
         expect.assertions(1);
-        var datMyBday = new Date("Fri Aug 13 1982 13:37:35 GMT-0700");
+        const datMyBday = new Date("Fri Aug 13 1982 13:37:35 GMT-0700");
         DateFactory({
             year: 1982,
             month: 8,
@@ -149,7 +149,7 @@ describe("testdateasync", () => {
 
     test("DstEndBoundary_Azores", () => {
         expect.assertions(1);
-        var boundaryiLib = DateFactory({
+        const boundaryiLib = DateFactory({
             year: 2019,
             month: 10,
             day: 27,
@@ -158,7 +158,7 @@ describe("testdateasync", () => {
             second: 0,
             timezone: "Atlantic/Azores"
         });
-        var boundaryEs = new Date(2019, 9, 27, 1, 0, 0);
+        const boundaryEs = new Date(2019, 9, 27, 1, 0, 0);
         // we can't set time zone to Date object, so compare with constant value
         // 1572141600000: new Date(2019, 9, 27, 1, 0, 0).getTime() with Azores local time
         expect(boundaryiLib.getTimeExtended()).toBe(1572141600000);

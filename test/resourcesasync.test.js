@@ -50,7 +50,7 @@ describe("testresourcesasync", () => {
             onLoad: function(rb) {
                 expect(rb !== null).toBeTruthy();
 
-                var loc = rb.getLocale();
+                const loc = rb.getLocale();
 
                 expect(loc.toString()).toBe("de-DE");
             }
@@ -71,7 +71,7 @@ describe("testresourcesasync", () => {
         ilib.data.strings_es_MX = undefined;
         ilib.clearCache();
 
-        var base = path.relative(process.cwd(), path.resolve(__dirname, "./resources"));
+        const base = path.relative(process.cwd(), path.resolve(__dirname, "./resources"));
 
         new ResBundle({
             locale: "es-MX",

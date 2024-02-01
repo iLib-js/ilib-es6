@@ -87,7 +87,7 @@ describe("testtimezoneasync", () => {
         TimeZone.getAvailableIds("US", false, function(zones) {
             expect(typeof(zones) !== "undefined").toBeTruthy();
 
-            var expected = [
+            const expected = [
                 "America/New_York",
                 "America/Detroit",
                 "America/Kentucky/Louisville",
@@ -144,7 +144,7 @@ describe("testtimezoneasync", () => {
 
     test("TZAsyncGetAvailableIdsByCountry2RightLength", () => {
         expect.assertions(2);
-        var zones = TimeZone.getAvailableIds("SG", false, function(zones) {
+        const zones = TimeZone.getAvailableIds("SG", false, function(zones) {
             expect(typeof(zones) !== "undefined").toBeTruthy();
 
             expect(zones.length).toBe(2);
@@ -153,10 +153,10 @@ describe("testtimezoneasync", () => {
 
     test("TZAsyncGetAvailableIdsByCountry2RightContents", () => {
         expect.assertions(2);
-        var zones = TimeZone.getAvailableIds("SG", false, function(zones) {
+        const zones = TimeZone.getAvailableIds("SG", false, function(zones) {
             expect(typeof(zones) !== "undefined").toBeTruthy();
 
-            var expected = [
+            const expected = [
                 "Asia/Singapore",
                 "Singapore"        // legacy tz
             ];

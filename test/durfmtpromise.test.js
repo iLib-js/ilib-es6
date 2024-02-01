@@ -62,7 +62,7 @@ describe("testdurfmtpromise", () => {
         }).then(fmt => {
             expect(fmt !== null).toBeTruthy();
 
-            var duration = fmt.format({
+            const duration = fmt.format({
                 year: 1,
                 month: 1,
                 week: 1,
@@ -84,7 +84,7 @@ describe("testdurfmtpromise", () => {
         }).then(fmt => {
             expect(fmt !== null).toBeTruthy();
 
-            var duration = fmt.format({
+            const duration = fmt.format({
                 year: 1,
                 month: 1,
                 week: 1,
@@ -106,7 +106,7 @@ describe("testdurfmtpromise", () => {
         }).then(fmt => {
             expect(fmt !== null).toBeTruthy();
 
-            var duration = fmt.format({
+            const duration = fmt.format({
                 year: 2,
                 month: 2,
                 week: 2,
@@ -128,7 +128,7 @@ describe("testdurfmtpromise", () => {
             sync: false
         }).then(fmt => {
             expect(fmt !== null).toBeTruthy();
-            var duration = fmt.format({
+            const duration = fmt.format({
                 year: 1,
                 month: 1,
                 week: 1,
@@ -151,7 +151,7 @@ describe("testdurfmtpromise", () => {
         }).then(fmt => {
             expect(fmt !== null).toBeTruthy();
 
-            var duration = fmt.format({
+            const duration = fmt.format({
                 year: 1,
                 month: 1,
                 week: 1,
@@ -175,7 +175,7 @@ describe("testdurfmtpromise", () => {
         }).then(fmt => {
             expect(fmt !== null).toBeTruthy();
 
-            var duration = fmt.format({
+            const duration = fmt.format({
                 year: 1,
                 month: 1,
                 week: 1,
@@ -199,7 +199,7 @@ describe("testdurfmtpromise", () => {
         }).then(fmt => {
             expect(fmt !== null).toBeTruthy();
 
-            var duration = fmt.format({
+            const duration = fmt.format({
                 year: 1,
                 month: 1,
                 week: 1,
@@ -222,7 +222,7 @@ describe("testdurfmtpromise", () => {
         }).then(fmt => {
             expect(fmt !== null).toBeTruthy();
 
-            var duration = fmt.format({
+            const duration = fmt.format({
                 year: 1,
                 month: 1,
                 week: 1,

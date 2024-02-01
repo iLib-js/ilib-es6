@@ -22,7 +22,7 @@ import INumber from "../src/INumber.js";
 describe("testnumprsasync", () => {
     test("NumberAsyncConstructorDefault", () => {
         expect.assertions(2);
-        var num = new INumber("3.4", {
+        const num = new INumber("3.4", {
             sync: false,
             onLoad: function(num) {
                 expect(num !== null).toBeTruthy();
@@ -36,7 +36,7 @@ describe("testnumprsasync", () => {
         new INumber("3.4", {
             sync: false,
             onLoad: function(num) {
-                var num = new INumber(num, {
+                new INumber(num, {
                     sync: false,
                     onLoad: function(num2) {
                         expect(num2 !== null).toBeTruthy();
@@ -49,7 +49,7 @@ describe("testnumprsasync", () => {
 
     test("NumberAsyncGetLocaleOther", () => {
         expect.assertions(3);
-        var num = new INumber("3,4", {
+        const num = new INumber("3,4", {
             locale: "de-DE",
             sync: false,
             onLoad: function(num) {
@@ -63,7 +63,7 @@ describe("testnumprsasync", () => {
 
     test("NumberAsyncPercentage", () => {
         expect.assertions(2);
-        var num = new INumber("58.3%", {
+        const num = new INumber("58.3%", {
             type: "percentage",
             sync: false,
             onLoad: function(num) {
@@ -76,7 +76,7 @@ describe("testnumprsasync", () => {
 
     test("NumberAsyncCurrencyValue", () => {
         expect.assertions(2);
-        var num = new INumber("$5.80", {
+        const num = new INumber("$5.80", {
             type: "currency",
             sync: false,
             onLoad: function(num) {
@@ -89,13 +89,13 @@ describe("testnumprsasync", () => {
 
     test("NumberAsyncCurrencyForLocale", () => {
         expect.assertions(3);
-        var num = new INumber("£5.80", {
+        const num = new INumber("£5.80", {
             type: "currency",
             sync: false,
             onLoad: function(num) {
                 expect(num !== null).toBeTruthy();
 
-                var cur = num.getCurrency();
+                const cur = num.getCurrency();
                 expect(typeof(cur) !== "undefined").toBeTruthy();
                 expect(cur.getCode()).toBe("GBP");
             }

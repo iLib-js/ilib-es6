@@ -32,7 +32,7 @@ describe("testcharmapasync", () => {
 
     test("CharmapAsyncLoadMap", () => {
         expect.assertions(3);
-        var cm = CharmapFactory({
+        const cm = CharmapFactory({
             name: "ISO-8859-15",
             sync: false,
             onLoad: function(cm) {
@@ -45,7 +45,7 @@ describe("testcharmapasync", () => {
 
     test("CharmapAsyncAlias", () => {
         expect.assertions(3);
-        var cm = CharmapFactory({
+        const cm = CharmapFactory({
             name: "ISO-Latin-9",
             sync: false,
             onLoad: function(cm) {
@@ -58,7 +58,7 @@ describe("testcharmapasync", () => {
 
     test("CharmapAsyncLoadAlgorithmic", () => {
         expect.assertions(3);
-        var cm = CharmapFactory({
+        const cm = CharmapFactory({
             name: "UTF-8",
             sync: false,
             onLoad: function(cm) {
@@ -71,12 +71,12 @@ describe("testcharmapasync", () => {
 
     test("CharmapAsyncUTF8MapToUnicodeUint8ArrayExtended3", () => {
         expect.assertions(2);
-        var cm = CharmapFactory({
+        const cm = CharmapFactory({
             name: "UTF-8",
             sync: false,
             onLoad: function(cm) {
                 expect(typeof(cm) !== "undefined").toBeTruthy();
-                var input = new Uint8Array([
+                const input = new Uint8Array([
                     0xe4, 0xb8, 0x80,
                     0xe4, 0xb8, 0x81,
                     0xe4, 0xb8, 0x82,
@@ -91,7 +91,7 @@ describe("testcharmapasync", () => {
     });
 
     test("CharmapAsyncCNMapToUnicode", () => {
-        var big5source = [
+        const big5source = [
             0xa4, 0xb1, // 仃
             0xa4, 0x48, // 人
             0xae, 0x49, // 埋
@@ -110,7 +110,7 @@ describe("testcharmapasync", () => {
     });
 
     test("CharmapAsyncCNMapToNative", () => {
-        var big5source = new Uint8Array([
+        const big5source = new Uint8Array([
             0xa4, 0xb1, // 仃
             0xa4, 0x48, // 人
             0xae, 0x49, // 埋

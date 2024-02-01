@@ -64,7 +64,7 @@ describe("testAddressAsync", () => {
 
     test("ParseAddressAsyncSimple3", () => {
         expect.assertions(7);
-        var pa = new Address("5-2-1 Ginza, Chuo-ku\nTokyo 170-3293\nJapan", {
+        const pa = new Address("5-2-1 Ginza, Chuo-ku\nTokyo 170-3293\nJapan", {
             locale: 'en-US',
             sync: false,
             onLoad: function(parsedAddress) {
@@ -81,7 +81,7 @@ describe("testAddressAsync", () => {
 
     test("ParseAddressAsyncMoreComplex", () => {
         expect.assertions(7);
-        var pa = new Address("950 W 21st Ave, Apt 45\nNY, NY 10234", {
+        const pa = new Address("950 W 21st Ave, Apt 45\nNY, NY 10234", {
             locale: 'en-US',
             sync: false,
             onLoad: function(parsedAddress) {
@@ -98,7 +98,7 @@ describe("testAddressAsync", () => {
 
     test("ParseAddressAsyncSpelledOutState", () => {
         expect.assertions(7);
-        var pa = new Address("20 Main St.\nMyTown, Arizona 11530\nUSA", {
+        const pa = new Address("20 Main St.\nMyTown, Arizona 11530\nUSA", {
             locale: 'en-US',
             sync: false,
             onLoad: function(parsedAddress) {
@@ -115,7 +115,7 @@ describe("testAddressAsync", () => {
 
     test("ParseAddressAsyncSpelledOutStateWithSpaces", () => {
         expect.assertions(7);
-        var pa = new Address("20 Main St.\nMyTown, New York 11530\nUSA", {
+        const pa = new Address("20 Main St.\nMyTown, New York 11530\nUSA", {
             locale: 'en-US',
             sync: false,
             onLoad: function(parsedAddress) {
@@ -133,7 +133,7 @@ describe("testAddressAsync", () => {
     test("ParseAddressAsyncUnknown", () => {
         expect.assertions(7);
 
-        var pa = new Address("123 Main Street, Pretoria 5678, South Africa", {
+        const pa = new Address("123 Main Street, Pretoria 5678, South Africa", {
             locale: 'en-US',
             sync: false,
             onLoad: function(parsedAddress) {
@@ -150,7 +150,7 @@ describe("testAddressAsync", () => {
 
     test("ParseAddressAsyncNonUS", () => {
         expect.assertions(7);
-        var pa = new Address("Achterberglaan 23, 2345 GD Uithoorn, Netherlands", {
+        const pa = new Address("Achterberglaan 23, 2345 GD Uithoorn, Netherlands", {
             locale: 'en-US',
             sync: false,
             onLoad: function(parsedAddress) {
@@ -167,7 +167,7 @@ describe("testAddressAsync", () => {
 
     test("FormatAddressAsyncUS", () => {
         expect.assertions(2);
-        var pa = new Address({
+        const pa = new Address({
             streetAddress: "1234 Any Street",
             locality: "Anytown",
             region: "CA",
@@ -176,8 +176,8 @@ describe("testAddressAsync", () => {
             countryCode: "US"
         }, {locale: 'en-US'});
 
-        var expected = "1234 Any Street\nAnytown CA 94085\nUnited States of America";
-        var f = new AddressFmt({
+        const expected = "1234 Any Street\nAnytown CA 94085\nUnited States of America";
+        const f = new AddressFmt({
             locale: 'en-US',
             sync: false,
             onLoad: function(formatter) {
@@ -189,7 +189,7 @@ describe("testAddressAsync", () => {
 
     test("FormatAddressAsyncUnknownLocaleQQ", () => {
         expect.assertions(2);
-        var pa = new Address({
+        const pa = new Address({
             streetAddress: "123 mcdonald ave, apt 234",
             locality: "Sunnyvale",
             region: "CA",
@@ -198,8 +198,8 @@ describe("testAddressAsync", () => {
         });
 
         // should return the "root" information
-        var expected = "123 mcdonald ave, apt 234\nSunnyvale CA 94086";
-        var f = new AddressFmt({
+        const expected = "123 mcdonald ave, apt 234\nSunnyvale CA 94086";
+        const f = new AddressFmt({
             locale: 'en-QQ',
             style: 'nocountry',
             sync: false,
@@ -212,7 +212,7 @@ describe("testAddressAsync", () => {
 
     test("ParseAddressAsyncJPAsianNormal1", () => {
         expect.assertions(6);
-        var pa = new Address("〒150-2345 東京都渋谷区本町2丁目4-7サニーマンション203",  {
+        const pa = new Address("〒150-2345 東京都渋谷区本町2丁目4-7サニーマンション203",  {
             locale: 'ja-JP',
             sync: false,
             onLoad: function(parsedAddress) {
@@ -228,7 +228,7 @@ describe("testAddressAsync", () => {
 
     test("FormatAddressAsyncJPAsianNormal", () => {
         expect.assertions(2);
-        var parsedAddress = new Address({
+        const parsedAddress = new Address({
             streetAddress: "本町2丁目4-7サニーマンション203",
             locality: "渋谷区",
             region: "東京都",
@@ -237,9 +237,9 @@ describe("testAddressAsync", () => {
             format: "asian"
         }, {locale: 'ja-JP'});
 
-        var expected = "〒150-2345\n東京都渋谷区本町2丁目4-7サニーマンション203";
+        const expected = "〒150-2345\n東京都渋谷区本町2丁目4-7サニーマンション203";
 
-        var f = new AddressFmt({
+        const f = new AddressFmt({
             locale: 'ja-JP',
             sync: false,
             onLoad: function(formatter) {
@@ -252,7 +252,7 @@ describe("testAddressAsync", () => {
 
     test("ParseAddressAsyncCNAsianNormal", () => {
         expect.assertions(7);
-        var pa = new Address("中国北京市朝阳区建国路112号 中国惠普大厦100022", {
+        const pa = new Address("中国北京市朝阳区建国路112号 中国惠普大厦100022", {
             locale: 'zh-CN',
             sync: false,
             onLoad: function(parsedAddress) {
@@ -269,7 +269,7 @@ describe("testAddressAsync", () => {
 
     test("ParseAddressAsyncDENormal", () => {
         expect.assertions(7);
-        var pa = new Address("Herrenberger Straße 140, 71034 Böblingen, Deutschland", {
+        const pa = new Address("Herrenberger Straße 140, 71034 Böblingen, Deutschland", {
             locale: 'de-DE',
             sync: false,
             onLoad: function(parsedAddress) {
@@ -286,7 +286,7 @@ describe("testAddressAsync", () => {
 
     test("ParseAddressAsyncTHNormal", () => {
         expect.assertions(7);
-        var pa = new Address("49 ซอยร่วมฤดี, ถนนเพลินจิต, ลุมพินี\nเขตปทุมวัน กรุงเทพฯ 10330\nประเทศไทย", {
+        const pa = new Address("49 ซอยร่วมฤดี, ถนนเพลินจิต, ลุมพินี\nเขตปทุมวัน กรุงเทพฯ 10330\nประเทศไทย", {
             locale: 'th-Th',
             sync: false,
             onLoad: function(parsedAddress) {
@@ -303,7 +303,7 @@ describe("testAddressAsync", () => {
 
     test("ParseAddressAsyncRUNormal", () => {
         expect.assertions(7);
-        var pa = new Address("Петров Иван Сергеевич ул. Лесная D. 5 поз. Лесной\nАЛЕКСЕЕВСКИЙ R-N\nВоронежская область\nРоссия\n247112", {
+        const pa = new Address("Петров Иван Сергеевич ул. Лесная D. 5 поз. Лесной\nАЛЕКСЕЕВСКИЙ R-N\nВоронежская область\nРоссия\n247112", {
             locale: 'ru-RU',
             sync: false,
             onLoad: function(parsedAddress) {
@@ -320,7 +320,7 @@ describe("testAddressAsync", () => {
 
     test("ParseAddressAsyncSANormalNative", () => {
         expect.assertions(7);
-        var pa = new Address("السيد عبد الله ناصر\nمكة المكرمة ٢١۴۵۴\nالمملكة العربية السعودية", {
+        const pa = new Address("السيد عبد الله ناصر\nمكة المكرمة ٢١۴۵۴\nالمملكة العربية السعودية", {
             locale: 'ar-SA',
             sync: false,
             onLoad: function(parsedAddress) {
@@ -337,7 +337,7 @@ describe("testAddressAsync", () => {
 
     test("ParseAddressAsyncINHINormal", () => {
         expect.assertions(7);
-        var pa = new Address("१२५/१, एजी टावर्स. ३ तल, पार्क स्ट्रीट. सर्कस एवेन्यू\nकोलकाता\nपश्चिम बंगाल\n७०००१७\nभारत", {
+        const pa = new Address("१२५/१, एजी टावर्स. ३ तल, पार्क स्ट्रीट. सर्कस एवेन्यू\nकोलकाता\nपश्चिम बंगाल\n७०००१७\nभारत", {
             locale: 'hi-IN',
             sync: false,
             onLoad: function(parsedAddress) {
@@ -354,7 +354,7 @@ describe("testAddressAsync", () => {
 
     test("ParseAddressAsyncINGUNoZip", () => {
         expect.assertions(7);
-        var pa = new Address("125/1, એજી ટાવર્સ. 3 જો માળ, પાર્ક સ્ટ્રીટ. સર્કસ એવન્યુ\nકોલકાતા\nપશ્ચિમ બંગાળ\nભારત", {
+        const pa = new Address("125/1, એજી ટાવર્સ. 3 જો માળ, પાર્ક સ્ટ્રીટ. સર્કસ એવન્યુ\nકોલકાતા\nપશ્ચિમ બંગાળ\nભારત", {
             locale: 'gu-IN',
             sync: false,
             onLoad: function(parsedAddress) {
@@ -383,7 +383,7 @@ describe("testAddressAsync", () => {
 
                     expect(info[1][1].component).toBe("region");
                     expect(info[1][1].constraint).toBeTruthy();
-                    var r = searchRegions(info[1][1].constraint, "AZ");
+                    let r = searchRegions(info[1][1].constraint, "AZ");
                     expect(r.code).toBe("AZ");
                     expect(r.name).toBe("Arizona");
                     r = searchRegions(info[1][1].constraint, "MS");
@@ -395,7 +395,7 @@ describe("testAddressAsync", () => {
 
                     expect(info[2][0].component).toBe("country");
                     expect(info[2][0].constraint).toBeTruthy();
-                    var r = searchRegions(info[2][0].constraint, "JP");
+                    r = searchRegions(info[2][0].constraint, "JP");
                     expect(r.code).toBe("JP");
                     expect(r.name).toBe("Japan");
                     r = searchRegions(info[2][0].constraint, "CR");

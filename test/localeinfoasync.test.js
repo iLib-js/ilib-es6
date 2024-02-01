@@ -27,7 +27,7 @@ describe("testlocaleinfoasync", () => {
             onLoad: function(info) {
                 expect(info !== null).toBeTruthy();
 
-                var loc = info.getLocale();
+                const loc = info.getLocale();
                 expect(loc !== null).toBeTruthy();
 
                 expect(loc.getLanguage()).toBe("en");
@@ -44,7 +44,7 @@ describe("testlocaleinfoasync", () => {
             onLoad: function(info) {
                 expect(info !== null).toBeTruthy();
 
-                var loc = info.getLocale();
+                const loc = info.getLocale();
 
                 expect(loc.getLanguage()).toBe("de");
                 expect(loc.getRegion()).toBe("DE");

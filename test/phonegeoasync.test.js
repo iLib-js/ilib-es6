@@ -29,7 +29,7 @@ describe("testphonegeoasync", () => {
                 new PhoneGeoLocator({
                     sync: false,
                     onLoad: function(locator) {
-                        var expected = {
+                        const expected = {
                             country: {
                                 sn: "North America",
                                 ln: "North America and the Caribbean Islands",
@@ -42,7 +42,7 @@ describe("testphonegeoasync", () => {
                         };
                         expect(typeof(locator) !== "undefined").toBeTruthy();
 
-                        var geoInfo = locator.locate(parsed);
+                        const geoInfo = locator.locate(parsed);
 
                         expect(geoInfo.country.code).toBe(expected.country.code);
                         expect(geoInfo.country.sn).toBe(expected.country.sn);
@@ -64,7 +64,7 @@ describe("testphonegeoasync", () => {
                     locale: 'fr-FR',
                     sync: false,
                     onLoad: function(locator) {
-                        var expected = {
+                        const expected = {
                             country: {
                                 sn: "Amérique du Nord",
                                 ln: "Amérique du Nord et Îles Caraïbes",
@@ -77,7 +77,7 @@ describe("testphonegeoasync", () => {
                         };
 
                         expect(typeof(locator) !== "undefined").toBeTruthy();
-                        var geoInfo = locator.locate(parsed);
+                        const geoInfo = locator.locate(parsed);
 
                         expect(geoInfo.country.code).toBe(expected.country.code);
                         expect(geoInfo.country.sn).toBe(expected.country.sn);
@@ -100,7 +100,7 @@ describe("testphonegeoasync", () => {
                     locale: 'en-US',
                     sync: false,
                     onLoad: function(locator) {
-                        var expected = {
+                        const expected = {
                             country: {
                                 sn: "North America",
                                 ln: "North America and the Caribbean Islands",
@@ -113,7 +113,7 @@ describe("testphonegeoasync", () => {
                         };
 
                         expect(typeof(locator) !== "undefined").toBeTruthy();
-                        var geoInfo = locator.locate(parsed);
+                        const geoInfo = locator.locate(parsed);
 
                         expect(geoInfo.country.code).toBe(expected.country.code);
                         expect(geoInfo.country.sn).toBe(expected.country.sn);
@@ -137,7 +137,7 @@ describe("testphonegeoasync", () => {
                     locale: 'de-DE',
                     sync: false,
                     onLoad: function(locator) {
-                        var expected = {
+                        const expected = {
                             country: {
                                 sn: "Deutschland",
                                 ln: "Deutschland",
@@ -150,7 +150,7 @@ describe("testphonegeoasync", () => {
                         };
 
                         expect(typeof(locator) !== "undefined").toBeTruthy();
-                        var geoInfo = locator.locate(parsed);
+                        const geoInfo = locator.locate(parsed);
 
                         expect(geoInfo.country.code).toBe(expected.country.code);
                         expect(geoInfo.country.sn).toBe(expected.country.sn);
@@ -173,7 +173,7 @@ describe("testphonegeoasync", () => {
                     locale: 'de-DE',
                     sync: false,
                     onLoad: function(locator) {
-                        var expected = {
+                        const expected = {
                             country: {
                                 sn: "Deutschland",
                                 ln: "Deutschland",
@@ -186,7 +186,7 @@ describe("testphonegeoasync", () => {
                         };
 
                         expect(typeof(locator) !== "undefined").toBeTruthy();
-                        var geoInfo = locator.locate(parsed);
+                        const geoInfo = locator.locate(parsed);
 
                         expect(geoInfo.country.code).toBe(expected.country.code);
                         expect(geoInfo.country.sn).toBe(expected.country.sn);
@@ -210,7 +210,7 @@ describe("testphonegeoasync", () => {
                     mcc: "460",
                     sync: false,
                     onLoad: function(locator) {
-                        var expected = {
+                        const expected = {
                             country: {
                                 sn: "中国",
                                 ln: "中华人民共和国",
@@ -224,7 +224,7 @@ describe("testphonegeoasync", () => {
 
                         // give the prc mcc number so that this gives the right geo location
                         expect(typeof(locator) !== "undefined").toBeTruthy();
-                        var geoInfo = locator.locate(parsed);
+                        const geoInfo = locator.locate(parsed);
 
                         expect(geoInfo.country.code).toBe(expected.country.code);
                         expect(geoInfo.country.sn).toBe(expected.country.sn);

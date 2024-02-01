@@ -54,7 +54,7 @@ describe("testcollationpromise", () => {
         }).then(col => {
             expect(typeof(col) !== "undefined").toBeTruthy();
             // netscape and ie do not work properly on some platforms
-            var browser = ilib._getBrowser();
+            const browser = ilib._getBrowser();
             if ((browser === "firefox" &&
                 navigator &&
                 navigator.userAgent &&
@@ -83,7 +83,7 @@ describe("testcollationpromise", () => {
             expect(typeof(col) !== "undefined").toBeTruthy();
 
             // should compare in English
-            var func = col.getComparator();
+            const func = col.getComparator();
             expect(typeof(func) !== "undefined").toBeTruthy();
             expect(typeof(func)).toBe("function");
         });
@@ -127,7 +127,7 @@ describe("testcollationpromise", () => {
         }).then(col => {
             expect(typeof(col) !== "undefined").toBeTruthy();
 
-            var func = col.getComparator();
+            const func = col.getComparator();
             expect(typeof(func) !== "undefined").toBeTruthy();
 
             // should compare upper-case first
@@ -189,11 +189,11 @@ describe("testcollationpromise", () => {
         }).then(col => {
             expect(typeof(col) !== "undefined").toBeTruthy();
 
-            var input = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"];
+            const input = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"];
 
             input.sort(col.getComparator());
 
-            var expected = ["e", "i", "o", "p", "q", "r", "t", "u", "w", "y"];
+            const expected = ["e", "i", "o", "p", "q", "r", "t", "u", "w", "y"];
 
             expect(input).toStrictEqual(expected);
         });
@@ -207,11 +207,11 @@ describe("testcollationpromise", () => {
         }).then(col => {
             expect(typeof(col) !== "undefined").toBeTruthy();
 
-            var input = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"];
+            const input = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"];
 
             input.sort(col.getComparator());
 
-            var expected = ["e", "i", "o", "p", "q", "r", "t", "u", "w", "y"];
+            const expected = ["e", "i", "o", "p", "q", "r", "t", "u", "w", "y"];
 
             expect(input).toStrictEqual(expected);
         });
@@ -226,11 +226,11 @@ describe("testcollationpromise", () => {
         }).then(col => {
             expect(typeof(col) !== "undefined").toBeTruthy();
 
-            var input = ["q", "I", "e", "r", "T", "U", "i", "E", "o", "p"];
+            const input = ["q", "I", "e", "r", "T", "U", "i", "E", "o", "p"];
 
             input.sort(col.getComparator());
 
-            var expected = ["E", "e", "I", "i", "o", "p", "q", "r", "T", "U"];
+            const expected = ["E", "e", "I", "i", "o", "p", "q", "r", "T", "U"];
 
             expect(input).toStrictEqual(expected);
         });

@@ -42,7 +42,7 @@ describe("testcalasync", () => {
 
     test("CalendarFactoryAsyncSpecific", () => {
         expect.assertions(2);
-        var cal = CalendarFactory({
+        const cal = CalendarFactory({
             type: "julian",
             sync: false,
             onLoad: function(cal) {
@@ -83,7 +83,7 @@ describe("testcalasync", () => {
 
     test("CalendarFactoryAsyncDefaultForLocaleOther", () => {
         expect.assertions(2);
-        var cal = CalendarFactory({
+        const cal = CalendarFactory({
             locale: "th-TH",
             sync: false,
             onLoad: function(cal) {
@@ -96,7 +96,7 @@ describe("testcalasync", () => {
 
     test("CalendarFactoryAsyncOverrideLocale", () => {
         expect.assertions(2);
-        var cal = CalendarFactory({
+        const cal = CalendarFactory({
             locale: "fa-IR",
             type: "gregorian",
             sync: false,
@@ -378,7 +378,7 @@ describe("testcalasync", () => {
 
     test("CalendarFactoryAsync", () => {
         expect.assertions(2);
-        var cal = CalendarFactoryAsync({
+        const cal = CalendarFactoryAsync({
             locale: "th-TH",
             onLoad: function(cal) {
                 expect(typeof(cal) !== "undefined").toBeTruthy();

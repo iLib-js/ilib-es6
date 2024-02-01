@@ -96,7 +96,7 @@ describe("testalphaindexpromise", () => {
         }).then(ai => {
             expect(ai).toBeTruthy();
 
-            var items = [
+            const items = [
                 "omicron",
                 "beta",
                 "epsilon",
@@ -117,7 +117,7 @@ describe("testalphaindexpromise", () => {
                 ai.addElement(item);
             });
 
-            var expected = [
+            const expected = [
                 {
                     label: "A",
                     elements: ["alpha"]
@@ -173,7 +173,7 @@ describe("testalphaindexpromise", () => {
         }).then(ai => {
             expect(ai).toBeTruthy();
 
-            var items = [
+            const items = [
                 "omicron",
                 "beta",
                 "echo",
@@ -200,7 +200,7 @@ describe("testalphaindexpromise", () => {
                 ai.addElement(item);
             });
 
-            var expected = [
+            const expected = [
                 "A",
                 "B",
                 "C",
@@ -232,7 +232,7 @@ describe("testalphaindexpromise", () => {
         }).then(ai => {
             expect(ai).toBeTruthy();
 
-            var items = [
+            const items = [
                 "omicron",
                 "beta",
                 "echo",
@@ -254,7 +254,7 @@ describe("testalphaindexpromise", () => {
                 ai.addElement(item);
             });
 
-            var expected = [
+            const expected = [
                 {
                     label: "A",
                     elements: ["alpha"]
@@ -357,7 +357,7 @@ describe("testalphaindexpromise", () => {
         }).then(ai => {
             expect(ai).toBeTruthy();
 
-            var items = [
+            const items = [
                 "Jürgen",
                 "Georg",
                 "Matthias",
@@ -382,7 +382,7 @@ describe("testalphaindexpromise", () => {
                 ai.addElement(item);
             });
 
-            var expected = [
+            const expected = [
                 {
                     label: "F",
                     elements: ["Fritz"]
@@ -428,7 +428,7 @@ describe("testalphaindexpromise", () => {
         }).then(ai => {
             expect(ai).toBeTruthy();
 
-            var items = [
+            const items = [
                 "Jürgen",
                 "Georg",
                 "Matthias",
@@ -453,7 +453,7 @@ describe("testalphaindexpromise", () => {
                 ai.addElement(item);
             });
 
-            var expected = [
+            const expected = [
                 {
                     label: "F",
                     elements: ["Fritz"]
@@ -507,7 +507,7 @@ describe("testalphaindexpromise", () => {
         }).then(ai => {
             expect(ai).toBeTruthy();
 
-            var items = [
+            const items = [
                 "Apple",
                 "Banana",
                 "김철수",
@@ -536,7 +536,7 @@ describe("testalphaindexpromise", () => {
                 ai.addElement(item);
             });
 
-            var expected = [
+            const expected = [
                 {
                     label: "ㄱ",
                     elements: ["강성진","김영희","김철수"]
@@ -593,7 +593,7 @@ describe("testalphaindexpromise", () => {
         }).then(ai => {
             expect(ai).toBeTruthy();
 
-            var items = [
+            const items = [
                 "Apple",
                 "Banana",
                 "김철수",
@@ -615,7 +615,7 @@ describe("testalphaindexpromise", () => {
                 ai.addElement(item);
             });
 
-            var expected = [
+            const expected = [
                 {
                     label: "ㄱ",
                     elements: ["강성진", "김철수"]

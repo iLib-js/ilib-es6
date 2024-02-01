@@ -102,7 +102,7 @@ describe("testalphaindexasync", () => {
             onLoad: function(ai) {
                 expect(ai).toBeTruthy();
 
-                var items = [
+                const items = [
                     "omicron",
                     "beta",
                     "epsilon",
@@ -123,7 +123,7 @@ describe("testalphaindexasync", () => {
                     ai.addElement(item);
                 });
 
-                var expected = [
+                const expected = [
                     {
                         label: "A",
                         elements: ["alpha"]
@@ -180,7 +180,7 @@ describe("testalphaindexasync", () => {
             onLoad: function(ai) {
                 expect(ai).toBeTruthy();
 
-                var items = [
+                const items = [
                     "omicron",
                     "beta",
                     "echo",
@@ -207,7 +207,7 @@ describe("testalphaindexasync", () => {
                     ai.addElement(item);
                 });
 
-                var expected = [
+                const expected = [
                     "A",
                     "B",
                     "C",
@@ -240,7 +240,7 @@ describe("testalphaindexasync", () => {
             onLoad: function(ai) {
                 expect(ai).toBeTruthy();
 
-                var items = [
+                const items = [
                     "omicron",
                     "beta",
                     "echo",
@@ -262,7 +262,7 @@ describe("testalphaindexasync", () => {
                     ai.addElement(item);
                 });
 
-                var expected = [
+                const expected = [
                     {
                         label: "A",
                         elements: ["alpha"]
@@ -316,7 +316,7 @@ describe("testalphaindexasync", () => {
 
     test("AlphaIndexAsyncConstructorAsync_deDE", () => {
         expect.assertions(1);
-        var ai = new AlphabeticIndex({
+        const ai = new AlphabeticIndex({
             locale: "de-DE",
             sync: false,
             onLoad: function(ai) {
@@ -328,7 +328,7 @@ describe("testalphaindexasync", () => {
     test("AlphaIndexAsyncGetBucket_deDE2", () => {
         expect.assertions(7);
 
-        var ai = new AlphabeticIndex({
+        const ai = new AlphabeticIndex({
             locale: "de-DE",
             sync: false,
             onLoad: function(ai) {
@@ -348,7 +348,7 @@ describe("testalphaindexasync", () => {
     test("AlphaIndexAsyncGetBucketAccentInsensitiveSZ_deDE", () => {
         expect.assertions(2);
 
-        var ai = new AlphabeticIndex({
+        const ai = new AlphabeticIndex({
             locale: "de-DE",
             sync: false,
             onLoad: function(ai) {
@@ -362,14 +362,14 @@ describe("testalphaindexasync", () => {
     test("AlphaIndexAsyncDEDEPhonebookStyle", () => {
         expect.assertions(2);
 
-        var ai = new AlphabeticIndex({
+        const ai = new AlphabeticIndex({
             locale: "de-DE",
             style: "phonebook",
             sync: false,
             onLoad: function(ai) {
                 expect(ai).toBeTruthy();
 
-                var items = [
+                const items = [
                     "Jürgen",
                     "Georg",
                     "Matthias",
@@ -394,7 +394,7 @@ describe("testalphaindexasync", () => {
                     ai.addElement(item);
                 });
 
-                var expected = [
+                const expected = [
                     {
                         label: "F",
                         elements: ["Fritz"]
@@ -434,14 +434,14 @@ describe("testalphaindexasync", () => {
     test("AlphaIndexAsyncDEDEDictionaryStyle", () => {
         expect.assertions(2);
 
-        var ai = new AlphabeticIndex({
+        const ai = new AlphabeticIndex({
             locale: "de-DE",
             style: "dictionary",
             sync: false,
             onLoad: function(ai) {
                 expect(ai).toBeTruthy();
 
-                var items = [
+                const items = [
                     "Jürgen",
                     "Georg",
                     "Matthias",
@@ -466,7 +466,7 @@ describe("testalphaindexasync", () => {
                     ai.addElement(item);
                 });
 
-                var expected = [
+                const expected = [
                     {
                         label: "F",
                         elements: ["Fritz"]
@@ -504,7 +504,7 @@ describe("testalphaindexasync", () => {
 
     test("AlphaIndexAsyncConstructorAsync", () => {
         expect.assertions(1);
-        var ai = new AlphabeticIndex({
+        const ai = new AlphabeticIndex({
             locale: "ko-KR",
             sync: false,
             onLoad: function(ai) {
@@ -516,13 +516,13 @@ describe("testalphaindexasync", () => {
     test("AlphaIndexAsyncKOKRMixedScriptTest1", () => {
         expect.assertions(2);
 
-        var ai = new AlphabeticIndex({
+        const ai = new AlphabeticIndex({
             locale: "ko-KR",
             sync: false,
             onLoad: function(ai) {
                 expect(ai).toBeTruthy();
 
-                var items = [
+                const items = [
                     "Apple",
                     "Banana",
                     "김철수",
@@ -551,7 +551,7 @@ describe("testalphaindexasync", () => {
                     ai.addElement(item);
                 });
 
-                var expected = [
+                const expected = [
                     {
                         label: "ㄱ",
                         elements: ["강성진","김영희","김철수"]
@@ -603,13 +603,13 @@ describe("testalphaindexasync", () => {
     test("AlphaIndexAsyncKOKRMixedScriptTest2", () => {
         expect.assertions(2);
 
-        var ai = new AlphabeticIndex({
+        const ai = new AlphabeticIndex({
             locale: "ko-KR",
             sync: false,
             onLoad: function(ai) {
                 expect(ai).toBeTruthy();
 
-                var items = [
+                const items = [
                     "Apple",
                     "Banana",
                     "김철수",
@@ -631,7 +631,7 @@ describe("testalphaindexasync", () => {
                     ai.addElement(item);
                 });
 
-                var expected = [
+                const expected = [
                     {
                         label: "ㄱ",
                         elements: ["강성진", "김철수"]

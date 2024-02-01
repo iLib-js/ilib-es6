@@ -25,7 +25,7 @@ describe("testglyphstrpromise", () => {
         return GlyphString.create("aÄa", { // the A umlaut is a decomposed char
             sync: false
         }).then(s => {
-            var it = s.charIterator();
+            const it = s.charIterator();
 
             expect(it.hasNext()).toBeTruthy();
             expect(it.next()).toBe("a");
@@ -43,7 +43,7 @@ describe("testglyphstrpromise", () => {
         return GlyphString.create("", {
             sync: false
         }).then(s => {
-            var it = s.charIterator();
+            const it = s.charIterator();
 
             expect(!it.hasNext()).toBeTruthy();
             expect(it.next()).toBe(undefined);
@@ -55,7 +55,7 @@ describe("testglyphstrpromise", () => {
         return GlyphString.create("aẬa", { // the accented A is a decomposed char with 2 accents
             sync: false
         }).then(s => {
-            var it = s.charIterator();
+            const it = s.charIterator();
 
             expect(it.hasNext()).toBeTruthy();
             expect(it.next()).toBe("a");

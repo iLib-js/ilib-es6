@@ -95,8 +95,8 @@ describe("testglobal", () => {
 
         ilib._platform = undefined;
         ilib.tz = undefined; // clear this first
-        var ro = new Intl.DateTimeFormat().resolvedOptions();
-        var expected = ro && ro.timeZone;
+        const ro = new Intl.DateTimeFormat().resolvedOptions();
+        const expected = ro && ro.timeZone;
         if (expected) {
             expect.assertions(1);
             expect(ilib.getTimeZone()).toBe(expected);
@@ -169,7 +169,7 @@ describe("testglobal", () => {
             }
             if (!process.env) process.env = {};
 
-            var tmp = process.env.TZ;
+            const tmp = process.env.TZ;
             process.env.TZ = "America/Phoenix";
 
             expect(ilib.getTimeZone()).toBe("America/Phoenix");
@@ -311,10 +311,10 @@ describe("testglobal", () => {
         }
         ilib.locale = undefined;
 
-        var loc = "";
+        const loc = "";
 
         if (navigator.language.length > 5) {
-            var l = navigator.language;
+            const l = navigator.language;
             loc = l.substring(0,3) + l.charAt(3).toUpperCase() + l.substring(4,8).toLowerCase() + l.substring(8).toUpperCase();
         } else if (navigator.language.length > 2) {
             loc = navigator.language.substring(0,3) + navigator.language.substring(3).toUpperCase();
@@ -330,55 +330,55 @@ describe("testglobal", () => {
 
     test("IsArrayNewArrayObj", () => {
         expect.assertions(1);
-        var a = new Array();
+        const a = new Array();
         expect(ilib.isArray(a)).toBeTruthy();
     });
 
     test("IsArrayNewArrayBrackets", () => {
         expect.assertions(1);
-        var a = [];
+        const a = [];
         expect(ilib.isArray(a)).toBeTruthy();
     });
 
     test("IsArrayObject", () => {
         expect.assertions(1);
-        var a = {foo:234};
+        const a = {foo:234};
         expect(!ilib.isArray(a)).toBeTruthy();
     });
 
     test("IsArrayObjectWithNumericProperties", () => {
         expect.assertions(1);
-        var a = {"0": "d", "1": "c"};
+        const a = {"0": "d", "1": "c"};
         expect(!ilib.isArray(a)).toBeTruthy();
     });
 
     test("IsArrayNumber", () => {
         expect.assertions(1);
-        var a = 234;
+        const a = 234;
         expect(!ilib.isArray(a)).toBeTruthy();
     });
 
     test("IsArrayString", () => {
         expect.assertions(1);
-        var a = "asdf";
+        const a = "asdf";
         expect(!ilib.isArray(a)).toBeTruthy();
     });
 
     test("IsArrayNull", () => {
         expect.assertions(1);
-        var a = null;
+        const a = null;
         expect(!ilib.isArray(a)).toBeTruthy();
     });
 
     test("IsArrayUndefined", () => {
         expect.assertions(1);
-        var a = undefined;
+        const a = undefined;
         expect(!ilib.isArray(a)).toBeTruthy();
     });
 
     test("ExtendSimple", () => {
         expect.assertions(1);
-        var object1 = {"a": "A", "b": "B"},
+        const object1 = {"a": "A", "b": "B"},
             object2 = {"c": "C", "d": "D"};
 
         ilib.extend(object1, object2);
@@ -387,16 +387,16 @@ describe("testglobal", () => {
 
     test("ExtendReturnObject1", () => {
         expect.assertions(1);
-        var object1 = {"a": "A", "b": "B"},
+        const object1 = {"a": "A", "b": "B"},
             object2 = {"c": "C", "d": "D"};
 
-        var x = ilib.extend(object1, object2);
+        const x = ilib.extend(object1, object2);
         expect(x).toBe(object1);
     });
 
     test("ExtendArrays", () => {
         expect.assertions(1);
-        var object1 = {"a": ["b", "c"]},
+        const object1 = {"a": ["b", "c"]},
             object2 = {"a": ["d"]};
 
         ilib.extend(object1, object2);
@@ -405,7 +405,7 @@ describe("testglobal", () => {
 
     test("ExtendArraysDups", () => {
         expect.assertions(1);
-        var object1 = {"a": ["b", "c"]},
+        const object1 = {"a": ["b", "c"]},
             object2 = {"a": ["c", "d"]};
 
         ilib.extend(object1, object2);
@@ -414,7 +414,7 @@ describe("testglobal", () => {
 
     test("ExtendArraysEmptySource", () => {
         expect.assertions(1);
-        var object1 = {"a": []},
+        const object1 = {"a": []},
             object2 = {"a": ["d"]};
 
         ilib.extend(object1, object2);
@@ -423,7 +423,7 @@ describe("testglobal", () => {
 
     test("ExtendArraysEmptyTarget", () => {
         expect.assertions(1);
-        var object1 = {"a": ["b", "c"]},
+        const object1 = {"a": ["b", "c"]},
             object2 = {"a": []};
 
         ilib.extend(object1, object2);
@@ -432,7 +432,7 @@ describe("testglobal", () => {
 
     test("ExtendArraysIncongruentTypes1", () => {
         expect.assertions(1);
-        var object1 = {"a": ["b", "c"]},
+        const object1 = {"a": ["b", "c"]},
             object2 = {"a": "d"};
 
         ilib.extend(object1, object2);
@@ -441,7 +441,7 @@ describe("testglobal", () => {
 
     test("ExtendArraysIncongruentTypes2", () => {
         expect.assertions(1);
-        var object1 = {"a": "b"},
+        const object1 = {"a": "b"},
             object2 = {"a": ["d"]};
 
         ilib.extend(object1, object2);
@@ -450,7 +450,7 @@ describe("testglobal", () => {
 
     test("ExtendSimpleProperty", () => {
         expect.assertions(1);
-        var object1 = {"a": "A", "b": "B"},
+        const object1 = {"a": "A", "b": "B"},
             object2 = {"b": "X"};
 
         ilib.extend(object1, object2);
@@ -459,7 +459,7 @@ describe("testglobal", () => {
 
     test("ExtendComplexProperty", () => {
         expect.assertions(1);
-        var object1 = {"a": "A", "b": {"x": "B"}},
+        const object1 = {"a": "A", "b": {"x": "B"}},
             object2 = {"b": "X"};
 
         ilib.extend(object1, object2);
@@ -468,7 +468,7 @@ describe("testglobal", () => {
 
     test("ExtendSubobjects", () => {
         expect.assertions(1);
-        var object1 = {"b": {"x": "X", "y": "Y"}},
+        const object1 = {"b": {"x": "X", "y": "Y"}},
             object2 = {"b": {"x": "M", "y": "N"}};
 
         ilib.extend(object1, object2);
@@ -477,7 +477,7 @@ describe("testglobal", () => {
 
     test("ExtendSubobjectsLeaveObj1PropsUntouched", () => {
         expect.assertions(1);
-        var object1 = {"a": "A", "b": {"x": "X", "y": "Y", "z": "Z"}},
+        const object1 = {"a": "A", "b": {"x": "X", "y": "Y", "z": "Z"}},
             object2 = {"b": {"x": "M", "y": "N"}};
 
         ilib.extend(object1, object2);
@@ -486,7 +486,7 @@ describe("testglobal", () => {
 
     test("ExtendSubobjectsAddProps", () => {
         expect.assertions(1);
-        var object1 = {"a": "A", "b": {"x": "X", "y": "Y"}},
+        const object1 = {"a": "A", "b": {"x": "X", "y": "Y"}},
             object2 = {"b": {"x": "M", "y": "N", "z": "Z"}};
 
         ilib.extend(object1, object2);
@@ -495,7 +495,7 @@ describe("testglobal", () => {
 
     test("ExtendSubobjectsAddProps", () => {
         expect.assertions(1);
-        var object1 = {"a": "A", "b": {"x": "X", "y": "Y"}},
+        const object1 = {"a": "A", "b": {"x": "X", "y": "Y"}},
             object2 = {"b": {"x": "M", "y": "N", "z": "Z"}};
 
         ilib.extend(object1, object2);
@@ -504,7 +504,7 @@ describe("testglobal", () => {
 
     test("ExtendBooleans", () => {
         expect.assertions(1);
-        var object1 = {"a": true, "b": true},
+        const object1 = {"a": true, "b": true},
             object2 = {"b": false};
 
         ilib.extend(object1, object2);
@@ -513,7 +513,7 @@ describe("testglobal", () => {
 
     test("ExtendAddBooleans", () => {
         expect.assertions(1);
-        var object1 = {"a": true, "b": true},
+        const object1 = {"a": true, "b": true},
             object2 = {"c": false};
 
         ilib.extend(object1, object2);
@@ -522,7 +522,7 @@ describe("testglobal", () => {
 
     test("ExtendNumbers", () => {
         expect.assertions(1);
-        var object1 = {"a": 1, "b": 2},
+        const object1 = {"a": 1, "b": 2},
             object2 = {"b": 3};
 
         ilib.extend(object1, object2);
@@ -531,7 +531,7 @@ describe("testglobal", () => {
 
     test("ExtendNumbersWithZero", () => {
         expect.assertions(1);
-        var object1 = {"a": 1, "b": 2},
+        const object1 = {"a": 1, "b": 2},
             object2 = {"b": 0};
 
         ilib.extend(object1, object2);
@@ -540,7 +540,7 @@ describe("testglobal", () => {
 
     test("ExtendNumbersAddZero", () => {
         expect.assertions(1);
-        var object1 = {"a": 1, "b": 2},
+        const object1 = {"a": 1, "b": 2},
             object2 = {"c": 0};
 
         ilib.extend(object1, object2);
@@ -549,7 +549,7 @@ describe("testglobal", () => {
 
 
     /*
-    var testGlobalNumber = 42;
+    const testGlobalNumber = 42;
 
     test("IsGlobal", () => {
         expect.assertions(1);

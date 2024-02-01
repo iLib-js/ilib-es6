@@ -36,7 +36,7 @@ describe("testlocalematchpromise", () => {
             sync: false
         }).then(lm => {
             expect(typeof(lm) !== "undefined").toBeTruthy();
-            var locale = lm.getLikelyLocale();
+            const locale = lm.getLikelyLocale();
             expect(typeof(locale) !== "undefined").toBeTruthy();
             expect(locale.getSpec()).toBe("uz-Latn-UZ");
         });
@@ -49,7 +49,7 @@ describe("testlocalematchpromise", () => {
             sync: false
         }).then(lm => {
             expect(typeof(lm) !== "undefined").toBeTruthy();
-            var locale = lm.getLikelyLocale();
+            const locale = lm.getLikelyLocale();
             expect(typeof(locale) !== "undefined").toBeTruthy();
             expect(locale.getSpec()).toBe("uz-Latn-UZ");
         });
@@ -62,7 +62,7 @@ describe("testlocalematchpromise", () => {
             sync: false
         }).then(lm => {
             expect(typeof(lm) !== "undefined").toBeTruthy();
-            var locale = lm.getLikelyLocale();
+            const locale = lm.getLikelyLocale();
             expect(typeof(locale) !== "undefined").toBeTruthy();
             expect(locale.getSpec()).toBe("ar-Arab-EG");
         });

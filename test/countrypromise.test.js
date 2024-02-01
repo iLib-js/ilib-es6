@@ -39,7 +39,7 @@ describe("testcountrypromise", () => {
 
             expect(ctry.getName("CD")).toBe("콩고-킨샤사");
             expect(ctry.getCode("콩고-킨샤사")).toBe("CD");
-            var locale = ctry.getLocale();
+            const locale = ctry.getLocale();
             expect(locale.toString()).toBe("ko-KR");
         });
     });
@@ -54,7 +54,7 @@ describe("testcountrypromise", () => {
 
             expect(ctry.getName("CD")).toBe("Congo - Kinshasa");
             expect(ctry.getCode("Congo - Kinshasa")).toBe("CD");
-            var locale = ctry.getLocale();
+            const locale = ctry.getLocale();
             expect(locale.toString()).toBe("en-US");
         });
     });
@@ -83,7 +83,7 @@ describe("testcountrypromise", () => {
 
             expect(ctry.getName("JP")).toBe("日本");
             expect(ctry.getCode("日本")).toBe("JP");
-            var locale = ctry.getLocale();
+            const locale = ctry.getLocale();
             expect(locale.toString()).toBe("ja-JP");
         });
     });

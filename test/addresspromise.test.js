@@ -151,7 +151,7 @@ describe("testaddresspromise", () => {
 
     test("PromiseFormatAddressAsyncUS", () => {
         expect.assertions(2);
-        var pa = new Address({
+        const pa = new Address({
             streetAddress: "1234 Any Street",
             locality: "Anytown",
             region: "CA",
@@ -160,7 +160,7 @@ describe("testaddresspromise", () => {
             countryCode: "US"
         }, {locale: 'en-US'});
 
-        var expected = "1234 Any Street\nAnytown CA 94085\nUnited States of America";
+        const expected = "1234 Any Street\nAnytown CA 94085\nUnited States of America";
         return AddressFmt.create({
             locale: 'en-US'
         }).then(formatter => {
@@ -171,7 +171,7 @@ describe("testaddresspromise", () => {
 
     test("PromiseFormatAddressAsyncUnknownLocaleQQ", () => {
         expect.assertions(2);
-        var pa = new Address({
+        const pa = new Address({
             streetAddress: "123 mcdonald ave, apt 234",
             locality: "Sunnyvale",
             region: "CA",
@@ -180,7 +180,7 @@ describe("testaddresspromise", () => {
         });
 
         // should return the "root" information
-        var expected = "123 mcdonald ave, apt 234\nSunnyvale CA 94086";
+        const expected = "123 mcdonald ave, apt 234\nSunnyvale CA 94086";
         return AddressFmt.create({
             locale: 'en-QQ',
             style: 'nocountry'
@@ -206,7 +206,7 @@ describe("testaddresspromise", () => {
 
     test("PromiseFormatAddressAsyncJPAsianNormal", () => {
         expect.assertions(2);
-        var parsedAddress = new Address({
+        const parsedAddress = new Address({
             streetAddress: "本町2丁目4-7サニーマンション203",
             locality: "渋谷区",
             region: "東京都",
@@ -215,7 +215,7 @@ describe("testaddresspromise", () => {
             format: "asian"
         }, {locale: 'ja-JP'});
 
-        var expected = "〒150-2345\n東京都渋谷区本町2丁目4-7サニーマンション203";
+        const expected = "〒150-2345\n東京都渋谷区本町2丁目4-7サニーマンション203";
 
         return AddressFmt.create({
             locale: 'ja-JP'
@@ -347,7 +347,7 @@ describe("testaddresspromise", () => {
             expect(info[1][1].component).toBe("region");
             expect(info[1][1].label).toBe("Bundesland");
             expect(info[1][1].constraint).toBeTruthy();
-            var r = searchRegions(info[1][1].constraint, "AZ");
+            let r = searchRegions(info[1][1].constraint, "AZ");
             expect(r.code).toBe("AZ");
             expect(r.name).toBe("Arizona");
             r = searchRegions(info[1][1].constraint, "MS");
@@ -360,7 +360,7 @@ describe("testaddresspromise", () => {
             expect(info[2][0].component).toBe("country");
             expect(info[2][0].label).toBe("Land");
             expect(info[2][0].constraint).toBeTruthy();
-            var r = searchRegions(info[2][0].constraint, "JP");
+            r = searchRegions(info[2][0].constraint, "JP");
             expect(r.code).toBe("JP");
             expect(r.name).toBe("Japan");
             r = searchRegions(info[2][0].constraint, "CR");

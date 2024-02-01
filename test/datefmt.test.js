@@ -22,7 +22,7 @@ import DateFmt from "../src/DateFmt.js";
 describe("testdatefmt", () => {
      test("DateFmtGetMeridiemsRangeName_with_am_ET_locale", () => {
         expect.assertions(2);
-        var fmt = DateFmt.getMeridiemsRange({ locale: "am-ET"});
+        const fmt = DateFmt.getMeridiemsRange({ locale: "am-ET"});
         expect(fmt !== null).toBeTruthy();
 
         expect(fmt[0].name).toBe("ጥዋት");
@@ -30,7 +30,7 @@ describe("testdatefmt", () => {
 
     test("DateFmtGetMeridiemsRangeName_with_am_ET_locale_gregorian_meridiems", () => {
         expect.assertions(2);
-        var fmt = DateFmt.getMeridiemsRange({ locale: "am-ET", meridiems: "gregorian"});
+        const fmt = DateFmt.getMeridiemsRange({ locale: "am-ET", meridiems: "gregorian"});
         expect(fmt !== null).toBeTruthy();
 
         expect(fmt[0].name).toBe("ጥዋት");
@@ -38,7 +38,7 @@ describe("testdatefmt", () => {
 
     test("DateFmtGetMeridiemsRangeName_with_zh_CN_locale", () => {
         expect.assertions(2);
-        var fmt = DateFmt.getMeridiemsRange({ locale: "zh-CN"});
+        const fmt = DateFmt.getMeridiemsRange({ locale: "zh-CN"});
         expect(fmt !== null).toBeTruthy();
 
         expect(fmt[0].name).toBe("上午");
@@ -46,7 +46,7 @@ describe("testdatefmt", () => {
 
     test("DateFmtGetMeridiemsRangeName_with_zh_CN_locale_chinese_meridiems", () => {
         expect.assertions(2);
-        var fmt = DateFmt.getMeridiemsRange({ locale: "zh-CN", meridiems: "chinese"});
+        const fmt = DateFmt.getMeridiemsRange({ locale: "zh-CN", meridiems: "chinese"});
         expect(fmt !== null).toBeTruthy();
 
         expect(fmt[0].name).toBe("凌晨");

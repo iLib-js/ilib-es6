@@ -82,7 +82,7 @@ describe("test timezone synchronously", () => {
         const zones = TimeZone.getAvailableIds("US");
         expect(typeof(zones) !== "undefined").toBeTruthy();
 
-        var expected = [
+        const expected = [
             "America/New_York",
             "America/Detroit",
             "America/Kentucky/Louisville",
@@ -149,7 +149,7 @@ describe("test timezone synchronously", () => {
         const zones = TimeZone.getAvailableIds("SG");
         expect(typeof(zones) !== "undefined").toBeTruthy();
 
-        var expected = [
+        const expected = [
             "Asia/Singapore",
             "Singapore"        // legacy tz
         ];

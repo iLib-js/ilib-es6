@@ -41,7 +41,7 @@ describe("testdatefmtrangeasync", () => {
             sync: false,
             onLoad: function(fmt) {
                 expect(fmt !== null).toBeTruthy();
-                var cal = fmt.getCalendar();
+                const cal = fmt.getCalendar();
                 expect(cal !== null).toBeTruthy();
 
                 expect(cal).toBe("julian");
@@ -63,7 +63,7 @@ describe("testdatefmtrangeasync", () => {
 
     test("DateRngFmtGetLocale", () => {
         expect.assertions(2);
-        var fmt = new DateRngFmt({
+        const fmt = new DateRngFmt({
             locale: "de-DE",
             sync: false,
             onLoad: function(fmt) {
@@ -76,13 +76,13 @@ describe("testdatefmtrangeasync", () => {
 
     test("DateRngFmtGetTimeZone", () => {
         expect.assertions(2);
-        var fmt = new DateRngFmt({
+        const fmt = new DateRngFmt({
             timezone: "Europe/Paris",
             sync: false,
             onLoad: function(fmt) {
                 expect(fmt !== null).toBeTruthy();
 
-                var tz = fmt.getTimeZone();
+                const tz = fmt.getTimeZone();
                 expect(tz.getId()).toBe("Europe/Paris");
             }
         });
@@ -90,7 +90,7 @@ describe("testdatefmtrangeasync", () => {
 
     test("DateRngFmtGetDefaultLocale", () => {
         expect.assertions(2);
-        var fmt = new DateRngFmt({
+        const fmt = new DateRngFmt({
             locale: "yy-YY",
             sync: false,
             onLoad: function(fmt) {
@@ -105,7 +105,7 @@ describe("testdatefmtrangeasync", () => {
 
     test("DateRngFmtesPAMultiDayMedium", () => {
         expect.assertions(2);
-        var fmt = new DateRngFmt({
+        const fmt = new DateRngFmt({
             locale: "es-PA",
             length: "medium",
             sync: false,
@@ -143,7 +143,7 @@ describe("testdatefmtrangeasync", () => {
 
     test("DateRngFmtesPRNextMonthMedium", () => {
         expect.assertions(2);
-        var fmt = new DateRngFmt({
+        const fmt = new DateRngFmt({
             locale: "es-PR",
             length: "medium",
             sync: false,
@@ -181,15 +181,15 @@ describe("testdatefmtrangeasync", () => {
 
     test("DateRngFmtAcceptJSIntrisicDates", () => {
         expect.assertions(2);
-        var fmt = new DateRngFmt({
+        const fmt = new DateRngFmt({
             locale: "en-US",
             length: "short",
             sync: false,
             onLoad: function(fmt) {
                 expect(fmt !== null).toBeTruthy();
 
-                var start = new Date(2011, 5, 20, 13, 45, 0);
-                var end = new Date(2012, 4, 26, 16, 30, 0);
+                const start = new Date(2011, 5, 20, 13, 45, 0);
+                const end = new Date(2012, 4, 26, 16, 30, 0);
                 expect(fmt.format(start, end)).toBe("6/20/11 – 5/26/12");
             }
         });
@@ -197,15 +197,15 @@ describe("testdatefmtrangeasync", () => {
 
     test("DateRngFmtAcceptUnixTimes", () => {
         expect.assertions(2);
-        var fmt = new DateRngFmt({
+        const fmt = new DateRngFmt({
             locale: "en-US",
             length: "short",
             sync: false,
             onLoad: function(fmt) {
                 expect(fmt !== null).toBeTruthy();
 
-                var start = 1308602700000;
-                var end = 1338075000000;
+                const start = 1308602700000;
+                const end = 1338075000000;
                 expect(fmt.format(start, end)).toBe("6/20/11 – 5/26/12");
             }
         });

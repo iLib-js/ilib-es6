@@ -65,7 +65,7 @@ describe("testdurfmtasync", () => {
             onLoad: function(fmt) {
                 expect(fmt !== null).toBeTruthy();
 
-                var duration = fmt.format({
+                const duration = fmt.format({
                     year: 1,
                     month: 1,
                     week: 1,
@@ -88,7 +88,7 @@ describe("testdurfmtasync", () => {
             onLoad: function(fmt) {
                 expect(fmt !== null).toBeTruthy();
 
-                var duration = fmt.format({
+                const duration = fmt.format({
                     year: 1,
                     month: 1,
                     week: 1,
@@ -111,7 +111,7 @@ describe("testdurfmtasync", () => {
             onLoad: function(fmt) {
                 expect(fmt !== null).toBeTruthy();
 
-                var duration = fmt.format({
+                const duration = fmt.format({
                     year: 2,
                     month: 2,
                     week: 2,
@@ -134,7 +134,7 @@ describe("testdurfmtasync", () => {
             sync: false,
             onLoad: function(fmt) {
                 expect(fmt !== null).toBeTruthy();
-                var duration = fmt.format({
+                const duration = fmt.format({
                     year: 1,
                     month: 1,
                     week: 1,
@@ -158,7 +158,7 @@ describe("testdurfmtasync", () => {
             onLoad: function(fmt) {
                 expect(fmt !== null).toBeTruthy();
 
-                var duration = fmt.format({
+                const duration = fmt.format({
                     year: 1,
                     month: 1,
                     week: 1,
@@ -183,7 +183,7 @@ describe("testdurfmtasync", () => {
             onLoad: function(fmt) {
                 expect(fmt !== null).toBeTruthy();
 
-                var duration = fmt.format({
+                const duration = fmt.format({
                     year: 1,
                     month: 1,
                     week: 1,
@@ -208,7 +208,7 @@ describe("testdurfmtasync", () => {
             onLoad: function(fmt) {
                 expect(fmt !== null).toBeTruthy();
 
-                var duration = fmt.format({
+                const duration = fmt.format({
                     year: 1,
                     month: 1,
                     week: 1,
@@ -232,7 +232,7 @@ describe("testdurfmtasync", () => {
             onLoad: function(fmt) {
                 expect(fmt !== null).toBeTruthy();
 
-                var duration = fmt.format({
+                const duration = fmt.format({
                     year: 1,
                     month: 1,
                     week: 1,

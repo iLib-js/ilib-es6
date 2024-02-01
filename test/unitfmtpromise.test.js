@@ -23,7 +23,7 @@ import MeasurementFactory from "../src/MeasurementFactory.js";
 describe("testunitfmtpromise", () => {
     test("UnitFormatWithScale1", () => {
         expect.assertions(1);
-        var m = MeasurementFactory({
+        const m = MeasurementFactory({
             amount: 3000,
             unit: "meter"
         });
@@ -31,14 +31,14 @@ describe("testunitfmtpromise", () => {
             autoConvert: false,
             sync: false
         }).then(fmt => {
-            var str = fmt.format(m);
+            const str = fmt.format(m);
             expect(str).toBe("3 kilometers");
         });
     });
 
     test("UnitFormatWithoutScale5", () => {
         expect.assertions(1);
-        var m1 = MeasurementFactory({
+        const m1 = MeasurementFactory({
             unit: "kilowatt hour",
             amount: 1233453
         });
@@ -48,14 +48,14 @@ describe("testunitfmtpromise", () => {
             autoConvert:false,
             sync: false
         }).then(fmt => {
-            var str = fmt.format(m1);
+            const str = fmt.format(m1);
             expect(str).toBe("1,233,453 kilowatt-hours");
         });
     });
 
     test("UnitFormatWithScale11", () => {
         expect.assertions(1);
-        var m1 = MeasurementFactory({
+        const m1 = MeasurementFactory({
             unit: "krunghoonfoop",
             amount: 2
         });
@@ -64,14 +64,14 @@ describe("testunitfmtpromise", () => {
             autoConvert:false,
             sync: false
         }).then(fmt => {
-            var str = fmt.format(m1);
+            const str = fmt.format(m1);
             expect(str).toBe("2 krunghoonfoop");
         });
     });
 
     test("UnitFormatArea2", () => {
         expect.assertions(1);
-        var m1 = MeasurementFactory({
+        const m1 = MeasurementFactory({
             unit: "square centimeter",
             amount: 2
         });
@@ -81,14 +81,14 @@ describe("testunitfmtpromise", () => {
             autoConvert: false,
             sync: false
         }).then(fmt => {
-            var str = fmt.format(m1);
+            const str = fmt.format(m1);
             expect(str).toBe("2 квадратных сантиметра");
         });
     });
 
     test("UnitFormatArea4", () => {
         expect.assertions(1);
-        var m1 = MeasurementFactory({
+        const m1 = MeasurementFactory({
             unit: "square centimeter",
             amount: 1000
         });
@@ -98,14 +98,14 @@ describe("testunitfmtpromise", () => {
             autoConvert: false,
             sync: false
         }).then(fmt => {
-            var str = fmt.format(m1);
+            const str = fmt.format(m1);
             expect(str).toBe("1,000제곱센티미터");
         });
     });
 
     test("UnitFormatArea5", () => {
         expect.assertions(1);
-        var m1 = MeasurementFactory({
+        const m1 = MeasurementFactory({
             unit: "square centimeter",
             amount: 1000
         });
@@ -116,14 +116,14 @@ describe("testunitfmtpromise", () => {
             scale: false,
             sync: false
         }).then(fmt => {
-            var str = fmt.format(m1);
+            const str = fmt.format(m1);
             expect(str).toBe("1 000 centimètres carrés");
         });
     });
 
     test("UnitFormatPower", () => {
         expect.assertions(1);
-        var m1 = MeasurementFactory({
+        const m1 = MeasurementFactory({
             unit: "kW",
             amount: 1000
         });
@@ -133,14 +133,14 @@ describe("testunitfmtpromise", () => {
             autoConvert: false,
             sync: false
         }).then(fmt => {
-            var str = fmt.format(m1);
+            const str = fmt.format(m1);
             expect(str).toBe("1 mégawatt");
         });
     });
 
     test("UnitFormatPressure", () => {
         expect.assertions(1);
-        var m1 = MeasurementFactory({
+        const m1 = MeasurementFactory({
             unit: "Pa",
             amount: 1000
         });
@@ -152,14 +152,14 @@ describe("testunitfmtpromise", () => {
             sync: false,
             length: "long"
         }).then(fmt => {
-            var str = fmt.format(m1);
+            const str = fmt.format(m1);
             expect(str).toBe("1.000 Pascal");
         });
     });
 
     test("UnitFormatForce", () => {
         expect.assertions(1);
-        var m1 = MeasurementFactory({
+        const m1 = MeasurementFactory({
             unit: "N",
             amount: 100
         });
@@ -170,7 +170,7 @@ describe("testunitfmtpromise", () => {
             sync: false,
             length: "long"
         }).then(fmt => {
-            var str = fmt.format(m1);
+            const str = fmt.format(m1);
             expect(str).toBe("100 ニュートン");
         });
     });

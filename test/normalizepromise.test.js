@@ -30,7 +30,7 @@ describe("testnormalizepromise", () => {
                 locale: 'en-US',
                 sync: false
             }).then(normalized => {
-                var expected = "+314563453434";
+                const expected = "+314563453434";
                 expect(normalized).toBe(expected);
             });
         });
@@ -47,7 +47,7 @@ describe("testnormalizepromise", () => {
                 locale: 'en-US',
                 sync: false
             }).then(normalized => {
-                var expected = "+492302654321";
+                const expected = "+492302654321";
 
                 expect(normalized).toBe(expected); // 'de-DE'
             });
@@ -64,7 +64,7 @@ describe("testnormalizepromise", () => {
                 locale: 'en-US',
                 sync: false
             }).then(normalized => {
-                var expected = "+16507654321";
+                const expected = "+16507654321";
 
                 expect(normalized).toBe(expected); // 'es-US'
             });

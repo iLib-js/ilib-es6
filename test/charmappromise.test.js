@@ -66,7 +66,7 @@ describe("testcharmappromise", () => {
             name: "UTF-8"
         }).then(cm => {
             expect(typeof(cm) !== "undefined").toBeTruthy();
-            var input = new Uint8Array([
+            const input = new Uint8Array([
                 0xe4, 0xb8, 0x80,
                 0xe4, 0xb8, 0x81,
                 0xe4, 0xb8, 0x82,
@@ -80,7 +80,7 @@ describe("testcharmappromise", () => {
     });
 
     test("CharmapAsyncCNMapToUnicode", () => {
-        var big5source = [
+        const big5source = [
             0xa4, 0xb1, // 仃
             0xa4, 0x48, // 人
             0xae, 0x49, // 埋
@@ -97,7 +97,7 @@ describe("testcharmappromise", () => {
     });
 
     test("CharmapAsyncCNMapToNative", () => {
-        var big5source = new Uint8Array([
+        const big5source = new Uint8Array([
             0xa4, 0xb1, // 仃
             0xa4, 0x48, // 人
             0xae, 0x49, // 埋

@@ -30,7 +30,7 @@ describe("test IString synchronously", () => {
     test("StringLoadPlurals", () => {
         expect.assertions(2);
         IString.loadPlurals(true, "ru-RU");
-        var str = new IString("asdf");
+        const str = new IString("asdf");
         expect(str !== null).toBeTruthy();
 
         // plurals should already be loaded
@@ -40,7 +40,7 @@ describe("test IString synchronously", () => {
 
     test("StringFormatChoiceSimpleRussian", () => {
         expect.assertions(3);
-        var str = new IString("1#first string|few#second string|many#third string");
+        const str = new IString("1#first string|few#second string|many#third string");
         str.setLocale("ru-RU", true);
         expect(str !== null).toBeTruthy();
 
@@ -50,7 +50,7 @@ describe("test IString synchronously", () => {
 
     test("StringFormatChoiceSimpleRussianTwice", () => {
         expect.assertions(4);
-        var str = new IString("1#one|few#few|many#many");
+        let str = new IString("1#one|few#few|many#many");
         str.setLocale("ru-RU", true);
         expect(str !== null).toBeTruthy();
 

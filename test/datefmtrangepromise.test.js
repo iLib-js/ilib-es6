@@ -40,7 +40,7 @@ describe("testdatefmtrangepromise", () => {
             sync: false
         }).then(fmt => {
             expect(fmt !== null).toBeTruthy();
-            var cal = fmt.getCalendar();
+            const cal = fmt.getCalendar();
             expect(cal !== null).toBeTruthy();
 
             expect(cal).toBe("julian");
@@ -78,7 +78,7 @@ describe("testdatefmtrangepromise", () => {
         }).then(fmt => {
             expect(fmt !== null).toBeTruthy();
 
-            var tz = fmt.getTimeZone();
+            const tz = fmt.getTimeZone();
             expect(tz.getId()).toBe("Europe/Paris");
         });
     });
@@ -176,8 +176,8 @@ describe("testdatefmtrangepromise", () => {
         }).then(fmt => {
             expect(fmt !== null).toBeTruthy();
 
-            var start = new Date(2011, 5, 20, 13, 45, 0);
-            var end = new Date(2012, 4, 26, 16, 30, 0);
+            const start = new Date(2011, 5, 20, 13, 45, 0);
+            const end = new Date(2012, 4, 26, 16, 30, 0);
             expect(fmt.format(start, end)).toBe("6/20/11 – 5/26/12");
         });
     });
@@ -191,8 +191,8 @@ describe("testdatefmtrangepromise", () => {
         }).then(fmt => {
             expect(fmt !== null).toBeTruthy();
 
-            var start = 1308602700000;
-            var end = 1338075000000;
+            const start = 1308602700000;
+            const end = 1338075000000;
             expect(fmt.format(start, end)).toBe("6/20/11 – 5/26/12");
         });
     });

@@ -27,7 +27,7 @@ describe("testlocale", () => {
 
     test("LocaleConstructor", () => {
         expect.assertions(1);
-        var loc = new Locale();
+        const loc = new Locale();
 
         expect(loc !== null).toBeTruthy();
     });
@@ -39,7 +39,7 @@ describe("testlocale", () => {
             navigator.language = "en-US";
         }
 
-        var loc = new Locale(); // gives locale of the host JS engine
+        const loc = new Locale(); // gives locale of the host JS engine
 
         expect(loc !== null).toBeTruthy();
 
@@ -52,7 +52,7 @@ describe("testlocale", () => {
         expect.assertions(4);
         ilib.setLocale("it-IT");
 
-        var loc = new Locale();
+        const loc = new Locale();
 
         expect(loc !== null).toBeTruthy();
 
@@ -65,8 +65,8 @@ describe("testlocale", () => {
 
     test("LocaleCopyConstructor", () => {
         expect.assertions(4);
-        var loc2 = new Locale("de", "DE");
-        var loc = new Locale(loc2);
+        const loc2 = new Locale("de", "DE");
+        const loc = new Locale(loc2);
 
         expect(loc !== null).toBeTruthy();
 
@@ -77,7 +77,7 @@ describe("testlocale", () => {
 
     test("LocaleConstructorFull", () => {
         expect.assertions(4);
-        var loc = new Locale("en", "US", "Midwest");
+        const loc = new Locale("en", "US", "Midwest");
 
         expect(loc !== null).toBeTruthy();
 
@@ -88,7 +88,7 @@ describe("testlocale", () => {
 
     test("LocaleConstructorSpecWithVariant", () => {
         expect.assertions(5);
-        var loc = new Locale("en-US-Midwest");
+        const loc = new Locale("en-US-Midwest");
 
         expect(loc !== null).toBeTruthy();
 
@@ -100,7 +100,7 @@ describe("testlocale", () => {
 
     test("LocaleConstructorSpecWithScript", () => {
         expect.assertions(5);
-        var loc = new Locale("en-US-Latn");
+        const loc = new Locale("en-US-Latn");
 
         expect(loc !== null).toBeTruthy();
 
@@ -112,7 +112,7 @@ describe("testlocale", () => {
 
     test("LocaleConstructorPartial", () => {
         expect.assertions(4);
-        var loc = new Locale("en", "US");
+        const loc = new Locale("en", "US");
 
         expect(loc !== null).toBeTruthy();
 
@@ -123,7 +123,7 @@ describe("testlocale", () => {
 
     test("LocaleConstructorSpecPartial", () => {
         expect.assertions(4);
-        var loc = new Locale("en-US");
+        const loc = new Locale("en-US");
 
         expect(loc !== null).toBeTruthy();
 
@@ -134,7 +134,7 @@ describe("testlocale", () => {
 
     test("LocaleConstructorShort", () => {
         expect.assertions(4);
-        var loc = new Locale("en");
+        const loc = new Locale("en");
 
         expect(loc !== null).toBeTruthy();
 
@@ -145,7 +145,7 @@ describe("testlocale", () => {
 
     test("LocaleConstructorUpperCaseLanguage", () => {
         expect.assertions(4);
-        var loc = new Locale("EN", "US");
+        const loc = new Locale("EN", "US");
 
         expect(loc !== null).toBeTruthy();
 
@@ -156,7 +156,7 @@ describe("testlocale", () => {
 
     test("LocaleConstructorLowerCaseRegion", () => {
         expect.assertions(4);
-        var loc = new Locale("en", "us");
+        const loc = new Locale("en", "us");
 
         expect(loc !== null).toBeTruthy();
 
@@ -167,7 +167,7 @@ describe("testlocale", () => {
 
     test("LocaleConstructorSpecMissingRegion", () => {
         expect.assertions(5);
-        var loc = new Locale("en--Midwest");
+        const loc = new Locale("en--Midwest");
 
         expect(loc !== null).toBeTruthy();
 
@@ -179,7 +179,7 @@ describe("testlocale", () => {
 
     test("LocaleConstructorSpecMissingLanguage", () => {
         expect.assertions(5);
-        var loc = new Locale("-US-Midwest");
+        const loc = new Locale("-US-Midwest");
 
         expect(loc !== null).toBeTruthy();
 
@@ -191,7 +191,7 @@ describe("testlocale", () => {
 
     test("LocaleConstructorSpecMissingLanguageAndVariant", () => {
         expect.assertions(5);
-        var loc = new Locale("-US");
+        const loc = new Locale("-US");
 
         expect(loc !== null).toBeTruthy();
 
@@ -203,7 +203,7 @@ describe("testlocale", () => {
 
     test("LocaleEqualsTrue", () => {
         expect.assertions(3);
-        var loc1 = new Locale("en-US"),
+        const loc1 = new Locale("en-US"),
             loc2 = new Locale("en", "US");
 
         expect(loc1 !== null).toBeTruthy();
@@ -214,7 +214,7 @@ describe("testlocale", () => {
 
     test("LocaleEqualsFalse", () => {
         expect.assertions(3);
-        var loc1 = new Locale("en-US"),
+        const loc1 = new Locale("en-US"),
             loc2 = new Locale("en", "CA");
 
         expect(loc1 !== null).toBeTruthy();
@@ -225,7 +225,7 @@ describe("testlocale", () => {
 
     test("LocaleEqualsMissing", () => {
         expect.assertions(3);
-        var loc1 = new Locale("en-US"),
+        const loc1 = new Locale("en-US"),
             loc2 = new Locale("en", "US", "govt");
 
         expect(loc1 !== null).toBeTruthy();
@@ -236,7 +236,7 @@ describe("testlocale", () => {
 
     test("LocaleEqualsTrueFull", () => {
         expect.assertions(3);
-        var loc1 = new Locale("en-US-govt"),
+        const loc1 = new Locale("en-US-govt"),
             loc2 = new Locale("en", "US", "govt");
 
         expect(loc1 !== null).toBeTruthy();
@@ -247,7 +247,7 @@ describe("testlocale", () => {
 
     test("LocaleEqualsTrueShort", () => {
         expect.assertions(3);
-        var loc1 = new Locale("en"),
+        const loc1 = new Locale("en"),
             loc2 = new Locale("en");
 
         expect(loc1 !== null).toBeTruthy();
@@ -258,7 +258,7 @@ describe("testlocale", () => {
 
     test("LocaleIsPseudoTrue", () => {
         expect.assertions(2);
-        var loc = new Locale("zxx-XX");
+        const loc = new Locale("zxx-XX");
 
         expect(loc !== null).toBeTruthy();
 
@@ -267,7 +267,7 @@ describe("testlocale", () => {
 
     test("LocaleIsPseudoFalse", () => {
         expect.assertions(2);
-        var loc = new Locale("en-US");
+        const loc = new Locale("en-US");
 
         expect(loc !== null).toBeTruthy();
 
@@ -276,7 +276,7 @@ describe("testlocale", () => {
 
     test("LocaleIsPseudoFalseButClosLang", () => {
         expect.assertions(2);
-        var loc = new Locale("zxx-US");
+        const loc = new Locale("zxx-US");
 
         expect(loc !== null).toBeTruthy();
 
@@ -285,7 +285,7 @@ describe("testlocale", () => {
 
     test("LocaleIsPseudoFalse", () => {
         expect.assertions(2);
-        var loc = new Locale("en-XX");
+        const loc = new Locale("en-XX");
 
         expect(loc !== null).toBeTruthy();
 
@@ -295,7 +295,7 @@ describe("testlocale", () => {
 
     test("LocaleGetSpecLangOnly", () => {
         expect.assertions(2);
-        var loc = new Locale("en");
+        const loc = new Locale("en");
 
         expect(loc !== null).toBeTruthy();
 
@@ -304,7 +304,7 @@ describe("testlocale", () => {
 
     test("LocaleGetSpecRegionOnly", () => {
         expect.assertions(2);
-        var loc = new Locale("CA");
+        const loc = new Locale("CA");
 
         expect(loc !== null).toBeTruthy();
 
@@ -313,7 +313,7 @@ describe("testlocale", () => {
 
     test("LocaleGetSpecScriptOnly", () => {
         expect.assertions(2);
-        var loc = new Locale("Latn");
+        const loc = new Locale("Latn");
 
         expect(loc !== null).toBeTruthy();
 
@@ -322,7 +322,7 @@ describe("testlocale", () => {
 
     test("LocaleGetSpecVariantOnly", () => {
         expect.assertions(2);
-        var loc = new Locale("asdfasdf");
+        const loc = new Locale("asdfasdf");
 
         expect(loc !== null).toBeTruthy();
 
@@ -331,7 +331,7 @@ describe("testlocale", () => {
 
     test("LocaleGetSpecLangAndScript", () => {
         expect.assertions(2);
-        var loc = new Locale("Latn-en");
+        const loc = new Locale("Latn-en");
 
         expect(loc !== null).toBeTruthy();
 
@@ -340,7 +340,7 @@ describe("testlocale", () => {
 
     test("LocaleGetSpecLangAndRegion", () => {
         expect.assertions(2);
-        var loc = new Locale("CA-en");
+        const loc = new Locale("CA-en");
 
         expect(loc !== null).toBeTruthy();
 
@@ -349,7 +349,7 @@ describe("testlocale", () => {
 
     test("LocaleGetSpecLangAndVariant", () => {
         expect.assertions(2);
-        var loc = new Locale("asdf-en");
+        const loc = new Locale("asdf-en");
 
         expect(loc !== null).toBeTruthy();
 
@@ -358,7 +358,7 @@ describe("testlocale", () => {
 
     test("LocaleGetSpecScriptAndRegion", () => {
         expect.assertions(2);
-        var loc = new Locale("CA-Latn");
+        const loc = new Locale("CA-Latn");
 
         expect(loc !== null).toBeTruthy();
 
@@ -367,7 +367,7 @@ describe("testlocale", () => {
 
     test("LocaleGetSpecScriptAndVariant", () => {
         expect.assertions(2);
-        var loc = new Locale("asdf-Latn");
+        const loc = new Locale("asdf-Latn");
 
         expect(loc !== null).toBeTruthy();
 
@@ -376,7 +376,7 @@ describe("testlocale", () => {
 
     test("LocaleGetSpecRegionAndVariant", () => {
         expect.assertions(2);
-        var loc = new Locale("asdf-CA");
+        const loc = new Locale("asdf-CA");
 
         expect(loc !== null).toBeTruthy();
 
@@ -385,7 +385,7 @@ describe("testlocale", () => {
 
     test("LocaleGetSpecLangScriptRegion", () => {
         expect.assertions(2);
-        var loc = new Locale("CA-en-Latn");
+        const loc = new Locale("CA-en-Latn");
 
         expect(loc !== null).toBeTruthy();
 
@@ -394,7 +394,7 @@ describe("testlocale", () => {
 
     test("LocaleGetSpecScriptRegionVariant", () => {
         expect.assertions(2);
-        var loc = new Locale("CA-asdf-Latn");
+        const loc = new Locale("CA-asdf-Latn");
 
         expect(loc !== null).toBeTruthy();
 
@@ -403,7 +403,7 @@ describe("testlocale", () => {
 
     test("LocaleGetSpecLangScriptVariant", () => {
         expect.assertions(2);
-        var loc = new Locale("asdf-Latn-en");
+        const loc = new Locale("asdf-Latn-en");
 
         expect(loc !== null).toBeTruthy();
 
@@ -412,7 +412,7 @@ describe("testlocale", () => {
 
     test("LocaleGetSpecLangRegionVariant", () => {
         expect.assertions(2);
-        var loc = new Locale("asdf-CA-en");
+        const loc = new Locale("asdf-CA-en");
 
         expect(loc !== null).toBeTruthy();
 
@@ -421,7 +421,7 @@ describe("testlocale", () => {
 
     test("LocaleGetSpecAll", () => {
         expect.assertions(2);
-        var loc = new Locale("asdf-CA-Latn-en");
+        const loc = new Locale("asdf-CA-Latn-en");
 
         expect(loc !== null).toBeTruthy();
 
@@ -430,7 +430,7 @@ describe("testlocale", () => {
 
     test("LocaleM49RegionCodeGetParts", () => {
         expect.assertions(4);
-        var loc = new Locale("en-001");
+        const loc = new Locale("en-001");
 
         expect(loc !== null).toBeTruthy();
 
@@ -441,7 +441,7 @@ describe("testlocale", () => {
 
     test("LocaleM49RegionCodeGetParts2", () => {
         expect.assertions(4);
-        var loc = new Locale("en-150");
+        const loc = new Locale("en-150");
 
         expect(loc !== null).toBeTruthy();
 
@@ -452,7 +452,7 @@ describe("testlocale", () => {
 
     test("LocaleM49RegionCodeGetSpec", () => {
         expect.assertions(2);
-        var loc = new Locale("en-001");
+        const loc = new Locale("en-001");
 
         expect(loc !== null).toBeTruthy();
 
@@ -461,7 +461,7 @@ describe("testlocale", () => {
 
     test("LocaleNoLocale", () => {
         expect.assertions(6);
-        var loc = new Locale("-");
+        const loc = new Locale("-");
 
         expect(loc !== null).toBeTruthy();
 
@@ -545,7 +545,7 @@ describe("testlocale", () => {
 
     test("LocaleGetLanguageAlpha3_1", () => {
         expect.assertions(2);
-        var loc = new Locale("en-US");
+        const loc = new Locale("en-US");
 
         expect(loc !== null).toBeTruthy();
 
@@ -554,7 +554,7 @@ describe("testlocale", () => {
 
     test("LocaleGetLanguageAlpha3_2", () => {
         expect.assertions(2);
-        var loc = new Locale("ru-RU");
+        const loc = new Locale("ru-RU");
 
         expect(loc !== null).toBeTruthy();
 
@@ -563,7 +563,7 @@ describe("testlocale", () => {
 
     test("LocaleGetLanguageAlpha3_3", () => {
         expect.assertions(2);
-        var loc = new Locale("gv-GB");
+        const loc = new Locale("gv-GB");
 
         expect(loc !== null).toBeTruthy();
 
@@ -572,7 +572,7 @@ describe("testlocale", () => {
 
     test("LocaleGetLanguageAlpha3NoLanguage", () => {
         expect.assertions(2);
-        var loc = new Locale("GB");
+        const loc = new Locale("GB");
 
         expect(loc !== null).toBeTruthy();
 
@@ -581,7 +581,7 @@ describe("testlocale", () => {
 
     test("LocaleGetRegionAlpha3_1", () => {
         expect.assertions(2);
-        var loc = new Locale("en-US");
+        const loc = new Locale("en-US");
 
         expect(loc !== null).toBeTruthy();
 
@@ -590,7 +590,7 @@ describe("testlocale", () => {
 
     test("LocaleGetRegionAlpha3_2", () => {
         expect.assertions(2);
-        var loc = new Locale("ru-RU");
+        const loc = new Locale("ru-RU");
 
         expect(loc !== null).toBeTruthy();
 
@@ -599,7 +599,7 @@ describe("testlocale", () => {
 
     test("LocaleGetRegionAlpha3_3", () => {
         expect.assertions(2);
-        var loc = new Locale("gv-GB");
+        const loc = new Locale("gv-GB");
 
         expect(loc !== null).toBeTruthy();
 
@@ -608,7 +608,7 @@ describe("testlocale", () => {
 
     test("LocaleGetRegionAlpha3NoRegion", () => {
         expect.assertions(2);
-        var loc = new Locale("en");
+        const loc = new Locale("en");
 
         expect(loc !== null).toBeTruthy();
 
@@ -617,7 +617,7 @@ describe("testlocale", () => {
 
     test("LocaleGetAvailableLocalesDefault", () => {
         expect.assertions(2);
-        var locales = Locale.getAvailableLocales();
+        const locales = Locale.getAvailableLocales();
         expect(typeof(locales) !== "undefined").toBeTruthy();
         expect(locales.length > 0).toBeTruthy();
     });
@@ -633,54 +633,54 @@ describe("testlocale", () => {
     test("LocaleGetLanguageSpecSimple", () => {
         expect.assertions(2);
 
+        const loc = new Locale("en");
         expect(loc !== null).toBeTruthy();
 
-        var loc = new Locale("en");
         expect(loc.getLangSpec()).toBe("en");
     });
 
     test("LocaleGetLanguageSpecLeaveOutRegionAndVariant", () => {
         expect.assertions(2);
 
+        const loc = new Locale("en-US-MILITARY");
         expect(loc !== null).toBeTruthy();
 
-        var loc = new Locale("en-US-MILITARY");
         expect(loc.getLangSpec()).toBe("en");
     });
 
     test("LocaleGetLanguageSpecIncludeScript", () => {
         expect.assertions(2);
 
+        const loc = new Locale("zh-Hans");
         expect(loc !== null).toBeTruthy();
 
-        var loc = new Locale("zh-Hans");
         expect(loc.getLangSpec()).toBe("zh-Hans");
     });
 
     test("LocaleGetLanguageSpecIncludeScriptButNotOthers", () => {
         expect.assertions(2);
 
+        const loc = new Locale("zh-Hans-CN-GOVT");
         expect(loc !== null).toBeTruthy();
 
-        var loc = new Locale("zh-Hans-CN-GOVT");
         expect(loc.getLangSpec()).toBe("zh-Hans");
     });
 
     test("LocaleGetLanguageSpecLanguageAndScriptMissing", () => {
         expect.assertions(2);
 
+        const loc = new Locale("CN");
         expect(loc !== null).toBeTruthy();
 
-        var loc = new Locale("CN");
         expect(loc.getLangSpec()).toBe("");
     });
 
     test("LocaleGetLanguageSpecNoScriptWithoutLanguage", () => {
         expect.assertions(2);
 
+        const loc = new Locale("Hans-CN");
         expect(loc !== null).toBeTruthy();
 
-        var loc = new Locale("Hans-CN");
         expect(loc.getLangSpec()).toBe("");
     });
 
@@ -690,22 +690,22 @@ describe("testlocale", () => {
         function a(a) { return a; }
 
         try {
-            var loc = new Locale(true, true, false, true);
+            let loc = new Locale(true, true, false, true);
             expect(loc.getLangSpec()).toBe("");
-            var loc = new Locale(a, a, a, a);
+            loc = new Locale(a, a, a, a);
             expect(loc.getSpec()).toBe("");
-            var loc = new Locale(4, 4, 4, 4);
+            loc = new Locale(4, 4, 4, 4);
             expect(loc.getSpec()).toBe("");
-            var loc = new Locale({}, {}, {}, {});
+            loc = new Locale({}, {}, {}, {});
             expect(loc.getSpec()).toBe("");
 
-            var loc = new Locale(true);
+            loc = new Locale(true);
             expect(loc.getSpec()).toBe("");
-            var loc = new Locale(a);
+            loc = new Locale(a);
             expect(loc.getSpec()).toBe("");
-            var loc = new Locale(4);
+            loc = new Locale(4);
             expect(loc.getSpec()).toBe("");
-            var loc = new Locale({});
+            loc = new Locale({});
             expect(loc.getSpec()).toBe("");
         } catch (e) {
             test.fail();

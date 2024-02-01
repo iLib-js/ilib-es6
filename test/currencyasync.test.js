@@ -31,7 +31,7 @@ describe("testcurrencyasync", () => {
                 expect(cur.getFractionDigits()).toBe(2);
                 expect(cur.getSign()).toBe("$");
                 expect(cur.getName()).toBe("US Dollar");
-                var locale = cur.getLocale();
+                const locale = cur.getLocale();
                 expect(typeof(locale) !== "undefined").toBeTruthy();
                 expect(locale.toString()).toBe("en-US");
             }
@@ -50,7 +50,7 @@ describe("testcurrencyasync", () => {
                 expect(cur.getFractionDigits()).toBe(2);
                 expect(cur.getSign()).toBe("€");
                 expect(cur.getName()).toBe("Euro");
-                var locale = cur.getLocale();
+                const locale = cur.getLocale();
                 expect(locale.toString()).toBe("en-US");
             }
         });
@@ -78,7 +78,7 @@ describe("testcurrencyasync", () => {
                 expect(cur.getFractionDigits()).toBe(2);
                 expect(cur.getSign()).toBe("€");
                 expect(cur.getName()).toBe("Euro");
-                var locale = cur.getLocale();
+                const locale = cur.getLocale();
                 expect(locale.toString()).toBe("en-US");
             }
         });
@@ -97,7 +97,7 @@ describe("testcurrencyasync", () => {
                 expect(cur.getFractionDigits()).toBe(2);
                 expect(cur.getSign()).toBe("$");
                 expect(cur.getName()).toBe("US Dollar");
-                var locale = cur.getLocale();
+                const locale = cur.getLocale();
                 expect(locale.toString()).toBe("en-GB");
             }
         });

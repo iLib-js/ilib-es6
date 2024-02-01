@@ -44,7 +44,7 @@ describe("testdatefmtpromise", () => {
             sync: false
         }).then(fmt => {
             expect(fmt).toBeTruthy();
-            var cal = fmt.getCalendar();
+            const cal = fmt.getCalendar();
             expect(cal).toBeTruthy();
 
             expect(cal).toBe("julian");
@@ -128,7 +128,7 @@ describe("testdatefmtpromise", () => {
 
             // test formatting a javascript date. It should be converted to
             // an ilib date object automatically and then formatted
-            var datMyBday = new Date("Fri Aug 13 1982 13:37:35 GMT-0700");
+            const datMyBday = new Date("Fri Aug 13 1982 13:37:35 GMT-0700");
             expect(fmt.format(datMyBday)).toBe("1:37 PM");
         });
     });
@@ -146,7 +146,7 @@ describe("testdatefmtpromise", () => {
 
             // test formatting a javascript date. It should be converted to
             // an ilib date object automatically and then formatted
-            var datMyBday = new Date("Wed May 14 2014 23:37:35 GMT-0700");
+            const datMyBday = new Date("Wed May 14 2014 23:37:35 GMT-0700");
             expect(fmt.format(datMyBday)).toBe("Wednesday");
         });
     });
@@ -160,9 +160,9 @@ describe("testdatefmtpromise", () => {
         }).then(fmt => {
             expect(fmt !== null).toBeTruthy();
 
-            var arrMonths = fmt.getMonthsOfYear({length: "long"});
+            const arrMonths = fmt.getMonthsOfYear({length: "long"});
 
-            var expected = [undefined, "ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."];
+            const expected = [undefined, "ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."];
             expect(arrMonths).toStrictEqual(expected);
         });
     });

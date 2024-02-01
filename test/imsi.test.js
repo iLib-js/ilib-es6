@@ -22,68 +22,68 @@ import PhoneNumber from "../src/PhoneNumber.js";
 describe("imsi synchronously", () => {
     test("RegularImsi3DigitMNC", () => {
         expect.assertions(1);
-        var imsi = "31003014084567890"
-        var expected = {
+        const imsi = "31003014084567890"
+        const expected = {
             mcc: "310",
             mnc: "030",
             msin: "14084567890"
         };
 
-        var actual = PhoneNumber.parseImsi(imsi);
+        const actual = PhoneNumber.parseImsi(imsi);
         expect(actual).toStrictEqual(expected);
     });
 
     test("SpecialImsi1", () => {
         expect.assertions(1);
-        var imsi = "31000201234567"
-        var expected = {
+        const imsi = "31000201234567"
+        const expected = {
             mcc: "310",
             mnc: "00",
             msin: "201234567"
         };
 
-        var actual = PhoneNumber.parseImsi(imsi);
+        const actual = PhoneNumber.parseImsi(imsi);
         expect(actual).toStrictEqual(expected);
     });
 
     test("BrokenMCC", () => {
         expect.assertions(1);
-        var imsi = "32000414084567890"
-        var expected = {
+        const imsi = "32000414084567890"
+        const expected = {
             mcc: "320",
             mnc: "004",
             msin: "14084567890"
         };
 
         // should default to a 3 digit mnc
-        var actual = PhoneNumber.parseImsi(imsi);
+        const actual = PhoneNumber.parseImsi(imsi);
         expect(actual).toStrictEqual(expected);
     });
 
     test("BrokenMNC", () => {
         expect.assertions(1);
-        var imsi = "31014114084567890"
-        var expected = {
+        const imsi = "31014114084567890"
+        const expected = {
             mcc: "310",
             mnc: "141",
             msin: "14084567890"
         };
 
         // should default to a 3 digit mnc
-        var actual = PhoneNumber.parseImsi(imsi);
+        const actual = PhoneNumber.parseImsi(imsi);
         expect(actual).toStrictEqual(expected);
     });
 
     test("TooShort", () => {
         expect.assertions(1);
-        var imsi = "31";
-        var actual = PhoneNumber.parseImsi(imsi);
+        const imsi = "31";
+        const actual = PhoneNumber.parseImsi(imsi);
         expect(actual).toBeFalsy();
     });
 
     test("Undefined", () => {
         expect.assertions(1);
-        var actual = PhoneNumber.parseImsi(undefined);
+        const actual = PhoneNumber.parseImsi(undefined);
         expect(actual).toBeFalsy();
     });
 });

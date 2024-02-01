@@ -93,7 +93,7 @@ describe("testdatepromise", () => {
 
     test("DateToIlibDate", () => {
         expect.assertions(1);
-        var datMyBday = new Date("Fri Aug 13 1982 13:37:35 GMT-0700");
+        const datMyBday = new Date("Fri Aug 13 1982 13:37:35 GMT-0700");
         return DateFactoryAsync({
             year: 1982,
             month: 8,

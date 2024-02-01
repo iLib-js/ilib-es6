@@ -22,8 +22,8 @@ import PhoneNumber from "../src/PhoneNumber.js";
 describe("imsiasync", () => {
     test("RegularImsi3DigitMNC", () => {
         expect.assertions(1);
-        var imsi = "31003014084567890"
-        var expected = {
+        const imsi = "31003014084567890"
+        const expected = {
             mcc: "310",
             mnc: "030",
             msin: "14084567890"
@@ -39,8 +39,8 @@ describe("imsiasync", () => {
 
     test("SpecialImsi1", () => {
         expect.assertions(1);
-        var imsi = "31000201234567"
-        var expected = {
+        const imsi = "31000201234567"
+        const expected = {
             mcc: "310",
             mnc: "00",
             msin: "201234567"
@@ -56,8 +56,8 @@ describe("imsiasync", () => {
 
     test("BrokenMCC", () => {
         expect.assertions(1);
-        var imsi = "32000414084567890"
-        var expected = {
+        const imsi = "32000414084567890"
+        const expected = {
             mcc: "320",
             mnc: "004",
             msin: "14084567890"
@@ -74,8 +74,8 @@ describe("imsiasync", () => {
 
     test("BrokenMNC", () => {
         expect.assertions(1);
-        var imsi = "31014114084567890"
-        var expected = {
+        const imsi = "31014114084567890"
+        const expected = {
             mcc: "310",
             mnc: "141",
             msin: "14084567890"
@@ -92,7 +92,7 @@ describe("imsiasync", () => {
 
     test("TooShort", () => {
         expect.assertions(1);
-        var imsi = "31";
+        const imsi = "31";
         PhoneNumber.parseImsi(imsi, {
             sync: false,
             onLoad: function(actual) {

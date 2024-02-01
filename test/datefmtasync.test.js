@@ -45,7 +45,7 @@ describe("testdatefmtasync", () => {
             sync: false,
             onLoad: function(fmt) {
                 expect(fmt).toBeTruthy();
-                var cal = fmt.getCalendar();
+                const cal = fmt.getCalendar();
                 expect(cal).toBeTruthy();
 
                 expect(cal).toBe("julian");
@@ -111,7 +111,7 @@ describe("testdatefmtasync", () => {
 
     test("DateFmtUseTemplateNonEmptyLocale", () => {
         expect.assertions(2);
-        var fmt = new DateFmt({
+        const fmt = new DateFmt({
             locale: 'de-DE',
             template: "EEE 'the' DD 'of' MM, yyyy G",
             sync: false,
@@ -135,7 +135,7 @@ describe("testdatefmtasync", () => {
 
                 // test formatting a javascript date. It should be converted to
                 // an ilib date object automatically and then formatted
-                var datMyBday = new Date("Fri Aug 13 1982 13:37:35 GMT-0700");
+                const datMyBday = new Date("Fri Aug 13 1982 13:37:35 GMT-0700");
                 expect(fmt.format(datMyBday)).toBe("1:37 PM");
             }
         });
@@ -143,7 +143,7 @@ describe("testdatefmtasync", () => {
 
     test("DateFmtFormatJSDateRightTimeZone1", () => {
         expect.assertions(2);
-        var fmt = new DateFmt({
+        const fmt = new DateFmt({
             type: "date",
             length: "full",
             date: "w",
@@ -154,7 +154,7 @@ describe("testdatefmtasync", () => {
 
                 // test formatting a javascript date. It should be converted to
                 // an ilib date object automatically and then formatted
-                var datMyBday = new Date("Wed May 14 2014 23:37:35 GMT-0700");
+                const datMyBday = new Date("Wed May 14 2014 23:37:35 GMT-0700");
                 expect(fmt.format(datMyBday)).toBe("Wednesday");
             }
         });
@@ -163,15 +163,15 @@ describe("testdatefmtasync", () => {
     test("DateFmtGetMonthsOfYearThai", () => {
         expect.assertions(2);
         // uses ThaiSolar calendar
-        var fmt = new DateFmt({
+        const fmt = new DateFmt({
             locale: "th-TH",
             sync: false,
             onLoad: function(fmt) {
                 expect(fmt !== null).toBeTruthy();
 
-                var arrMonths = fmt.getMonthsOfYear({length: "long"});
+                const arrMonths = fmt.getMonthsOfYear({length: "long"});
 
-                var expected = [undefined, "ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."];
+                const expected = [undefined, "ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."];
                 expect(arrMonths).toStrictEqual(expected);
             }
         });
@@ -214,7 +214,7 @@ describe("testdatefmtasync", () => {
 
     test("DateFmtConvertToGMT", () => {
         expect.assertions(2);
-        var fmt = new DateFmt({
+        const fmt = new DateFmt({
             length: "short",
             type: "datetime",
             timezone: "Europe/London",

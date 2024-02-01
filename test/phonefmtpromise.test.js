@@ -23,7 +23,7 @@ import PhoneFmt from "../src/PhoneFmt.js";
 describe("testphonefmtpromise", () => {
     test("FormatAsyncUSNoLocale", () => {
         expect.assertions(1);
-        var formatted;
+        let formatted;
         return PhoneNumber.create({
             areaCode: "456",
             subscriberNumber: "3453434"
@@ -35,7 +35,7 @@ describe("testphonefmtpromise", () => {
                 style: "default",
                 sync: false
             }).then(fmt => {
-                var expected = "(456) 345-3434";
+                const expected = "(456) 345-3434";
                 fmt.format(parsed, {
                     sync: false
                 }).then(formatted => {
@@ -47,7 +47,7 @@ describe("testphonefmtpromise", () => {
 
     test("FormatAsyncUSPlusIDDtoUnknownCountry", () => {
         expect.assertions(1);
-        var formatted;
+        let formatted;
         return PhoneNumber.create({
             iddPrefix: "+",
             countryCode: "506",    // costa rica
@@ -61,7 +61,7 @@ describe("testphonefmtpromise", () => {
                 style: "dashes",
                 sync: false
             }).then(fmt => {
-                var expected = "+506 87654321";    // use last resort rule for subscriber number
+                const expected = "+506 87654321";    // use last resort rule for subscriber number
 
                 fmt.format(parsed, {
                     sync: false
@@ -74,7 +74,7 @@ describe("testphonefmtpromise", () => {
 
     test("FormatAsyncUSStyle0Emergency", () => {
         expect.assertions(1);
-        var formatted;
+        let formatted;
         return PhoneNumber.create({
             emergency: "911"
         }, {
@@ -86,7 +86,7 @@ describe("testphonefmtpromise", () => {
                 style: "default",
                 sync: false
             }).then(fmt => {
-                var expected = "911 ";
+                const expected = "911 ";
 
                 fmt.format(parsed, {
                     sync: false
@@ -99,7 +99,7 @@ describe("testphonefmtpromise", () => {
 
     test("FormatAsyncUSNumberWithFRMCC", () => {
         expect.assertions(1);
-        var formatted;
+        let formatted;
         return PhoneNumber.create({
             trunkAccess: "0",
             areaCode: "6",
@@ -114,7 +114,7 @@ describe("testphonefmtpromise", () => {
                 mcc: "208",
                 sync: false
             }).then(fmt => {
-                var expected = "06 15 98 76 54";
+                const expected = "06 15 98 76 54";
 
                 fmt.format(parsed, {
                     sync: false
@@ -127,7 +127,7 @@ describe("testphonefmtpromise", () => {
 
     test("FormatAsyncWithParamsFormatUSInternational", () => {
         expect.assertions(1);
-        var formatted;
+        let formatted;
         return PhoneNumber.create({
             iddPrefix: "+",
             countryCode: "33",
@@ -141,7 +141,7 @@ describe("testphonefmtpromise", () => {
                 locale: "en-US",
                 sync: false
             }).then(fmt => {
-                var expected = "+33 1 12 34 56 78";
+                const expected = "+33 1 12 34 56 78";
 
                 fmt.format(parsed, {
                     sync: false
@@ -154,7 +154,7 @@ describe("testphonefmtpromise", () => {
 
     test("FormatAsyncGBLongAreaCode", () => {
         expect.assertions(1);
-        var formatted;
+        let formatted;
         return PhoneNumber.create({
             trunkAccess: "0",
             areaCode: "17684",
@@ -168,7 +168,7 @@ describe("testphonefmtpromise", () => {
                 style: "default",
                 sync: false
             }).then(fmt => {
-                var expected = "(0176 84) 12345";
+                const expected = "(0176 84) 12345";
 
                 fmt.format(parsed, {
                     sync: false
@@ -183,7 +183,7 @@ describe("testphonefmtpromise", () => {
 
     test("FormatAsyncDEStyle1", () => {
         expect.assertions(1);
-        var formatted;
+        let formatted;
         return PhoneNumber.create({
             trunkAccess: "0",
             areaCode: "6224",
@@ -197,7 +197,7 @@ describe("testphonefmtpromise", () => {
                 style: "alten",
                 sync: false
             }).then(fmt => {
-                var expected = "06224/1 23 45 67";
+                const expected = "06224/1 23 45 67";
 
                 fmt.format(parsed, {
                     sync: false
@@ -210,7 +210,7 @@ describe("testphonefmtpromise", () => {
 
     test("FormatAsyncJPStyle1", () => {
         expect.assertions(1);
-        var formatted;
+        let formatted;
         return PhoneNumber.create("0668795111", {
             locale: "ja-JP",
             sync: false
@@ -220,7 +220,7 @@ describe("testphonefmtpromise", () => {
                 style: "default",
                 sync: false
             }).then(fmt => {
-                var expected = "06-6879-5111";
+                const expected = "06-6879-5111";
 
                 fmt.format(parsed, {
                     sync: false

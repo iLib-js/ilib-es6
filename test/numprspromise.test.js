@@ -89,7 +89,7 @@ describe("testnumprspromise", () => {
         }).then(num => {
             expect(num !== null).toBeTruthy();
 
-            var cur = num.getCurrency();
+            const cur = num.getCurrency();
             expect(typeof(cur) !== "undefined").toBeTruthy();
             expect(cur.getCode()).toBe("GBP");
         });

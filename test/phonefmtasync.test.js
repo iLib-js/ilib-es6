@@ -23,7 +23,7 @@ import PhoneFmt from "../src/PhoneFmt.js";
 describe("testphonefmtasync", () => {
     test("FormatAsyncUSNoLocale", () => {
         expect.assertions(1);
-        var formatted;
+        let formatted;
         new PhoneNumber({
             areaCode: "456",
             subscriberNumber: "3453434"
@@ -35,7 +35,7 @@ describe("testphonefmtasync", () => {
                     style: "default",
                     sync: false,
                     onLoad: function(fmt) {
-                        var expected = "(456) 345-3434";
+                        const expected = "(456) 345-3434";
                         fmt.format(parsed, {
                             sync: false,
                             onLoad: function(formatted) {
@@ -50,7 +50,7 @@ describe("testphonefmtasync", () => {
 
     test("FormatAsyncUSPlusIDDtoUnknownCountry", () => {
         expect.assertions(1);
-        var formatted;
+        let formatted;
         new PhoneNumber({
             iddPrefix: "+",
             countryCode: "506",    // costa rica
@@ -64,7 +64,7 @@ describe("testphonefmtasync", () => {
                     style: "dashes",
                     sync: false,
                     onLoad: function(fmt) {
-                        var expected = "+506 87654321";    // use last resort rule for subscriber number
+                        const expected = "+506 87654321";    // use last resort rule for subscriber number
 
                         fmt.format(parsed, {
                             sync: false,
@@ -80,7 +80,7 @@ describe("testphonefmtasync", () => {
 
     test("FormatAsyncUSStyle0Emergency", () => {
         expect.assertions(1);
-        var formatted;
+        let formatted;
         new PhoneNumber({
             emergency: "911"
         }, {
@@ -92,7 +92,7 @@ describe("testphonefmtasync", () => {
                     style: "default",
                     sync: false,
                     onLoad: function(fmt) {
-                        var expected = "911 ";
+                        const expected = "911 ";
 
                         fmt.format(parsed, {
                             sync: false,
@@ -108,7 +108,7 @@ describe("testphonefmtasync", () => {
 
     test("FormatAsyncUSNumberWithFRMCC", () => {
         expect.assertions(1);
-        var formatted;
+        let formatted;
         new PhoneNumber({
             trunkAccess: "0",
             areaCode: "6",
@@ -123,7 +123,7 @@ describe("testphonefmtasync", () => {
                     mcc: "208",
                     sync: false,
                     onLoad: function(fmt) {
-                        var expected = "06 15 98 76 54";
+                        const expected = "06 15 98 76 54";
 
                         fmt.format(parsed, {
                             sync: false,
@@ -139,7 +139,7 @@ describe("testphonefmtasync", () => {
 
     test("FormatAsyncWithParamsFormatUSInternational", () => {
         expect.assertions(1);
-        var formatted;
+        let formatted;
         new PhoneNumber({
             iddPrefix: "+",
             countryCode: "33",
@@ -153,7 +153,7 @@ describe("testphonefmtasync", () => {
                     locale: "en-US",
                     sync: false,
                     onLoad: function(fmt) {
-                        var expected = "+33 1 12 34 56 78";
+                        const expected = "+33 1 12 34 56 78";
 
                         fmt.format(parsed, {
                             sync: false,
@@ -169,7 +169,7 @@ describe("testphonefmtasync", () => {
 
     test("FormatAsyncGBLongAreaCode", () => {
         expect.assertions(1);
-        var formatted;
+        let formatted;
         new PhoneNumber({
                 trunkAccess: "0",
                 areaCode: "17684",
@@ -183,7 +183,7 @@ describe("testphonefmtasync", () => {
                     style: "default",
                     sync: false,
                     onLoad: function(fmt) {
-                        var expected = "(0176 84) 12345";
+                        const expected = "(0176 84) 12345";
 
                         fmt.format(parsed, {
                             sync: false,
@@ -201,7 +201,7 @@ describe("testphonefmtasync", () => {
 
     test("FormatAsyncDEStyle1", () => {
         expect.assertions(1);
-        var formatted;
+        let formatted;
         new PhoneNumber({
                 trunkAccess: "0",
                 areaCode: "6224",
@@ -215,7 +215,7 @@ describe("testphonefmtasync", () => {
                     style: "alten",
                     sync: false,
                     onLoad: function(fmt) {
-                        var expected = "06224/1 23 45 67";
+                        const expected = "06224/1 23 45 67";
 
                         fmt.format(parsed, {
                             sync: false,
@@ -231,7 +231,7 @@ describe("testphonefmtasync", () => {
 
     test("FormatAsyncJPStyle1", () => {
         expect.assertions(1);
-        var formatted;
+        let formatted;
         new PhoneNumber("0668795111", {
             locale: "ja-JP",
             sync: false,
@@ -241,7 +241,7 @@ describe("testphonefmtasync", () => {
                     style: "default",
                     sync: false,
                     onLoad: function(fmt) {
-                        var expected = "06-6879-5111";
+                        const expected = "06-6879-5111";
 
                         fmt.format(parsed, {
                             sync: false,

@@ -31,7 +31,7 @@ describe("testcurrencypromise", () => {
             expect(cur.getFractionDigits()).toBe(2);
             expect(cur.getSign()).toBe("$");
             expect(cur.getName()).toBe("US Dollar");
-            var locale = cur.getLocale();
+            const locale = cur.getLocale();
             expect(typeof(locale) !== "undefined").toBeTruthy();
             expect(locale.toString()).toBe("en-US");
         });
@@ -49,7 +49,7 @@ describe("testcurrencypromise", () => {
             expect(cur.getFractionDigits()).toBe(2);
             expect(cur.getSign()).toBe("€");
             expect(cur.getName()).toBe("Euro");
-            var locale = cur.getLocale();
+            const locale = cur.getLocale();
             expect(locale.toString()).toBe("en-US");
         });
     });
@@ -75,7 +75,7 @@ describe("testcurrencypromise", () => {
             expect(cur.getFractionDigits()).toBe(2);
             expect(cur.getSign()).toBe("€");
             expect(cur.getName()).toBe("Euro");
-            var locale = cur.getLocale();
+            const locale = cur.getLocale();
             expect(locale.toString()).toBe("en-US");
         });
     });
@@ -93,7 +93,7 @@ describe("testcurrencypromise", () => {
             expect(cur.getFractionDigits()).toBe(2);
             expect(cur.getSign()).toBe("$");
             expect(cur.getName()).toBe("US Dollar");
-            var locale = cur.getLocale();
+            const locale = cur.getLocale();
             expect(locale.toString()).toBe("en-GB");
         });
     });

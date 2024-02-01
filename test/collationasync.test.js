@@ -23,7 +23,7 @@ import Collator from "../src/Collator.js";
 describe("testcollationasync", () => {
     test("CollatorAsyncConstructorNative", () => {
         expect.assertions(1);
-        var col = new Collator({
+        const col = new Collator({
             sync: false,
             onLoad: function(col) {
                 expect(typeof(col) !== "undefined").toBeTruthy();
@@ -33,7 +33,7 @@ describe("testcollationasync", () => {
 
     test("CollatorAsyncDefaultNative", () => {
         expect.assertions(5);
-        var col = new Collator({
+        const col = new Collator({
             sync: false,
             onLoad: function(col) {
                 expect(typeof(col) !== "undefined").toBeTruthy();
@@ -50,12 +50,12 @@ describe("testcollationasync", () => {
 
     test("CollatorAsyncDefaultCase", () => {
         expect.assertions(5);
-        var col = new Collator({
+        const col = new Collator({
             sync: false,
             onLoad: function(col) {
                 expect(typeof(col) !== "undefined").toBeTruthy();
                 // netscape and ie do not work properly on some platforms
-                var browser = ilib._getBrowser();
+                const browser = ilib._getBrowser();
                 if ((browser === "firefox" &&
                     navigator &&
                     navigator.userAgent &&
@@ -79,13 +79,13 @@ describe("testcollationasync", () => {
 
     test("CollatorAsyncGetComparator", () => {
         expect.assertions(3);
-        var col = new Collator({
+        const col = new Collator({
             sync: false,
             onLoad: function(col) {
                 expect(typeof(col) !== "undefined").toBeTruthy();
 
                 // should compare in English
-                var func = col.getComparator();
+                const func = col.getComparator();
                 expect(typeof(func) !== "undefined").toBeTruthy();
                 expect(typeof(func)).toBe("function");
             }
@@ -95,7 +95,7 @@ describe("testcollationasync", () => {
 
     test("CollatorAsyncConstructorJS", () => {
         expect.assertions(1);
-        var col = new Collator({
+        const col = new Collator({
             useNative: false,
             sync: false,
             onLoad: function(col) {
@@ -107,7 +107,7 @@ describe("testcollationasync", () => {
 
     test("CollatorAsyncDefaultJS", () => {
         expect.assertions(5);
-        var col = new Collator({
+        const col = new Collator({
             useNative: false,
             sync: false,
             onLoad: function(col) {
@@ -126,13 +126,13 @@ describe("testcollationasync", () => {
 
     test("CollatorAsyncGetComparatorWorksWithCaseJS", () => {
         expect.assertions(6);
-        var col = new Collator({
+        const col = new Collator({
             useNative: false,
             sync: false,
             onLoad: function(col) {
                 expect(typeof(col) !== "undefined").toBeTruthy();
 
-                var func = col.getComparator();
+                const func = col.getComparator();
                 expect(typeof(func) !== "undefined").toBeTruthy();
 
                 // should compare upper-case first
@@ -150,7 +150,7 @@ describe("testcollationasync", () => {
         if (typeof(Intl) === 'undefined' && Intl) {
             return;
         }
-        var col = new Collator({
+        const col = new Collator({
             sync: false,
             onLoad: function(col) {
                 expect.assertions(2);
@@ -165,7 +165,7 @@ describe("testcollationasync", () => {
 
     test("CollatorAsyncGetSortKeySimpleUpper", () => {
         expect.assertions(2);
-        var col = new Collator({
+        const col = new Collator({
             useNative: false,
             sync: false,
             onLoad: function(col) {
@@ -179,7 +179,7 @@ describe("testcollationasync", () => {
 
     test("CollatorAsyncGetSortKeyMixed", () => {
         expect.assertions(2);
-        var col = new Collator({
+        const col = new Collator({
             useNative: false,
             sync: false,
             onLoad: function(col) {
@@ -193,16 +193,16 @@ describe("testcollationasync", () => {
 
     test("CollatorAsyncWithSort", () => {
         expect.assertions(2);
-        var col = new Collator({
+        const col = new Collator({
             sync: false,
             onLoad: function(col) {
                 expect(typeof(col) !== "undefined").toBeTruthy();
 
-                var input = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"];
+                const input = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"];
 
                 input.sort(col.getComparator());
 
-                var expected = ["e", "i", "o", "p", "q", "r", "t", "u", "w", "y"];
+                const expected = ["e", "i", "o", "p", "q", "r", "t", "u", "w", "y"];
 
                 expect(input).toStrictEqual(expected);
             }
@@ -211,17 +211,17 @@ describe("testcollationasync", () => {
 
     test("CollatorAsyncWithSortJS", () => {
         expect.assertions(2);
-        var col = new Collator({
+        const col = new Collator({
             useNative: false,
             sync: false,
             onLoad: function(col) {
                 expect(typeof(col) !== "undefined").toBeTruthy();
 
-                var input = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"];
+                const input = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"];
 
                 input.sort(col.getComparator());
 
-                var expected = ["e", "i", "o", "p", "q", "r", "t", "u", "w", "y"];
+                const expected = ["e", "i", "o", "p", "q", "r", "t", "u", "w", "y"];
 
                 expect(input).toStrictEqual(expected);
             }
@@ -230,18 +230,18 @@ describe("testcollationasync", () => {
 
     test("CollatorAsyncWithSortUpperFirstJS", () => {
         expect.assertions(2);
-        var col = new Collator({
+        const col = new Collator({
             upperFirst: true,
             useNative: false,
             sync: false,
             onLoad: function(col) {
                 expect(typeof(col) !== "undefined").toBeTruthy();
 
-                var input = ["q", "I", "e", "r", "T", "U", "i", "E", "o", "p"];
+                const input = ["q", "I", "e", "r", "T", "U", "i", "E", "o", "p"];
 
                 input.sort(col.getComparator());
 
-                var expected = ["E", "e", "I", "i", "o", "p", "q", "r", "T", "U"];
+                const expected = ["E", "e", "I", "i", "o", "p", "q", "r", "T", "U"];
 
                 expect(input).toStrictEqual(expected);
             }
@@ -260,7 +260,7 @@ describe("testcollationasync", () => {
 
     test("CollatorAsyncPhonebookQuatAE_de", () => {
         expect.assertions(5);
-        var col = new Collator({
+        const col = new Collator({
             locale: "de-DE",
             useNative: false,
             sensitivity: "quaternary",
@@ -282,7 +282,7 @@ describe("testcollationasync", () => {
 
     test("CollatorAsyncQuat_el", () => {
         expect.assertions(91);
-        var col = new Collator({
+        const col = new Collator({
             locale: "el-GR",
             useNative: false,
             sensitivity: "quaternary",
@@ -390,7 +390,7 @@ describe("testcollationasync", () => {
 
     test("CollatorAsyncPriL_ko", () => {
         expect.assertions(5);
-        var col = new Collator({
+        const col = new Collator({
             locale: "ko-KR",
             useNative: false,
             sensitivity: "primary",
@@ -410,7 +410,7 @@ describe("testcollationasync", () => {
 
     test("CollatorAsyncQuatHanzi_zh_Hans", () => {
         expect.assertions(21);
-        var col = new Collator({
+        const col = new Collator({
             locale: "zh-Hans-CN",
             useNative: false,
             sensitivity: "quaternary",
@@ -448,7 +448,7 @@ describe("testcollationasync", () => {
 
     test("CollatorAsyncTraditionalQuatCH_es", () => {
         expect.assertions(6);
-        var col = new Collator({
+        const col = new Collator({
             locale: "es-ES",
             useNative: false,
             sensitivity: "quaternary",

@@ -87,7 +87,7 @@ describe("testtimezonepromise", () => {
         return TimeZone.getAvailableIds("US", false).then(zones => {
             expect(typeof(zones) !== "undefined").toBeTruthy();
 
-            var expected = [
+            const expected = [
                 "America/New_York",
                 "America/Detroit",
                 "America/Kentucky/Louisville",
@@ -156,7 +156,7 @@ describe("testtimezonepromise", () => {
         return TimeZone.getAvailableIds("SG", false).then(zones => {
             expect(typeof(zones) !== "undefined").toBeTruthy();
 
-            var expected = [
+            const expected = [
                 "Asia/Singapore",
                 "Singapore"        // legacy tz
             ];

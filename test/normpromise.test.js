@@ -20,13 +20,13 @@
 import NormString from "../src/NormString.js";
 
 function toHexString(string) {
-    var i, result = "";
+    let i, result = "";
 
     if (!string) {
         return "";
     }
     for (i = 0; i < string.length; i++) {
-        var ch = string.charCodeAt(i).toString(16);
+        const ch = string.charCodeAt(i).toString(16);
         result += "0000".substring(0, 4-ch.length) + ch;
         if (i < string.length - 1) {
             result += " ";
@@ -79,7 +79,7 @@ describe("testnormpromise", () => {
         return NormString.create("aÄa", { // the A umlaut is a decomposed char
             sync: false
         }).then(str => {
-            var it = str.charIterator();
+            const it = str.charIterator();
 
             expect(it.hasNext()).toBeTruthy();
             expect(it.next()).toBe("a");

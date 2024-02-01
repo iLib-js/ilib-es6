@@ -30,7 +30,7 @@ describe("teststringspromise", () => {
     test("StringLoadPlurals", () => {
         expect.assertions(2);
         return IString.loadPlurals(false, undefined).then(function() {
-            var str = new IString("asdf");
+            const str = new IString("asdf");
             expect(str !== null).toBeTruthy();
 
             // plurals should already be loaded
@@ -41,7 +41,7 @@ describe("teststringspromise", () => {
 
     test("StringSetLocale", () => {
         expect.assertions(2);
-        var str = new IString("1#first string|2#second string");
+        const str = new IString("1#first string|2#second string");
         return str.setLocale("de-DE", false).then(function() {
             expect(str !== null).toBeTruthy();
 
@@ -51,7 +51,7 @@ describe("teststringspromise", () => {
 
     test("StringFormatChoiceSimpleNoPlurals", () => {
         expect.assertions(2);
-        var str = new IString("1#first string|2#second string");
+        const str = new IString("1#first string|2#second string");
 
         expect(str !== null).toBeTruthy();
 
@@ -61,7 +61,7 @@ describe("teststringspromise", () => {
 
     test("StringFormatChoiceSimpleRussian", () => {
         expect.assertions(3);
-        var str = new IString("1#first string|few#second string|many#third string");
+        const str = new IString("1#first string|few#second string|many#third string");
         return str.setLocale("ru-RU", false).then(() => {
             expect(str !== null).toBeTruthy();
 
@@ -72,7 +72,7 @@ describe("teststringspromise", () => {
 
     test("StringFormatChoiceSimpleRussianTwice", () => {
         expect.assertions(4);
-        var str = new IString("1#one|few#few|many#many");
+        let str = new IString("1#one|few#few|many#many");
         return str.setLocale("ru-RU", false).then(() => {
             expect(str !== null).toBeTruthy();
 

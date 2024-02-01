@@ -22,8 +22,8 @@ import PhoneNumber from "../src/PhoneNumber.js";
 describe("imsi with promises", () => {
     test("RegularImsi3DigitMNC", () => {
         expect.assertions(1);
-        var imsi = "31003014084567890"
-        var expected = {
+        const imsi = "31003014084567890"
+        const expected = {
             mcc: "310",
             mnc: "030",
             msin: "14084567890"
@@ -36,8 +36,8 @@ describe("imsi with promises", () => {
 
     test("SpecialImsi1", () => {
         expect.assertions(1);
-        var imsi = "31000201234567"
-        var expected = {
+        const imsi = "31000201234567"
+        const expected = {
             mcc: "310",
             mnc: "00",
             msin: "201234567"
@@ -50,8 +50,8 @@ describe("imsi with promises", () => {
 
     test("BrokenMCC", () => {
         expect.assertions(1);
-        var imsi = "32000414084567890"
-        var expected = {
+        const imsi = "32000414084567890"
+        const expected = {
             mcc: "320",
             mnc: "004",
             msin: "14084567890"
@@ -65,8 +65,8 @@ describe("imsi with promises", () => {
 
     test("BrokenMNC", () => {
         expect.assertions(1);
-        var imsi = "31014114084567890"
-        var expected = {
+        const imsi = "31014114084567890"
+        const expected = {
             mcc: "310",
             mnc: "141",
             msin: "14084567890"
@@ -80,7 +80,7 @@ describe("imsi with promises", () => {
 
     test("TooShort", () => {
         expect.assertions(1);
-        var imsi = "31";
+        const imsi = "31";
         return PhoneNumber.parseImsi(imsi, {sync: false}).then(actual => {
             expect(actual).toBeFalsy();
         });

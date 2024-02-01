@@ -23,7 +23,7 @@ import { promisifyFunction } from './promisify.js';
 import { default as CharmapFactory } from 'ilib/lib/CharmapFactory.js';
 
 export function CharmapFactoryAsync(options = {}) {
-    var opts = Object.assign({}, options);
+    const opts = Object.assign({}, options);
     opts.sync = false;
     return promisifyFunction(CharmapFactory, opts);
 };
