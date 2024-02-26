@@ -61,7 +61,12 @@ describe("testglobal", () => {
 
     test("GetVersion", () => {
         expect.assertions(1);
-        expect(ilib.getVersion().substring(0,5)).toBe("14.19");
+        expect(ilib.getVersion().substring(0,5)).toBe("14.20");
+    });
+
+    test("GetCLDRVersion", () => {
+        expect.assertions(1);
+        expect(ilib.getCLDRVersion()).toBe("44.1");
     });
 
     test("GetTimeZoneDefault", () => {
