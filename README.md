@@ -1,3 +1,7 @@
+
+> :warning: **Deprecation Notice** :warning:
+> This repository has been deprecated. Please use the corresponding package from the [iLib-js monorepo](https://github.com/iLib-js/ilib-mono) instead.
+
 # ilib-es6
 
 ES6 wrappers around the ilib classes so that you can import just what you need and use
